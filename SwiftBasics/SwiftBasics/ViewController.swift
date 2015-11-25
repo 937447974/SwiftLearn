@@ -75,9 +75,7 @@ class ViewController: UIViewController {
         obj.test()
         // 访问控制
         obj = AccessControl()
-    #endif
-
-        
+        // 高级操作符
         var shiftBits = 1   // 00000100 in binary
         shiftBits = shiftBits << 1             // 00001000
         shiftBits = shiftBits << 2             // 00010000
@@ -87,6 +85,7 @@ class ViewController: UIViewController {
         print(Int8.max)
         print(Int.max)
         print(UInt8.max)
+    #endif
     }
 
     override func didReceiveMemoryWarning() {

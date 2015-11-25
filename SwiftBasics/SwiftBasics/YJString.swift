@@ -11,18 +11,18 @@ import Foundation
 class YJString: NSObject, TestProtocol {
     
     func test() {
-//        self.testTypeAliases() // 类型别名
-//        self.testInitializers() // 初始化
-//        self.testWorkingWithPaths() // 文件路径操作
-//        self.testFile()             // 文件读写操作
-//        self.testGettingLength()        // 得到长度
-//        self.testGettingNumericValues() // 得到数值
-//        self.testCombiningStrings()    // 增加字符串
-//        self.testDividingStrings()     // 分割字符串
-//        self.testFindingStrings()      // 查找字符串
-//        self.testReplacingSubstrings() // 替换字符串
-//        self.testRemovingSubstrings()  // 删除字符串
-//        self.testComparingStrings()    // 比较字符串
+        self.testTypeAliases() // 类型别名
+        self.testInitializers() // 初始化
+        self.testWorkingWithPaths() // 文件路径操作
+        self.testFile()             // 文件读写操作
+        self.testGettingLength()        // 得到长度
+        self.testGettingNumericValues() // 得到数值
+        self.testCombiningStrings()    // 增加字符串
+        self.testDividingStrings()     // 分割字符串
+        self.testFindingStrings()      // 查找字符串
+        self.testReplacingSubstrings() // 替换字符串
+        self.testRemovingSubstrings()  // 删除字符串
+        self.testComparingStrings()    // 比较字符串
     }
     
     // MARK: 类型别名
@@ -205,6 +205,8 @@ class YJString: NSObject, TestProtocol {
         print("\(index)")
         // NSString方式获取长度
         var length = (string as NSString).length
+        // swift方式获取
+        length = string.startIndex.distanceTo(string.endIndex)
         print("\(length)")
         // 通过编码获取长度
         length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
