@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D42188231C0F226400EA670C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42188221C0F226400EA670C /* AppDelegate.swift */; };
-		D42188251C0F226400EA670C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42188241C0F226400EA670C /* ViewController.swift */; };
 		D42188281C0F226400EA670C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42188261C0F226400EA670C /* Main.storyboard */; };
 		D421882A1C0F226400EA670C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42188291C0F226400EA670C /* Assets.xcassets */; };
 		D421882D1C0F226400EA670C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D421882B1C0F226400EA670C /* LaunchScreen.storyboard */; };
 		D42188381C0F226400EA670C /* NSURLSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42188371C0F226400EA670C /* NSURLSessionTests.swift */; };
 		D42188431C0F226400EA670C /* NSURLSessionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42188421C0F226400EA670C /* NSURLSessionUITests.swift */; };
+		D46407591C1050B6003C165E /* YJDataTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46407581C1050B6003C165E /* YJDataTaskVC.swift */; };
+		D464075B1C105109003C165E /* YJUploadTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464075A1C105109003C165E /* YJUploadTaskVC.swift */; };
+		D464075D1C10512A003C165E /* YJDownloadTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464075C1C10512A003C165E /* YJDownloadTaskVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		D421881F1C0F226400EA670C /* NSURLSession.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSURLSession.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42188221C0F226400EA670C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D42188241C0F226400EA670C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D42188271C0F226400EA670C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D42188291C0F226400EA670C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D421882C1C0F226400EA670C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		D421883E1C0F226400EA670C /* NSURLSessionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSURLSessionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42188421C0F226400EA670C /* NSURLSessionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSURLSessionUITests.swift; sourceTree = "<group>"; };
 		D42188441C0F226400EA670C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46407581C1050B6003C165E /* YJDataTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJDataTaskVC.swift; sourceTree = "<group>"; };
+		D464075A1C105109003C165E /* YJUploadTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUploadTaskVC.swift; sourceTree = "<group>"; };
+		D464075C1C10512A003C165E /* YJDownloadTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJDownloadTaskVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				D42188221C0F226400EA670C /* AppDelegate.swift */,
-				D42188241C0F226400EA670C /* ViewController.swift */,
-				D42188261C0F226400EA670C /* Main.storyboard */,
-				D42188291C0F226400EA670C /* Assets.xcassets */,
-				D421882B1C0F226400EA670C /* LaunchScreen.storyboard */,
-				D421882E1C0F226400EA670C /* Info.plist */,
+				D46407561C102394003C165E /* ViewController */,
+				D46407571C1023A2003C165E /* View */,
+				D46407551C10232D003C165E /* Resources */,
 			);
 			path = NSURLSession;
 			sourceTree = "<group>";
@@ -123,6 +125,34 @@
 				D42188441C0F226400EA670C /* Info.plist */,
 			);
 			path = NSURLSessionUITests;
+			sourceTree = "<group>";
+		};
+		D46407551C10232D003C165E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D42188291C0F226400EA670C /* Assets.xcassets */,
+				D421882E1C0F226400EA670C /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D46407561C102394003C165E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D46407581C1050B6003C165E /* YJDataTaskVC.swift */,
+				D464075A1C105109003C165E /* YJUploadTaskVC.swift */,
+				D464075C1C10512A003C165E /* YJDownloadTaskVC.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		D46407571C1023A2003C165E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D42188261C0F226400EA670C /* Main.storyboard */,
+				D421882B1C0F226400EA670C /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +217,7 @@
 		D42188171C0F226400EA670C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "阳君";
@@ -256,7 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42188251C0F226400EA670C /* ViewController.swift in Sources */,
+				D464075D1C10512A003C165E /* YJDownloadTaskVC.swift in Sources */,
+				D46407591C1050B6003C165E /* YJDataTaskVC.swift in Sources */,
+				D464075B1C105109003C165E /* YJUploadTaskVC.swift in Sources */,
 				D42188231C0F226400EA670C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +515,7 @@
 				D42188491C0F226400EA670C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D421884A1C0F226400EA670C /* Build configuration list for PBXNativeTarget "NSURLSessionTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +524,7 @@
 				D421884C1C0F226400EA670C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D421884D1C0F226400EA670C /* Build configuration list for PBXNativeTarget "NSURLSessionUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +533,7 @@
 				D421884F1C0F226400EA670C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
