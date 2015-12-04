@@ -20,7 +20,7 @@ class YJDataTaskVC: UIViewController {
 //        self.sendRequestGet()
 //        self.sendRequestPost()
         // 同步
-        self.sendSynchronousRequestPOST()
+//        self.sendSynchronousRequestPOST()
     }
     
     // MARK: - 异步
@@ -77,21 +77,6 @@ class YJDataTaskVC: UIViewController {
         }
     }
     
-    // MARK: - data数据转换
-    func jsonObjectWithData(data: NSData) -> [String: AnyObject]? {
-        var dict: [String: AnyObject]? = nil
-        do {
-            // data -> AnyObject
-            let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-            dict = jsonObject as? [String: AnyObject]
-            print("获取服务器的数据:\(dict)")
-        } catch {
-            print("服务器回调数据，转换出错:\(error)")
-            print("原始数据：\(NSString(data: data, encoding: NSUTF8StringEncoding)))")
-        }
-        return dict
-    }
-    
     // MARK: - 同步Post请求
     func sendSynchronousRequestPOST() {
         let urlStr = "https://www.baidu.com"
@@ -117,6 +102,21 @@ class YJDataTaskVC: UIViewController {
             }
             
         }
+    }
+    
+    // MARK: - data数据转换
+    func jsonObjectWithData(data: NSData) -> [String: AnyObject]? {
+        var dict: [String: AnyObject]? = nil
+        do {
+            // data -> AnyObject
+            let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+            dict = jsonObject as? [String: AnyObject]
+            print("获取服务器的数据:\(dict)")
+        } catch {
+            print("服务器回调数据，转换出错:\(error)")
+            print("原始数据：\(NSString(data: data, encoding: NSUTF8StringEncoding)))")
+        }
+        return dict
     }
     
 }
