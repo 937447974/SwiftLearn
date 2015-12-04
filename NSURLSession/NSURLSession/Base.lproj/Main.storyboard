@@ -44,7 +44,7 @@
             </objects>
             <point key="canvasLocation" x="39.5" y="-563.5"/>
         </scene>
-        <!--Data TaskVC-->
+        <!--通信-->
         <scene sceneID="YGp-1f-C3B">
             <objects>
                 <viewController id="CGF-E1-9JO" customClass="YJDataTaskVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="14c-Be-od2"/>
+                    <navigationItem key="navigationItem" title="通信" id="14c-Be-od2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEg-Op-JlR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="39.5" y="228.5"/>
         </scene>
-        <!--Upload TaskVC-->
+        <!--上传-->
         <scene sceneID="vUS-7T-a0G">
             <objects>
                 <viewController id="JgG-I7-cC4" customClass="YJUploadTaskVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ip4-Vd-6IJ"/>
+                    <navigationItem key="navigationItem" title="上传" id="Ip4-Vd-6IJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adK-Dz-RTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="-605.5" y="1086.5"/>
         </scene>
-        <!--View Controller-->
+        <!--下载-->
         <scene sceneID="AzW-bu-YlN">
             <objects>
-                <viewController id="9UP-dG-bcY" sceneMemberID="viewController">
+                <viewController id="9UP-dG-bcY" customClass="YJDownloadTaskVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pkg-Zx-aw8"/>
                         <viewControllerLayoutGuide type="bottom" id="0mQ-0v-mng"/>
@@ -134,7 +134,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Vr8-Si-Sga"/>
+                    <navigationItem key="navigationItem" title="下载" id="Vr8-Si-Sga"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQw-Qc-DFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
