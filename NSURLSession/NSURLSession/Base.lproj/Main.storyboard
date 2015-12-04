@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="39.5" y="228.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Upload TaskVC-->
         <scene sceneID="vUS-7T-a0G">
             <objects>
-                <viewController id="JgG-I7-cC4" sceneMemberID="viewController">
+                <viewController id="JgG-I7-cC4" customClass="YJUploadTaskVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HHV-q7-mDh"/>
                         <viewControllerLayoutGuide type="bottom" id="Cr5-q3-T7W"/>
