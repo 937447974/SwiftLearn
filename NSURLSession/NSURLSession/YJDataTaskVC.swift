@@ -2,6 +2,9 @@
 //  YJDataTaskVC.swift
 //  NSURLSession
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 15/12/3.
 //  Copyright © 2015年 阳君. All rights reserved.
 //
@@ -13,8 +16,11 @@ class YJDataTaskVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sendRequestPost()
-        self.sendRequestGet()
+        // 异步
+//        self.sendRequestGet()
+//        self.sendRequestPost()
+        // 同步
+        self.sendSynchronousRequestPOST()
     }
     
     // MARK: - 异步
@@ -52,6 +58,7 @@ class YJDataTaskVC: UIViewController {
             let dict = ["name": "阳君", "qq": "937447974"]
             do {
                 try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
+                print("发送数据:\(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding))")
             } catch {
                 print("json处理出错:\(error)")
             }
@@ -85,8 +92,31 @@ class YJDataTaskVC: UIViewController {
         return dict
     }
     
-    
-    
-    
+    // MARK: - 同步Post请求
+    func sendSynchronousRequestPOST() {
+        let urlStr = "https://www.baidu.com"
+        if let url = NSURL(string: urlStr) {
+            // 包装请求地址和信息
+            let request = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "POST" //设置请求方式为POST，默认为GET
+            request.addValue("text/xml", forHTTPHeaderField: "Content-Type")// 定义类型
+            // 填充数据
+            let dict = ["name": "阳君", "qq": "937447974"]
+            do {
+                try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
+                print("发送数据:\(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding))")
+            } catch {
+                print("json处理出错:\(error)")
+            }
+            // 同步使用
+            do {
+                let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+                self.jsonObjectWithData(data)
+            } catch {
+                print("发送请求出错:\(error)")
+            }
+            
+        }
+    }
     
 }
