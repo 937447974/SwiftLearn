@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="39.5" y="-563.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Data TaskVC-->
         <scene sceneID="YGp-1f-C3B">
             <objects>
-                <viewController id="CGF-E1-9JO" sceneMemberID="viewController">
+                <viewController id="CGF-E1-9JO" customClass="YJDataTaskVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MPl-wL-U1u"/>
                         <viewControllerLayoutGuide type="bottom" id="iJk-RC-eZ9"/>
