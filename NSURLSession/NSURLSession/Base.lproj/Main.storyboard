@@ -20,11 +20,12 @@
                         <segue destination="PPS-XO-Tdv" kind="relationship" relationship="viewControllers" id="jN6-1J-VrY"/>
                         <segue destination="6Xp-ah-Zx9" kind="relationship" relationship="viewControllers" id="rtb-Ve-MIO"/>
                         <segue destination="xdm-IP-8Rp" kind="relationship" relationship="viewControllers" id="Jko-tk-gBF"/>
+                        <segue destination="Tra-xw-pjw" kind="relationship" relationship="viewControllers" id="KIv-ah-bLf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="li9-zJ-Wdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-605.5" y="228.5"/>
+            <point key="canvasLocation" x="-520.5" y="228.5"/>
         </scene>
         <!--DataTask-->
         <scene sceneID="xFN-vP-opv">
@@ -118,7 +119,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmu-LE-9AO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-605.5" y="1086.5"/>
+            <point key="canvasLocation" x="-520.5" y="1086.5"/>
         </scene>
         <!--下载-->
         <scene sceneID="AzW-bu-YlN">
@@ -138,7 +139,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQw-Qc-DFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-520.5" y="1881.5"/>
+        </scene>
+        <!--URLCache-->
+        <scene sceneID="tKg-xs-qXw">
+            <objects>
+                <navigationController id="Tra-xw-pjw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="URLCache" image="tab_base" id="Njk-Co-laF"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23g-bn-VvM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oQb-VH-kia" kind="relationship" relationship="rootViewController" id="hIW-kj-a0j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SgP-Zv-XQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="39.5" y="1086.5"/>
+        </scene>
+        <!--缓存-->
+        <scene sceneID="hlN-Vn-suu">
+            <objects>
+                <viewController id="oQb-VH-kia" customClass="YJURLCacheVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VlR-E4-Iu9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zqn-dW-jGB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pp3-Xq-qZH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="缓存" id="bCU-cA-CrS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZa-cg-Kjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="39.5" y="1881.5"/>
         </scene>
     </scenes>
     <resources>

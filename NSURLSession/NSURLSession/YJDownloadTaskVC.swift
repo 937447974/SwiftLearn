@@ -44,10 +44,9 @@ class YJDownloadTaskVC: UIViewController, NSURLSessionDownloadDelegate {
         let request = NSMutableURLRequest(URL: url!)
         let session = self.backgroundSession()
         // 并发下载10个文件
-        for _ in 0...10 {
+        for _ in 0..<10 {
             session.downloadTaskWithRequest(request).resume()
         }
-        
     }
     
     // MARK: - action
@@ -99,7 +98,6 @@ class YJDownloadTaskVC: UIViewController, NSURLSessionDownloadDelegate {
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
         // 下载完成的地址
         print(location)
-        print(downloadTask.currentRequest?.URL)
     }
     
     // MARK: 下载中(会多次调用，可以记录下载进度)
