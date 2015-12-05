@@ -15,51 +15,54 @@ import WebKit
 /// 缓存
 class YJURLCacheVC: UIViewController {
     
-    private var request: NSMutableURLRequest!
+    /// WKWebView
     private var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let urlCache = NSURLCache.sharedURLCache()
-        urlCache.memoryCapacity = 10*1024*1024 // 设置缓存大小为10M，单位字节
-        self.removeCache()
-        
-        /* 缓存策略
-        NSURLRequestCachePolicy : UInt {
-        case UseProtocolCachePolicy // 默认的cache policy，使用Protocol协议定义。
-        case ReloadIgnoringLocalCacheData // 忽略缓存直接从原始地址下载
-        case ReloadIgnoringLocalAndRemoteCacheData // 未实现
-        case ReturnCacheDataElseLoad // 只有在cache中不存在data时才从原始地址下载
-        case ReturnCacheDataDontLoad // 只使用cache数据，如果不存在cache，请求失败;用于没有建立网络连接离线模式;
-        case ReloadRevalidatingCacheData // 未实现
-        }
-        */
-        let url = NSURL(string: "https://www.baidu.com")!
-        self.request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 30)
-
+        // 刷新按钮
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "reloadWebView")
+        // 初始化 WKWebView
         self.webView = WKWebView(frame: self.view.frame)
         self.view.addSubview(self.webView)
-        self.webView.loadRequest(self.request) // 显示页面
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "reloadWebView")
-    }
-    
-    // MARK: - 清楚缓存
-    func removeCache() {
-        NSURLCache.sharedURLCache().removeAllCachedResponses() // 清楚所有缓存
     }
 
     // MARK: - 刷新
     func reloadWebView() {
+        let urlCache = NSURLCache.sharedURLCache()
+        var str = "memoryCapacity:\(urlCache.memoryCapacity)"
+        str += "; diskCapacity:\(urlCache.diskCapacity)"
+        str += "; currentMemoryUsage:\(urlCache.currentMemoryUsage)"
+        str += "; currentDiskUsage:\(urlCache.currentDiskUsage)"
+        print(str)
+        
+        // 缓存显示照片
+//        let url = NSURL(string: "http://g.hiphotos.baidu.com/image/pic/item/472309f790529822c4ac8ad0d5ca7bcb0a46d402.jpg")!
+        let url = NSURL(string: "http://blog.csdn.net/y550918116j")!
+        let request = NSMutableURLRequest(URL: url)
+        
         // 缓存成功后，开启本地缓存
-        if NSURLCache.sharedURLCache().cachedResponseForRequest(self.request) != nil {
-            self.request.cachePolicy = NSURLRequestCachePolicy.ReturnCacheDataDontLoad
+        if NSURLCache.sharedURLCache().cachedResponseForRequest(request) != nil {
+            /* 缓存策略
+            NSURLRequestCachePolicy : UInt {
+            case UseProtocolCachePolicy // 默认的缓存策略（取决于协议)
+            case ReloadIgnoringLocalCacheData // 忽略缓存直接从原始地址下载
+            case ReloadIgnoringLocalAndRemoteCacheData // 未实现
+            case ReturnCacheDataElseLoad // 只有在cache中不存在data时,才从原始地址下载
+            case ReturnCacheDataDontLoad // 只使用cache数据，如果不存在cache，请求失败;用于没有建立网络连接离线模式;
+            case ReloadRevalidatingCacheData // 未实现
+            }
+            */
+            request.cachePolicy = NSURLRequestCachePolicy.ReturnCacheDataDontLoad // 提取缓存数据
         } else {
+            urlCache.removeAllCachedResponses() // 清楚所有缓存
+            urlCache.removeCachedResponseForRequest(request) // 根据地址清楚缓存
+            urlCache.diskCapacity = 10*1024*1024 // 磁盘缓存，10M，单位字节
+            urlCache.memoryCapacity = 1*1024*1024 // 内存缓存，1M，单位字节
             // 发出请求才会缓存数据
-            NSURLSession.sharedSession().dataTaskWithRequest(self.request).resume()
+            NSURLSession.sharedSession().dataTaskWithRequest(request).resume()
         }
-        self.webView.loadRequest(self.request)
+        self.webView.loadRequest(request)
     }
 
 }
