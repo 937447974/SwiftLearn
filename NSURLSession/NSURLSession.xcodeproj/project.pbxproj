@@ -14,6 +14,7 @@
 		D42188381C0F226400EA670C /* NSURLSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42188371C0F226400EA670C /* NSURLSessionTests.swift */; };
 		D42188431C0F226400EA670C /* NSURLSessionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42188421C0F226400EA670C /* NSURLSessionUITests.swift */; };
 		D44C91451C12C465005902A2 /* YJURLCacheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C91441C12C465005902A2 /* YJURLCacheVC.swift */; };
+		D44C91811C131285005902A2 /* YJHTTPCookieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C91801C131285005902A2 /* YJHTTPCookieVC.swift */; };
 		D46407591C1050B6003C165E /* YJDataTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46407581C1050B6003C165E /* YJDataTaskVC.swift */; };
 		D464075B1C105109003C165E /* YJUploadTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464075A1C105109003C165E /* YJUploadTaskVC.swift */; };
 		D464075D1C10512A003C165E /* YJDownloadTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464075C1C10512A003C165E /* YJDownloadTaskVC.swift */; };
@@ -50,6 +51,7 @@
 		D42188421C0F226400EA670C /* NSURLSessionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSURLSessionUITests.swift; sourceTree = "<group>"; };
 		D42188441C0F226400EA670C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44C91441C12C465005902A2 /* YJURLCacheVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJURLCacheVC.swift; sourceTree = "<group>"; };
+		D44C91801C131285005902A2 /* YJHTTPCookieVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJHTTPCookieVC.swift; sourceTree = "<group>"; };
 		D46407581C1050B6003C165E /* YJDataTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJDataTaskVC.swift; sourceTree = "<group>"; };
 		D464075A1C105109003C165E /* YJUploadTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUploadTaskVC.swift; sourceTree = "<group>"; };
 		D464075C1C10512A003C165E /* YJDownloadTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJDownloadTaskVC.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				D464075A1C105109003C165E /* YJUploadTaskVC.swift */,
 				D464075C1C10512A003C165E /* YJDownloadTaskVC.swift */,
 				D44C91441C12C465005902A2 /* YJURLCacheVC.swift */,
+				D44C91801C131285005902A2 /* YJHTTPCookieVC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D464075D1C10512A003C165E /* YJDownloadTaskVC.swift in Sources */,
+				D44C91811C131285005902A2 /* YJHTTPCookieVC.swift in Sources */,
 				D46407591C1050B6003C165E /* YJDataTaskVC.swift in Sources */,
 				D464075B1C105109003C165E /* YJUploadTaskVC.swift in Sources */,
 				D44C91451C12C465005902A2 /* YJURLCacheVC.swift in Sources */,

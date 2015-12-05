@@ -21,6 +21,7 @@
                         <segue destination="6Xp-ah-Zx9" kind="relationship" relationship="viewControllers" id="rtb-Ve-MIO"/>
                         <segue destination="xdm-IP-8Rp" kind="relationship" relationship="viewControllers" id="Jko-tk-gBF"/>
                         <segue destination="Tra-xw-pjw" kind="relationship" relationship="viewControllers" id="KIv-ah-bLf"/>
+                        <segue destination="PWZ-Ab-hgp" kind="relationship" relationship="viewControllers" id="4PS-nj-VdN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="li9-zJ-Wdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +120,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmu-LE-9AO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-520.5" y="1086.5"/>
+            <point key="canvasLocation" x="-770.5" y="1086.5"/>
         </scene>
         <!--下载-->
         <scene sceneID="AzW-bu-YlN">
@@ -139,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQw-Qc-DFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-520.5" y="1881.5"/>
+            <point key="canvasLocation" x="-770.5" y="1895.5"/>
         </scene>
         <!--URLCache-->
         <scene sceneID="tKg-xs-qXw">
@@ -157,9 +158,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SgP-Zv-XQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39.5" y="1086.5"/>
+            <point key="canvasLocation" x="-321.5" y="1086.5"/>
         </scene>
-        <!--缓存-->
+        <!--URLCache-->
         <scene sceneID="hlN-Vn-suu">
             <objects>
                 <viewController id="oQb-VH-kia" customClass="YJURLCacheVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,11 +174,49 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="缓存" id="bCU-cA-CrS"/>
+                    <navigationItem key="navigationItem" title="URLCache" id="bCU-cA-CrS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZa-cg-Kjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39.5" y="1881.5"/>
+            <point key="canvasLocation" x="-321.5" y="1895.5"/>
+        </scene>
+        <!--HTTPCookie-->
+        <scene sceneID="w5S-Q9-AFx">
+            <objects>
+                <navigationController id="PWZ-Ab-hgp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="HTTPCookie" image="tab_base" id="nL6-Qs-vzg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6PC-Mr-Rwk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5qj-pF-NOx" kind="relationship" relationship="rootViewController" id="CQJ-pR-iJO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JhC-nS-cez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129.5" y="1086.5"/>
+        </scene>
+        <!--HTTPCookie-->
+        <scene sceneID="0z8-EZ-Bok">
+            <objects>
+                <viewController id="5qj-pF-NOx" customClass="YJHTTPCookieVC" customModule="NSURLSession" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ixu-XO-NJo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gjd-aR-zsi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VaC-PO-Ebe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HTTPCookie" id="Kgr-gD-RtF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kic-FH-edj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129.5" y="1895.5"/>
         </scene>
     </scenes>
     <resources>
