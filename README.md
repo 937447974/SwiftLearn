@@ -14,3 +14,6 @@ QQ：937447974
 
 一系列的网络相关功能，包含通信、上传、下载。
 
+# Parser
+
+使用NSXMLParser解析XML；使用NSJSONSerialization解析JSON。
