@@ -18,17 +18,20 @@ class YJJSONParserTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        var dict:Dictionary<String, String> = Dictionary();
+        var dict = [String: String]()
         dict["name"] = "阳君"
         dict["qq"] = "937447974"
         do {
-            let data  = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
-            self.jsonString = String(data: data, encoding: NSUTF8StringEncoding)
-            print("json生成:\(self.jsonString)")
+            if NSJSONSerialization.isValidJSONObject(dict) { // 能否转换为JSON Data
+                // 转换为JSON Data
+                let data  = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
+                // 转换为json串
+                self.jsonString = String(data: data, encoding: NSUTF8StringEncoding)
+                print("json生成:\(self.jsonString)")
+            }
         } catch {
-            print("转换出错")
+            print("转换出错:\(error)")
         }
-        
     }
     
     override func tearDown() {
@@ -37,13 +40,17 @@ class YJJSONParserTests: XCTestCase {
     }
     
     func testExample() {
+        // json转data
         if let data = self.jsonString?.dataUsingEncoding(NSUTF8StringEncoding) {
             do {
-                let jsonObject:AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-                let dict = jsonObject as? Dictionary<String, AnyObject>
-                print("json解析:\(dict)")
+                // data转JSON Object
+                let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+                // JSON Object转实际对象
+                if let dict = jsonObject as? Dictionary<String, AnyObject> {
+                    print("json解析:\(dict)")
+                }
             } catch {
-                print("解析xml出错")
+                print("解析xml出错:\(error)")
             }
         }
     }

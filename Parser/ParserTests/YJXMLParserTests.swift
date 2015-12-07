@@ -26,24 +26,26 @@ class YJXMLParserTests: XCTestCase, NSXMLParserDelegate {
     
     func testExample() {
         if let url = NSBundle.mainBundle().URLForResource("Main", withExtension: "xml") {
-            let parser = NSXMLParser.init(contentsOfURL: url)
-            parser?.delegate = self;
-            parser?.parse()
+            if let parser = NSXMLParser(contentsOfURL: url) {
+                parser.shouldProcessNamespaces = true;
+                parser.delegate = self;
+                parser.parse()
+            }
         }
     }
     
     // MARK: - NSXMLParserDelegate
     // MARK: 解析开始
     func parserDidStartDocument(parser: NSXMLParser) {
-        print("parserDidStartDocument:")
+        print(__FUNCTION__)
     }
     
     // MARK: 解析结束
     func parserDidEndDocument(parser: NSXMLParser) {
-        print("parserDidStartDocument:")
+        print(__FUNCTION__)
     }
     
-    // MARK: 解析结束
+    // MARK: 解析出错
     func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
         print("解析错误\(parseError.localizedDescription)")
     }
