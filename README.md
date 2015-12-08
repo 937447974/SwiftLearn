@@ -17,3 +17,7 @@ QQ：937447974
 # Parser
 
 使用NSXMLParser解析XML；使用NSJSONSerialization解析JSON。
+
+# GCD
+
+Grand Central Dispatch (GCD)多线程。
