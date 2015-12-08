@@ -27,7 +27,7 @@ class YJXMLParserTests: XCTestCase, NSXMLParserDelegate {
     func testExample() {
         if let url = NSBundle.mainBundle().URLForResource("Main", withExtension: "xml") {
             if let parser = NSXMLParser(contentsOfURL: url) {
-                parser.shouldProcessNamespaces = true;
+                parser.shouldProcessNamespaces = false;
                 parser.delegate = self;
                 parser.parse()
             }
