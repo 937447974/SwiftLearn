@@ -21,3 +21,7 @@ QQ：937447974
 # GCD
 
 Grand Central Dispatch (GCD)多线程。
+
+# Photos
+
+Photos Framework相关。
