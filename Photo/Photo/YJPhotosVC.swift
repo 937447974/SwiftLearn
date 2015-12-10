@@ -1,6 +1,6 @@
 //
 //  YJPhotosVC.swift
-//  Photos
+//  Photo
 //
 //  CSDN:http://blog.csdn.net/y550918116j
 //  GitHub:https://github.com/937447974/Blog

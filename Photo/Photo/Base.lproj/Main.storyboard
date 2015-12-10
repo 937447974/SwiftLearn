@@ -92,10 +92,30 @@
                     <view key="view" contentMode="scaleToFill" id="Hng-se-FOm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VQu-B7-3my">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PpR-UA-kEg" id="Vpe-zU-iOV"/>
+                                    <outlet property="delegate" destination="PpR-UA-kEg" id="6QX-nt-9Oe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VQu-B7-3my" firstAttribute="centerY" secondItem="Hng-se-FOm" secondAttribute="centerY" id="MWZ-cY-OjM"/>
+                            <constraint firstItem="VQu-B7-3my" firstAttribute="centerX" secondItem="Hng-se-FOm" secondAttribute="centerX" id="NsP-F0-ZEr"/>
+                            <constraint firstItem="VQu-B7-3my" firstAttribute="width" secondItem="Hng-se-FOm" secondAttribute="width" id="hlk-1K-2ow"/>
+                            <constraint firstItem="VQu-B7-3my" firstAttribute="height" secondItem="Hng-se-FOm" secondAttribute="height" id="o6C-VX-Fi1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="相薄" id="9tK-4Z-PDa"/>
+                    <connections>
+                        <outlet property="tableView" destination="VQu-B7-3my" id="kx6-Cq-xWO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPY-rs-TTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
