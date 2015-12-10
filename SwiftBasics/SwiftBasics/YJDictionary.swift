@@ -11,14 +11,14 @@ import Foundation
 class YJDictionary: NSObject, TestProtocol {
     
     func test() {
-//        self.testInit() // 初始化
-//        self.testProperties() // 相关属性
-//        self.testFindingObjects() // 查找元素
-//        self.testAdd()            // 增加元素
-//        self.testRemove()         // 删除元素
-//        self.testReplace()        // 修改元素
-//        self.testSort() // 排序
-//        self.testReadingAndWriting() // 文件读写
+        self.testInit() // 初始化
+        self.testProperties() // 相关属性
+        self.testFindingObjects() // 查找元素
+        self.testAdd()            // 增加元素
+        self.testRemove()         // 删除元素
+        self.testReplace()        // 修改元素
+        self.testSort() // 排序
+        self.testReadingAndWriting() // 文件读写
     }
     
     // MARK: 初始化

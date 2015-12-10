@@ -11,14 +11,14 @@ import Foundation
 class YJArray: NSObject, TestProtocol {
     
     func test() {
-//        self.testCreating() // 初始化
-//        self.testReadingAndWriting() // 文件读和写
-//        self.testAdding()   // 增加元素
-//        self.testQuerying() // 查询数组
-//        self.testFindingObjects() // 查找元素位置
-//        self.testRemoving()       // 删除元素
-//        self.testReplacing()      // 替换元素
-//        self.testSorting() // 排序
+        self.testCreating() // 初始化
+        self.testReadingAndWriting() // 文件读和写
+        self.testAdding()   // 增加元素
+        self.testQuerying() // 查询数组
+        self.testFindingObjects() // 查找元素位置
+        self.testRemoving()       // 删除元素
+        self.testReplacing()      // 替换元素
+        self.testSorting() // 排序
     }
     
     // MARK: 初始化
