@@ -24,4 +24,4 @@ Grand Central Dispatch (GCD)多线程。
 
 # Photo
 
-Photos Framework相关。
+Photos Framework And PhotosUI Framework。
