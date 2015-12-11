@@ -10,14 +10,41 @@
 //
 
 import UIKit
+import Photos
 
 /// 照片
 class YJPhotosVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // 精选
+        var fetchResult: PHFetchResult = PHCollectionList.fetchMomentListsWithSubtype(PHCollectionListSubtype.MomentListCluster, options: nil)
+        fetchResult.enumerateObjectsUsingBlock { (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
+            print(obj)
+        }
+        
+        // 年度
+        print("======")
+        fetchResult = PHCollectionList.fetchMomentListsWithSubtype(PHCollectionListSubtype.MomentListYear, options: nil)
+        fetchResult.enumerateObjectsUsingBlock { (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
+            print(obj)
+        }
+        
+        print("时刻")
+        fetchResult = PHAssetCollection.fetchMomentsWithOptions(nil)
+        fetchResult.enumerateObjectsUsingBlock { (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
+            print(obj)
+        }
+      
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print(__FUNCTION__)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        print(__FUNCTION__)
     }
 
     override func didReceiveMemoryWarning() {
