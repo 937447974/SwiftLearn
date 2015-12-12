@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */; };
-		D4A8DBE41C1A9CDE00BA8D84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE31C1A9CDE00BA8D84 /* ViewController.swift */; };
 		D4A8DBE71C1A9CDE00BA8D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */; };
 		D4A8DBE91C1A9CDE00BA8D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */; };
 		D4A8DBEC1C1A9CDE00BA8D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBEA1C1A9CDE00BA8D84 /* LaunchScreen.storyboard */; };
 		D4A8DBF71C1A9CDE00BA8D84 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBF61C1A9CDE00BA8D84 /* UITests.swift */; };
 		D4A8DC021C1A9CDE00BA8D84 /* UIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DC011C1A9CDE00BA8D84 /* UIUITests.swift */; };
+		D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */; };
+		D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFB621C1C1E3800008921 /* YJMainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		D4A8DBDE1C1A9CDE00BA8D84 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4A8DBE31C1A9CDE00BA8D84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D4A8DBE61C1A9CDE00BA8D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4A8DBEB1C1A9CDE00BA8D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		D4A8DBFD1C1A9CDE00BA8D84 /* UIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A8DC011C1A9CDE00BA8D84 /* UIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUITests.swift; sourceTree = "<group>"; };
 		D4A8DC031C1A9CDE00BA8D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUICollectionViewVC.swift; sourceTree = "<group>"; };
+		D4EFFB621C1C1E3800008921 /* YJMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJMainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */,
-				D4A8DBE31C1A9CDE00BA8D84 /* ViewController.swift */,
-				D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */,
-				D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */,
-				D4A8DBEA1C1A9CDE00BA8D84 /* LaunchScreen.storyboard */,
-				D4A8DBED1C1A9CDE00BA8D84 /* Info.plist */,
+				D4EFFB5C1C1C1BAE00008921 /* ViewController */,
+				D4EFFB5D1C1C1BC600008921 /* View */,
+				D4EFFB5E1C1C1BD100008921 /* Resources */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -123,6 +123,41 @@
 				D4A8DC031C1A9CDE00BA8D84 /* Info.plist */,
 			);
 			path = UIUITests;
+			sourceTree = "<group>";
+		};
+		D4EFFB5C1C1C1BAE00008921 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFFB641C1C3C3F00008921 /* UICollectionView */,
+				D4EFFB621C1C1E3800008921 /* YJMainVC.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		D4EFFB5D1C1C1BC600008921 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D4A8DBEA1C1A9CDE00BA8D84 /* LaunchScreen.storyboard */,
+				D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D4EFFB5E1C1C1BD100008921 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */,
+				D4A8DBED1C1A9CDE00BA8D84 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D4EFFB641C1C3C3F00008921 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */,
+			);
+			name = UICollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +222,7 @@
 		D4A8DBD61C1A9CDE00BA8D84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "阳君";
@@ -256,7 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4A8DBE41C1A9CDE00BA8D84 /* ViewController.swift in Sources */,
+				D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */,
+				D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */,
 				D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +519,7 @@
 				D4A8DC081C1A9CDE00BA8D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4A8DC091C1A9CDE00BA8D84 /* Build configuration list for PBXNativeTarget "UITests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +528,7 @@
 				D4A8DC0B1C1A9CDE00BA8D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4A8DC0C1C1A9CDE00BA8D84 /* Build configuration list for PBXNativeTarget "UIUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +537,7 @@
 				D4A8DC0E1C1A9CDE00BA8D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
