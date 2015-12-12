@@ -11,6 +11,11 @@
 
 import UIKit
 
+/// 屏幕宽
+let UIScreenWeight = UIScreen.mainScreen().bounds.size.width
+/// 屏幕高
+let UIScreenHeight = UIScreen.mainScreen().bounds.size.height
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

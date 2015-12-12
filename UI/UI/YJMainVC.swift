@@ -17,11 +17,11 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     /// tableView
     @IBOutlet weak var tableView: UITableView!
     /// 数据源
-    private var data = [YJMainCellStyle]()
+    private var data = [YJViewStyle]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.data.append(YJMainCellStyle.UICollectionView)
+        self.data.append(YJViewStyle.UICollectionView)
     }
 
     // MARK: - UITableViewDataSource
@@ -41,10 +41,17 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let style = self.data[indexPath.row]
+        // 可以跳转则跳转
+        if self.shouldPerformSegueWithIdentifier("\(style)", sender: nil) {
+            self.performSegueWithIdentifier("\(style)", sender: nil)
+            return
+        }
+        // 不能跳转则创建
         var vc: UIViewController!
         // 根据样式显示VC
-        switch self.data[indexPath.row] {
-        case YJMainCellStyle.UICollectionView:
+        switch style {
+        case YJViewStyle.UICollectionView:
             vc = YJUICollectionViewVC()
         }
         // 设置白背景才会显示
@@ -54,7 +61,7 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 }
 
-/// 下一级页面显示的样式
-private enum YJMainCellStyle: String {
+/// 显示的View
+private enum YJViewStyle: String {
     case UICollectionView
 }

@@ -15,6 +15,9 @@
 		D4A8DC021C1A9CDE00BA8D84 /* UIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DC011C1A9CDE00BA8D84 /* UIUITests.swift */; };
 		D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */; };
 		D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFB621C1C1E3800008921 /* YJMainVC.swift */; };
+		D4EFFC571C1C53E000008921 /* YJCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFC551C1C53E000008921 /* YJCollectionViewCell.swift */; };
+		D4EFFC581C1C53E000008921 /* YJCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EFFC561C1C53E000008921 /* YJCollectionViewCell.xib */; };
+		D4EFFC5A1C1C55A900008921 /* YJCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFC591C1C55A900008921 /* YJCollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		D4A8DC031C1A9CDE00BA8D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUICollectionViewVC.swift; sourceTree = "<group>"; };
 		D4EFFB621C1C1E3800008921 /* YJMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJMainVC.swift; sourceTree = "<group>"; };
+		D4EFFC551C1C53E000008921 /* YJCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4EFFC561C1C53E000008921 /* YJCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJCollectionViewCell.xib; sourceTree = "<group>"; };
+		D4EFFC591C1C55A900008921 /* YJCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,9 @@
 		D4EFFB641C1C3C3F00008921 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				D4EFFC551C1C53E000008921 /* YJCollectionViewCell.swift */,
+				D4EFFC561C1C53E000008921 /* YJCollectionViewCell.xib */,
+				D4EFFC591C1C55A900008921 /* YJCollectionViewFlowLayout.swift */,
 				D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */,
 			);
 			name = UICollectionView;
@@ -268,6 +277,7 @@
 				D4A8DBEC1C1A9CDE00BA8D84 /* LaunchScreen.storyboard in Resources */,
 				D4A8DBE91C1A9CDE00BA8D84 /* Assets.xcassets in Resources */,
 				D4A8DBE71C1A9CDE00BA8D84 /* Main.storyboard in Resources */,
+				D4EFFC581C1C53E000008921 /* YJCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,8 +303,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */,
+				D4EFFC5A1C1C55A900008921 /* YJCollectionViewFlowLayout.swift in Sources */,
 				D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */,
 				D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */,
+				D4EFFC571C1C53E000008921 /* YJCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +450,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -449,6 +462,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

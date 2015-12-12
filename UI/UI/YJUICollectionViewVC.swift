@@ -11,19 +11,26 @@
 
 import UIKit
 
-class YJUICollectionViewVC: UIViewController {
+class YJUICollectionViewVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    private var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let cvLayout = UICollectionViewLayout()
-        self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: cvLayout)
-        self.collectionView.backgroundColor = self.view.backgroundColor
-        self.view.addSubview(self.collectionView)
-        
+        let nib = UINib(nibName: "YJCollectionViewCell", bundle: nil)
+        self.collectionView.registerNib(nib, forCellWithReuseIdentifier: "cell")
     }
 
+    // MARK: - UICollectionViewDataSource
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell: YJCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! YJCollectionViewCell
+        cell.showView.backgroundColor = UIColor.redColor()
+        return cell
+    }
     
 
     /*
