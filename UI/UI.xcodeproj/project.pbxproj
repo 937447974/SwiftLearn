@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D41A9F1A1C1E631B0092EAA1 /* UICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A9F191C1E631B0092EAA1 /* UICollectionView.storyboard */; };
+		D41A9F1C1C1E633D0092EAA1 /* UITableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A9F1B1C1E633D0092EAA1 /* UITableView.storyboard */; };
 		D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */; };
 		D4A8DBE71C1A9CDE00BA8D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */; };
 		D4A8DBE91C1A9CDE00BA8D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D41A9F191C1E631B0092EAA1 /* UICollectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UICollectionView.storyboard; sourceTree = "<group>"; };
+		D41A9F1B1C1E633D0092EAA1 /* UITableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UITableView.storyboard; sourceTree = "<group>"; };
 		D4A8DBDE1C1A9CDE00BA8D84 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A8DBE61C1A9CDE00BA8D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			children = (
 				D4A8DBEA1C1A9CDE00BA8D84 /* LaunchScreen.storyboard */,
 				D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */,
+				D41A9F191C1E631B0092EAA1 /* UICollectionView.storyboard */,
+				D41A9F1B1C1E633D0092EAA1 /* UITableView.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -274,9 +280,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41A9F1A1C1E631B0092EAA1 /* UICollectionView.storyboard in Resources */,
 				D4A8DBEC1C1A9CDE00BA8D84 /* LaunchScreen.storyboard in Resources */,
 				D4A8DBE91C1A9CDE00BA8D84 /* Assets.xcassets in Resources */,
 				D4A8DBE71C1A9CDE00BA8D84 /* Main.storyboard in Resources */,
+				D41A9F1C1C1E633D0092EAA1 /* UITableView.storyboard in Resources */,
 				D4EFFC581C1C53E000008921 /* YJCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,16 +35,17 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
-        cell?.textLabel?.text = "\(self.data[indexPath.row])"
+        cell?.textLabel?.text = self.data[indexPath.row].title()
         return cell!
     }
     
     // MARK: - UITableViewDelegate
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let style = self.data[indexPath.row]
         // 可以跳转则跳转
-        if self.shouldPerformSegueWithIdentifier("\(style)", sender: nil) {
-            self.performSegueWithIdentifier("\(style)", sender: nil)
+        if self.shouldPerformSegueWithIdentifier(style.segueIdentifier(), sender: nil) {
+            self.performSegueWithIdentifier(style.segueIdentifier(), sender: nil)
             return
         }
         // 不能跳转则创建
@@ -63,5 +64,22 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 /// 显示的View
 private enum YJViewStyle: String {
+    
     case UICollectionView
+    
+    /// 获取标题
+    func title() -> String {
+        switch self {
+        case .UICollectionView:
+            return "UICollectionView"
+        }
+    }
+    
+    /// 获取identifier
+    func segueIdentifier() -> String {
+        switch self {
+        case .UICollectionView:
+            return "UICollectionView"
+        }
+    }
 }
