@@ -13,7 +13,7 @@ import UIKit
 
 /// 主界面
 class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     /// tableView
     @IBOutlet weak var tableView: UITableView!
     /// 数据源
@@ -21,9 +21,10 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.data.append(YJViewStyle.UITableView)
         self.data.append(YJViewStyle.UICollectionView)
     }
-
+    
     // MARK: - UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data.count
@@ -40,46 +41,42 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - UITableViewDelegate
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let style = self.data[indexPath.row]
-        // 可以跳转则跳转
-        if self.shouldPerformSegueWithIdentifier(style.segueIdentifier(), sender: nil) {
-            self.performSegueWithIdentifier(style.segueIdentifier(), sender: nil)
-            return
-        }
-        // 不能跳转则创建
-        var vc: UIViewController!
-        // 根据样式显示VC
-        switch style {
-        case YJViewStyle.UICollectionView:
-            vc = YJUICollectionViewVC()
-        }
-        // 设置白背景才会显示
-        vc.view.backgroundColor = UIColor.whiteColor()
+        let vc = self.data[indexPath.row].segueViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
 }
 
 /// 显示的View
 private enum YJViewStyle: String {
     
+    case UITableView
     case UICollectionView
     
     /// 获取标题
     func title() -> String {
-        switch self {
-        case .UICollectionView:
-            return "UICollectionView"
-        }
+        return "\(self)"
     }
     
-    /// 获取identifier
-    func segueIdentifier() -> String {
+    /// 获取UIViewController
+    func segueViewController() -> UIViewController {
+        var vc: UIViewController!
+        let storyboard: UIStoryboard?
+        // vc = YJUICollectionViewVC()
         switch self {
-        case .UICollectionView:
-            return "UICollectionView"
+        case .UITableView, .UICollectionView:
+            storyboard = UIStoryboard(name: self.title(), bundle: nil)
         }
+        // vc 处理
+        if vc != nil { // 代码生成VC
+            vc.view.backgroundColor = UIColor.whiteColor() // 设置背景才会显示
+        } else { // UIStoryboard中获取VC
+            vc = storyboard?.instantiateInitialViewController()
+            if let nc = vc as? UINavigationController { // 入口为UINavigationController
+                vc = nc.topViewController
+            }
+        }
+        return vc
     }
 }

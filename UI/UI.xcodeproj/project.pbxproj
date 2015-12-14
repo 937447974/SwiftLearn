@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D41A9F1A1C1E631B0092EAA1 /* UICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A9F191C1E631B0092EAA1 /* UICollectionView.storyboard */; };
 		D41A9F1C1C1E633D0092EAA1 /* UITableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A9F1B1C1E633D0092EAA1 /* UITableView.storyboard */; };
+		D41A9FD31C1E8C5E0092EAA1 /* YJTableViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9FD21C1E8C5E0092EAA1 /* YJTableViewTVC.swift */; };
 		D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */; };
 		D4A8DBE71C1A9CDE00BA8D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */; };
 		D4A8DBE91C1A9CDE00BA8D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		D41A9F191C1E631B0092EAA1 /* UICollectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UICollectionView.storyboard; sourceTree = "<group>"; };
 		D41A9F1B1C1E633D0092EAA1 /* UITableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UITableView.storyboard; sourceTree = "<group>"; };
+		D41A9FD21C1E8C5E0092EAA1 /* YJTableViewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTableViewTVC.swift; sourceTree = "<group>"; };
 		D4A8DBDE1C1A9CDE00BA8D84 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A8DBE61C1A9CDE00BA8D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D41A9FD11C1E8C360092EAA1 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				D41A9FD21C1E8C5E0092EAA1 /* YJTableViewTVC.swift */,
+			);
+			name = UITableView;
+			sourceTree = "<group>";
+		};
 		D4A8DBD51C1A9CDE00BA8D84 = {
 			isa = PBXGroup;
 			children = (
@@ -138,8 +148,9 @@
 		D4EFFB5C1C1C1BAE00008921 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D4EFFB641C1C3C3F00008921 /* UICollectionView */,
 				D4EFFB621C1C1E3800008921 /* YJMainVC.swift */,
+				D41A9FD11C1E8C360092EAA1 /* UITableView */,
+				D4EFFB641C1C3C3F00008921 /* UICollectionView */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -312,6 +323,7 @@
 			files = (
 				D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */,
 				D4EFFC5A1C1C55A900008921 /* YJCollectionViewFlowLayout.swift in Sources */,
+				D41A9FD31C1E8C5E0092EAA1 /* YJTableViewTVC.swift in Sources */,
 				D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */,
 				D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */,
 				D4EFFC571C1C53E000008921 /* YJCollectionViewCell.swift in Sources */,
