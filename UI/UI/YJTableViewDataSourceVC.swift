@@ -2,6 +2,9 @@
 //  YJTableViewDataSourceVC.swift
 //  UI
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 15/12/14.
 //  Copyright © 2015年 阳君. All rights reserved.
 //
@@ -10,12 +13,13 @@ import UIKit
 
 /// TableViewDataSource展示
 class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
-
+    
     /// 数据源
     var data = [[Int]]()
-    
+    /// UITableView
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - view
     override func viewDidLoad() {
         super.viewDidLoad()
         // 以组演示,填充相关测试数据
@@ -28,20 +32,28 @@ class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
             self.data.append(section)
         }
     }
-
+    
+    // MARK: - 开起和关闭tableView编辑状态
+    @IBAction func onClickEdit(sender: AnyObject) {
+        self.tableView.editing = !self.tableView.editing
+    }
+    
     // MARK: - UITableViewDataSource
     // MARK: 有几组
     func numberOfSectionsInTableView(tableView: UITableView) -> Int  {
+        print(__FUNCTION__)
         return self.data.count
     }
     
     // 每一组有几个元素
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(__FUNCTION__)
         return self.data[section].count
     }
     
     // 生成Cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print(__FUNCTION__)
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
@@ -52,16 +64,19 @@ class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
     
     // MARK: 组Header
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        print(__FUNCTION__)
         return "\(section)--Header"
     }
-
+    
     // MARK: 组Footer
     func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        print(__FUNCTION__)
         return "\(section)--Footer"
     }
     
     // MARK: 索引
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        print(__FUNCTION__)
         var sectionTitles = [String]()
         for i in 0..<self.data.count {
             sectionTitles.append("\(i)")
@@ -71,26 +86,41 @@ class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
     
     // MARK: 索引对应的组
     func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+        print(__FUNCTION__)
         return Int(title) ?? 0
     }
     
     // MARK: 能否编辑
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        print(__FUNCTION__)
         return true
     }
     
+    // MARK: 增加和删除
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         print(__FUNCTION__)
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            self.data[indexPath.section].removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
     }
-
+    
     // MARK: 能否移动
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        print(__FUNCTION__)
         return true
     }
     
+    // MARK: 移动cell
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         print(__FUNCTION__)
-        
+        // 处理源数据
+        let sourceData = self.data[sourceIndexPath.section][sourceIndexPath.row]
+        self.data[sourceIndexPath.section].removeAtIndex(sourceIndexPath.row)
+        self.data[destinationIndexPath.section].insert(sourceData, atIndex: destinationIndexPath.row)
     }
     
 }

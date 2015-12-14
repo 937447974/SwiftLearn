@@ -29,7 +29,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1lg-iP-OC7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="XiN-Lf-eEb" id="RrU-S4-utm"/>
                             <outlet property="delegate" destination="XiN-Lf-eEb" id="HAi-3O-6gh"/>
@@ -73,7 +73,13 @@
                             <constraint firstItem="LuY-EO-tz8" firstAttribute="centerY" secondItem="GgP-Ad-F6h" secondAttribute="centerY" id="iyS-3u-17c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="UITableViewDataSource" id="jVR-bD-YfW"/>
+                    <navigationItem key="navigationItem" title="UITableViewDataSource" id="jVR-bD-YfW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="v9L-YL-0PQ">
+                            <connections>
+                                <action selector="onClickEdit:" destination="69r-RN-D85" id="irK-LM-bBm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="LuY-EO-tz8" id="7yd-iS-d8z"/>
                     </connections>
