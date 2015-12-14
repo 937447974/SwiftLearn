@@ -45,13 +45,13 @@ class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
         return self.data.count
     }
     
-    // 每一组有几个元素
+    // MARK: 每一组有几个元素
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(__FUNCTION__)
         return self.data[section].count
     }
     
-    // 生成Cell
+    // MARK: 生成Cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print(__FUNCTION__)
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")

@@ -99,9 +99,9 @@
 		D41A9FD11C1E8C360092EAA1 /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
-				D41A9FD21C1E8C5E0092EAA1 /* YJTableViewTVC.swift */,
-				D41A9FDD1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift */,
 				D41A9FDF1C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift */,
+				D41A9FDD1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift */,
+				D41A9FD21C1E8C5E0092EAA1 /* YJTableViewTVC.swift */,
 			);
 			name = UITableView;
 			sourceTree = "<group>";
