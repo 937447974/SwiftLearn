@@ -100,20 +100,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-1d-IuQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-1d-IuQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="dataSource" destination="lIe-28-m4t" id="66N-sc-gEd"/>
                                     <outlet property="delegate" destination="lIe-28-m4t" id="pVg-yA-fFG"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="height" secondItem="hAu-Kv-oO9" secondAttribute="height" id="3Bd-sR-J4T"/>
-                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="centerY" secondItem="hAu-Kv-oO9" secondAttribute="centerY" id="6bW-7c-htb"/>
-                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="width" secondItem="hAu-Kv-oO9" secondAttribute="width" id="VvK-2l-yBT"/>
-                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="centerX" secondItem="hAu-Kv-oO9" secondAttribute="centerX" id="juK-Y6-Q0C"/>
+                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="width" secondItem="hAu-Kv-oO9" secondAttribute="width" id="7IP-C9-kIc"/>
+                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="height" secondItem="hAu-Kv-oO9" secondAttribute="height" id="9bC-Wl-MfP"/>
+                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="centerY" secondItem="hAu-Kv-oO9" secondAttribute="centerY" id="dLy-TD-mJn"/>
+                            <constraint firstItem="RaY-1d-IuQ" firstAttribute="centerX" secondItem="hAu-Kv-oO9" secondAttribute="centerX" id="rZK-WP-EWO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="UITableViewDelegate" id="Vc7-Kq-MUq"/>
