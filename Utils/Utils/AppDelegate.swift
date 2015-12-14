@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        print(ScreenSize.screenHeight)
-        print(ScreenSize.screenWidth)
+        print(YJUtilScreenSize.screenHeight)
+        print(YJUtilScreenSize.screenWidth)
         return true
     }
 

@@ -12,7 +12,7 @@
 import UIKit
 
 /// user interface
-public struct UserInterfaceIdiom {
+public struct YJUtilUserInterfaceIdiom {
     /// The user interface should be designed for iPhone and iPod touch.
     static let isPhone = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone
     /// The user interface should be designed for iPad.
@@ -22,30 +22,32 @@ public struct UserInterfaceIdiom {
     
 }
 
+
 /// 屏幕尺寸
-public struct ScreenSize {
+public struct YJUtilScreenSize {
     
     /// 屏幕宽
     static let screenWidth = UIScreen.mainScreen().bounds.size.width
     /// 屏幕高
     static let screenHeight = UIScreen.mainScreen().bounds.size.height
     /// 屏幕最大长度
-    static let screenMaxLength = max(ScreenSize.screenWidth, ScreenSize.screenHeight)
+    static let screenMaxLength = max(YJUtilScreenSize.screenWidth, YJUtilScreenSize.screenHeight)
     /// 屏幕最小长度
-    static let screenMinLength = min(ScreenSize.screenMaxLength, ScreenSize.screenHeight)
+    static let screenMinLength = min(YJUtilScreenSize.screenMaxLength, YJUtilScreenSize.screenHeight)
     
 }
 
+
 /// 机型
-public struct DeviceType {
+public struct YJUtilDeviceType {
     
     /// IPhone4
-    static let isIPhone4 = UserInterfaceIdiom.isPhone && ScreenSize.screenMaxLength == 480.0
+    static let isIPhone4 = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 480.0
     /// IPhone5
-    static let isIPhone5 = UserInterfaceIdiom.isPhone && ScreenSize.screenMaxLength == 568.0
+    static let isIPhone5 = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 568.0
     /// IPhone6
-    static let isIPhone6 = UserInterfaceIdiom.isPhone && ScreenSize.screenMaxLength == 667.0
+    static let isIPhone6 = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 667.0
     /// IPhone6P
-    static let isIPhone6P = UserInterfaceIdiom.isPhone && ScreenSize.screenMaxLength == 736.0
+    static let isIPhone6P = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 736.0
     
 }

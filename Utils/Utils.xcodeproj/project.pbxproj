@@ -99,13 +99,11 @@
 		D41A9F641C1E67910092EAA1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D41A9F711C1E67910092EAA1 /* Info.plist */,
+				D41A9FD01C1E71C60092EAA1 /* VIew */,
+				D41A9FCF1C1E71BB0092EAA1 /* Resources */,
 				D41A9F651C1E67910092EAA1 /* AppDelegate.swift */,
 				D41A9F671C1E67910092EAA1 /* ViewController.swift */,
 				D41A9F931C1E67E00092EAA1 /* YJUtils.swift */,
-				D41A9F6C1C1E67910092EAA1 /* Assets.xcassets */,
-				D41A9F6E1C1E67910092EAA1 /* LaunchScreen.storyboard */,
-				D41A9F691C1E67910092EAA1 /* Main.storyboard */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -126,6 +124,24 @@
 				D41A9F871C1E67910092EAA1 /* Info.plist */,
 			);
 			path = UtilsUITests;
+			sourceTree = "<group>";
+		};
+		D41A9FCF1C1E71BB0092EAA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D41A9F711C1E67910092EAA1 /* Info.plist */,
+				D41A9F6C1C1E67910092EAA1 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D41A9FD01C1E71C60092EAA1 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				D41A9F6E1C1E67910092EAA1 /* LaunchScreen.storyboard */,
+				D41A9F691C1E67910092EAA1 /* Main.storyboard */,
+			);
+			name = VIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
