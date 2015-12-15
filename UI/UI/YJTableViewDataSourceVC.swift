@@ -35,7 +35,7 @@ class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
     
     // MARK: - 开起和关闭tableView编辑状态
     @IBAction func onClickEdit(sender: AnyObject) {
-        self.tableView.editing = !self.tableView.editing
+        self.tableView.setEditing(!self.tableView.editing, animated: true)
     }
     
     // MARK: - UITableViewDataSource
