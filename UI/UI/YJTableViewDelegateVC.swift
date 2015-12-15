@@ -89,7 +89,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: - UITableViewDelegate
-    // MARK: - Configuring Rows for the Table View
+    // MARK: - 1. Configuring Rows for the Table View
     // MARK: 预获取行高
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         // 实现此方法后,显示界面前func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloath不会执行，有助于提升显示效率
@@ -123,7 +123,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Managing Accessory Views
+    // MARK: - 2. Managing Accessory Views
     // MARK: 左滑出现的按钮
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         if self.printStyle == .ManagingAccessoryViews {
@@ -147,7 +147,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Managing Selections
+    // MARK: - 3. Managing Selections
     // MARK: 将要点击某行
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         if self.printStyle == .ManagingSelections {
@@ -180,7 +180,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Modifying the Header and Footer of Sections
+    // MARK: - 4. Modifying the Header and Footer of Sections
     // MARK: 预获取header高
     func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
@@ -247,7 +247,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Editing Table Rows
+    // MARK: - 5. Editing Table Rows
     // MARK: 将要进入编辑模式
     func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
         if self.printStyle == .EditingTableRows {
@@ -286,7 +286,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         return true
     }
     
-    // MARK: - Reordering Table Rows
+    // MARK: - 6. Reordering Table Rows
     // MARK: 移动cell
     func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
         if self.printStyle == .ReorderingTableRows {
@@ -295,7 +295,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         return proposedDestinationIndexPath
     }
     
-    // MARK: - Tracking the Removal of Views
+    // MARK: - 7. Tracking the Removal of Views
     // MARK: header消失
     func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
         if self.printStyle == .TrackingTheRemovalOfViews {
@@ -317,7 +317,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Copying and Pasting Row Content
+    // MARK: - 8. Copying and Pasting Row Content
     // 将要显示复制和粘贴板
     func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.printStyle == .CopyingAndPastingRowContent {
@@ -341,7 +341,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Managing Table View Highlighting
+    // MARK: - 9. Managing Table View Highlighting
     // MARK: 点击cell能否进入高亮模式
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.printStyle == .ManagingTableViewHighlighting {
@@ -364,7 +364,7 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    // MARK: - Managing Table View Focus
+    // MARK: - 10. Managing Table View Focus
     // MARK: 是否指定路径
     func tableView(tableView: UITableView, canFocusRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.printStyle == .ManagingTableViewFocus {
