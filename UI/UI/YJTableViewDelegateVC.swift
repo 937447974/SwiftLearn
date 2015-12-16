@@ -23,6 +23,7 @@ private enum YJPrintStyle: Int {
     case CopyingAndPastingRowContent
     case ManagingTableViewHighlighting
     case ManagingTableViewFocus
+    
 }
 
 /// UITableViewDelegate演示
@@ -70,7 +71,9 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
             cell?.accessoryType = UITableViewCellAccessoryType.DetailButton
         }
         cell?.textLabel?.text = "\(self.data[indexPath.section][indexPath.row])--\(indexPath.section)"
-        print(indexPath)
+        if self.printStyle == .ManagingTableViewFocus {
+            cell?.focusStyle = UITableViewCellFocusStyle.Custom // 自定义焦点
+        }
         return cell!
     }
     

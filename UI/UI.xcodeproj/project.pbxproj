@@ -14,6 +14,7 @@
 		D41A9FDC1C1E9DD00092EAA1 /* YJUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9FDB1C1E9DD00092EAA1 /* YJUtils.swift */; };
 		D41A9FDE1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9FDD1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift */; };
 		D41A9FE01C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9FDF1C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift */; };
+		D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */; };
 		D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */; };
 		D4A8DBE71C1A9CDE00BA8D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */; };
 		D4A8DBE91C1A9CDE00BA8D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		D41A9FDB1C1E9DD00092EAA1 /* YJUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtils.swift; sourceTree = "<group>"; };
 		D41A9FDD1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTableViewDelegateVC.swift; sourceTree = "<group>"; };
 		D41A9FDF1C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTableViewDataSourceVC.swift; sourceTree = "<group>"; };
+		D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTableViewCellTVC.swift; sourceTree = "<group>"; };
 		D4A8DBDE1C1A9CDE00BA8D84 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A8DBE61C1A9CDE00BA8D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D41A9FDF1C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift */,
 				D41A9FDD1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift */,
 				D41A9FD21C1E8C5E0092EAA1 /* YJTableViewTVC.swift */,
+				D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */,
 			);
 			name = UITableView;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			files = (
 				D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */,
 				D4EFFC5A1C1C55A900008921 /* YJCollectionViewFlowLayout.swift in Sources */,
+				D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */,
 				D41A9FD71C1E9CB30092EAA1 /* YJTableView+Extension.swift in Sources */,
 				D41A9FD31C1E8C5E0092EAA1 /* YJTableViewTVC.swift in Sources */,
 				D41A9FE01C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift in Sources */,

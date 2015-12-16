@@ -39,6 +39,7 @@
                     <connections>
                         <segue destination="lIe-28-m4t" kind="show" identifier="UITableViewDelegate" id="NHB-gG-4nU"/>
                         <segue destination="69r-RN-D85" kind="show" identifier="UITableViewDataSource" id="G0z-LV-68s"/>
+                        <segue destination="Jve-1z-HqQ" kind="show" identifier="UITableViewCell" id="D5I-gO-rHJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3md-Cs-zPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,6 +88,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Am-QR-AhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1971.5" y="-75.5"/>
+        </scene>
+        <!--UITableViewCell-->
+        <scene sceneID="4jB-qd-ij0">
+            <objects>
+                <tableViewController id="Jve-1z-HqQ" customClass="YJTableViewCellTVC" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="G3I-11-fgU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Jve-1z-HqQ" id="u2w-Zm-rJp"/>
+                            <outlet property="delegate" destination="Jve-1z-HqQ" id="tbZ-ZX-Nmo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="UITableViewCell" id="BCI-1x-zmA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Jp7-Yj-YCk">
+                            <connections>
+                                <action selector="onClickSearch:" destination="Jve-1z-HqQ" id="Skf-3G-1au"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWQ-jw-vri" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1359.5" y="1013.5"/>
         </scene>
         <!--UITableViewDelegate-->
         <scene sceneID="Vwu-D0-wNE">

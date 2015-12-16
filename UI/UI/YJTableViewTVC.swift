@@ -13,15 +13,11 @@ private enum YJTableViewStyle: String {
     
     case UITableViewDelegate
     case UITableViewDataSource
+    case UITableViewCell
     
     /// 获取标题
     func title() -> String {
-        var title: String!
-        switch self {
-        case .UITableViewDataSource, .UITableViewDelegate:
-            title = "\(self)"
-        }
-        return title
+        return "\(self)"
     }
     
     /// 获取UIViewController
@@ -40,6 +36,7 @@ class YJTableViewTVC: UITableViewController {
         super.viewDidLoad()
         self.data.append(YJTableViewStyle.UITableViewDataSource)
         self.data.append(YJTableViewStyle.UITableViewDelegate)
+        self.data.append(YJTableViewStyle.UITableViewCell)
     }
 
     // MARK: - UITableViewDataSource
