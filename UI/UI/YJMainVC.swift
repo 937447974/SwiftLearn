@@ -11,53 +11,19 @@
 
 import UIKit
 
-/// 显示的View
-private enum YJViewStyle: String {
-    
-    case UIScrollView
-    case UITableView
-    case UICollectionView
-    
-    /// 获取标题
-    func title() -> String {
-        return "\(self)"
-    }
-    
-    /// 获取UIViewController
-    func segueViewController() -> UIViewController {
-        var vc: UIViewController!
-        let storyboard: UIStoryboard?
-        // vc = YJUICollectionViewVC()
-        switch self {
-        case .UITableView, .UICollectionView, .UIScrollView:
-            storyboard = UIStoryboard(name: self.title(), bundle: nil)
-        }
-        // vc 处理
-        if vc != nil { // 代码生成VC
-            vc.view.backgroundColor = UIColor.whiteColor() // 设置背景才会显示
-        } else { // UIStoryboard中获取VC
-            vc = storyboard?.instantiateInitialViewController()
-            if let nc = vc as? UINavigationController { // 入口为UINavigationController
-                vc = nc.topViewController
-            }
-        }
-        return vc
-    }
-}
-
 /// 主界面
 class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     /// tableView
     @IBOutlet weak var tableView: UITableView!
     /// 数据源
-    private var data = [YJViewStyle]()
+    private var data = [YJPerformSegueModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.data.append(YJViewStyle.UIScrollView)
-        self.data.append(YJViewStyle.UITableView)
-        self.data.append(YJViewStyle.UICollectionView)
+        self.data.append(YJPerformSegueModel(title: "UIScrollView", storyboardName: "UIScrollView", identifier: nil, hander: nil))
+        self.data.append(YJPerformSegueModel(title: "UITableView", storyboardName: "UITableView", identifier: nil, hander: nil))
+        self.data.append(YJPerformSegueModel(title: "UICollectionView", storyboardName: "UICollectionView", identifier: nil, hander: nil))
     }
     
     // MARK: - UITableViewDataSource
@@ -71,14 +37,13 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
-        cell?.textLabel?.text = self.data[indexPath.row].title()
+        cell?.textLabel?.text = self.data[indexPath.row].title
         return cell!
     }
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let vc = self.data[indexPath.row].segueViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.data[indexPath.row].performSegue(self)
     }
     
 }
