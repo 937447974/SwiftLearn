@@ -6,11 +6,11 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "ScrollViewBigImage@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ScrollViewBigImage@3x.jpg",
       "scale" : "3x"
     }
   ],

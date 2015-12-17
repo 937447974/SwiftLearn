@@ -12,7 +12,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="GXR-Qs-OHP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="ccD-bK-pdB" id="XJR-gR-c3Z"/>
                             <outlet property="delegate" destination="ccD-bK-pdB" id="atZ-tP-VwQ"/>
@@ -21,7 +21,6 @@
                     <navigationItem key="navigationItem" title="UIScrollView" id="Abq-Sl-xeP"/>
                     <connections>
                         <segue destination="k7p-Vq-eC9" kind="show" identifier="AutoLayout" id="yQZ-T7-mFp"/>
-                        <segue destination="F8o-QC-gXI" kind="show" identifier="AutoLayout" id="p5z-Mh-aMC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfD-7T-sVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,7 +42,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06o-nP-Y7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="190"/>
+            <point key="canvasLocation" x="-268.5" y="189.5"/>
         </scene>
         <!--AutoLayout-->
         <scene sceneID="NZb-UL-Adh">
@@ -56,32 +55,40 @@
                     <view key="view" contentMode="scaleToFill" id="vW4-z3-t5P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7aG-r8-Q7X">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScrollViewBigImage" translatesAutoresizingMaskIntoConstraints="NO" id="6Rc-Vs-ZsF">
+                                        <rect key="frame" x="0.0" y="0.0" width="1144" height="763"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6Rc-Vs-ZsF" secondAttribute="trailing" id="2wI-03-PFc"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Rc-Vs-ZsF" secondAttribute="bottom" id="Xvv-RN-lea"/>
+                                    <constraint firstItem="6Rc-Vs-ZsF" firstAttribute="top" secondItem="7aG-r8-Q7X" secondAttribute="top" id="p4F-2A-DpX"/>
+                                    <constraint firstItem="6Rc-Vs-ZsF" firstAttribute="leading" secondItem="7aG-r8-Q7X" secondAttribute="leading" id="poN-sT-SjG"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7aG-r8-Q7X" firstAttribute="centerY" secondItem="vW4-z3-t5P" secondAttribute="centerY" id="ESZ-CG-Zsa"/>
+                            <constraint firstItem="7aG-r8-Q7X" firstAttribute="centerX" secondItem="vW4-z3-t5P" secondAttribute="centerX" id="hVF-RI-Gz6"/>
+                            <constraint firstItem="7aG-r8-Q7X" firstAttribute="height" secondItem="vW4-z3-t5P" secondAttribute="height" id="pOv-Kd-oso"/>
+                            <constraint firstItem="7aG-r8-Q7X" firstAttribute="width" secondItem="vW4-z3-t5P" secondAttribute="width" id="sVc-3t-5Ub"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="AutoLayout" id="oOo-yt-5jD"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ShS-Z3-u8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817.5" y="-207.5"/>
-        </scene>
-        <!--UIScrollViewDelegate-->
-        <scene sceneID="Bjr-U6-DEX">
-            <objects>
-                <viewController id="F8o-QC-gXI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fJ1-o0-oql"/>
-                        <viewControllerLayoutGuide type="bottom" id="CN1-5M-GPN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="btu-Db-CAt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="UIScrollViewDelegate" id="5EK-eU-HDa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8LN-i2-4tG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="817.5" y="542.5"/>
+            <point key="canvasLocation" x="710.5" y="189.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ScrollViewBigImage" width="1144" height="763"/>
+    </resources>
 </document>

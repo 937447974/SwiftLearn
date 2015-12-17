@@ -21,9 +21,7 @@
 		D4640E171C22621D00F504F9 /* YJBaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E161C22621D00F504F9 /* YJBaseTVC.swift */; };
 		D4640E1A1C228C8C00F504F9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E191C228C8C00F504F9 /* UIViewController+Extension.swift */; };
 		D4640E1C1C2291ED00F504F9 /* YJPerformSegueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E1B1C2291ED00F504F9 /* YJPerformSegueModel.swift */; };
-		D4640E1F1C2298FA00F504F9 /* YJDefaultScrollViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E1E1C2298FA00F504F9 /* YJDefaultScrollViewVC.swift */; };
 		D4640E211C229ADD00F504F9 /* YJAutoLayoutSVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E201C229ADD00F504F9 /* YJAutoLayoutSVVC.swift */; };
-		D4640E231C229B1700F504F9 /* YJStoaryboardAutoLayoutSVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E221C229B1700F504F9 /* YJStoaryboardAutoLayoutSVVC.swift */; };
 		D4640E251C229B3500F504F9 /* YJScrollViewDelegateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E241C229B3500F504F9 /* YJScrollViewDelegateVC.swift */; };
 		D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */; };
 		D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */; };
@@ -71,9 +69,7 @@
 		D4640E161C22621D00F504F9 /* YJBaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJBaseTVC.swift; sourceTree = "<group>"; };
 		D4640E191C228C8C00F504F9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		D4640E1B1C2291ED00F504F9 /* YJPerformSegueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJPerformSegueModel.swift; sourceTree = "<group>"; };
-		D4640E1E1C2298FA00F504F9 /* YJDefaultScrollViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJDefaultScrollViewVC.swift; sourceTree = "<group>"; };
 		D4640E201C229ADD00F504F9 /* YJAutoLayoutSVVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJAutoLayoutSVVC.swift; sourceTree = "<group>"; };
-		D4640E221C229B1700F504F9 /* YJStoaryboardAutoLayoutSVVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJStoaryboardAutoLayoutSVVC.swift; sourceTree = "<group>"; };
 		D4640E241C229B3500F504F9 /* YJScrollViewDelegateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJScrollViewDelegateVC.swift; sourceTree = "<group>"; };
 		D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTableViewCellTVC.swift; sourceTree = "<group>"; };
 		D4A8DBDE1C1A9CDE00BA8D84 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,9 +160,7 @@
 			children = (
 				D4640E131C225D6D00F504F9 /* YJScrollViewTVC.swift */,
 				D4640E201C229ADD00F504F9 /* YJAutoLayoutSVVC.swift */,
-				D4640E1E1C2298FA00F504F9 /* YJDefaultScrollViewVC.swift */,
 				D4640E241C229B3500F504F9 /* YJScrollViewDelegateVC.swift */,
-				D4640E221C229B1700F504F9 /* YJStoaryboardAutoLayoutSVVC.swift */,
 			);
 			name = UIScrollView;
 			sourceTree = "<group>";
@@ -422,7 +416,6 @@
 				D4640E1C1C2291ED00F504F9 /* YJPerformSegueModel.swift in Sources */,
 				D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */,
 				D4EFFC5A1C1C55A900008921 /* YJCollectionViewFlowLayout.swift in Sources */,
-				D4640E231C229B1700F504F9 /* YJStoaryboardAutoLayoutSVVC.swift in Sources */,
 				D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */,
 				D4640E1A1C228C8C00F504F9 /* UIViewController+Extension.swift in Sources */,
 				D4512B8C1C213D4B00A77A65 /* YJSwitchTableViewCell.swift in Sources */,
@@ -437,7 +430,6 @@
 				D41A9FDC1C1E9DD00092EAA1 /* YJUtils.swift in Sources */,
 				D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */,
 				D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */,
-				D4640E1F1C2298FA00F504F9 /* YJDefaultScrollViewVC.swift in Sources */,
 				D4EFFC571C1C53E000008921 /* YJCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
