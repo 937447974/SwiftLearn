@@ -38,13 +38,22 @@ public class YJPerformSegueModel {
     /// - parameter title : 标题
     /// - parameter storyboardName : storyboard名
     /// - parameter identifier : 前往下一页的identifier，对应performSegueWithIdentifier方法的identifier
-    /// - parameter hander : 回调生成UIViewController
     ///
     /// - returns: YJCellModel
-    init(title: String, storyboardName: String?, identifier: String?, hander: (()->UIViewController?)?) {
+    init(title: String, storyboardName: String?, identifier: String?) {
         self.title = title
         self.identifier = identifier
         self.storyboardName = storyboardName
+    }
+    
+    /// 初始化
+    ///
+    /// - parameter title : 标题
+    /// - parameter hander : 回调生成UIViewController
+    ///
+    /// - returns: YJCellModel
+    init(title: String, hander: (()->UIViewController?)?) {
+        self.title = title
         self.hander = hander
     }
     
@@ -56,6 +65,9 @@ public class YJPerformSegueModel {
     /// - returns: void
     func performSegue(source: UIViewController) {
         if let vc = self.hander?() { // 1 定制UIViewController
+            if vc.view.backgroundColor == nil { // 无背景色时，设置背景色为默认白色
+                vc.view.backgroundColor = UIColor.whiteColor()
+            }
             source.navigationController?.pushViewController(vc, animated: true)
         } else if self.storyboardName != nil && self.identifier != nil { // push跳转到Storyboard中指定UIViewController
             source.pushStoryboard(self.storyboardName!, identifier: self.identifier!, sender: nil)

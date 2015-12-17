@@ -8,7 +8,7 @@
         <!--UIScrollView-->
         <scene sceneID="mqd-Pc-ByN">
             <objects>
-                <tableViewController id="ccD-bK-pdB" sceneMemberID="viewController">
+                <tableViewController id="ccD-bK-pdB" customClass="YJScrollViewTVC" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="GXR-Qs-OHP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,6 +19,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="UIScrollView" id="Abq-Sl-xeP"/>
+                    <connections>
+                        <segue destination="k7p-Vq-eC9" kind="show" identifier="AutoLayout" id="yQZ-T7-mFp"/>
+                        <segue destination="F8o-QC-gXI" kind="show" identifier="AutoLayout" id="p5z-Mh-aMC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfD-7T-sVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,6 +44,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06o-nP-Y7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-306" y="190"/>
+        </scene>
+        <!--AutoLayout-->
+        <scene sceneID="NZb-UL-Adh">
+            <objects>
+                <viewController id="k7p-Vq-eC9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xQZ-JS-05z"/>
+                        <viewControllerLayoutGuide type="bottom" id="EBU-jG-70t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vW4-z3-t5P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AutoLayout" id="oOo-yt-5jD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ShS-Z3-u8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817.5" y="-207.5"/>
+        </scene>
+        <!--UIScrollViewDelegate-->
+        <scene sceneID="Bjr-U6-DEX">
+            <objects>
+                <viewController id="F8o-QC-gXI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fJ1-o0-oql"/>
+                        <viewControllerLayoutGuide type="bottom" id="CN1-5M-GPN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="btu-Db-CAt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="UIScrollViewDelegate" id="5EK-eU-HDa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8LN-i2-4tG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817.5" y="542.5"/>
         </scene>
     </scenes>
 </document>

@@ -21,9 +21,9 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.data.append(YJPerformSegueModel(title: "UIScrollView", storyboardName: "UIScrollView", identifier: nil, hander: nil))
-        self.data.append(YJPerformSegueModel(title: "UITableView", storyboardName: "UITableView", identifier: nil, hander: nil))
-        self.data.append(YJPerformSegueModel(title: "UICollectionView", storyboardName: "UICollectionView", identifier: nil, hander: nil))
+        self.data.append(YJPerformSegueModel(title: "UIScrollView", storyboardName: "UIScrollView", identifier: nil))
+        self.data.append(YJPerformSegueModel(title: "UITableView", storyboardName: "UITableView", identifier: nil))
+        self.data.append(YJPerformSegueModel(title: "UICollectionView", storyboardName: "UICollectionView", identifier: nil))
     }
     
     // MARK: - UITableViewDataSource
