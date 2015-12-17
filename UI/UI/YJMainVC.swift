@@ -14,6 +14,7 @@ import UIKit
 /// 显示的View
 private enum YJViewStyle: String {
     
+    case UIScrollView
     case UITableView
     case UICollectionView
     
@@ -28,7 +29,7 @@ private enum YJViewStyle: String {
         let storyboard: UIStoryboard?
         // vc = YJUICollectionViewVC()
         switch self {
-        case .UITableView, .UICollectionView:
+        case .UITableView, .UICollectionView, .UIScrollView:
             storyboard = UIStoryboard(name: self.title(), bundle: nil)
         }
         // vc 处理
@@ -54,6 +55,7 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.data.append(YJViewStyle.UIScrollView)
         self.data.append(YJViewStyle.UITableView)
         self.data.append(YJViewStyle.UICollectionView)
     }
