@@ -64,8 +64,8 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6Rc-Vs-ZsF" secondAttribute="trailing" id="2wI-03-PFc"/>
                                     <constraint firstAttribute="bottom" secondItem="6Rc-Vs-ZsF" secondAttribute="bottom" id="Xvv-RN-lea"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Rc-Vs-ZsF" secondAttribute="trailing" id="ctA-XC-92r"/>
                                     <constraint firstItem="6Rc-Vs-ZsF" firstAttribute="top" secondItem="7aG-r8-Q7X" secondAttribute="top" id="p4F-2A-DpX"/>
                                     <constraint firstItem="6Rc-Vs-ZsF" firstAttribute="leading" secondItem="7aG-r8-Q7X" secondAttribute="leading" id="poN-sT-SjG"/>
                                 </constraints>

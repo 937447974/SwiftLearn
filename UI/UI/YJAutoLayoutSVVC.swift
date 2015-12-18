@@ -27,18 +27,20 @@ class YJAutoLayoutSVVC: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false;
         
         // self.view和ScrollView的约束
-        // 显示区域
+        // 显示区域,方式1添加约束
         let centerXC = NSLayoutConstraint(item: scrollView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0) // 中心x点对齐
         let centerYC = NSLayoutConstraint(item: scrollView, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1, constant: 0) // 中心y点对齐
+        self.view.addConstraints([centerXC, centerYC]) // 组添加
         let heightC = NSLayoutConstraint(item: scrollView, attribute: .Height, relatedBy: .Equal, toItem: self.view, attribute: .Height, multiplier: 1, constant: 0) // 等高
-        let widthC = NSLayoutConstraint(item: scrollView, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1, constant: 0) // 等宽
-        self.view.addConstraints([centerXC, centerYC, heightC, widthC])
-        // 滑动区域
-        self.view.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .Top, relatedBy: .Equal, toItem: imageView, attribute: .Top, multiplier: 1, constant: 0)) // Top
-        self.view.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .Bottom, relatedBy: .Equal, toItem: imageView, attribute: .Bottom, multiplier: 1, constant: 0)) //Bottom
-        self.view.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .Leading, relatedBy: .Equal, toItem: imageView, attribute: .Leading, multiplier: 1, constant: 0)) //Leading
-        self.view.addConstraint(NSLayoutConstraint(item: scrollView, attribute: .Trailing, relatedBy: .Equal, toItem: imageView, attribute: .Trailing, multiplier: 1, constant: 0)) //Trailing
-    
+        self.view.addConstraint(heightC) // 单一添加
+        NSLayoutConstraint(item: scrollView, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1, constant: 0).active = true // 等宽，立即执行
+        
+        // 滑动区域,方式2添加约束
+        // NSLayoutYAxisAnchor封装NSLayoutConstraint写法
+        scrollView.topAnchor.constraintEqualToAnchor(imageView.topAnchor).active = true // Top
+        scrollView.bottomAnchor.constraintEqualToAnchor(imageView.bottomAnchor).active = true // Bottom
+        scrollView.leadingAnchor.constraintEqualToAnchor(imageView.leadingAnchor).active = true // leading
+        scrollView.trailingAnchor.constraintEqualToAnchor(imageView.trailingAnchor).active = true // trailing
     }
 
 }
