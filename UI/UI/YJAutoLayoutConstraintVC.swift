@@ -19,7 +19,7 @@ class YJAutoLayoutConstraintVC: UIViewController {
     遵循的原则，在UI上，
     1. 左边的View对应view1，右边的View对应view2；
     2. 下面的View对应View1，上面的View对应View2。
-    结论就是：从右下到左上
+    口诀就是：前右下后左上
     */
     
     override func viewDidLoad() {

@@ -19,7 +19,7 @@ class YJAutoLayoutAnchorVC: UIViewController {
     遵循的原则，在UI上，
     1. 左边的View对应self，右边的View对应anchor；
     2. 下面的View对应self，上面的View对应anchor。
-    结论就是：从右下到左上
+    口诀就是：前右下后左上
     */
     
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ class YJAutoLayoutAnchorVC: UIViewController {
         
         // 打印所有约束
         for constraint in self.view.constraints {
-            //            print(constraint)
+            print(constraint)
         }
     }
     
