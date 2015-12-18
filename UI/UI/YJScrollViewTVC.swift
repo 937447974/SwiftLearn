@@ -16,9 +16,11 @@ class YJScrollViewTVC: YJBaseTVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.data.append(YJPerformSegueModel(title: "UIScrollViewDelegate"){YJScrollViewDelegateVC()})
-        self.data.append(YJPerformSegueModel(title: "纯代码AutoLayout"){YJAutoLayoutSVVC()})
-        self.data.append(YJPerformSegueModel(title: "故事面板AutoLayout", storyboardName: nil, identifier: "AutoLayout"))
+        var list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "UIScrollViewDelegate"){YJScrollViewDelegateVC()})
+        list.append(YJPerformSegueModel(title: "纯代码AutoLayout"){YJAutoLayoutSVVC()})
+        list.append(YJPerformSegueModel(title: "故事面板AutoLayout", storyboardName: nil, identifier: "AutoLayout"))
+        self.data.append(list)
     }
     
 }

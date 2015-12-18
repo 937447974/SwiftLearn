@@ -16,9 +16,11 @@ class YJTableViewTVC: YJBaseTVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.data.append(YJPerformSegueModel(title: "UITableViewDataSource", storyboardName: nil, identifier: "UITableViewDataSource"))
-        self.data.append(YJPerformSegueModel(title: "UITableViewDelegate", storyboardName: nil, identifier: "UITableViewDelegate"))
-        self.data.append(YJPerformSegueModel(title: "UITableViewCell", storyboardName: nil, identifier: "UITableViewCell"))
+        var list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "UITableViewDataSource", storyboardName: nil, identifier: "UITableViewDataSource"))
+        list.append(YJPerformSegueModel(title: "UITableViewDelegate", storyboardName: nil, identifier: "UITableViewDelegate"))
+        list.append(YJPerformSegueModel(title: "UITableViewCell", storyboardName: nil, identifier: "UITableViewCell"))
+        self.data.append(list)
     }
 
 }

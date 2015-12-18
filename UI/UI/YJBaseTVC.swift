@@ -15,15 +15,19 @@ import UIKit
 public class YJBaseTVC: UITableViewController {
     
     /// 数据源
-    var data = [YJPerformSegueModel]()
+    var data = [[YJPerformSegueModel]]()
     
     override public func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: - UITableViewDataSource
-    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.data.count
+    }
+    
+    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.data[section].count
     }
     
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -32,13 +36,13 @@ public class YJBaseTVC: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
-        cell?.textLabel?.text = self.data[indexPath.row].title
+        cell?.textLabel?.text = self.data[indexPath.section][indexPath.row].title
         return cell!
     }
     
     // MARK: - UITableViewDelegate
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.data[indexPath.row].performSegue(self)
+        self.data[indexPath.section][indexPath.row].performSegue(self)
     }
     
 }

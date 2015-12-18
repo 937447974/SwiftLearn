@@ -33,7 +33,10 @@ public class YJPerformSegueModel {
         self.title = title
     }
     
-    /// 初始化
+    /// 初始化,
+    /// 1. 有storyboardName无identifier为push跳转到Storyboard；
+    /// 2. 有storyboardName和identifier为push跳转到Storyboard中指定UIViewController；
+    /// 3. 无storyboardName有identifier为Storyboard内部跳转；
     ///
     /// - parameter title : 标题
     /// - parameter storyboardName : storyboard名
@@ -52,7 +55,7 @@ public class YJPerformSegueModel {
     /// - parameter hander : 回调生成UIViewController
     ///
     /// - returns: YJCellModel
-    init(title: String, hander: (()->UIViewController?)?) {
+    init(title: String, hander: (()->UIViewController?)) {
         self.title = title
         self.hander = hander
     }

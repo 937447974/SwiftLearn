@@ -17,18 +17,32 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     /// tableView
     @IBOutlet weak var tableView: UITableView!
     /// 数据源
-    private var data = [YJPerformSegueModel]()
+    private var data = [[YJPerformSegueModel]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.data.append(YJPerformSegueModel(title: "UIScrollView", storyboardName: "UIScrollView", identifier: nil))
-        self.data.append(YJPerformSegueModel(title: "UITableView", storyboardName: "UITableView", identifier: nil))
-        self.data.append(YJPerformSegueModel(title: "UICollectionView", storyboardName: "UICollectionView", identifier: nil))
+        
+        var list = [YJPerformSegueModel]()
+        
+        list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "Auto Layout"){YJAutoLayoutTVC(style: UITableViewStyle.Grouped)})
+        self.data.append(list)
+        
+        list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "UIScrollView", storyboardName: "UIScrollView", identifier: nil))
+        list.append(YJPerformSegueModel(title: "UITableView", storyboardName: "UITableView", identifier: nil))
+        list.append(YJPerformSegueModel(title: "UICollectionView", storyboardName: "UICollectionView",
+            identifier: nil))
+        self.data.append(list)
     }
     
     // MARK: - UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.data.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.data[section].count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -37,13 +51,13 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
             cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
-        cell?.textLabel?.text = self.data[indexPath.row].title
+        cell?.textLabel?.text = self.data[indexPath.section][indexPath.row].title
         return cell!
     }
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.data[indexPath.row].performSegue(self)
+        self.data[indexPath.section][indexPath.row].performSegue(self)
     }
     
 }
