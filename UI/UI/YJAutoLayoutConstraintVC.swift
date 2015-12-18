@@ -15,24 +15,27 @@ class YJAutoLayoutConstraintVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 黄View
+        let yellowView = UIView()
+        yellowView.backgroundColor = UIColor.yellowColor()
+        self.view.addSubview(yellowView)
+        // 绿View
+        let greenView = UIView()
+        greenView.backgroundColor = UIColor.greenColor()
+        
+//        Yellow View.Leading = Superview.LeadingMargin
+//        Green View.Leading = Yellow View.Trailing + Standard
+//        Green View.Trailing = Superview.TrailingMargin
+//        Yellow View.Top = Top Layout Guide.Bottom + 20.0
+//        Green View.Top = Top Layout Guide.Bottom + 20.0
+//        Bottom Layout Guide.Top = Yellow View.Bottom + 20.0
+//        Bottom Layout Guide.Top = Green View.Bottom + 20.0
+//        Yellow View.Width = Green View.Width
+//        NSLayoutConstraint(item: <#T##AnyObject#>, attribute: <#T##NSLayoutAttribute#>, relatedBy: <#T##NSLayoutRelation#>, toItem: <#T##AnyObject?#>, attribute: <#T##NSLayoutAttribute#>, multiplier: <#T##CGFloat#>, constant: <#T##CGFloat#>)
 
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

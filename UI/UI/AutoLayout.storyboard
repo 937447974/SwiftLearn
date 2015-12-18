@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Auto Layout StoryboardVC-->
+        <!--View Controller-->
         <scene sceneID="gbn-NJ-ME9">
             <objects>
-                <viewController id="CRe-1W-kYs" customClass="YJAutoLayoutStoryboardVC" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CRe-1W-kYs" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hiq-CQ-Yj8"/>
                         <viewControllerLayoutGuide type="bottom" id="vk8-mk-Lgq"/>
@@ -16,7 +17,27 @@
                     <view key="view" contentMode="scaleToFill" id="G5X-vj-xCB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1p-0W-adA" userLabel="Yellow View">
+                                <rect key="frame" x="20" y="40" width="265" height="540"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7d9-Xj-Z5j" userLabel="Green View">
+                                <rect key="frame" x="315" y="40" width="265" height="540"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vk8-mk-Lgq" firstAttribute="top" secondItem="t1p-0W-adA" secondAttribute="bottom" constant="20" id="805-2p-yo3"/>
+                            <constraint firstItem="vk8-mk-Lgq" firstAttribute="top" secondItem="7d9-Xj-Z5j" secondAttribute="bottom" constant="20" id="Ci7-S9-MIX"/>
+                            <constraint firstItem="t1p-0W-adA" firstAttribute="top" secondItem="Hiq-CQ-Yj8" secondAttribute="bottom" constant="20" id="Dw2-oW-VeK"/>
+                            <constraint firstItem="7d9-Xj-Z5j" firstAttribute="top" secondItem="Hiq-CQ-Yj8" secondAttribute="bottom" constant="20" id="Ebz-QY-c8E"/>
+                            <constraint firstItem="7d9-Xj-Z5j" firstAttribute="leading" secondItem="t1p-0W-adA" secondAttribute="trailing" constant="30" id="FKY-wG-Kbk"/>
+                            <constraint firstItem="t1p-0W-adA" firstAttribute="leading" secondItem="G5X-vj-xCB" secondAttribute="leadingMargin" id="YTy-70-ESL"/>
+                            <constraint firstItem="7d9-Xj-Z5j" firstAttribute="width" secondItem="t1p-0W-adA" secondAttribute="width" id="pQL-3c-Nqa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7d9-Xj-Z5j" secondAttribute="trailing" id="tLS-YK-PW8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="liT-QV-3NZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
