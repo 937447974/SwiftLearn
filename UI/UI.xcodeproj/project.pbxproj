@@ -250,8 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				D4B3A6CF1C23ED1100460012 /* YJAutoLayoutTVC.swift */,
-				D4B3A6D31C23F28B00460012 /* YJAutoLayoutConstraintVC.swift */,
 				D4B3A6D51C23F2A200460012 /* YJAutoLayoutAnchorVC.swift */,
+				D4B3A6D31C23F28B00460012 /* YJAutoLayoutConstraintVC.swift */,
 			);
 			name = AutoLayout;
 			sourceTree = "<group>";

@@ -13,7 +13,15 @@ import UIKit
 
 /// NSLayoutAnchor 是IOS9推出的，优化NSLayoutConstraint
 class YJAutoLayoutAnchorVC: UIViewController {
-
+    
+    /*
+    NSLayoutAnchor，如constraintEqualToAnchor(anchor: NSLayoutAnchor!)
+    遵循的原则，在UI上，
+    1. 左边的View对应self，右边的View对应anchor；
+    2. 下面的View对应self，上面的View对应anchor。
+    结论就是：从右下到左上
+    */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,13 +40,6 @@ class YJAutoLayoutAnchorVC: UIViewController {
         greenView.translatesAutoresizingMaskIntoConstraints = false;
         
         // 3 设置约束
-        /*
-        NSLayoutAnchor，如constraintEqualToAnchor(anchor: NSLayoutAnchor!)
-        遵循的原则，在UI上，
-        1. 左边的View对应self，右边的View对应anchor；
-        2. 下面的View对应self，上面的View对应anchor。
-        结论就是：从右下到左上
-        */
         /* 约束伪代码
         Yellow View.Leading = Superview.Leading + 20.0
         Yellow View.Top = Top Layout Guide.Bottom + 20.0
@@ -67,8 +68,8 @@ class YJAutoLayoutAnchorVC: UIViewController {
         
         // 打印所有约束
         for constraint in self.view.constraints {
-//            print(constraint)
+            //            print(constraint)
         }
     }
-
+    
 }

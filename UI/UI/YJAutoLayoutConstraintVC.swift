@@ -14,6 +14,14 @@ import UIKit
 /// NSLayoutConstraint约束
 class YJAutoLayoutConstraintVC: UIViewController {
     
+    /*
+    NSLayoutConstraint(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
+    遵循的原则，在UI上，
+    1. 左边的View对应view1，右边的View对应view2；
+    2. 下面的View对应View1，上面的View对应View2。
+    结论就是：从右下到左上
+    */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1 添加View
@@ -31,13 +39,6 @@ class YJAutoLayoutConstraintVC: UIViewController {
         greenView.translatesAutoresizingMaskIntoConstraints = false;
         
         // 3 设置约束
-        /*
-        NSLayoutConstraint(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
-        遵循的原则，在UI上，
-        1. 左边的View对应view1，右边的View对应view2；
-        2. 下面的View对应View1，上面的View对应View2。
-        结论就是：从右下到左上
-        */
         /* 约束伪代码
         Yellow View.Leading = Superview.LeadingMargin
         Yellow View.Top = Top Layout Guide.Bottom + 20.0
