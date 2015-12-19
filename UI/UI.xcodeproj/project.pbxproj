@@ -34,6 +34,7 @@
 		D4B3A6D21C23ED6000460012 /* AutoLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B3A6D11C23ED6000460012 /* AutoLayout.storyboard */; };
 		D4B3A6D41C23F28B00460012 /* YJAutoLayoutConstraintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3A6D31C23F28B00460012 /* YJAutoLayoutConstraintVC.swift */; };
 		D4B3A6D61C23F2A200460012 /* YJAutoLayoutAnchorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3A6D51C23F2A200460012 /* YJAutoLayoutAnchorVC.swift */; };
+		D4B3A6DA1C2520BC00460012 /* YJCollectionViewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3A6D91C2520BC00460012 /* YJCollectionViewTVC.swift */; };
 		D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */; };
 		D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFB621C1C1E3800008921 /* YJMainVC.swift */; };
 		D4EFFC571C1C53E000008921 /* YJCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFC551C1C53E000008921 /* YJCollectionViewCell.swift */; };
@@ -92,6 +93,7 @@
 		D4B3A6D11C23ED6000460012 /* AutoLayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AutoLayout.storyboard; sourceTree = "<group>"; };
 		D4B3A6D31C23F28B00460012 /* YJAutoLayoutConstraintVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJAutoLayoutConstraintVC.swift; sourceTree = "<group>"; };
 		D4B3A6D51C23F2A200460012 /* YJAutoLayoutAnchorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJAutoLayoutAnchorVC.swift; sourceTree = "<group>"; };
+		D4B3A6D91C2520BC00460012 /* YJCollectionViewTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewTVC.swift; sourceTree = "<group>"; };
 		D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUICollectionViewVC.swift; sourceTree = "<group>"; };
 		D4EFFB621C1C1E3800008921 /* YJMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJMainVC.swift; sourceTree = "<group>"; };
 		D4EFFC551C1C53E000008921 /* YJCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -176,12 +178,12 @@
 		D4640E151C22615300F504F9 /* Stoaryboard */ = {
 			isa = PBXGroup;
 			children = (
+				D4B3A6D11C23ED6000460012 /* AutoLayout.storyboard */,
 				D4A8DBEA1C1A9CDE00BA8D84 /* LaunchScreen.storyboard */,
 				D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */,
 				D41A9F191C1E631B0092EAA1 /* UICollectionView.storyboard */,
 				D4640E101C225D5A00F504F9 /* UIScrollView.storyboard */,
 				D41A9F1B1C1E633D0092EAA1 /* UITableView.storyboard */,
-				D4B3A6D11C23ED6000460012 /* AutoLayout.storyboard */,
 			);
 			name = Stoaryboard;
 			sourceTree = "<group>";
@@ -292,6 +294,7 @@
 				D4EFFC561C1C53E000008921 /* YJCollectionViewCell.xib */,
 				D4EFFC591C1C55A900008921 /* YJCollectionViewFlowLayout.swift */,
 				D4EFFB5F1C1C1D0D00008921 /* YJUICollectionViewVC.swift */,
+				D4B3A6D91C2520BC00460012 /* YJCollectionViewTVC.swift */,
 			);
 			name = UICollectionView;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				D4EFFB601C1C1D0D00008921 /* YJUICollectionViewVC.swift in Sources */,
 				D4EFFC5A1C1C55A900008921 /* YJCollectionViewFlowLayout.swift in Sources */,
 				D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */,
+				D4B3A6DA1C2520BC00460012 /* YJCollectionViewTVC.swift in Sources */,
 				D4640E1A1C228C8C00F504F9 /* UIViewController+Extension.swift in Sources */,
 				D4512B8C1C213D4B00A77A65 /* YJSwitchTableViewCell.swift in Sources */,
 				D41A9FD71C1E9CB30092EAA1 /* UITableView+Extension.swift in Sources */,

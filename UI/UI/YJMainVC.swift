@@ -31,8 +31,7 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "UIScrollView", storyboardName: "UIScrollView", identifier: nil))
         list.append(YJPerformSegueModel(title: "UITableView", storyboardName: "UITableView", identifier: nil))
-        list.append(YJPerformSegueModel(title: "UICollectionView", storyboardName: "UICollectionView",
-            identifier: nil))
+        list.append(YJPerformSegueModel(title: "UICollectionView"){YJCollectionViewTVC(style: .Grouped)})
         self.data.append(list)
     }
     
