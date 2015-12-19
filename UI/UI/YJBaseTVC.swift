@@ -16,13 +16,14 @@ public class YJBaseTVC: UITableViewController {
     
     /// 数据源
     var data = [[YJPerformSegueModel]]()
+    var header = [String]()
     
     override public func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: - UITableViewDataSource
-    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.data.count
     }
     
@@ -38,6 +39,10 @@ public class YJBaseTVC: UITableViewController {
         }
         cell?.textLabel?.text = self.data[indexPath.section][indexPath.row].title
         return cell!
+    }
+    
+    override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.header.count > section ? self.header[section] : nil
     }
     
     // MARK: - UITableViewDelegate

@@ -13,7 +13,41 @@ class YJCollectionViewTVC: YJBaseTVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let cViewLayout = UICollectionViewLayout()
+        var list = [YJPerformSegueModel]()
+        var model = YJPerformSegueModel(title: "UICollectionViewDataSource") { () -> UIViewController? in
+            let vc = YJCollectionViewDataSourceVC(collectionViewLayout: cViewLayout)
+            vc.collectionView?.backgroundColor = UIColor.whiteColor()
+            return vc
+        }
+        list.append(model)
+        model = YJPerformSegueModel(title: "UICollectionViewDelegate") { () -> UIViewController? in
+            let vc = YJCollectionViewDelegateVC(collectionViewLayout: cViewLayout)
+            vc.collectionView?.backgroundColor = UIColor.whiteColor()
+            return vc
+        }
+        list.append(model)
+        self.data.append(list)
+        self.header.append("默认")
+        
+        list = [YJPerformSegueModel]()
+        model = YJPerformSegueModel(title: "UICollectionViewCell") { () -> UIViewController? in
+            let vc = YJCollectionViewCellVC(collectionViewLayout: cViewLayout)
+            vc.collectionView?.backgroundColor = UIColor.whiteColor()
+            return vc
+        }
+        list.append(model)
+        
+        model = YJPerformSegueModel(title: "UICollectionViewLayout") { () -> UIViewController? in
+            let vc = YJCollectionViewLayoutVC(collectionViewLayout: cViewLayout)
+            vc.collectionView?.backgroundColor = UIColor.whiteColor()
+            return vc
+        }
+        list.append(model)
+        self.data.append(list)
+        self.header.append("自定义")
+        
     }
 
 }
