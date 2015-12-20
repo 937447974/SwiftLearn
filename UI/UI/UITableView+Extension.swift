@@ -13,6 +13,7 @@ import UIKit
 
 public extension UITableView {
     
+    // MARK: - 去掉tableHeaderView
     /// 去掉tableHeaderView
     ///
     /// - returns: void
@@ -20,6 +21,7 @@ public extension UITableView {
         self.tableHeaderView = UIView(frame:  CGRectMake(0, 0, YJUtilScreenSize.screenWidth, 0.1))
     }
     
+    // MARK: - 去掉tableFooterView
     /// 去掉tableFooterView
     ///
     /// - returns: void

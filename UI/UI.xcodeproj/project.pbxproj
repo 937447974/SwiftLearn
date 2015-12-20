@@ -39,6 +39,7 @@
 		D4B3A6DE1C253E6E00460012 /* YJCollectionViewDelegateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3A6DD1C253E6E00460012 /* YJCollectionViewDelegateVC.swift */; };
 		D4B3A6E11C25405800460012 /* YJCollectionViewCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3A6E01C25405800460012 /* YJCollectionViewCellVC.swift */; };
 		D4B3A6E41C25424100460012 /* YJCollectionViewLayoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3A6E31C25424100460012 /* YJCollectionViewLayoutVC.swift */; };
+		D4B3A6F01C268EE300460012 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3A6EF1C268EE300460012 /* UICollectionView+Extension.swift */; };
 		D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFB621C1C1E3800008921 /* YJMainVC.swift */; };
 		D4EFFC571C1C53E000008921 /* YJCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFFC551C1C53E000008921 /* YJCollectionViewCell.swift */; };
 		D4EFFC581C1C53E000008921 /* YJCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EFFC561C1C53E000008921 /* YJCollectionViewCell.xib */; };
@@ -101,6 +102,7 @@
 		D4B3A6DD1C253E6E00460012 /* YJCollectionViewDelegateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewDelegateVC.swift; sourceTree = "<group>"; };
 		D4B3A6E01C25405800460012 /* YJCollectionViewCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewCellVC.swift; sourceTree = "<group>"; };
 		D4B3A6E31C25424100460012 /* YJCollectionViewLayoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewLayoutVC.swift; sourceTree = "<group>"; };
+		D4B3A6EF1C268EE300460012 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		D4EFFB621C1C1E3800008921 /* YJMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJMainVC.swift; sourceTree = "<group>"; };
 		D4EFFC551C1C53E000008921 /* YJCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4EFFC561C1C53E000008921 /* YJCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				D41A9FD61C1E9CB30092EAA1 /* UITableView+Extension.swift */,
 				D4640E191C228C8C00F504F9 /* UIViewController+Extension.swift */,
+				D4B3A6EF1C268EE300460012 /* UICollectionView+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				D4EFFC5A1C1C55A900008921 /* YJCollectionViewLayout.swift in Sources */,
 				D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */,
 				D4B3A6E11C25405800460012 /* YJCollectionViewCellVC.swift in Sources */,
+				D4B3A6F01C268EE300460012 /* UICollectionView+Extension.swift in Sources */,
 				D4B3A6DA1C2520BC00460012 /* YJCollectionViewTVC.swift in Sources */,
 				D4640E1A1C228C8C00F504F9 /* UIViewController+Extension.swift in Sources */,
 				D4512B8C1C213D4B00A77A65 /* YJSwitchTableViewCell.swift in Sources */,

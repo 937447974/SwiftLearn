@@ -30,27 +30,9 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
             self.data.append(list)
         }
         // 长点击事件，做移动cell操作
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: "handleLongGesture:")
-        self.collectionView.addGestureRecognizer(longPressGesture)
+        self.collectionView.allowsMoveItem()
     }
     
-    // MARK: - 长点击事件
-    func handleLongGesture(gesture: UILongPressGestureRecognizer) {
-        switch(gesture.state) {
-        case UIGestureRecognizerState.Began:
-            guard let selectedIndexPath = self.collectionView.indexPathForItemAtPoint(gesture.locationInView(self.collectionView)) else {
-                break
-            }
-            self.collectionView.beginInteractiveMovementForItemAtIndexPath(selectedIndexPath)
-        case UIGestureRecognizerState.Changed:
-            self.collectionView.updateInteractiveMovementTargetPosition(gesture.locationInView(gesture.view!))
-        case UIGestureRecognizerState.Ended:
-            self.collectionView.endInteractiveMovement()
-        default:
-            self.collectionView.cancelInteractiveMovement()
-        }
-    }
-
     // MARK: - UICollectionViewDataSource
     // MARK: 分组
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -67,7 +49,7 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
         cell.backgroundColor = UIColor.grayColor()
         if let label: UILabel = cell.viewWithTag(8) as? UILabel {
-            label.text = "\(indexPath.row)"
+            label.text = "\(indexPath.item)"
             
         }
         return cell
@@ -104,8 +86,8 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
         print(sourceIndexPath)
         print(destinationIndexPath)
         // 修改数据源
-        let temp = self.data[sourceIndexPath.section].removeAtIndex(sourceIndexPath.row)
-        self.data[destinationIndexPath.section].insert(temp, atIndex: destinationIndexPath.row)
+        let temp = self.data[sourceIndexPath.section].removeAtIndex(sourceIndexPath.item)
+        self.data[destinationIndexPath.section].insert(temp, atIndex: destinationIndexPath.item)
         print(self.data)
     }
 
