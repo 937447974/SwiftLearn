@@ -50,7 +50,6 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
         cell.backgroundColor = UIColor.grayColor()
         if let label: UILabel = cell.viewWithTag(8) as? UILabel {
             label.text = "\(indexPath.item)"
-            
         }
         return cell
     }
