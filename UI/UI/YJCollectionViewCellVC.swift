@@ -13,7 +13,8 @@ class YJCollectionViewCellVC: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        let nib = UINib(nibName: "YJCollectionViewCell", bundle: nil)
+//        self.collectionView.registerNib(nib, forCellWithReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
     }
 

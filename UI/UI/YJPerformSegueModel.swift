@@ -71,8 +71,8 @@ public class YJPerformSegueModel {
             if vc.view.backgroundColor == nil { // 无背景色时，设置背景色为默认白色
                 vc.view.backgroundColor = UIColor.whiteColor()
             }
-            if vc.title == nil { // 无标题时，使用当前标题
-                vc.title = self.title
+            if vc.navigationItem.title == nil { // 无标题时，使用当前标题
+                vc.navigationItem.title = self.title
             }
             source.navigationController?.pushViewController(vc, animated: true)
         } else if self.storyboardName != nil && self.identifier != nil { // push跳转到Storyboard中指定UIViewController

@@ -14,37 +14,15 @@ class YJCollectionViewTVC: YJBaseTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cViewLayout = UICollectionViewLayout()
         var list = [YJPerformSegueModel]()
-        var model = YJPerformSegueModel(title: "UICollectionViewDataSource") { () -> UIViewController? in
-            let vc = YJCollectionViewDataSourceVC(collectionViewLayout: cViewLayout)
-            vc.collectionView?.backgroundColor = UIColor.whiteColor()
-            return vc
-        }
-        list.append(model)
-        model = YJPerformSegueModel(title: "UICollectionViewDelegate") { () -> UIViewController? in
-            let vc = YJCollectionViewDelegateVC(collectionViewLayout: cViewLayout)
-            vc.collectionView?.backgroundColor = UIColor.whiteColor()
-            return vc
-        }
-        list.append(model)
+        list.append(YJPerformSegueModel(title: "UICollectionViewDataSource", storyboardName: nil, identifier: "DataSource"))
+        list.append(YJPerformSegueModel(title: "UICollectionViewDelegate", storyboardName: nil, identifier: "Delegate"))
         self.data.append(list)
         self.header.append("默认")
         
         list = [YJPerformSegueModel]()
-        model = YJPerformSegueModel(title: "UICollectionViewCell") { () -> UIViewController? in
-            let vc = YJCollectionViewCellVC(collectionViewLayout: cViewLayout)
-            vc.collectionView?.backgroundColor = UIColor.whiteColor()
-            return vc
-        }
-        list.append(model)
-        
-        model = YJPerformSegueModel(title: "UICollectionViewLayout") { () -> UIViewController? in
-            let vc = YJCollectionViewLayoutVC(collectionViewLayout: cViewLayout)
-            vc.collectionView?.backgroundColor = UIColor.whiteColor()
-            return vc
-        }
-        list.append(model)
+        list.append(YJPerformSegueModel(title: "UICollectionViewCell", storyboardName: nil, identifier: "Cell"))
+        list.append(YJPerformSegueModel(title: "UICollectionViewLayout", storyboardName: nil, identifier: "Layout"))
         self.data.append(list)
         self.header.append("自定义")
         

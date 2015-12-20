@@ -9,7 +9,7 @@
 import UIKit
 
 /// UICollectionViewDelegate
-class YJCollectionViewDelegateVC: UICollectionViewController {
+class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
