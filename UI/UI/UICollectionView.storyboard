@@ -126,6 +126,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="UICollectionViewDataSource" id="2Mv-SZ-8n3"/>
+                    <connections>
+                        <outlet property="collectionView" destination="VrX-jc-VJc" id="s7S-YS-LfA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Mi-Vx-mUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
