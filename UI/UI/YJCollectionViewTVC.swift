@@ -20,12 +20,12 @@ class YJCollectionViewTVC: YJBaseTVC {
         var list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "UICollectionViewDataSource", storyboardName: nil, identifier: "DataSource"))
         list.append(YJPerformSegueModel(title: "UICollectionViewDelegate", storyboardName: nil, identifier: "Delegate"))
+        list.append(YJPerformSegueModel(title: "UICollectionViewDelegateFlowLayout", storyboardName: nil, identifier: "DelegateFlowLayout"))
         self.data.append(list)
         self.header.append("默认")
         
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "UICollectionViewCell", storyboardName: nil, identifier: "Cell"))
-        list.append(YJPerformSegueModel(title: "UICollectionViewLayout", storyboardName: nil, identifier: "Layout"))
         self.data.append(list)
         self.header.append("自定义")
         
