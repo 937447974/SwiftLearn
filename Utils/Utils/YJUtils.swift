@@ -33,7 +33,7 @@ public struct YJUtilScreenSize {
     /// 屏幕最大长度
     static let screenMaxLength = max(YJUtilScreenSize.screenWidth, YJUtilScreenSize.screenHeight)
     /// 屏幕最小长度
-    static let screenMinLength = min(YJUtilScreenSize.screenMaxLength, YJUtilScreenSize.screenHeight)
+    static let screenMinLength = min(YJUtilScreenSize.screenWidth, YJUtilScreenSize.screenHeight)
     
 }
 

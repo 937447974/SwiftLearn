@@ -1,18 +1,14 @@
 //
-//  YJCollectionViewLayoutVC.swift
+//  YJCollectionViewDelegateFlowLayoutVC.swift
 //  UI
 //
-//  CSDN:http://blog.csdn.net/y550918116j
-//  GitHub:https://github.com/937447974/Blog
-//
-//  Created by yangjun on 15/12/19.
+//  Created by yangjun on 15/12/21.
 //  Copyright © 2015年 阳君. All rights reserved.
 //
 
 import UIKit
 
-/// 自定义UICollectionViewLayout
-class YJCollectionViewLayoutVC: UICollectionViewController {
+class YJCollectionViewDelegateFlowLayoutVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
