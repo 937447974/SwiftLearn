@@ -14,8 +14,8 @@ import UIKit
 /// 自定义UICollectionViewCell
 class YJCollectionViewCell: UICollectionViewCell {
 
-    /// 效果图
-    @IBOutlet weak var showView: UIView!
+    /// 显示内容
+    @IBOutlet weak var textLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

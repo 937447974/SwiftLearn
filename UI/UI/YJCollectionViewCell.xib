@@ -13,24 +13,24 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3K-xc-tzo">
-                        <rect key="frame" x="5" y="5" width="90" height="90"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgG-lC-cXi">
+                        <rect key="frame" x="31" y="41" width="38" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="A3K-xc-tzo" secondAttribute="bottom" constant="5" id="1Vj-aE-spO"/>
-                <constraint firstItem="A3K-xc-tzo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="7D0-c9-EJC"/>
-                <constraint firstItem="A3K-xc-tzo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="b4I-5c-HwE"/>
-                <constraint firstAttribute="trailing" secondItem="A3K-xc-tzo" secondAttribute="trailing" constant="5" id="fiV-xE-QIS"/>
+                <constraint firstItem="IgG-lC-cXi" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="I79-h9-Q81"/>
+                <constraint firstItem="IgG-lC-cXi" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="itE-4M-8kp"/>
             </constraints>
             <size key="customSize" width="94" height="68"/>
             <connections>
-                <outlet property="showView" destination="A3K-xc-tzo" id="8b5-Wg-q9A"/>
+                <outlet property="textLabel" destination="IgG-lC-cXi" id="Buw-x4-fcx"/>
             </connections>
-            <point key="canvasLocation" x="578" y="491"/>
+            <point key="canvasLocation" x="-85" y="370"/>
         </collectionViewCell>
     </objects>
 </document>
