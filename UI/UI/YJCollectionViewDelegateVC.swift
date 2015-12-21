@@ -18,18 +18,17 @@ private enum YJPrint {
     case TrackingTheAdditionAndRemovalOfViews
     case HandlingLayoutChanges
     case ManagingActionsForCells
-    case ManagingCollectionViewFocus
 }
 
 /// UICollectionViewDelegate
 class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
+    
     /// UICollectionView
     @IBOutlet weak var collectionView: UICollectionView!
     /// 数据源
     private var data = [[Int]]()
-    
-    private let yjPrint = YJPrint.HandlingLayoutChanges
+    /// 打印
+    private let yjPrint = YJPrint.ManagingActionsForCells
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +40,6 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
             }
             self.data.append(list)
         }
-        // 长点击事件，做移动cell操作
-        self.collectionView.allowsMoveItem()
     }
     
     // MARK: - UICollectionViewDataSource
@@ -65,7 +62,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
         cell.selectedBackgroundView?.backgroundColor = UIColor.redColor()
         return cell
     }
-
+    
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         var crView: UICollectionReusableView!
         if (kind == UICollectionElementKindSectionHeader) { // Header
@@ -82,32 +79,26 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
         return crView
     }
     
-    func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        // 修改数据源
-        let temp = self.data[sourceIndexPath.section].removeAtIndex(sourceIndexPath.item)
-        self.data[destinationIndexPath.section].insert(temp, atIndex: destinationIndexPath.item)
-    }
-    
     // MARK: - UICollectionViewDelegate
     // MARK: - Managing the Selected Cells
     // MARK: 是否选中某个item
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
         return true
     }
     // MARK: 选中某个item
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
     // MARK: 是否取消选中某个item
     func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
         return true
     }
@@ -115,7 +106,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 取消选中
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
@@ -123,7 +114,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 能否选中高亮
     func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.yjPrint == YJPrint.ManagingCellHighlighting {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
         return true
     }
@@ -131,14 +122,14 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 高亮
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingCellHighlighting {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
     // MARK: 高亮取消
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingCellHighlighting {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
@@ -146,14 +137,14 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: cell显示
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.TrackingTheAdditionAndRemovalOfViews {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
     // MARK: cell消失
     func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.TrackingTheAdditionAndRemovalOfViews {
-            print("\(__FUNCTION__)--\(indexPath)")
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
@@ -197,21 +188,38 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
         return proposedIndexPath
     }
     
-    
-    
-//
-//
-//    Handling Layout Changes
-//    Managing Actions for Cells
-//    Managing Collection View Focus
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Managing Actions for Cells
+    // MARK: 长按，是否将要显示Action菜单（剪切、拷贝、粘贴）
+    func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if self.yjPrint == YJPrint.ManagingActionsForCells {
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+        }
+        return true
     }
+    
+    // MARK: 长按，是否显示Action菜单（剪切、拷贝、粘贴）
+    func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+        if self.yjPrint == YJPrint.ManagingActionsForCells {
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}--\(sender)")
+        }
+        return true
+    }
+    
+    // MARK: 点击菜单中的某个选项
+    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+        if self.yjPrint == YJPrint.ManagingActionsForCells {
+            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}--\(sender)")
+        }
+    }
+    
+    // MARK: - Managing Collection View Focus，开发中用不到
+    /*
+    func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool
+    
+    func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool
+    
+    func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+    
+    func indexPathForPreferredFocusedViewInCollectionView(collectionView: UICollectionView) -> NSIndexPath?
     */
-
 }
