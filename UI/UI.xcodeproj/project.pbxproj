@@ -166,13 +166,13 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		D450BF0C1C28E29E00322717 /* UICollectionViewFlowLayout */ = {
+		D450BF0C1C28E29E00322717 /* UICollectionViewLayout */ = {
 			isa = PBXGroup;
 			children = (
 				D450BF0D1C28E2C300322717 /* YJCollectionViewFlowLayout.swift */,
 				D450BF0F1C28E36700322717 /* YJFlowLayoutCollectionVC.swift */,
 			);
-			name = UICollectionViewFlowLayout;
+			name = UICollectionViewLayout;
 			sourceTree = "<group>";
 		};
 		D4512B851C213C6300A77A65 /* UITableViewCell */ = {
@@ -292,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				D4B3A6DF1C25403E00460012 /* UICollectionViewCell */,
-				D450BF0C1C28E29E00322717 /* UICollectionViewFlowLayout */,
+				D450BF0C1C28E29E00322717 /* UICollectionViewLayout */,
 			);
 			name = Custom;
 			sourceTree = "<group>";

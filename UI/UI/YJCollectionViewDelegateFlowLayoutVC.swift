@@ -9,7 +9,7 @@
 import UIKit
 
 /// UICollectionViewDelegateFlowLayout
-class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     /// UICollectionView
     @IBOutlet weak var collectionView: UICollectionView!
@@ -79,22 +79,25 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
+    // MARK: 行间隔
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         print(__FUNCTION__)
         return 10
     }
     
+    // MARK: 列间隔
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         print(__FUNCTION__)
         return 10
     }
     
     // MARK: - Getting the Header and Footer Sizes
+    // MARK: Header显示
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         print(__FUNCTION__)
         return CGSize(width: collectionView.frame.width, height: 50)
     }
-    
+    // MARK: Footer显示
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         print(__FUNCTION__)
         return CGSize(width: collectionView.frame.width, height: 50)
