@@ -29,7 +29,7 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
             }
             self.data.append(list)
         }
-        // 长点击事件，做移动cell操作
+        // 使用手势移动Cell
         self.collectionView.allowsMoveItem()
     }
     
@@ -44,6 +44,7 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
         return self.data[section].count
     }
     
+    // MARK: - Getting Views for Items
     // MARK: 生成Cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
@@ -54,8 +55,7 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
         return cell
     }
     
-    
-    // MARK: - 生成Header或Footer
+    // MARK: 生成Header或Footer
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         print(__FUNCTION__)
         var crView: UICollectionReusableView!
@@ -73,13 +73,14 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
         return crView
     }
     
-    // MARK: - 能否移动
+    // MARK: - Reordering Items
+    // MARK: 能否移动
     func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         print(__FUNCTION__)
         return true
     }
     
-    // MARK: 移动cell
+    // MARK: 移动cell结束
     func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         print(__FUNCTION__)
         print(sourceIndexPath)
