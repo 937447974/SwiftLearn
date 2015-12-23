@@ -88,6 +88,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
         }
         return true
     }
+    
     // MARK: 选中某个item
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {

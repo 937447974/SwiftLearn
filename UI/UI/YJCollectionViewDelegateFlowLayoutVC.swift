@@ -2,6 +2,9 @@
 //  YJCollectionViewDelegateFlowLayoutVC.swift
 //  UI
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 15/12/21.
 //  Copyright © 2015年 阳君. All rights reserved.
 //
@@ -74,6 +77,7 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
     }
     
     // MARK: - Getting the Section Spacing
+    // MARK: 边间隔
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         print(__FUNCTION__)
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -97,6 +101,7 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
         print(__FUNCTION__)
         return CGSize(width: collectionView.frame.width, height: 50)
     }
+    
     // MARK: Footer显示
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         print(__FUNCTION__)

@@ -31,5 +31,4 @@ class YJCollectionViewCellVC: UICollectionViewController {
         return cell
     }
 
-
 }
