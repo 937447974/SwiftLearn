@@ -12,7 +12,7 @@ import UIKit
 public extension UICollectionView {
 
     // MARK: - 移动Item
-    /// 允许移动Item，默认不允许
+    /// 允许手势移动Item，默认不允许
     ///
     /// - returns: void
     func allowsMoveItem() {
