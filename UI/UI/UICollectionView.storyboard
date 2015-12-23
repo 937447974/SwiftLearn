@@ -41,6 +41,7 @@
                         <segue destination="1mV-66-iAd" kind="show" identifier="Cell" id="fkr-Ou-IaT"/>
                         <segue destination="VMF-9I-K4J" kind="show" identifier="Delegate" id="afk-tY-gLr"/>
                         <segue destination="3TF-KZ-xuv" kind="show" identifier="DelegateFlowLayout" id="c9q-LP-tTW"/>
+                        <segue destination="q6D-Tu-Fvn" kind="show" identifier="FlowLayout" id="VN5-Tl-hWE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdJ-mP-8Du" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,7 +159,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfo-XJ-1Av" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-566.5" y="1377.5"/>
+            <point key="canvasLocation" x="-820.5" y="1363.5"/>
         </scene>
         <!--UICollectionViewDelegate-->
         <scene sceneID="9NL-x4-Adj">
@@ -334,7 +335,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OU7-5m-fet" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.5" y="1377.5"/>
+            <point key="canvasLocation" x="244.5" y="1332.5"/>
+        </scene>
+        <!--UICollectionViewFlowLayout-->
+        <scene sceneID="dbR-m8-D3M">
+            <objects>
+                <collectionViewController id="q6D-Tu-Fvn" customClass="YJFlowLayoutCollectionVC" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VxK-N1-oxt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ghc-dK-6MS" customClass="YJCollectionViewFlowLayout" customModule="UI" customModuleProvider="target">
+                            <size key="itemSize" width="60" height="60"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="50" height="50"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="KBc-if-0uE">
+                            <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxC-Pl-nq3">
+                                    <rect key="frame" x="167" y="15" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="HxC-Pl-nq3" firstAttribute="centerX" secondItem="KBc-if-0uE" secondAttribute="centerX" id="6ci-RZ-X6z"/>
+                                <constraint firstItem="HxC-Pl-nq3" firstAttribute="centerY" secondItem="KBc-if-0uE" secondAttribute="centerY" id="6nk-gf-3Fo"/>
+                            </constraints>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="footer" id="cL5-Zp-Gsl">
+                            <rect key="frame" x="0.0" y="134" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="q6D-Tu-Fvn" id="Bnv-WU-yKs"/>
+                            <outlet property="delegate" destination="q6D-Tu-Fvn" id="a4O-Ex-5ha"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="UICollectionViewFlowLayout" id="GX8-nb-DVy"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m1L-Fz-Sdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329.5" y="1363.5"/>
         </scene>
     </scenes>
 </document>

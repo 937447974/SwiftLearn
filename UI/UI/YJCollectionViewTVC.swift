@@ -26,6 +26,7 @@ class YJCollectionViewTVC: YJBaseTVC {
         
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "UICollectionViewCell", storyboardName: nil, identifier: "Cell"))
+        list.append(YJPerformSegueModel(title: "UICollectionViewFlowLayout", storyboardName: nil, identifier: "FlowLayout"))
         self.data.append(list)
         self.header.append("自定义")
         
