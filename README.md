@@ -33,3 +33,7 @@ Photos Framework And PhotosUI Framework。
 # Utils
 
 常用工具
+
+# ViewRotation
+
+横竖屏适配
