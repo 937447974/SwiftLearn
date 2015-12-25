@@ -13,7 +13,34 @@ class YJDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // 监听设备方向
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedRotation",
+            name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    //通知监听触发的方法
+    func receivedRotation(){
+        switch UIDevice.currentDevice().orientation { // 屏幕方向
+        case UIDeviceOrientation.Unknown:
+            print("方向未知")
+        case .Portrait: // Device oriented vertically, home button on the bottom
+            print("屏幕直立")
+        case .PortraitUpsideDown: // Device oriented vertically, home button on the top
+            print("屏幕倒立")
+        case .LandscapeLeft: // Device oriented horizontally, home button on the right
+            print("屏幕左在上方")
+        case .LandscapeRight: // Device oriented horizontally, home button on the left
+            print("屏幕右在上方")
+        case .FaceUp: // Device oriented flat, face up
+            print("屏幕朝上")
+        case .FaceDown: // Device oriented flat, face down
+            print("屏幕朝下")
+        }
     }
 
     // MARK: - Configuring the View Rotation Settings
