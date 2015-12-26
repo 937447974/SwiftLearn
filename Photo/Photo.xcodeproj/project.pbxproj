@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D402A33C1C2D45AF0068003A /* YJPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A33A1C2D45AF0068003A /* YJPhotoCollectionViewCell.swift */; };
+		D402A33D1C2D45AF0068003A /* YJPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D402A33B1C2D45AF0068003A /* YJPhotoCollectionViewCell.xib */; };
+		D402A3401C2D4BA00068003A /* YJUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A33F1C2D4BA00068003A /* YJUtils.swift */; };
+		D402A3421C2E9E3E0068003A /* PHCollectionList+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A3411C2E9E3E0068003A /* PHCollectionList+Extension.swift */; };
+		D402A3441C2EA1570068003A /* PHAssetCollection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A3431C2EA1570068003A /* PHAssetCollection+Extension.swift */; };
 		D41C08981C16D9CB0002464F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C08971C16D9CB0002464F /* AppDelegate.swift */; };
 		D41C089D1C16D9CB0002464F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41C089B1C16D9CB0002464F /* Main.storyboard */; };
 		D41C089F1C16D9CB0002464F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41C089E1C16D9CB0002464F /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D402A33A1C2D45AF0068003A /* YJPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		D402A33B1C2D45AF0068003A /* YJPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		D402A33F1C2D4BA00068003A /* YJUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtils.swift; sourceTree = "<group>"; };
+		D402A3411C2E9E3E0068003A /* PHCollectionList+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHCollectionList+Extension.swift"; sourceTree = "<group>"; };
+		D402A3431C2EA1570068003A /* PHAssetCollection+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssetCollection+Extension.swift"; sourceTree = "<group>"; };
 		D41C08941C16D9CB0002464F /* Photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41C08971C16D9CB0002464F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D41C089C1C16D9CB0002464F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +86,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D402A3361C2D455C0068003A /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D402A33A1C2D45AF0068003A /* YJPhotoCollectionViewCell.swift */,
+				D402A33B1C2D45AF0068003A /* YJPhotoCollectionViewCell.xib */,
+			);
+			name = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		D402A3391C2D45790068003A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D41C089B1C16D9CB0002464F /* Main.storyboard */,
+				D41C08A01C16D9CB0002464F /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		D402A33E1C2D4B7D0068003A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D402A33F1C2D4BA00068003A /* YJUtils.swift */,
+				D402A3411C2E9E3E0068003A /* PHCollectionList+Extension.swift */,
+				D402A3431C2EA1570068003A /* PHAssetCollection+Extension.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		D41C088B1C16D9CB0002464F = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +139,9 @@
 			children = (
 				D41C08971C16D9CB0002464F /* AppDelegate.swift */,
 				D41C08C51C16DA0E0002464F /* ViewController */,
+				D402A33E1C2D4B7D0068003A /* Utils */,
 				D41C08CA1C16DA2D0002464F /* View */,
+				D402A3391C2D45790068003A /* Storyboard */,
 				D41C08CB1C16DA3F0002464F /* Resources */,
 			);
 			path = Photo;
@@ -137,8 +177,7 @@
 		D41C08CA1C16DA2D0002464F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D41C089B1C16D9CB0002464F /* Main.storyboard */,
-				D41C08A01C16D9CB0002464F /* LaunchScreen.storyboard */,
+				D402A3361C2D455C0068003A /* CollectionViewCell */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -214,6 +253,7 @@
 		D41C088C1C16D9CB0002464F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "阳君";
@@ -258,6 +298,7 @@
 			files = (
 				D41C08A21C16D9CB0002464F /* LaunchScreen.storyboard in Resources */,
 				D41C089F1C16D9CB0002464F /* Assets.xcassets in Resources */,
+				D402A33D1C2D45AF0068003A /* YJPhotoCollectionViewCell.xib in Resources */,
 				D41C089D1C16D9CB0002464F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +326,10 @@
 			files = (
 				D41C08C91C16DA1B0002464F /* YJPhotosVC.swift in Sources */,
 				D41C08C81C16DA1B0002464F /* YJPhotoAlbumsVC.swift in Sources */,
+				D402A3421C2E9E3E0068003A /* PHCollectionList+Extension.swift in Sources */,
+				D402A3401C2D4BA00068003A /* YJUtils.swift in Sources */,
+				D402A33C1C2D45AF0068003A /* YJPhotoCollectionViewCell.swift in Sources */,
+				D402A3441C2EA1570068003A /* PHAssetCollection+Extension.swift in Sources */,
 				D41C08981C16D9CB0002464F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +474,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Photo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -440,6 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Photo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

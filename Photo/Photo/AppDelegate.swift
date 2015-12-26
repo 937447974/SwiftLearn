@@ -12,11 +12,6 @@
 import UIKit
 import Photos
 
-/// 屏幕高度
-let UIScreenHeight = UIScreen.mainScreen().bounds.size.height
-/// 屏幕宽度
-let UIScreenWidth = UIScreen.mainScreen().bounds.size.width
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

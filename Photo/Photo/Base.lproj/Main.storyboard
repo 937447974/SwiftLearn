@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="U5d-6y-4hn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="U5d-6y-4hn">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -13,7 +13,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="TP9-lQ-XOh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
@@ -33,7 +32,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CKR-xM-unt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="Mcf-wD-Z99" kind="relationship" relationship="rootViewController" id="ML6-nA-vQC"/>
@@ -54,10 +52,39 @@
                     <view key="view" contentMode="scaleToFill" id="hHE-hZ-2XM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="389-mC-RMi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A7b-Jd-Pd0">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="GxK-eU-DMd">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mcf-wD-Z99" id="Wwv-hC-s8z"/>
+                                    <outlet property="delegate" destination="Mcf-wD-Z99" id="AQs-Mv-YBO"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="389-mC-RMi" firstAttribute="height" secondItem="hHE-hZ-2XM" secondAttribute="height" id="0dw-SM-uBM"/>
+                            <constraint firstItem="389-mC-RMi" firstAttribute="width" secondItem="hHE-hZ-2XM" secondAttribute="width" id="4Np-77-kLa"/>
+                            <constraint firstItem="389-mC-RMi" firstAttribute="centerY" secondItem="hHE-hZ-2XM" secondAttribute="centerY" id="IOg-c2-Qma"/>
+                            <constraint firstItem="389-mC-RMi" firstAttribute="centerX" secondItem="hHE-hZ-2XM" secondAttribute="centerX" id="eel-8u-RMJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="时刻" id="5US-rh-qYV"/>
+                    <connections>
+                        <outlet property="collectionView" destination="389-mC-RMi" id="g7b-Yv-LFP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbL-B0-5w5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +98,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3rm-z2-S05">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="PpR-UA-kEg" kind="relationship" relationship="rootViewController" id="yPn-If-s4u"/>
@@ -95,7 +121,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VQu-B7-3my">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="PpR-UA-kEg" id="Vpe-zU-iOV"/>
@@ -103,7 +128,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VQu-B7-3my" firstAttribute="centerY" secondItem="Hng-se-FOm" secondAttribute="centerY" id="MWZ-cY-OjM"/>
