@@ -29,6 +29,8 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     @IBOutlet weak var collectionView: UICollectionView!
     /// 数据源
     private var data = [[PHAsset]]()
+    /// section标题
+    private var sectionHeaders = [String]()
     /// 当前显示Tag
     private var dataTag = YJTag.All
     /// 缓存工具
@@ -100,6 +102,7 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
         }
         // 数据源处理
         self.data.removeAll()
+        self.sectionHeaders.removeAll()
         fetchResult.enumerateObjectsUsingBlock { (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
             var assets = [PHAsset]()
             if let assetCollection = obj as? PHAssetCollection {
@@ -109,6 +112,7 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
             }
             if assets.count != 0 {
                 self.data.append(assets)
+                self.sectionHeaders.append(obj.localizedTitle)
                 // 缓存照片
                 self.cIManager.startCachingImagesForAssets(assets, targetSize: self.targetSize, contentMode: PHImageContentMode.Default, options: nil)
             }
@@ -161,6 +165,18 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
             cell.imageView.image = image
         })
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        var crView: UICollectionReusableView!
+        if (kind == UICollectionElementKindSectionHeader) { // Header
+            crView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+            // 标题
+            if let label: UILabel = crView.viewWithTag(8) as? UILabel {
+                label.text = "\(self.sectionHeaders[indexPath.section])(\(self.data[indexPath.section].count))"
+            }
+        }
+        return crView
     }
     
 }
