@@ -42,6 +42,7 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "onClickAddCollectionList")
         // 注册监听
         PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
         // 数据源
@@ -53,6 +54,31 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
+    }
+    
+    // MARK: - Action
+    // MARK: 创建相薄
+    func onClickAddCollectionList() {
+        let alertController = UIAlertController(title: "新相薄", message: nil, preferredStyle: .Alert)
+        alertController.addTextFieldWithConfigurationHandler { (textField: UITextField) -> Void in
+            textField.placeholder = "相薄名"
+        }
+        alertController.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "创建", style: .Default, handler: { (action: UIAlertAction) -> Void in
+            if let title = alertController.textFields?.first?.text {
+                let changeBlock: dispatch_block_t = {
+                    // 创建相薄
+                    PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(title)
+                }
+                let completionHandler = { (success: Bool, error: NSError?) -> Void in
+                    if !success {
+                        print(error)
+                    }
+                }
+                PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+            }
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     // MARK: - 刷新数据
