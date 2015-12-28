@@ -54,9 +54,8 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
         self.reloadData() // 刷新
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
+    deinit {
+         PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
     }
     
     // MARK: - Action
@@ -135,6 +134,15 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
         }
     }
     
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? YJAssetCollectionVC {
+            if let assectCollection = sender as? PHAssetCollection {
+                vc.assectCollection = assectCollection
+            }
+        }
+    }
+    
     // MARK: -  UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.data.count
@@ -195,4 +203,9 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
         return [delete, rename]
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let sender = self.sectionFetchResults[indexPath.section][indexPath.row]
+        self.performSegueWithIdentifier("AssetCollection", sender: sender)
+    }
+
 }

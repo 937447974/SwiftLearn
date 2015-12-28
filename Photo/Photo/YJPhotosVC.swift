@@ -46,11 +46,12 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
         // 注册cell
         let nib = UINib(nibName: YJPhotoCollectionViewCellNibName, bundle: nil)
         self.collectionView.registerNib(nib, forCellWithReuseIdentifier: "photoCell")
+        // 照片库监听
+        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
         // 监听设备方向
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedRotation",
             name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -58,8 +59,11 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    deinit {
+        PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
     }
     
     // MARK: - NSNotificationCenter
