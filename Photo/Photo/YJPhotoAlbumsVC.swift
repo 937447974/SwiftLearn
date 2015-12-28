@@ -43,6 +43,9 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "onClickAddCollectionList")
+        // 注册cell
+        let nib = UINib(nibName: YJPhotoTableViewCellNibName, bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "photoCell")
         // 注册监听
         PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
         // 数据源
@@ -78,7 +81,7 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
         self.data.removeAll()
         self.dataTitleForHeader.removeAll()
         self.dataFetchResults.removeAll()
-        let sectionLocalizedTitles = ["智能相册", "专辑"] // 组标题
+        let sectionLocalizedTitles = ["系统相册", "自定义相册"] // 组标题
         var array = [YJPhotoAlbumsCellModel]() // 相薄集合
         let imageManager = PHImageManager.defaultManager() // 照片管理器
         let targetSize = CGSizeMake(70, 70) // 图片显示大小
@@ -97,7 +100,7 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
                 cellModel.detailText = "\(phAssetFetchResult.count)"
                 // 显示最后一张照片
                 if let asset: PHAsset = phAssetFetchResult.lastObject as? PHAsset {
-                    imageManager.requestImageForAsset(asset, targetSize: targetSize, contentMode: PHImageContentMode.AspectFit, options: nil, resultHandler: { (image: UIImage?, info: [NSObject : AnyObject]?) -> Void in
+                    imageManager.requestImageForAsset(asset, targetSize: targetSize, contentMode: PHImageContentMode.AspectFill, options: nil, resultHandler: { (image: UIImage?, info: [NSObject : AnyObject]?) -> Void in
                         cellModel.image = image
                     })
                 }
@@ -142,17 +145,12 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell")
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "tableViewCell")
-            cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            cell?.textLabel?.font = UIFont.systemFontOfSize(18)
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("photoCell") as! YJPhotoTableViewCell
         let cellModel = self.data[indexPath.section][indexPath.row]
-        cell?.imageView?.image = cellModel.image
-        cell!.textLabel?.text = cellModel.text
-        cell!.detailTextLabel?.text = cellModel.detailText
-        return cell!
+        cell.photoImageView.image = cellModel.image
+        cell.titleLabel.text = cellModel.text
+        cell.countLabel.text = cellModel.detailText
+        return cell
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -12,6 +12,8 @@
 		D402A3401C2D4BA00068003A /* YJUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A33F1C2D4BA00068003A /* YJUtils.swift */; };
 		D402A3421C2E9E3E0068003A /* PHCollectionList+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A3411C2E9E3E0068003A /* PHCollectionList+Extension.swift */; };
 		D402A3441C2EA1570068003A /* PHAssetCollection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A3431C2EA1570068003A /* PHAssetCollection+Extension.swift */; };
+		D402A3471C31201A0068003A /* YJPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402A3451C31201A0068003A /* YJPhotoTableViewCell.swift */; };
+		D402A3481C31201A0068003A /* YJPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D402A3461C31201A0068003A /* YJPhotoTableViewCell.xib */; };
 		D41C08981C16D9CB0002464F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C08971C16D9CB0002464F /* AppDelegate.swift */; };
 		D41C089D1C16D9CB0002464F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41C089B1C16D9CB0002464F /* Main.storyboard */; };
 		D41C089F1C16D9CB0002464F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41C089E1C16D9CB0002464F /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		D402A33F1C2D4BA00068003A /* YJUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtils.swift; sourceTree = "<group>"; };
 		D402A3411C2E9E3E0068003A /* PHCollectionList+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHCollectionList+Extension.swift"; sourceTree = "<group>"; };
 		D402A3431C2EA1570068003A /* PHAssetCollection+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssetCollection+Extension.swift"; sourceTree = "<group>"; };
+		D402A3451C31201A0068003A /* YJPhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJPhotoTableViewCell.swift; sourceTree = "<group>"; };
+		D402A3461C31201A0068003A /* YJPhotoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJPhotoTableViewCell.xib; sourceTree = "<group>"; };
 		D41C08941C16D9CB0002464F /* Photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41C08971C16D9CB0002464F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D41C089C1C16D9CB0002464F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		D402A3491C3120200068003A /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D402A3451C31201A0068003A /* YJPhotoTableViewCell.swift */,
+				D402A3461C31201A0068003A /* YJPhotoTableViewCell.xib */,
+			);
+			name = UITableViewCell;
+			sourceTree = "<group>";
+		};
 		D41C088B1C16D9CB0002464F = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 		D41C08CA1C16DA2D0002464F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D402A3491C3120200068003A /* UITableViewCell */,
 				D402A3361C2D455C0068003A /* CollectionViewCell */,
 			);
 			name = View;
@@ -300,6 +314,7 @@
 				D41C089F1C16D9CB0002464F /* Assets.xcassets in Resources */,
 				D402A33D1C2D45AF0068003A /* YJPhotoCollectionViewCell.xib in Resources */,
 				D41C089D1C16D9CB0002464F /* Main.storyboard in Resources */,
+				D402A3481C31201A0068003A /* YJPhotoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +344,7 @@
 				D402A3421C2E9E3E0068003A /* PHCollectionList+Extension.swift in Sources */,
 				D402A3401C2D4BA00068003A /* YJUtils.swift in Sources */,
 				D402A33C1C2D45AF0068003A /* YJPhotoCollectionViewCell.swift in Sources */,
+				D402A3471C31201A0068003A /* YJPhotoTableViewCell.swift in Sources */,
 				D402A3441C2EA1570068003A /* PHAssetCollection+Extension.swift in Sources */,
 				D41C08981C16D9CB0002464F /* AppDelegate.swift in Sources */,
 			);
