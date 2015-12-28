@@ -161,7 +161,7 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("photoCell", forIndexPath: indexPath) as! YJPhotoCollectionViewCell
         let asset = self.data[indexPath.section][indexPath.item]
-        self.cIManager.requestImageForAsset(asset, targetSize: self.targetSize, contentMode: PHImageContentMode.AspectFit, options: nil, resultHandler: { (image: UIImage?, info: [NSObject : AnyObject]?) -> Void in
+        self.cIManager.requestImageForAsset(asset, targetSize: self.targetSize, contentMode: PHImageContentMode.Default, options: nil, resultHandler: { (image: UIImage?, info: [NSObject : AnyObject]?) -> Void in
             cell.imageView.image = image
         })
         return cell
