@@ -39,6 +39,30 @@ public extension PHAssetCollection {
         return assets
     }
     
+    // MARK: 存储照片
+    /// 存储照片
+    ///
+    /// - parameter image: 图片
+    ///
+    /// - returns: void
+    func creationAssetFromImage(image: UIImage) {
+        let changeBlock: dispatch_block_t = {
+            let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
+            guard let placeholderForCreatedAsset = assetChangeRequest.placeholderForCreatedAsset else {
+                // 照片生成出错
+                print("PHAssetCollection \(__FUNCTION__)")
+                return
+            }
+            guard let aCChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self) else {
+                print("PHAssetCollection \(__FUNCTION__)")
+                return
+            }
+            // 保存照片
+            aCChangeRequest.addAssets([placeholderForCreatedAsset])
+        }
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+    }
+    
     // MARK: - 创建相薄
     /// 创建相薄
     ///

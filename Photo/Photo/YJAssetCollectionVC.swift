@@ -15,7 +15,12 @@ private let reuseIdentifier = "photoCell"
 class YJAssetCollectionVC: UICollectionViewController, PHPhotoLibraryChangeObserver {
     
     /// PHAssetCollection集合
-    var assectCollection: PHAssetCollection!
+    var assectCollection: PHAssetCollection! {
+        didSet {
+            self.data = assectCollection.fetchAssetsWithOptions(nil)
+            self.collectionView!.reloadData()
+        }
+    }
     /// 数据源
     private var data = [PHAsset]()
 
@@ -29,35 +34,46 @@ class YJAssetCollectionVC: UICollectionViewController, PHPhotoLibraryChangeObser
         let nib = UINib(nibName: YJPhotoCollectionViewCellNibName, bundle: nil)
         self.collectionView!.registerNib(nib, forCellWithReuseIdentifier: reuseIdentifier)
         PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self) // 监听照片库
-        self.data = self.assectCollection.fetchAssetsWithOptions(nil)
     }
     
     deinit {
         PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
     }
+    
+    // MARK: - 允许增加照片
+    func allowAddPhoto() {
+       self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "onClickAddPhoto")
+    }
+    
+    // MARK: 增加照片
+    func onClickAddPhoto() {
+        let rect = CGRect(x: 0, y: 0, width: 400, height: 400)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.mainScreen().scale)
+        UIColor.greenColor().setFill()
+        UIRectFillUsingBlendMode(rect, CGBlendMode.Normal)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.assectCollection.creationAssetFromImage(image)
+    }
 
     // MARK: - PHPhotoLibraryChangeObserver
     func photoLibraryDidChange(changeInstance: PHChange) {
         print(__FUNCTION__)
-        if let changeDetails = changeInstance.changeDetailsForObject(self.assectCollection) {
+        let changeDetails = changeInstance.changeDetailsForObject(self.assectCollection)
+        if let assectCollection = changeDetails?.objectAfterChanges as? PHAssetCollection {
             // 修改数据源
-            self.assectCollection = changeDetails.objectAfterChanges as! PHAssetCollection
-            self.data = self.assectCollection.fetchAssetsWithOptions(nil)
-            // 刷新UI
-            dispatch_async(dispatch_get_main_queue()) { self.collectionView!.reloadData() }
+            dispatch_async(dispatch_get_main_queue()) { self.assectCollection = assectCollection}
         }
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destinationViewController as? YJAssetVC {
+            vc.assetCollection = self.assectCollection // 相册
+            let indexPath = sender as! NSIndexPath
+            vc.asset = self.data[indexPath.item] // 相片
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -73,4 +89,8 @@ class YJAssetCollectionVC: UICollectionViewController, PHPhotoLibraryChangeObser
         return cell
     }
 
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("Asset", sender: indexPath)
+    }
+    
 }

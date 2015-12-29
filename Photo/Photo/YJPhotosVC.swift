@@ -52,6 +52,7 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.tabBarController?.tabBar.hidden = false
         // 监听设备方向
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedRotation",
             name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -60,8 +61,9 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
+        self.tabBarController?.tabBar.hidden = true
     }
-    
+
     deinit {
         PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
     }

@@ -40,6 +40,7 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
     /// tableView数据源对应的PHAssetCollection集合
     private var dataFetchResults = [PHFetchResult]()
     
+    // MARK: - viewDid
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "onClickAddCollectionList")
@@ -52,6 +53,16 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
         self.sectionFetchResults.append(PHAssetCollection.fetchAssetCollectionsWithType(PHAssetCollectionType.SmartAlbum, subtype: PHAssetCollectionSubtype.AlbumRegular, options: nil)) // 智能相册
         self.sectionFetchResults.append(PHAssetCollection.fetchTopLevelUserCollectionsWithOptions(nil)) // 自定义相册
         self.reloadData() // 刷新
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.tabBarController?.tabBar.hidden = true
     }
     
     deinit {
@@ -137,8 +148,11 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? YJAssetCollectionVC {
-            if let assectCollection = sender as? PHAssetCollection {
-                vc.assectCollection = assectCollection
+            if let indexPath = sender as? NSIndexPath {
+                vc.assectCollection = self.sectionFetchResults[indexPath.section][indexPath.row] as! PHAssetCollection
+                if indexPath.section == 1 {
+                    vc.allowAddPhoto() //允许增加照片
+                }
             }
         }
     }
@@ -204,8 +218,7 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let sender = self.sectionFetchResults[indexPath.section][indexPath.row]
-        self.performSegueWithIdentifier("AssetCollection", sender: sender)
+        self.performSegueWithIdentifier("AssetCollection", sender: indexPath)
     }
 
 }
