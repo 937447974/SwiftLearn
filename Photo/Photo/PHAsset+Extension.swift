@@ -22,7 +22,7 @@ public extension PHAsset {
     /// - parameter assetCollection : 执行回调
     ///
     /// - returns: void
-    func deleteWithPHAssetCollection(assetCollection: PHAssetCollection?, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
+    func deleteWithPHAssetCollection(assetCollection: PHAssetCollection?, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             if assetCollection == nil { // 直接删除
                 PHAssetChangeRequest.deleteAssets([self])
@@ -41,7 +41,7 @@ public extension PHAsset {
     /// - parameter completionHandler : 执行完毕回调
     ///
     /// - returns: void
-    func setFavorite(favorite: Bool, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
+    func setFavorite(favorite: Bool, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             let request = PHAssetChangeRequest(forAsset: self)
             request.favorite = favorite
@@ -50,5 +50,3 @@ public extension PHAsset {
     }
     
 }
-
-

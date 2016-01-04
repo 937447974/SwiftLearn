@@ -38,7 +38,7 @@ public extension PHAssetCollection {
     /// - parameter image: 图片
     ///
     /// - returns: void
-    func creationAssetFromImage(image: UIImage, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
+    func creationAssetFromImage(image: UIImage, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
             guard let placeholderForCreatedAsset = assetChangeRequest.placeholderForCreatedAsset else {
@@ -62,7 +62,7 @@ public extension PHAssetCollection {
     /// - parameter title: 相薄名
     ///
     /// - returns: void
-    class func creationWithTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
+    class func creationWithTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(title)
         }
@@ -75,7 +75,7 @@ public extension PHAssetCollection {
     /// - parameter title: 相薄名
     ///
     /// - returns: void
-    func renameLocalizedTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
+    func renameLocalizedTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             let aCChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self)
             aCChangeRequest?.title = title
@@ -87,7 +87,7 @@ public extension PHAssetCollection {
     /// 删除专辑
     ///
     /// - returns: void
-    func deletes(completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
+    func deletes(completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             PHAssetCollectionChangeRequest.deleteAssetCollections([self])
         }

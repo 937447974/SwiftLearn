@@ -16,7 +16,7 @@ import Photos
 public typealias PHPhotoLibraryCompletionHandlerBlock = (Bool, NSError?) -> Void
 
 /// CompletionHandler输出
-public let PHAssetCompletionHandler: PHPhotoLibraryCompletionHandlerBlock = { (success: Bool, error: NSError?) -> Void in
+public let PHPhotoLibraryCompletionHandler: PHPhotoLibraryCompletionHandlerBlock = { (success: Bool, error: NSError?) -> Void in
     if !success {
         print(error)
     }
