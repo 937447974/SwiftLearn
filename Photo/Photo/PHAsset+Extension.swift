@@ -34,6 +34,21 @@ public extension PHAsset {
         PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
     }
     
+    // MARK: - 收藏图片
+    /// 收藏图片
+    ///
+    /// - parameter favorite : 是否收藏
+    /// - parameter completionHandler : 执行完毕回调
+    ///
+    /// - returns: void
+    func setFavorite(favorite: Bool, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
+        let changeBlock: dispatch_block_t = {
+            let request = PHAssetChangeRequest(forAsset: self)
+            request.favorite = favorite
+        }
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+    }
+    
 }
 
 

@@ -2,6 +2,9 @@
 //  YJAssetVC.swift
 //  Photo
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 15/12/28.
 //  Copyright © 2015年 阳君. All rights reserved.
 //
@@ -11,7 +14,7 @@ import Photos
 import PhotosUI
 
 /// 照片或视频
-class YJAssetVC: UIViewController, PHLivePhotoViewDelegate {
+class YJAssetVC: UIViewController, PHLivePhotoViewDelegate, PHPhotoLibraryChangeObserver {
     
     /// 相册
     var assetCollection: PHAssetCollection?
@@ -25,14 +28,36 @@ class YJAssetVC: UIViewController, PHLivePhotoViewDelegate {
     private var playing = false
     /// 播放视频
     private var playerLayer: AVPlayerLayer?;
-
+    
     // MARK: - viewDid
     override func viewDidLoad() {
         super.viewDidLoad()
         self.livePhotoView.delegate = self
         self.reloadUI()
+        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self) // 监听照片库
     }
-
+    
+    deinit {
+        PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
+    }
+    
+    // MARK: - PHPhotoLibraryChangeObserver
+    func photoLibraryDidChange(changeInstance: PHChange) {
+        print(__FUNCTION__)
+        let changeDetails = changeInstance.changeDetailsForObject(self.asset)
+        if let assectCollection = changeDetails?.objectAfterChanges as? PHAsset {
+            self.asset = assectCollection
+            self.playerLayer = nil;
+            if changeDetails!.assetContentChanged {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.playerLayer?.removeFromSuperlayer()
+                    self.playerLayer = nil;
+                    self.reloadImage()
+                })
+            }
+        }
+    }
+    
     // MARK: - reload
     // MARK: 刷新UI
     private func reloadUI() {
@@ -55,7 +80,7 @@ class YJAssetVC: UIViewController, PHLivePhotoViewDelegate {
         }
         // 能否编辑
         if self.asset.canPerformEditOperation(.Properties) || self.asset.canPerformEditOperation(.Content) {
-            rightItems.append(UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onClickEdit"))
+            rightItems.append(UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onClickEdit:"))
         }
         self.navigationItem.rightBarButtonItems = rightItems
     }
@@ -113,8 +138,35 @@ class YJAssetVC: UIViewController, PHLivePhotoViewDelegate {
     }
     
     // MARK: 编辑
-    func onClickEdit() {
-        
+    func onClickEdit(sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        // 是否收藏
+        if self.asset.canPerformEditOperation(.Properties) {
+            let favoriteActionTitle = self.asset.favorite ? "取消收藏" : "收藏"
+            alertController.addAction(UIAlertAction(title: favoriteActionTitle, style: .Default, handler: { (action: UIAlertAction) -> Void in
+                self.asset.setFavorite(!self.asset.favorite)
+            }))
+        }
+        //  PHAsset支持编辑内容，且是一张普通照片，不是一张生活照片
+        if self.asset.canPerformEditOperation(.Content) && self.asset.mediaType == PHAssetMediaType.Image && self.asset.mediaSubtypes != PHAssetMediaSubtype.PhotoLive {
+            alertController.addAction(UIAlertAction(title: "深褐色", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                self.applyFilterWithName("CISepiaTone")
+            }))
+            alertController.addAction(UIAlertAction(title: "浅褐色", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                self.applyFilterWithName("CIPhotoEffectChrome")
+            }))
+            alertController.addAction(UIAlertAction(title: "恢复原始状态", style: .Default, handler: { (action: UIAlertAction) -> Void in
+                self.revertToOriginal()
+            }))
+        }
+        // 取消按钮
+        alertController.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+        if YJUtilUserInterfaceIdiom.isPad {
+            alertController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            alertController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+            alertController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.Up
+        }
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     // MARK: 播放
@@ -148,10 +200,71 @@ class YJAssetVC: UIViewController, PHLivePhotoViewDelegate {
         print(__FUNCTION__)
         self.playing = true
     }
-        
+    
     func livePhotoView(livePhotoView: PHLivePhotoView, didEndPlaybackWithStyle playbackStyle: PHLivePhotoViewPlaybackStyle) {
         print(__FUNCTION__)
         self.playing = false
     }
-
+    
+    // MARK: - Target Action Methods.
+    // MARK: 恢复原始状态
+    private func revertToOriginal() {
+        let changeBlock: dispatch_block_t = {
+            let request = PHAssetChangeRequest(forAsset: self.asset)
+            request.revertAssetContentToOriginal()
+        }
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock) { (success: Bool, error: NSError?) -> Void in
+            if !success {
+                print(error)
+            }
+        }
+    }
+    
+    private func applyFilterWithName(filterName: String) {
+        let options = PHContentEditingInputRequestOptions()
+        options.canHandleAdjustmentData = { (adjustmentData: PHAdjustmentData) -> Bool in
+            return adjustmentData.formatIdentifier == "com.Photo" && adjustmentData.formatVersion == "1.0"
+        }
+        self.asset.requestContentEditingInputWithOptions(options) { (contentEditingInput: PHContentEditingInput?, info: [NSObject : AnyObject]) -> Void in
+            guard contentEditingInput != nil else {
+                print("contentEditingInput 空")
+                return
+            }
+            // Create a CIImage from the full image representation.
+            let url = contentEditingInput!.fullSizeImageURL
+            var inputImage = CIImage(contentsOfURL: url!)
+            inputImage = inputImage?.imageByApplyingOrientation(contentEditingInput!.fullSizeImageOrientation)
+            // Create the filter to apply.
+            let filter = CIFilter(name: filterName)
+            filter?.setDefaults()
+            filter?.setValue(inputImage, forKey: kCIInputImageKey)
+            // Apply the filter
+            let outputImage = filter?.outputImage
+            // Create a PHAdjustmentData object that describes the filter that was applied.
+            let adjustmentData = PHAdjustmentData(formatIdentifier: "com.Photo", formatVersion: "1.0", data: filterName.dataUsingEncoding(NSUTF8StringEncoding)!)
+            /*
+            Create a PHContentEditingOutput object and write a JPEG representation of the filtered object to the renderedContentURL.
+            */
+            let contentEditingOutput = PHContentEditingOutput(contentEditingInput: contentEditingInput!)
+            //
+            let eaglContext = EAGLContext(API: EAGLRenderingAPI.OpenGLES2)
+            let ciContext = CIContext(EAGLContext: eaglContext)
+            let outputImageRef = ciContext.createCGImage(outputImage!, fromRect: outputImage!.extent)
+            let uiImage = UIImage(CGImage: outputImageRef, scale: 1.0, orientation: .Up)
+            let jpegData = UIImageJPEGRepresentation(uiImage, 0.9);
+            jpegData?.writeToURL(contentEditingOutput.renderedContentURL, atomically: true)
+            contentEditingOutput.adjustmentData = adjustmentData
+            // Ask the shared PHPhotoLinrary to perform the changes.
+            let changeBlock: dispatch_block_t = {
+                let request = PHAssetChangeRequest(forAsset: self.asset)
+                request.contentEditingOutput = contentEditingOutput;
+            }
+            PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock) { (success: Bool, error: NSError?) -> Void in
+                if !success {
+                    print(error)
+                }
+            }
+        }
+    }
+    
 }
