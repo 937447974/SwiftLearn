@@ -24,6 +24,8 @@
 		D41C08B81C16D9CC0002464F /* PhotoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C08B71C16D9CC0002464F /* PhotoUITests.swift */; };
 		D41C08C81C16DA1B0002464F /* YJPhotoAlbumsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C08C61C16DA1B0002464F /* YJPhotoAlbumsVC.swift */; };
 		D41C08C91C16DA1B0002464F /* YJPhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C08C71C16DA1B0002464F /* YJPhotosVC.swift */; };
+		D487DF131C3A4DAB0060AE30 /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487DF121C3A4DAA0060AE30 /* PHAsset+Extension.swift */; };
+		D487DF151C3A4FF90060AE30 /* PHPhotoLibrary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487DF141C3A4FF90060AE30 /* PHPhotoLibrary+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		D41C08B91C16D9CC0002464F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41C08C61C16DA1B0002464F /* YJPhotoAlbumsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJPhotoAlbumsVC.swift; sourceTree = "<group>"; };
 		D41C08C71C16DA1B0002464F /* YJPhotosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJPhotosVC.swift; sourceTree = "<group>"; };
+		D487DF121C3A4DAA0060AE30 /* PHAsset+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
+		D487DF141C3A4FF90060AE30 /* PHPhotoLibrary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +119,8 @@
 		D402A33E1C2D4B7D0068003A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D487DF161C3A50050060AE30 /* Photos */,
 				D402A33F1C2D4BA00068003A /* YJUtils.swift */,
-				D402A3411C2E9E3E0068003A /* PHCollectionList+Extension.swift */,
-				D402A3431C2EA1570068003A /* PHAssetCollection+Extension.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -217,6 +220,17 @@
 				D41C08A31C16D9CB0002464F /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		D487DF161C3A50050060AE30 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				D487DF121C3A4DAA0060AE30 /* PHAsset+Extension.swift */,
+				D402A3431C2EA1570068003A /* PHAssetCollection+Extension.swift */,
+				D402A3411C2E9E3E0068003A /* PHCollectionList+Extension.swift */,
+				D487DF141C3A4FF90060AE30 /* PHPhotoLibrary+Extension.swift */,
+			);
+			name = Photos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +375,8 @@
 				D402A3471C31201A0068003A /* YJPhotoTableViewCell.swift in Sources */,
 				D402A3501C313BF30068003A /* YJAssetVC.swift in Sources */,
 				D402A3441C2EA1570068003A /* PHAssetCollection+Extension.swift in Sources */,
+				D487DF151C3A4FF90060AE30 /* PHPhotoLibrary+Extension.swift in Sources */,
+				D487DF131C3A4DAB0060AE30 /* PHAsset+Extension.swift in Sources */,
 				D41C08981C16D9CB0002464F /* AppDelegate.swift in Sources */,
 				D402A34C1C31241F0068003A /* YJAssetCollectionVC.swift in Sources */,
 			);

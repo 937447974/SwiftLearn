@@ -42,7 +42,7 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     override func viewDidLoad() {
         super.viewDidLoad()
         // 右按钮
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "onSearch")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "onSearch:")
         // 注册cell
         let nib = UINib(nibName: YJPhotoCollectionViewCellNibName, bundle: nil)
         self.collectionView.registerNib(nib, forCellWithReuseIdentifier: "photoCell")
@@ -127,7 +127,7 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     }
     
     // MARK: - Action
-    func onSearch() {
+    func onSearch(sender: AnyObject) {
         let alertController = UIAlertController(title: "照片", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         alertController.addAction(UIAlertAction(title: "时刻", style: .Default, handler: { (action: UIAlertAction) -> Void in
             self.dataTag = YJTag.All
@@ -143,9 +143,12 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
         }))
         alertController.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
         if YJUtilUserInterfaceIdiom.isPad {
-            let popPresenter = alertController.popoverPresentationController
-            popPresenter?.sourceView = self.view
-            popPresenter?.sourceRect = CGRect(x: 150, y: 150, width: 200, height: 500)
+            alertController.modalPresentationStyle = UIModalPresentationStyle.Popover;
+            alertController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem;
+            alertController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.Up;
+//            let popPresenter = alertController.popoverPresentationController
+//            popPresenter?.sourceView = self.view
+//            popPresenter?.sourceRect = CGRect(x: 150, y: 150, width: 200, height: 500)
         }
         self.presentViewController(alertController, animated: true, completion: nil)
     }

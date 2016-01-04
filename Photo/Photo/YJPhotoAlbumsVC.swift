@@ -193,7 +193,7 @@ class YJPhotoAlbumsVC: UIViewController, PHPhotoLibraryChangeObserver, UITableVi
         let delete = UITableViewRowAction(style: .Destructive, title: "删除") { (action: UITableViewRowAction, indexPath: NSIndexPath) -> Void in
             let fetchResults = self.sectionFetchResults[indexPath.section]
             if let assetCollection = fetchResults[indexPath.row] as? PHAssetCollection {
-                assetCollection.delete()
+                assetCollection.deletes()
             }
         }
         // 改名

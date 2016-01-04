@@ -171,23 +171,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVm-Le-GPR" customClass="PHLivePhotoView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zz9-Xt-Sld">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="zz9-Xt-Sld" secondAttribute="trailing" id="3oT-U4-kWd"/>
-                            <constraint firstItem="MWx-fu-SZC" firstAttribute="top" secondItem="ZVm-Le-GPR" secondAttribute="bottom" id="4iO-zl-wTG"/>
-                            <constraint firstItem="ZVm-Le-GPR" firstAttribute="leading" secondItem="iA5-58-9He" secondAttribute="leading" id="T9a-ee-wBP"/>
-                            <constraint firstItem="MWx-fu-SZC" firstAttribute="top" secondItem="zz9-Xt-Sld" secondAttribute="bottom" id="ga9-C9-467"/>
-                            <constraint firstItem="zz9-Xt-Sld" firstAttribute="leading" secondItem="iA5-58-9He" secondAttribute="leading" id="heU-YL-jZN"/>
-                            <constraint firstAttribute="trailing" secondItem="ZVm-Le-GPR" secondAttribute="trailing" id="nbd-vx-UaL"/>
-                            <constraint firstItem="ZVm-Le-GPR" firstAttribute="top" secondItem="Zc6-Fb-gaj" secondAttribute="bottom" id="og9-zg-Rtv"/>
-                            <constraint firstItem="zz9-Xt-Sld" firstAttribute="top" secondItem="Zc6-Fb-gaj" secondAttribute="bottom" id="xa8-e8-vRs"/>
+                            <constraint firstItem="zz9-Xt-Sld" firstAttribute="centerX" secondItem="iA5-58-9He" secondAttribute="centerX" id="08O-KL-iwN"/>
+                            <constraint firstItem="zz9-Xt-Sld" firstAttribute="width" secondItem="iA5-58-9He" secondAttribute="width" id="DRK-Pk-It3"/>
+                            <constraint firstItem="ZVm-Le-GPR" firstAttribute="height" secondItem="iA5-58-9He" secondAttribute="height" id="X0l-Tt-lQR"/>
+                            <constraint firstItem="ZVm-Le-GPR" firstAttribute="centerY" secondItem="iA5-58-9He" secondAttribute="centerY" id="dWa-VI-9cq"/>
+                            <constraint firstItem="ZVm-Le-GPR" firstAttribute="centerX" secondItem="iA5-58-9He" secondAttribute="centerX" id="icR-Ze-dhE"/>
+                            <constraint firstItem="zz9-Xt-Sld" firstAttribute="centerY" secondItem="iA5-58-9He" secondAttribute="centerY" id="kcm-oj-vTd"/>
+                            <constraint firstItem="ZVm-Le-GPR" firstAttribute="width" secondItem="iA5-58-9He" secondAttribute="width" id="qWS-El-8Gw"/>
+                            <constraint firstItem="zz9-Xt-Sld" firstAttribute="height" secondItem="iA5-58-9He" secondAttribute="height" id="sUa-tS-eXV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="adC-63-auU"/>

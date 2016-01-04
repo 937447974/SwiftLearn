@@ -12,13 +12,6 @@
 import UIKit
 import Photos
 
-/// 错误输出
-private let completionHandler = { (success: Bool, error: NSError?) -> Void in
-    if !success {
-        print(error)
-    }
-}
-
 /// PHAssetCollection扩展
 public extension PHAssetCollection {
     
@@ -45,7 +38,7 @@ public extension PHAssetCollection {
     /// - parameter image: 图片
     ///
     /// - returns: void
-    func creationAssetFromImage(image: UIImage) {
+    func creationAssetFromImage(image: UIImage, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
             guard let placeholderForCreatedAsset = assetChangeRequest.placeholderForCreatedAsset else {
@@ -69,7 +62,7 @@ public extension PHAssetCollection {
     /// - parameter title: 相薄名
     ///
     /// - returns: void
-    class func creationWithTitle(title: String) {
+    class func creationWithTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(title)
         }
@@ -82,7 +75,7 @@ public extension PHAssetCollection {
     /// - parameter title: 相薄名
     ///
     /// - returns: void
-    func renameLocalizedTitle(title: String) {
+    func renameLocalizedTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             let aCChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self)
             aCChangeRequest?.title = title
@@ -94,7 +87,7 @@ public extension PHAssetCollection {
     /// 删除专辑
     ///
     /// - returns: void
-    func delete() {
+    func deletes(completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHAssetCompletionHandler) {
         let changeBlock: dispatch_block_t = {
             PHAssetCollectionChangeRequest.deleteAssetCollections([self])
         }
