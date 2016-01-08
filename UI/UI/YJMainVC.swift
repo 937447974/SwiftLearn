@@ -22,7 +22,11 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var list = [YJPerformSegueModel]()
+        var list: [YJPerformSegueModel]!
+        
+        list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "Customizing Bar"){YJCustomizingBarTVC(style: UITableViewStyle.Grouped)})
+        self.data.append(list)
         
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "Auto Layout"){YJAutoLayoutTVC(style: UITableViewStyle.Grouped)})

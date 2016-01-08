@@ -27,6 +27,10 @@
 		D4640E251C229B3500F504F9 /* YJScrollViewDelegateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4640E241C229B3500F504F9 /* YJScrollViewDelegateVC.swift */; };
 		D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */; };
 		D48447511C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48447501C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift */; };
+		D490AFDB1C3F872100BFE7F0 /* YJNavigationBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFDA1C3F872100BFE7F0 /* YJNavigationBarVC.swift */; };
+		D490AFDF1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFDE1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift */; };
+		D490AFE11C3F8BEF00BFE7F0 /* YJToolbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFE01C3F8BEF00BFE7F0 /* YJToolbarVC.swift */; };
+		D490AFE31C3F8C0200BFE7F0 /* YJTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFE21C3F8C0200BFE7F0 /* YJTabBarVC.swift */; };
 		D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */; };
 		D4A8DBE71C1A9CDE00BA8D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE51C1A9CDE00BA8D84 /* Main.storyboard */; };
 		D4A8DBE91C1A9CDE00BA8D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A8DBE81C1A9CDE00BA8D84 /* Assets.xcassets */; };
@@ -85,6 +89,10 @@
 		D4640E241C229B3500F504F9 /* YJScrollViewDelegateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJScrollViewDelegateVC.swift; sourceTree = "<group>"; };
 		D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTableViewCellTVC.swift; sourceTree = "<group>"; };
 		D48447501C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewDelegateFlowLayoutVC.swift; sourceTree = "<group>"; };
+		D490AFDA1C3F872100BFE7F0 /* YJNavigationBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNavigationBarVC.swift; sourceTree = "<group>"; };
+		D490AFDE1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCustomizingBarTVC.swift; sourceTree = "<group>"; };
+		D490AFE01C3F8BEF00BFE7F0 /* YJToolbarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJToolbarVC.swift; sourceTree = "<group>"; };
+		D490AFE21C3F8C0200BFE7F0 /* YJTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTabBarVC.swift; sourceTree = "<group>"; };
 		D4A8DBDE1C1A9CDE00BA8D84 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4A8DBE61C1A9CDE00BA8D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -216,6 +224,17 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		D490AFD91C3F86E200BFE7F0 /* CustomizingBar */ = {
+			isa = PBXGroup;
+			children = (
+				D490AFDE1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift */,
+				D490AFDA1C3F872100BFE7F0 /* YJNavigationBarVC.swift */,
+				D490AFE21C3F8C0200BFE7F0 /* YJTabBarVC.swift */,
+				D490AFE01C3F8BEF00BFE7F0 /* YJToolbarVC.swift */,
+			);
+			name = CustomizingBar;
+			sourceTree = "<group>";
+		};
 		D4A8DBD51C1A9CDE00BA8D84 = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EFFB621C1C1E3800008921 /* YJMainVC.swift */,
+				D490AFD91C3F86E200BFE7F0 /* CustomizingBar */,
 				D4B3A6CE1C23ECDC00460012 /* AutoLayout */,
 				D4640E121C225D6600F504F9 /* UIScrollView */,
 				D41A9FD11C1E8C360092EAA1 /* UITableView */,
@@ -491,6 +511,7 @@
 				D4B3A6E11C25405800460012 /* YJCollectionViewCellVC.swift in Sources */,
 				D4B3A6F01C268EE300460012 /* UICollectionView+Extension.swift in Sources */,
 				D4B3A6DA1C2520BC00460012 /* YJCollectionViewTVC.swift in Sources */,
+				D490AFDB1C3F872100BFE7F0 /* YJNavigationBarVC.swift in Sources */,
 				D4640E1A1C228C8C00F504F9 /* UIViewController+Extension.swift in Sources */,
 				D4512B8C1C213D4B00A77A65 /* YJSwitchTableViewCell.swift in Sources */,
 				D450BF101C28E36700322717 /* YJFlowLayoutCollectionVC.swift in Sources */,
@@ -498,13 +519,16 @@
 				D4640E251C229B3500F504F9 /* YJScrollViewDelegateVC.swift in Sources */,
 				D41A9FD31C1E8C5E0092EAA1 /* YJTableViewTVC.swift in Sources */,
 				D41A9FE01C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift in Sources */,
+				D490AFDF1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift in Sources */,
 				D4640E141C225D6D00F504F9 /* YJScrollViewTVC.swift in Sources */,
 				D41A9FDE1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift in Sources */,
 				D48447511C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift in Sources */,
 				D450BF0E1C28E2C300322717 /* YJCollectionViewFlowLayout.swift in Sources */,
 				D4640E211C229ADD00F504F9 /* YJAutoLayoutSVVC.swift in Sources */,
+				D490AFE11C3F8BEF00BFE7F0 /* YJToolbarVC.swift in Sources */,
 				D4640E171C22621D00F504F9 /* YJBaseTVC.swift in Sources */,
 				D41A9FDC1C1E9DD00092EAA1 /* YJUtils.swift in Sources */,
+				D490AFE31C3F8C0200BFE7F0 /* YJTabBarVC.swift in Sources */,
 				D4EFFB631C1C1E3800008921 /* YJMainVC.swift in Sources */,
 				D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */,
 				D4B3A6DC1C253E5200460012 /* YJCollectionViewDataSourceVC.swift in Sources */,
