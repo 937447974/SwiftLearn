@@ -28,7 +28,7 @@
 		D46F34FB1C20494E00EC82C8 /* YJTableViewCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */; };
 		D48447511C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48447501C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift */; };
 		D490AFDB1C3F872100BFE7F0 /* YJNavigationBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFDA1C3F872100BFE7F0 /* YJNavigationBarVC.swift */; };
-		D490AFDF1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFDE1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift */; };
+		D490AFDF1C3F8A0600BFE7F0 /* YJBarTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFDE1C3F8A0600BFE7F0 /* YJBarTVC.swift */; };
 		D490AFE11C3F8BEF00BFE7F0 /* YJToolbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFE01C3F8BEF00BFE7F0 /* YJToolbarVC.swift */; };
 		D490AFE31C3F8C0200BFE7F0 /* YJTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490AFE21C3F8C0200BFE7F0 /* YJTabBarVC.swift */; };
 		D4A8DBE21C1A9CDE00BA8D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8DBE11C1A9CDE00BA8D84 /* AppDelegate.swift */; };
@@ -90,7 +90,7 @@
 		D46F34FA1C20494E00EC82C8 /* YJTableViewCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTableViewCellTVC.swift; sourceTree = "<group>"; };
 		D48447501C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCollectionViewDelegateFlowLayoutVC.swift; sourceTree = "<group>"; };
 		D490AFDA1C3F872100BFE7F0 /* YJNavigationBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNavigationBarVC.swift; sourceTree = "<group>"; };
-		D490AFDE1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJCustomizingBarTVC.swift; sourceTree = "<group>"; };
+		D490AFDE1C3F8A0600BFE7F0 /* YJBarTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJBarTVC.swift; sourceTree = "<group>"; };
 		D490AFE01C3F8BEF00BFE7F0 /* YJToolbarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJToolbarVC.swift; sourceTree = "<group>"; };
 		D490AFE21C3F8C0200BFE7F0 /* YJTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJTabBarVC.swift; sourceTree = "<group>"; };
 		D4A8DBDE1C1A9CDE00BA8D84 /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,7 +227,7 @@
 		D490AFD91C3F86E200BFE7F0 /* CustomizingBar */ = {
 			isa = PBXGroup;
 			children = (
-				D490AFDE1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift */,
+				D490AFDE1C3F8A0600BFE7F0 /* YJBarTVC.swift */,
 				D490AFDA1C3F872100BFE7F0 /* YJNavigationBarVC.swift */,
 				D490AFE21C3F8C0200BFE7F0 /* YJTabBarVC.swift */,
 				D490AFE01C3F8BEF00BFE7F0 /* YJToolbarVC.swift */,
@@ -519,7 +519,7 @@
 				D4640E251C229B3500F504F9 /* YJScrollViewDelegateVC.swift in Sources */,
 				D41A9FD31C1E8C5E0092EAA1 /* YJTableViewTVC.swift in Sources */,
 				D41A9FE01C1EA0770092EAA1 /* YJTableViewDataSourceVC.swift in Sources */,
-				D490AFDF1C3F8A0600BFE7F0 /* YJCustomizingBarTVC.swift in Sources */,
+				D490AFDF1C3F8A0600BFE7F0 /* YJBarTVC.swift in Sources */,
 				D4640E141C225D6D00F504F9 /* YJScrollViewTVC.swift in Sources */,
 				D41A9FDE1C1EA01B0092EAA1 /* YJTableViewDelegateVC.swift in Sources */,
 				D48447511C27EB40001CA212 /* YJCollectionViewDelegateFlowLayoutVC.swift in Sources */,

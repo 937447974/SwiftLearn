@@ -25,7 +25,7 @@ class YJMainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         var list: [YJPerformSegueModel]!
         
         list = [YJPerformSegueModel]()
-        list.append(YJPerformSegueModel(title: "Customizing Bar"){YJCustomizingBarTVC(style: UITableViewStyle.Grouped)})
+        list.append(YJPerformSegueModel(title: "Bar"){YJBarTVC(style: UITableViewStyle.Grouped)})
         self.data.append(list)
         
         list = [YJPerformSegueModel]()
