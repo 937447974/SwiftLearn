@@ -41,3 +41,7 @@ Photos Framework And PhotosUI Framework。
 # Runtime
 
 运行时
+
+# Message
+
+MessageUI库。Create a view-controller-based user interface for composing email messages. Use it in cases where you want the user to be able to create email messages without leaving your application.
