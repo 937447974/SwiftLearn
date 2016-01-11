@@ -98,11 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				D490B0061C43A9C000BFE7F0 /* AppDelegate.swift */,
-				D490B0081C43A9C000BFE7F0 /* ViewController.swift */,
-				D490B00A1C43A9C000BFE7F0 /* Main.storyboard */,
-				D490B00D1C43A9C000BFE7F0 /* Assets.xcassets */,
-				D490B00F1C43A9C000BFE7F0 /* LaunchScreen.storyboard */,
-				D490B0121C43A9C000BFE7F0 /* Info.plist */,
+				D490B0341C43AAC200BFE7F0 /* Main */,
+				D490B0351C43AAEB00BFE7F0 /* Stoaryboard */,
+				D490B0361C43AAFD00BFE7F0 /* Resources */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -123,6 +121,32 @@
 				D490B0281C43A9C100BFE7F0 /* Info.plist */,
 			);
 			path = MessageUITests;
+			sourceTree = "<group>";
+		};
+		D490B0341C43AAC200BFE7F0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D490B0081C43A9C000BFE7F0 /* ViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		D490B0351C43AAEB00BFE7F0 /* Stoaryboard */ = {
+			isa = PBXGroup;
+			children = (
+				D490B00F1C43A9C000BFE7F0 /* LaunchScreen.storyboard */,
+				D490B00A1C43A9C000BFE7F0 /* Main.storyboard */,
+			);
+			name = Stoaryboard;
+			sourceTree = "<group>";
+		};
+		D490B0361C43AAFD00BFE7F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D490B00D1C43A9C000BFE7F0 /* Assets.xcassets */,
+				D490B0121C43A9C000BFE7F0 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
