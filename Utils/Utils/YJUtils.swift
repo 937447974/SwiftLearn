@@ -13,6 +13,7 @@ import UIKit
 
 /// user interface
 public struct YJUtilUserInterfaceIdiom {
+    
     /// The user interface should be designed for iPhone and iPod touch.
     static let isPhone = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone
     /// The user interface should be designed for iPad.
@@ -49,5 +50,5 @@ public struct YJUtilDeviceType {
     static let isIPhone6 = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 667.0
     /// IPhone6P
     static let isIPhone6P = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 736.0
-    
+
 }
