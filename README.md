@@ -37,3 +37,7 @@ Photos Framework And PhotosUI Framework。
 # ViewRotation
 
 横竖屏设置、横竖屏监听
+
+# Runtime
+
+运行时
