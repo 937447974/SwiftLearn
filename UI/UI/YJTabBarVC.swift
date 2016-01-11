@@ -11,28 +11,23 @@
 
 import UIKit
 
+/// 定制UITabBar
 class YJTabBarVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: nil, action: nil)]
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 自定义UITabBar
+        if let bar = self.tabBarController?.tabBar { // 共享bar UITabBar.appearance()
+            bar.tintColor = UIColor.blackColor() // 按钮颜色
+            bar.barTintColor = UIColor.yellowColor()// 背景色
+            bar.translucent = false // 是否透明
+            bar.hidden = false
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

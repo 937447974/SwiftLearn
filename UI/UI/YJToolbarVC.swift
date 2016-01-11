@@ -11,28 +11,25 @@
 
 import UIKit
 
+/// 定制UIToolBar
 class YJToolbarVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 自定义UINavigationBar
+        if let bar = self.navigationController?.toolbar { // 共享bar UIToolBar.appearance()
+            bar.tintColor = UIColor.blackColor() // 按钮颜色
+            bar.barTintColor = UIColor.yellowColor()// 背景色
+            bar.translucent = false // 是否透明
+        }
+        // 显示toolbar
+        self.navigationController?.toolbarHidden = false
+        // 添加按钮
+        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: nil, action: nil)]
     }
-    */
 
 }

@@ -17,7 +17,7 @@ class YJBarTVC: YJBaseTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         var list = [YJPerformSegueModel]()
-        list.append(YJPerformSegueModel(title: "Customizing UINavigationBar"){YJNavigationBarVC()})
+        list.append(YJPerformSegueModel(title: "UINavigationBar"){YJNavigationBarVC()})
         list.append(YJPerformSegueModel(title: "UIToolbar"){YJToolbarVC()})
         list.append(YJPerformSegueModel(title: "UITabBar"){YJTabBarVC()})
         self.data.append(list)
