@@ -46,8 +46,9 @@ Photos Framework And PhotosUI Framework。
 
 MessageUI库。Create a view-controller-based user interface for composing email messages. Use it in cases where you want the user to be able to create email messages without leaving your application.
 
-# Contacts
+# Contact
 
-ContactsUI
+Contacts And ContactsUI
 
-Use the Contacts UI framework to display the data contained in the Contacts database. This framework provides a graphical interface to gain access to users' contacts.
+1. Contacts：Use the Contacts framework to gain access to the centralized database for storing a user's contacts. The database is used by apps such as Mail and Messages to present information about known and unknown persons.
+2. ContactsUI：Use the Contacts UI framework to display the data contained in the Contacts database. This framework provides a graphical interface to gain access to users' contacts.
