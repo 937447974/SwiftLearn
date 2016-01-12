@@ -14,10 +14,33 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1r2-q6-jUT">
+                                <rect key="frame" x="108" y="219" width="60" height="30"/>
+                                <state key="normal" title="发送邮件"/>
+                                <connections>
+                                    <action selector="composeMail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A9E-Rj-XjG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j91-u3-oN6">
+                                <rect key="frame" x="208" y="219" width="60" height="30"/>
+                                <state key="normal" title="发送短信"/>
+                                <connections>
+                                    <action selector="composeMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Usj-tT-6pp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j91-u3-oN6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="50" id="bmR-pR-9Ls"/>
+                            <constraint firstItem="1r2-q6-jUT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-50" id="eC5-om-iJa"/>
+                            <constraint firstItem="1r2-q6-jUT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="wJP-S3-W7C"/>
+                            <constraint firstItem="j91-u3-oN6" firstAttribute="centerY" secondItem="1r2-q6-jUT" secondAttribute="centerY" id="znJ-3R-yhR"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
