@@ -70,6 +70,7 @@ class ViewController: UIViewController,  MFMailComposeViewControllerDelegate, MF
             }
             // NSData添加
             if MFMessageComposeViewController.isSupportedAttachmentUTI("public.png") {
+                // See [Uniform Type Identifiers Reference](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Introduction/Introduction.html)
                 if let image = UIImage(named: "qq") {
                     if let data = UIImagePNGRepresentation(image) {
                         // 添加文件
@@ -77,7 +78,6 @@ class ViewController: UIViewController,  MFMailComposeViewControllerDelegate, MF
                     }
                 }
             }
-            print(messageVC.attachments) // 所有附件
         }
         // messageVC.disableUserAttachments() // 禁用添加附件按钮
         self.presentViewController(messageVC, animated: true, completion: nil)
@@ -107,6 +107,7 @@ class ViewController: UIViewController,  MFMailComposeViewControllerDelegate, MF
     
     // MARK: - MFMessageComposeViewControllerDelegate
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        print(controller.attachments) // 所有附件
         // 关闭MFMessageComposeViewController
         controller.dismissViewControllerAnimated(true, completion: nil)
         switch result { // 发送状态
