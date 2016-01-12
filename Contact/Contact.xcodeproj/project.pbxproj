@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D4C3B7C91C44DF080053D7B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7C81C44DF080053D7B8 /* AppDelegate.swift */; };
-		D4C3B7CB1C44DF080053D7B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7CA1C44DF080053D7B8 /* ViewController.swift */; };
 		D4C3B7CE1C44DF080053D7B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7CC1C44DF080053D7B8 /* Main.storyboard */; };
 		D4C3B7D01C44DF080053D7B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7CF1C44DF080053D7B8 /* Assets.xcassets */; };
 		D4C3B7D31C44DF080053D7B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7D11C44DF080053D7B8 /* LaunchScreen.storyboard */; };
 		D4C3B7DE1C44DF080053D7B8 /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7DD1C44DF080053D7B8 /* ContactTests.swift */; };
 		D4C3B7E91C44DF080053D7B8 /* ContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7E81C44DF080053D7B8 /* ContactUITests.swift */; };
+		D4C3B7FA1C44FE560053D7B8 /* YJContactTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7F91C44FE560053D7B8 /* YJContactTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		D4C3B7C51C44DF080053D7B8 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C3B7C81C44DF080053D7B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4C3B7CA1C44DF080053D7B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D4C3B7CD1C44DF080053D7B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4C3B7CF1C44DF080053D7B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4C3B7D21C44DF080053D7B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		D4C3B7E41C44DF080053D7B8 /* ContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C3B7E81C44DF080053D7B8 /* ContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUITests.swift; sourceTree = "<group>"; };
 		D4C3B7EA1C44DF080053D7B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C3B7F91C44FE560053D7B8 /* YJContactTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJContactTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +126,7 @@
 		D4C3B7F61C44E03A0053D7B8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D4C3B7CA1C44DF080053D7B8 /* ViewController.swift */,
+				D4C3B7F91C44FE560053D7B8 /* YJContactTVC.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -211,6 +211,7 @@
 		D4C3B7BD1C44DF080053D7B8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "阳君";
@@ -280,8 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C3B7CB1C44DF080053D7B8 /* ViewController.swift in Sources */,
 				D4C3B7C91C44DF080053D7B8 /* AppDelegate.swift in Sources */,
+				D4C3B7FA1C44FE560053D7B8 /* YJContactTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Contact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Contact;
@@ -434,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Contact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Contact;

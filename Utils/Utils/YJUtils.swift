@@ -50,5 +50,26 @@ public struct YJUtilDeviceType {
     static let isIPhone6 = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 667.0
     /// IPhone6P
     static let isIPhone6P = YJUtilUserInterfaceIdiom.isPhone && YJUtilScreenSize.screenMaxLength == 736.0
+    
+}
 
+
+/// app相关信息
+public struct YJUtilAPP {
+    
+    /// Info.plist
+    static let infoDictionary = NSBundle.mainBundle().infoDictionary!
+    /// 项目名称
+    static let executable = YJUtilAPP.infoDictionary[String(kCFBundleExecutableKey)]
+    /// bundle Identifier
+    static let identifier = NSBundle.mainBundle().bundleIdentifier!
+    /// version版本号
+    static let shortVersion = YJUtilAPP.infoDictionary["CFBundleShortVersionString"]
+    /// build版本号
+    static let version = YJUtilAPP.infoDictionary[String(kCFBundleVersionKey)]
+    /// app名称
+    static let name = YJUtilAPP.infoDictionary[String(kCFBundleNameKey)]
+    /// app定位区域
+    static let localizations = YJUtilAPP.infoDictionary[String(kCFBundleLocalizationsKey)]
+    
 }
