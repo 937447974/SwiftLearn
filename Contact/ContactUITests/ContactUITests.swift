@@ -1,6 +1,6 @@
 //
-//  ContactsUITests.swift
-//  ContactsUITests
+//  ContactUITests.swift
+//  ContactUITests
 //
 //  Created by yangjun on 16/1/12.
 //  Copyright © 2016年 阳君. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ContactsUITests: XCTestCase {
+class ContactUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

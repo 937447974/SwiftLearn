@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Contacts
+//  Contact
 //
 //  Created by yangjun on 16/1/12.
 //  Copyright © 2016年 阳君. All rights reserved.
