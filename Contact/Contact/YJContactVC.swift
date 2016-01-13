@@ -12,8 +12,10 @@
 import UIKit
 import Contacts
 
+/// 通讯录
 class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
+    /// UITableView
     @IBOutlet weak var tableView: UITableView!
     /// 数据源
     private var data = [CNContact]()
@@ -22,7 +24,6 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
     /// 快速查询
     private var predicate: NSPredicate! {
         didSet {
-            print(self.predicate)
             do {
                 self.data = try self.store.unifiedContactsMatchingPredicate(self.predicate, keysToFetch:[CNContactGivenNameKey, CNContactFamilyNameKey])
                 self.tableView.reloadData()
@@ -119,7 +120,7 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
             cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
         }
         let contact = self.data[indexPath.row]
-        cell?.textLabel?.text = "\(contact.familyName)\(contact.givenName)"
+        cell?.textLabel?.text = "\(contact.familyName)\(contact.givenName)" // CNContactFormatter.stringFromContact(contact, style: .FullName)
         return cell!
     }
     
@@ -140,7 +141,7 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
                 // 刷新UI
                 self.data.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                //
+                // 保存
                 try self.store.executeSaveRequest(saveRequest)
             } catch {
                 print("未知错误：\(error)")
