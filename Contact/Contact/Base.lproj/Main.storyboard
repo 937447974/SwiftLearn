@@ -43,7 +43,11 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-Vc-jZ1">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lwo-l0-fL9" id="GbA-rv-Ybp"/>
+                                    <outlet property="delegate" destination="lwo-l0-fL9" id="VXl-l5-YY9"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,6 +70,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="Ue6-xH-ido" id="WFK-G5-75O"/>
+                        <outlet property="tableView" destination="4fC-Vc-jZ1" id="qBw-2c-PqA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcR-sJ-bUR" userLabel="First Responder" sceneMemberID="firstResponder"/>

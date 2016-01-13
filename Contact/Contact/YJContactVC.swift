@@ -1,25 +1,36 @@
 //
-//  YJContactTVC.swift
+//  YJContactVC.swift
 //  Contact
 //
 //  CSDN:http://blog.csdn.net/y550918116j
 //  GitHub:https://github.com/937447974/Blog
 //
-//  Created by yangjun on 16/1/12.
+//  Created by yangjun on 16/1/13.
 //  Copyright © 2016年 阳君. All rights reserved.
 //
 
 import UIKit
 import Contacts
 
-/// 主界面
-class YJContactVC: UIViewController, UISearchBarDelegate {
+class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     /// 数据源
     private var data = [CNContact]()
     /// 通讯录存储库
     private let store = CNContactStore()
-    
+    /// 快速查询
+    private var predicate: NSPredicate! {
+        didSet {
+            print(self.predicate)
+            do {
+                self.data = try self.store.unifiedContactsMatchingPredicate(self.predicate, keysToFetch:[CNContactGivenNameKey, CNContactFamilyNameKey])
+                self.tableView.reloadData()
+            } catch {
+                print("未知错误：\(error)")
+            }
+        }
+    }
     
     // MARK: - View
     override func viewDidLoad() {
@@ -36,13 +47,7 @@ class YJContactVC: UIViewController, UISearchBarDelegate {
     // MARK: 通讯录有变动
     func contactStoreDidChangeNotification() {
         print(__FUNCTION__)
-        let predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier()) //predicateForContactsMatchingName("")
-        do {
-            self.data = try self.store.unifiedContactsMatchingPredicate(predicate, keysToFetch:[CNContactGivenNameKey, CNContactFamilyNameKey])
-//            self.tableView.reloadData()
-        } catch {
-            print("未知错误：\(error)")
-        }
+        self.predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier()) //predicateForContactsMatchingName("")
     }
     
     // MARK: - Action
@@ -94,18 +99,11 @@ class YJContactVC: UIViewController, UISearchBarDelegate {
     }
     
     // MARK: - UISearchBarDelegate
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        var predicate: NSPredicate
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
-            predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier())
+            self.predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier())
         } else {
-            predicate = CNContact.predicateForContactsMatchingName(searchBar.text!)
-        }
-        do {
-            self.data = try self.store.unifiedContactsMatchingPredicate(predicate, keysToFetch:[CNContactGivenNameKey, CNContactFamilyNameKey])
-//            self.tableView.reloadData()
-        } catch {
-            print("\(__FUNCTION__)未知错误：\(error)")
+            self.predicate = CNContact.predicateForContactsMatchingName(searchBar.text!)
         }
     }
     
@@ -134,11 +132,15 @@ class YJContactVC: UIViewController, UISearchBarDelegate {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // 删除电话
-            // tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             do {
+                // 删除通讯录中电话
                 let saveRequest = CNSaveRequest()
                 let contact = self.data[indexPath.row].mutableCopy() as! CNMutableContact
                 saveRequest.deleteContact(contact)
+                // 刷新UI
+                self.data.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                //
                 try self.store.executeSaveRequest(saveRequest)
             } catch {
                 print("未知错误：\(error)")

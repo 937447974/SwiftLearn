@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4977A9A1C4630CD00BF7610 /* YJContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4977A991C4630CD00BF7610 /* YJContactVC.swift */; };
 		D4C3B7C91C44DF080053D7B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7C81C44DF080053D7B8 /* AppDelegate.swift */; };
 		D4C3B7CE1C44DF080053D7B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7CC1C44DF080053D7B8 /* Main.storyboard */; };
 		D4C3B7D01C44DF080053D7B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7CF1C44DF080053D7B8 /* Assets.xcassets */; };
 		D4C3B7D31C44DF080053D7B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7D11C44DF080053D7B8 /* LaunchScreen.storyboard */; };
 		D4C3B7DE1C44DF080053D7B8 /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7DD1C44DF080053D7B8 /* ContactTests.swift */; };
 		D4C3B7E91C44DF080053D7B8 /* ContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7E81C44DF080053D7B8 /* ContactUITests.swift */; };
-		D4C3B7FA1C44FE560053D7B8 /* YJContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7F91C44FE560053D7B8 /* YJContactVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4977A991C4630CD00BF7610 /* YJContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJContactVC.swift; sourceTree = "<group>"; };
 		D4C3B7C51C44DF080053D7B8 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C3B7C81C44DF080053D7B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4C3B7CD1C44DF080053D7B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		D4C3B7E41C44DF080053D7B8 /* ContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C3B7E81C44DF080053D7B8 /* ContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUITests.swift; sourceTree = "<group>"; };
 		D4C3B7EA1C44DF080053D7B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4C3B7F91C44FE560053D7B8 /* YJContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJContactVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +126,7 @@
 		D4C3B7F61C44E03A0053D7B8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D4C3B7F91C44FE560053D7B8 /* YJContactVC.swift */,
+				D4977A991C4630CD00BF7610 /* YJContactVC.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -281,8 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4977A9A1C4630CD00BF7610 /* YJContactVC.swift in Sources */,
 				D4C3B7C91C44DF080053D7B8 /* AppDelegate.swift in Sources */,
-				D4C3B7FA1C44FE560053D7B8 /* YJContactVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +511,7 @@
 				D4C3B7EF1C44DF080053D7B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4C3B7F01C44DF080053D7B8 /* Build configuration list for PBXNativeTarget "ContactTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +520,7 @@
 				D4C3B7F21C44DF080053D7B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4C3B7F31C44DF080053D7B8 /* Build configuration list for PBXNativeTarget "ContactUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +529,7 @@
 				D4C3B7F51C44DF080053D7B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
