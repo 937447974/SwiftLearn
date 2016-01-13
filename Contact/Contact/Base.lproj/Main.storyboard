@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--通讯录-->
@@ -20,11 +21,18 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="通讯录" id="yhp-Du-JbQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JkT-x1-lz1">
-                            <connections>
-                                <action selector="onClickAdd:" destination="jo3-gv-Ri1" id="4RK-Ap-amo"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="JkT-x1-lz1">
+                                <connections>
+                                    <action selector="onClickAdd:" destination="jo3-gv-Ri1" id="4RK-Ap-amo"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="K0t-zZ-IDL">
+                                <connections>
+                                    <action selector="onClickTrash:" destination="jo3-gv-Ri1" id="PKT-BY-J08"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

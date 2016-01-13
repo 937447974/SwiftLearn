@@ -2,23 +2,42 @@
 //  AppDelegate.swift
 //  Contact
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 16/1/12.
 //  Copyright © 2016年 阳君. All rights reserved.
 //
 
 import UIKit
+import Contacts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         NSBundle.mainBundle()
         // Override point for customization after application launch.
-        print(NSBundle.mainBundle().infoDictionary![String(kCFBundleNameKey)])
-     
+        // 权限认证
+        CNContactStore().requestAccessForEntityType(.Contacts) { (success: Bool, error: NSError?) -> Void in
+            guard error == nil else {
+                print("权限认证错误\(error)")
+                return
+            }
+            let status = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
+            switch status {
+            case CNAuthorizationStatus.NotDetermined:
+                print("NotDetermined")
+            case .Restricted:
+                print("Restricted")
+            case .Denied:
+                print("Denied")
+            case .Authorized:
+                print("Authorized")
+            }
+        }
         return true
     }
 
