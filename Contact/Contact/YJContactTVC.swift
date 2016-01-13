@@ -13,7 +13,7 @@ import UIKit
 import Contacts
 
 /// 主界面
-class YJContactTVC: UITableViewController {
+class YJContactTVC: UITableViewController, UISearchBarDelegate {
     
     /// 数据源
     private var data = [CNContact]()
@@ -89,6 +89,24 @@ class YJContactTVC: UITableViewController {
             try self.store.executeSaveRequest(saveRequest)
         } catch {
             print("未知错误：\(error)")
+        }
+    }
+    
+    // MARK: - UISearchBarDelegate
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        var predicate: NSPredicate
+        if searchBar.text == nil {
+            predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier())
+        } else{
+            predicate = CNContact.predicateForContactsMatchingName(searchBar.text!)
+        }
+        do {
+            self.data = try self.store.unifiedContactsMatchingPredicate(predicate, keysToFetch:[CNContactGivenNameKey, CNContactFamilyNameKey])
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        } catch {
+            print("\(__FUNCTION__)未知错误：\(error)")
         }
     }
     
