@@ -2,6 +2,9 @@
 //  YJContactTVC.swift
 //  Contact
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 16/1/12.
 //  Copyright © 2016年 阳君. All rights reserved.
 //
@@ -11,22 +14,38 @@ import Contacts
 
 /// 主界面
 class YJContactTVC: UITableViewController {
-
+    
+    /// 数据源
+    private var data = [CNContact]()
+    /// 通讯录存储库
+    private let store = CNContactStore()
+    
+    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "contactStoreDidChangeNotification", name: CNContactStoreDidChangeNotification, object: nil)
+        self.contactStoreDidChangeNotification()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
+    
+    // MARK: - NSNotificationCenter
+    // MARK: 通讯录有变动
+    func contactStoreDidChangeNotification() {
+        print(__FUNCTION__)
+        let predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier()) //predicateForContactsMatchingName("")
+        do {
+            self.data = try self.store.unifiedContactsMatchingPredicate(predicate, keysToFetch:[CNContactGivenNameKey, CNContactFamilyNameKey])
+            self.tableView.reloadData()
+        } catch {
+            print("未知错误：\(error)")
+        }
+    }
+    
+    // MARK: - Action
+    // MARK: 添加电话
     @IBAction func onClickAdd(sender: AnyObject) {
         // Creating a mutable object to add to the contact
         let contact = CNMutableContact()
@@ -37,18 +56,16 @@ class YJContactTVC: UITableViewController {
                 contact.imageData = data
             }
         }
-    
-        contact.givenName = "阳君"
-        contact.familyName = "IOS"
-        
+        contact.familyName = "阳" // 姓
+        contact.givenName = "君" // 名
+        contact.jobTitle = "IOS攻城师" // 工作
         // 电话
-        let homePhone = CNLabeledValue(label:CNLabelPhoneNumberiPhone, value:CNPhoneNumber(stringValue:"18511056826"))
+        let homePhone = CNLabeledValue(label:CNLabelPhoneNumberMobile, value:CNPhoneNumber(stringValue:"185-1105-6826"))
         contact.phoneNumbers = [homePhone]
         
         // 邮件
-        let homeEmail = CNLabeledValue(label:CNLabelHome, value:"john@example.com") // 住宅
-        let workEmail = CNLabeledValue(label:CNLabelWork, value:"j.appleseed@icloud.com") // 工作
-        contact.emailAddresses = [homeEmail, workEmail]
+        let workEmail = CNLabeledValue(label:CNLabelWork, value:"937447974@qq.com") // 工作
+        contact.emailAddresses = [workEmail]
         
         // 家庭地址
         let homeAddress = CNMutablePostalAddress()
@@ -67,79 +84,51 @@ class YJContactTVC: UITableViewController {
         
         // Saving the newly created contact
         do {
-            let store = CNContactStore()
             let saveRequest = CNSaveRequest()
-            saveRequest.addContact(contact, toContainerWithIdentifier:"contact")
-            try store.executeSaveRequest(saveRequest)
+            saveRequest.addContact(contact, toContainerWithIdentifier:self.store.defaultContainerIdentifier())
+            try self.store.executeSaveRequest(saveRequest)
         } catch {
-            print(error)
+            print("未知错误：\(error)")
         }
     }
-
+    
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.data.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let identifier = "reuseIdentifier"
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier)
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
+        }
+        let contact = self.data[indexPath.row]
+        cell?.textLabel?.text = "\(contact.familyName)\(contact.givenName)"
+        return cell!
     }
-    */
-
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            // 删除电话
+            // tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            do {
+                let saveRequest = CNSaveRequest()
+                let contact = self.data[indexPath.row].mutableCopy() as! CNMutableContact
+                saveRequest.deleteContact(contact)
+                try self.store.executeSaveRequest(saveRequest)
+            } catch {
+                print("未知错误：\(error)")
+            }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
