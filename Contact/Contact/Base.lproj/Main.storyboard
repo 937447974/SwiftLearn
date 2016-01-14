@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="73k-1a-LQh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kp6-5f-JXf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Contacts-->
         <scene sceneID="yFT-HB-ir3">
             <objects>
                 <navigationController id="73k-1a-LQh" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="tab_base" id="mHz-7k-0ao"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z2Y-j2-lBP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pup-xc-Gos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1145.5" y="326.5"/>
+            <point key="canvasLocation" x="-1299.5" y="385.5"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="FAO-vf-QFC">
@@ -42,7 +42,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="4fC-Vc-jZ1">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="lwo-l0-fL9" id="GbA-rv-Ybp"/>
@@ -84,7 +84,70 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-620.5" y="326.5"/>
+            <point key="canvasLocation" x="-780.5" y="390.5"/>
+        </scene>
+        <!--ContactsUI-->
+        <scene sceneID="2OQ-8j-FTj">
+            <objects>
+                <viewController id="vnv-VU-Xf7" customClass="YJContactsUIVC" customModule="Contact" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bzw-ya-ZOx"/>
+                        <viewControllerLayoutGuide type="bottom" id="CJR-CP-TvN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RF5-3f-c1G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vz-R3-4N1">
+                                <rect key="frame" x="78" y="100" width="219" height="30"/>
+                                <state key="normal" title="CNContactPickerViewController"/>
+                                <connections>
+                                    <action selector="onClickCNContactPickerViewController:" destination="vnv-VU-Xf7" eventType="touchUpInside" id="xT2-tg-aR6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5c-1P-1bi">
+                                <rect key="frame" x="99" y="130" width="177" height="30"/>
+                                <state key="normal" title="CNContactViewController"/>
+                                <connections>
+                                    <action selector="onClickCNContactViewController:" destination="vnv-VU-Xf7" eventType="touchUpInside" id="X00-Pt-tWb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b5c-1P-1bi" firstAttribute="centerX" secondItem="RF5-3f-c1G" secondAttribute="centerX" id="1ED-u0-6uM"/>
+                            <constraint firstItem="9Vz-R3-4N1" firstAttribute="top" secondItem="bzw-ya-ZOx" secondAttribute="bottom" constant="80" id="C2c-ES-3I1"/>
+                            <constraint firstItem="b5c-1P-1bi" firstAttribute="centerY" secondItem="9Vz-R3-4N1" secondAttribute="centerY" constant="30" id="dnd-3x-y4H"/>
+                            <constraint firstItem="9Vz-R3-4N1" firstAttribute="centerX" secondItem="RF5-3f-c1G" secondAttribute="centerX" id="sHk-gj-P52"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ContactsUI" image="tab_base" id="UXo-ld-fzx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRj-ju-vAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1299.5" y="1200.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="une-A6-qQP">
+            <objects>
+                <tabBarController id="kp6-5f-JXf" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="YNF-6z-LM2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="73k-1a-LQh" kind="relationship" relationship="viewControllers" id="eOB-Tu-0HN"/>
+                        <segue destination="vnv-VU-Xf7" kind="relationship" relationship="viewControllers" id="s7B-5r-UXJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8tH-de-4sQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1888" y="855"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_base" width="36" height="36"/>
+    </resources>
 </document>

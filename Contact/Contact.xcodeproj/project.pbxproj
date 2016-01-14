@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D4977A9A1C4630CD00BF7610 /* YJContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4977A991C4630CD00BF7610 /* YJContactVC.swift */; };
+		D4977A9C1C47973200BF7610 /* YJContactsUIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4977A9B1C47973200BF7610 /* YJContactsUIVC.swift */; };
 		D4C3B7C91C44DF080053D7B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C3B7C81C44DF080053D7B8 /* AppDelegate.swift */; };
 		D4C3B7CE1C44DF080053D7B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7CC1C44DF080053D7B8 /* Main.storyboard */; };
 		D4C3B7D01C44DF080053D7B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C3B7CF1C44DF080053D7B8 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		D4977A991C4630CD00BF7610 /* YJContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJContactVC.swift; sourceTree = "<group>"; };
+		D4977A9B1C47973200BF7610 /* YJContactsUIVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJContactsUIVC.swift; sourceTree = "<group>"; };
 		D4C3B7C51C44DF080053D7B8 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C3B7C81C44DF080053D7B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4C3B7CD1C44DF080053D7B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				D4977A991C4630CD00BF7610 /* YJContactVC.swift */,
+				D4977A9B1C47973200BF7610 /* YJContactsUIVC.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4977A9A1C4630CD00BF7610 /* YJContactVC.swift in Sources */,
+				D4977A9C1C47973200BF7610 /* YJContactsUIVC.swift in Sources */,
 				D4C3B7C91C44DF080053D7B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
