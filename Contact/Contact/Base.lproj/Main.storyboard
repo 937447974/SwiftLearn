@@ -87,6 +87,23 @@
             <point key="canvasLocation" x="-780.5" y="390.5"/>
         </scene>
         <!--ContactsUI-->
+        <scene sceneID="tRZ-bk-vis">
+            <objects>
+                <navigationController id="KDt-Ku-pUP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ContactsUI" image="tab_base" id="38W-ew-5aW"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lsl-rZ-3Kf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vnv-VU-Xf7" kind="relationship" relationship="rootViewController" id="hkg-Gc-t0G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEI-T0-ChX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1299.5" y="1162.5"/>
+        </scene>
+        <!--ContactsUI-->
         <scene sceneID="2OQ-8j-FTj">
             <objects>
                 <viewController id="vnv-VU-Xf7" customClass="YJContactsUIVC" customModule="Contact" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,14 +116,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vz-R3-4N1">
-                                <rect key="frame" x="78" y="100" width="219" height="30"/>
+                                <rect key="frame" x="78" y="144" width="219" height="30"/>
                                 <state key="normal" title="CNContactPickerViewController"/>
                                 <connections>
                                     <action selector="onClickCNContactPickerViewController:" destination="vnv-VU-Xf7" eventType="touchUpInside" id="xT2-tg-aR6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5c-1P-1bi">
-                                <rect key="frame" x="99" y="130" width="177" height="30"/>
+                                <rect key="frame" x="99" y="204" width="177" height="30"/>
                                 <state key="normal" title="CNContactViewController"/>
                                 <connections>
                                     <action selector="onClickCNContactViewController:" destination="vnv-VU-Xf7" eventType="touchUpInside" id="X00-Pt-tWb"/>
@@ -116,16 +133,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="b5c-1P-1bi" firstAttribute="centerX" secondItem="RF5-3f-c1G" secondAttribute="centerX" id="1ED-u0-6uM"/>
+                            <constraint firstItem="b5c-1P-1bi" firstAttribute="top" secondItem="9Vz-R3-4N1" secondAttribute="bottom" constant="30" id="3fn-0J-RDT"/>
                             <constraint firstItem="9Vz-R3-4N1" firstAttribute="top" secondItem="bzw-ya-ZOx" secondAttribute="bottom" constant="80" id="C2c-ES-3I1"/>
-                            <constraint firstItem="b5c-1P-1bi" firstAttribute="centerY" secondItem="9Vz-R3-4N1" secondAttribute="centerY" constant="30" id="dnd-3x-y4H"/>
                             <constraint firstItem="9Vz-R3-4N1" firstAttribute="centerX" secondItem="RF5-3f-c1G" secondAttribute="centerX" id="sHk-gj-P52"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ContactsUI" image="tab_base" id="UXo-ld-fzx"/>
+                    <navigationItem key="navigationItem" title="ContactsUI" id="E6L-tH-jJX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRj-ju-vAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1299.5" y="1200.5"/>
+            <point key="canvasLocation" x="-780.5" y="1162.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="une-A6-qQP">
@@ -139,7 +156,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="73k-1a-LQh" kind="relationship" relationship="viewControllers" id="eOB-Tu-0HN"/>
-                        <segue destination="vnv-VU-Xf7" kind="relationship" relationship="viewControllers" id="s7B-5r-UXJ"/>
+                        <segue destination="KDt-Ku-pUP" kind="relationship" relationship="viewControllers" id="xas-Ui-Aez"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tH-de-4sQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
