@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D426C2601C47D0490033C25E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C25F1C47D0490033C25E /* AppDelegate.swift */; };
+		D426C2621C47D0490033C25E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C2611C47D0490033C25E /* ViewController.swift */; };
+		D426C2651C47D0490033C25E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D426C2631C47D0490033C25E /* Main.storyboard */; };
+		D426C2671C47D0490033C25E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D426C2661C47D0490033C25E /* Assets.xcassets */; };
+		D426C26A1C47D0490033C25E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D426C2681C47D0490033C25E /* LaunchScreen.storyboard */; };
+		D426C2751C47D0490033C25E /* YJImageIOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C2741C47D0490033C25E /* YJImageIOTests.swift */; };
+		D426C2801C47D0490033C25E /* YJImageIOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C27F1C47D0490033C25E /* YJImageIOUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D426C2711C47D0490033C25E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D426C2541C47D0490033C25E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D426C25B1C47D0490033C25E;
+			remoteInfo = YJImageIO;
+		};
+		D426C27C1C47D0490033C25E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D426C2541C47D0490033C25E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D426C25B1C47D0490033C25E;
+			remoteInfo = YJImageIO;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D426C25C1C47D0490033C25E /* YJImageIO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJImageIO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D426C25F1C47D0490033C25E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D426C2611C47D0490033C25E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D426C2641C47D0490033C25E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D426C2661C47D0490033C25E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D426C2691C47D0490033C25E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D426C26B1C47D0490033C25E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D426C2701C47D0490033C25E /* YJImageIOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJImageIOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D426C2741C47D0490033C25E /* YJImageIOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJImageIOTests.swift; sourceTree = "<group>"; };
+		D426C2761C47D0490033C25E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D426C27B1C47D0490033C25E /* YJImageIOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJImageIOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D426C27F1C47D0490033C25E /* YJImageIOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJImageIOUITests.swift; sourceTree = "<group>"; };
+		D426C2811C47D0490033C25E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D426C2591C47D0490033C25E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426C26D1C47D0490033C25E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426C2781C47D0490033C25E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D426C2531C47D0490033C25E = {
+			isa = PBXGroup;
+			children = (
+				D426C25E1C47D0490033C25E /* YJImageIO */,
+				D426C2731C47D0490033C25E /* YJImageIOTests */,
+				D426C27E1C47D0490033C25E /* YJImageIOUITests */,
+				D426C25D1C47D0490033C25E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D426C25D1C47D0490033C25E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D426C25C1C47D0490033C25E /* YJImageIO.app */,
+				D426C2701C47D0490033C25E /* YJImageIOTests.xctest */,
+				D426C27B1C47D0490033C25E /* YJImageIOUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D426C25E1C47D0490033C25E /* YJImageIO */ = {
+			isa = PBXGroup;
+			children = (
+				D426C25F1C47D0490033C25E /* AppDelegate.swift */,
+				D426C2611C47D0490033C25E /* ViewController.swift */,
+				D426C2631C47D0490033C25E /* Main.storyboard */,
+				D426C2661C47D0490033C25E /* Assets.xcassets */,
+				D426C2681C47D0490033C25E /* LaunchScreen.storyboard */,
+				D426C26B1C47D0490033C25E /* Info.plist */,
+			);
+			path = YJImageIO;
+			sourceTree = "<group>";
+		};
+		D426C2731C47D0490033C25E /* YJImageIOTests */ = {
+			isa = PBXGroup;
+			children = (
+				D426C2741C47D0490033C25E /* YJImageIOTests.swift */,
+				D426C2761C47D0490033C25E /* Info.plist */,
+			);
+			path = YJImageIOTests;
+			sourceTree = "<group>";
+		};
+		D426C27E1C47D0490033C25E /* YJImageIOUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D426C27F1C47D0490033C25E /* YJImageIOUITests.swift */,
+				D426C2811C47D0490033C25E /* Info.plist */,
+			);
+			path = YJImageIOUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D426C25B1C47D0490033C25E /* YJImageIO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D426C2841C47D0490033C25E /* Build configuration list for PBXNativeTarget "YJImageIO" */;
+			buildPhases = (
+				D426C2581C47D0490033C25E /* Sources */,
+				D426C2591C47D0490033C25E /* Frameworks */,
+				D426C25A1C47D0490033C25E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YJImageIO;
+			productName = YJImageIO;
+			productReference = D426C25C1C47D0490033C25E /* YJImageIO.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D426C26F1C47D0490033C25E /* YJImageIOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D426C2871C47D0490033C25E /* Build configuration list for PBXNativeTarget "YJImageIOTests" */;
+			buildPhases = (
+				D426C26C1C47D0490033C25E /* Sources */,
+				D426C26D1C47D0490033C25E /* Frameworks */,
+				D426C26E1C47D0490033C25E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D426C2721C47D0490033C25E /* PBXTargetDependency */,
+			);
+			name = YJImageIOTests;
+			productName = YJImageIOTests;
+			productReference = D426C2701C47D0490033C25E /* YJImageIOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D426C27A1C47D0490033C25E /* YJImageIOUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D426C28A1C47D0490033C25E /* Build configuration list for PBXNativeTarget "YJImageIOUITests" */;
+			buildPhases = (
+				D426C2771C47D0490033C25E /* Sources */,
+				D426C2781C47D0490033C25E /* Frameworks */,
+				D426C2791C47D0490033C25E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D426C27D1C47D0490033C25E /* PBXTargetDependency */,
+			);
+			name = YJImageIOUITests;
+			productName = YJImageIOUITests;
+			productReference = D426C27B1C47D0490033C25E /* YJImageIOUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D426C2541C47D0490033C25E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "阳君";
+				TargetAttributes = {
+					D426C25B1C47D0490033C25E = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					D426C26F1C47D0490033C25E = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = D426C25B1C47D0490033C25E;
+					};
+					D426C27A1C47D0490033C25E = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = D426C25B1C47D0490033C25E;
+					};
+				};
+			};
+			buildConfigurationList = D426C2571C47D0490033C25E /* Build configuration list for PBXProject "YJImageIO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D426C2531C47D0490033C25E;
+			productRefGroup = D426C25D1C47D0490033C25E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D426C25B1C47D0490033C25E /* YJImageIO */,
+				D426C26F1C47D0490033C25E /* YJImageIOTests */,
+				D426C27A1C47D0490033C25E /* YJImageIOUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D426C25A1C47D0490033C25E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426C26A1C47D0490033C25E /* LaunchScreen.storyboard in Resources */,
+				D426C2671C47D0490033C25E /* Assets.xcassets in Resources */,
+				D426C2651C47D0490033C25E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426C26E1C47D0490033C25E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426C2791C47D0490033C25E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D426C2581C47D0490033C25E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426C2621C47D0490033C25E /* ViewController.swift in Sources */,
+				D426C2601C47D0490033C25E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426C26C1C47D0490033C25E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426C2751C47D0490033C25E /* YJImageIOTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426C2771C47D0490033C25E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426C2801C47D0490033C25E /* YJImageIOUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D426C2721C47D0490033C25E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D426C25B1C47D0490033C25E /* YJImageIO */;
+			targetProxy = D426C2711C47D0490033C25E /* PBXContainerItemProxy */;
+		};
+		D426C27D1C47D0490033C25E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D426C25B1C47D0490033C25E /* YJImageIO */;
+			targetProxy = D426C27C1C47D0490033C25E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D426C2631C47D0490033C25E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D426C2641C47D0490033C25E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D426C2681C47D0490033C25E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D426C2691C47D0490033C25E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D426C2821C47D0490033C25E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D426C2831C47D0490033C25E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D426C2851C47D0490033C25E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YJImageIO/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJImageIO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D426C2861C47D0490033C25E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YJImageIO/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJImageIO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D426C2881C47D0490033C25E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = YJImageIOTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJImageIOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJImageIO.app/YJImageIO";
+			};
+			name = Debug;
+		};
+		D426C2891C47D0490033C25E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = YJImageIOTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJImageIOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YJImageIO.app/YJImageIO";
+			};
+			name = Release;
+		};
+		D426C28B1C47D0490033C25E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = YJImageIOUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJImageIOUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = YJImageIO;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D426C28C1C47D0490033C25E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = YJImageIOUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJImageIOUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = YJImageIO;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D426C2571C47D0490033C25E /* Build configuration list for PBXProject "YJImageIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D426C2821C47D0490033C25E /* Debug */,
+				D426C2831C47D0490033C25E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D426C2841C47D0490033C25E /* Build configuration list for PBXNativeTarget "YJImageIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D426C2851C47D0490033C25E /* Debug */,
+				D426C2861C47D0490033C25E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D426C2871C47D0490033C25E /* Build configuration list for PBXNativeTarget "YJImageIOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D426C2881C47D0490033C25E /* Debug */,
+				D426C2891C47D0490033C25E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D426C28A1C47D0490033C25E /* Build configuration list for PBXNativeTarget "YJImageIOUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D426C28B1C47D0490033C25E /* Debug */,
+				D426C28C1C47D0490033C25E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D426C2541C47D0490033C25E /* Project object */;
+}

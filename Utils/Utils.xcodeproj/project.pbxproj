@@ -14,7 +14,10 @@
 		D41A9F701C1E67910092EAA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A9F6E1C1E67910092EAA1 /* LaunchScreen.storyboard */; };
 		D41A9F7B1C1E67910092EAA1 /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9F7A1C1E67910092EAA1 /* UtilsTests.swift */; };
 		D41A9F861C1E67910092EAA1 /* UtilsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9F851C1E67910092EAA1 /* UtilsUITests.swift */; };
-		D41A9F941C1E67E00092EAA1 /* YJUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9F931C1E67E00092EAA1 /* YJUtils.swift */; };
+		D426C28F1C47D10E0033C25E /* YJUtilsUserInterfaceIdiom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C28E1C47D10E0033C25E /* YJUtilsUserInterfaceIdiom.swift */; };
+		D426C2911C47D15C0033C25E /* YJUtilsScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C2901C47D15C0033C25E /* YJUtilsScreenSize.swift */; };
+		D426C2931C47D1B40033C25E /* YJUtilsDeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C2921C47D1B40033C25E /* YJUtilsDeviceType.swift */; };
+		D426C2951C47D1DD0033C25E /* YJUtilsAPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C2941C47D1DD0033C25E /* YJUtilsAPP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +51,10 @@
 		D41A9F811C1E67910092EAA1 /* UtilsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41A9F851C1E67910092EAA1 /* UtilsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsUITests.swift; sourceTree = "<group>"; };
 		D41A9F871C1E67910092EAA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D41A9F931C1E67E00092EAA1 /* YJUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtils.swift; sourceTree = "<group>"; };
+		D426C28E1C47D10E0033C25E /* YJUtilsUserInterfaceIdiom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsUserInterfaceIdiom.swift; sourceTree = "<group>"; };
+		D426C2901C47D15C0033C25E /* YJUtilsScreenSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsScreenSize.swift; sourceTree = "<group>"; };
+		D426C2921C47D1B40033C25E /* YJUtilsDeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsDeviceType.swift; sourceTree = "<group>"; };
+		D426C2941C47D1DD0033C25E /* YJUtilsAPP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsAPP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +105,11 @@
 		D41A9F641C1E67910092EAA1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D426C28D1C47D0E00033C25E /* Utils */,
 				D41A9FD01C1E71C60092EAA1 /* VIew */,
 				D41A9FCF1C1E71BB0092EAA1 /* Resources */,
 				D41A9F651C1E67910092EAA1 /* AppDelegate.swift */,
 				D41A9F671C1E67910092EAA1 /* ViewController.swift */,
-				D41A9F931C1E67E00092EAA1 /* YJUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -142,6 +148,17 @@
 				D41A9F691C1E67910092EAA1 /* Main.storyboard */,
 			);
 			name = VIew;
+			sourceTree = "<group>";
+		};
+		D426C28D1C47D0E00033C25E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D426C28E1C47D10E0033C25E /* YJUtilsUserInterfaceIdiom.swift */,
+				D426C2901C47D15C0033C25E /* YJUtilsScreenSize.swift */,
+				D426C2921C47D1B40033C25E /* YJUtilsDeviceType.swift */,
+				D426C2941C47D1DD0033C25E /* YJUtilsAPP.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D41A9F941C1E67E00092EAA1 /* YJUtils.swift in Sources */,
+				D426C2931C47D1B40033C25E /* YJUtilsDeviceType.swift in Sources */,
+				D426C28F1C47D10E0033C25E /* YJUtilsUserInterfaceIdiom.swift in Sources */,
+				D426C2911C47D15C0033C25E /* YJUtilsScreenSize.swift in Sources */,
+				D426C2951C47D1DD0033C25E /* YJUtilsAPP.swift in Sources */,
 				D41A9F681C1E67910092EAA1 /* ViewController.swift in Sources */,
 				D41A9F661C1E67910092EAA1 /* AppDelegate.swift in Sources */,
 			);
