@@ -14,6 +14,7 @@
 		D426C26A1C47D0490033C25E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D426C2681C47D0490033C25E /* LaunchScreen.storyboard */; };
 		D426C2751C47D0490033C25E /* YJImageIOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C2741C47D0490033C25E /* YJImageIOTests.swift */; };
 		D426C2801C47D0490033C25E /* YJImageIOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C27F1C47D0490033C25E /* YJImageIOUITests.swift */; };
+		D426C2971C47D2640033C25E /* YJUtilsImageIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C2961C47D2640033C25E /* YJUtilsImageIO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D426C27B1C47D0490033C25E /* YJImageIOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJImageIOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D426C27F1C47D0490033C25E /* YJImageIOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJImageIOUITests.swift; sourceTree = "<group>"; };
 		D426C2811C47D0490033C25E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D426C2961C47D2640033C25E /* YJUtilsImageIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsImageIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				D426C25F1C47D0490033C25E /* AppDelegate.swift */,
-				D426C2611C47D0490033C25E /* ViewController.swift */,
-				D426C2631C47D0490033C25E /* Main.storyboard */,
-				D426C2661C47D0490033C25E /* Assets.xcassets */,
-				D426C2681C47D0490033C25E /* LaunchScreen.storyboard */,
-				D426C26B1C47D0490033C25E /* Info.plist */,
+				D426C29A1C47D3860033C25E /* Main */,
+				D426C29B1C47D38F0033C25E /* Utils */,
+				D426C2981C47D3350033C25E /* Storyboard */,
+				D426C2991C47D3770033C25E /* Resources */,
 			);
 			path = YJImageIO;
 			sourceTree = "<group>";
@@ -123,6 +124,40 @@
 				D426C2811C47D0490033C25E /* Info.plist */,
 			);
 			path = YJImageIOUITests;
+			sourceTree = "<group>";
+		};
+		D426C2981C47D3350033C25E /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D426C2631C47D0490033C25E /* Main.storyboard */,
+				D426C2681C47D0490033C25E /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		D426C2991C47D3770033C25E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D426C26B1C47D0490033C25E /* Info.plist */,
+				D426C2661C47D0490033C25E /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D426C29A1C47D3860033C25E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D426C2611C47D0490033C25E /* ViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		D426C29B1C47D38F0033C25E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D426C2961C47D2640033C25E /* YJUtilsImageIO.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D426C2971C47D2640033C25E /* YJUtilsImageIO.swift in Sources */,
 				D426C2621C47D0490033C25E /* ViewController.swift in Sources */,
 				D426C2601C47D0490033C25E /* AppDelegate.swift in Sources */,
 			);

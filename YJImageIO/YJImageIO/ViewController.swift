@@ -2,6 +2,9 @@
 //  ViewController.swift
 //  YJImageIO
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 16/1/14.
 //  Copyright © 2016年 阳君. All rights reserved.
 //
@@ -19,7 +22,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
 
