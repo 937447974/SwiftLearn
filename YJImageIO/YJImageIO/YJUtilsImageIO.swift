@@ -1,6 +1,6 @@
 //
-//  YJUtils.swift
-//  YJUtilsImageIO
+//  YJUtilsImageIO.swift
+//  YJImageIO
 //
 //  CSDN:http://blog.csdn.net/y550918116j
 //  GitHub:https://github.com/937447974/Blog
@@ -15,11 +15,23 @@ import ImageIO
 /// ImageIO库工具类
 public struct YJUtilsImageIO {
     
+    // MARK: - 
+    /// 获取UIImage的缩略图
+    static func createThumbnailImageFromImage(image: UIImage) -> UIImage? {
+        guard let data = UIImagePNGRepresentation(image) else {
+            return nil
+        }
+        guard let cgImage = YJUtilsImageIO.createThumbnailImageFromData(data, imageSize: data.length) else {
+            return nil
+        }
+        return UIImage(CGImage: cgImage)
+    }
+    
+    /// 获取UIImage的缩略图
     static func createThumbnailImageFromData(data: NSData, var imageSize: Int) -> CGImageRef? {
         // Create an image source from NSData; no options.
-        let imageSource = CGImageSourceCreateWithData(data as CFDataRef, nil)
         // Make sure the image source exists before continuing.
-        guard imageSource != nil else {
+        guard let imageSource = CGImageSourceCreateWithData(data as CFDataRef, nil) else {
             print("Image source is NULL.")
             return nil
         }
@@ -32,7 +44,7 @@ public struct YJUtilsImageIO {
         var vcBacks = kCFTypeDictionaryValueCallBacks
         let options: CFDictionaryRef = CFDictionaryCreate(kCFAllocatorDefault, UnsafeMutablePointer(UnsafePointer<Void>(keys)), UnsafeMutablePointer(UnsafePointer<Void>(values)), 2, &kcBacks, &vcBacks)
         // Create the thumbnail image using the specified options.
-        let thumbnailImage = CGImageSourceCreateThumbnailAtIndex(imageSource!, 0, options)
+        let thumbnailImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options)
         // Release the options dictionary and the image source, when you no longer need them.
         /* swift 废弃
         CFRelease(thumbnailSize)
@@ -40,7 +52,7 @@ public struct YJUtilsImageIO {
         CFRelease(imageSource)
         */
         // Make sure the thumbnail image exists before continuing.
-        guard thumbnailImage == nil else {
+        guard thumbnailImage != nil else {
             print("Thumbnail image not created from image source.")
             return nil
         }
