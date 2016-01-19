@@ -14,10 +14,12 @@
 		D47EDF3E1C4E00FF00E1B0E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47EDF3C1C4E00FF00E1B0E6 /* LaunchScreen.storyboard */; };
 		D47EDF491C4E00FF00E1B0E6 /* YJNotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47EDF481C4E00FF00E1B0E6 /* YJNotificationCenterTests.swift */; };
 		D47EDF541C4E00FF00E1B0E6 /* YJNotificationCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47EDF531C4E00FF00E1B0E6 /* YJNotificationCenterUITests.swift */; };
-		D47EDF681C4E013500E1B0E6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47EDF671C4E013500E1B0E6 /* NotificationCenter.framework */; };
-		D47EDF6B1C4E013500E1B0E6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47EDF6A1C4E013500E1B0E6 /* TodayViewController.swift */; };
-		D47EDF6E1C4E013500E1B0E6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47EDF6C1C4E013500E1B0E6 /* MainInterface.storyboard */; };
-		D47EDF721C4E013500E1B0E6 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D47EDF651C4E013500E1B0E6 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D47EDF7C1C4E144F00E1B0E6 /* YJUtilsAPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47EDF7B1C4E144F00E1B0E6 /* YJUtilsAPP.swift */; };
+		D47EDF871C4E1C1000E1B0E6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47EDF671C4E013500E1B0E6 /* NotificationCenter.framework */; };
+		D47EDF8A1C4E1C1000E1B0E6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47EDF891C4E1C1000E1B0E6 /* TodayViewController.swift */; };
+		D47EDF8D1C4E1C1000E1B0E6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47EDF8B1C4E1C1000E1B0E6 /* MainInterface.storyboard */; };
+		D47EDF911C4E1C1100E1B0E6 /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D47EDF861C4E1C1000E1B0E6 /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D47EDF951C4E1C9B00E1B0E6 /* YJUtilsAPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47EDF7B1C4E144F00E1B0E6 /* YJUtilsAPP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +37,12 @@
 			remoteGlobalIDString = D47EDF2F1C4E00FF00E1B0E6;
 			remoteInfo = YJNotificationCenter;
 		};
-		D47EDF701C4E013500E1B0E6 /* PBXContainerItemProxy */ = {
+		D47EDF8F1C4E1C1100E1B0E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D47EDF281C4E00FF00E1B0E6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D47EDF641C4E013500E1B0E6;
-			remoteInfo = Today;
+			remoteGlobalIDString = D47EDF851C4E1C1000E1B0E6;
+			remoteInfo = TodayExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,7 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D47EDF721C4E013500E1B0E6 /* Today.appex in Embed App Extensions */,
+				D47EDF911C4E1C1100E1B0E6 /* TodayExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,11 +74,14 @@
 		D47EDF4F1C4E00FF00E1B0E6 /* YJNotificationCenterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJNotificationCenterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47EDF531C4E00FF00E1B0E6 /* YJNotificationCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJNotificationCenterUITests.swift; sourceTree = "<group>"; };
 		D47EDF551C4E00FF00E1B0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D47EDF651C4E013500E1B0E6 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47EDF671C4E013500E1B0E6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		D47EDF6A1C4E013500E1B0E6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		D47EDF6D1C4E013500E1B0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		D47EDF6F1C4E013500E1B0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D47EDF7B1C4E144F00E1B0E6 /* YJUtilsAPP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsAPP.swift; sourceTree = "<group>"; };
+		D47EDF861C4E1C1000E1B0E6 /* TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D47EDF891C4E1C1000E1B0E6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D47EDF8C1C4E1C1000E1B0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D47EDF8E1C4E1C1000E1B0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D47EDF961C4E229600E1B0E6 /* YJNotificationCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YJNotificationCenter.entitlements; sourceTree = "<group>"; };
+		D47EDF971C4E2D3A00E1B0E6 /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +106,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D47EDF621C4E013500E1B0E6 /* Frameworks */ = {
+		D47EDF831C4E1C1000E1B0E6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D47EDF681C4E013500E1B0E6 /* NotificationCenter.framework in Frameworks */,
+				D47EDF871C4E1C1000E1B0E6 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +123,7 @@
 				D47EDF321C4E00FF00E1B0E6 /* YJNotificationCenter */,
 				D47EDF471C4E00FF00E1B0E6 /* YJNotificationCenterTests */,
 				D47EDF521C4E00FF00E1B0E6 /* YJNotificationCenterUITests */,
-				D47EDF691C4E013500E1B0E6 /* Today */,
+				D47EDF881C4E1C1000E1B0E6 /* TodayExtension */,
 				D47EDF661C4E013500E1B0E6 /* Frameworks */,
 				D47EDF311C4E00FF00E1B0E6 /* Products */,
 			);
@@ -130,7 +135,7 @@
 				D47EDF301C4E00FF00E1B0E6 /* YJNotificationCenter.app */,
 				D47EDF441C4E00FF00E1B0E6 /* YJNotificationCenterTests.xctest */,
 				D47EDF4F1C4E00FF00E1B0E6 /* YJNotificationCenterUITests.xctest */,
-				D47EDF651C4E013500E1B0E6 /* Today.appex */,
+				D47EDF861C4E1C1000E1B0E6 /* TodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,11 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				D47EDF331C4E00FF00E1B0E6 /* AppDelegate.swift */,
-				D47EDF351C4E00FF00E1B0E6 /* ViewController.swift */,
-				D47EDF371C4E00FF00E1B0E6 /* Main.storyboard */,
-				D47EDF3A1C4E00FF00E1B0E6 /* Assets.xcassets */,
-				D47EDF3C1C4E00FF00E1B0E6 /* LaunchScreen.storyboard */,
-				D47EDF3F1C4E00FF00E1B0E6 /* Info.plist */,
+				D47EDF7F1C4E1AC400E1B0E6 /* Main */,
+				D47EDF811C4E1AEA00E1B0E6 /* Utils */,
+				D47EDF801C4E1AD600E1B0E6 /* Storyboard */,
+				D47EDF7E1C4E1AA900E1B0E6 /* Resources */,
 			);
 			path = YJNotificationCenter;
 			sourceTree = "<group>";
@@ -174,14 +178,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D47EDF691C4E013500E1B0E6 /* Today */ = {
+		D47EDF7E1C4E1AA900E1B0E6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D47EDF6A1C4E013500E1B0E6 /* TodayViewController.swift */,
-				D47EDF6C1C4E013500E1B0E6 /* MainInterface.storyboard */,
-				D47EDF6F1C4E013500E1B0E6 /* Info.plist */,
+				D47EDF961C4E229600E1B0E6 /* YJNotificationCenter.entitlements */,
+				D47EDF3F1C4E00FF00E1B0E6 /* Info.plist */,
+				D47EDF3A1C4E00FF00E1B0E6 /* Assets.xcassets */,
 			);
-			path = Today;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D47EDF7F1C4E1AC400E1B0E6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D47EDF351C4E00FF00E1B0E6 /* ViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		D47EDF801C4E1AD600E1B0E6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D47EDF3C1C4E00FF00E1B0E6 /* LaunchScreen.storyboard */,
+				D47EDF371C4E00FF00E1B0E6 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		D47EDF811C4E1AEA00E1B0E6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D47EDF7B1C4E144F00E1B0E6 /* YJUtilsAPP.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		D47EDF881C4E1C1000E1B0E6 /* TodayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D47EDF981C4E2D5D00E1B0E6 /* Resources */,
+				D47EDF891C4E1C1000E1B0E6 /* TodayViewController.swift */,
+				D47EDF8B1C4E1C1000E1B0E6 /* MainInterface.storyboard */,
+			);
+			path = TodayExtension;
+			sourceTree = "<group>";
+		};
+		D47EDF981C4E2D5D00E1B0E6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D47EDF971C4E2D3A00E1B0E6 /* TodayExtension.entitlements */,
+				D47EDF8E1C4E1C1000E1B0E6 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +247,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D47EDF711C4E013500E1B0E6 /* PBXTargetDependency */,
+				D47EDF901C4E1C1100E1B0E6 /* PBXTargetDependency */,
 			);
 			name = YJNotificationCenter;
 			productName = YJNotificationCenter;
@@ -242,21 +290,21 @@
 			productReference = D47EDF4F1C4E00FF00E1B0E6 /* YJNotificationCenterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		D47EDF641C4E013500E1B0E6 /* Today */ = {
+		D47EDF851C4E1C1000E1B0E6 /* TodayExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D47EDF731C4E013500E1B0E6 /* Build configuration list for PBXNativeTarget "Today" */;
+			buildConfigurationList = D47EDF921C4E1C1100E1B0E6 /* Build configuration list for PBXNativeTarget "TodayExtension" */;
 			buildPhases = (
-				D47EDF611C4E013500E1B0E6 /* Sources */,
-				D47EDF621C4E013500E1B0E6 /* Frameworks */,
-				D47EDF631C4E013500E1B0E6 /* Resources */,
+				D47EDF821C4E1C1000E1B0E6 /* Sources */,
+				D47EDF831C4E1C1000E1B0E6 /* Frameworks */,
+				D47EDF841C4E1C1000E1B0E6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Today;
-			productName = Today;
-			productReference = D47EDF651C4E013500E1B0E6 /* Today.appex */;
+			name = TodayExtension;
+			productName = TodayExtension;
+			productReference = D47EDF861C4E1C1000E1B0E6 /* TodayExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -271,6 +319,12 @@
 				TargetAttributes = {
 					D47EDF2F1C4E00FF00E1B0E6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = APJKM2UR4X;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D47EDF431C4E00FF00E1B0E6 = {
 						CreatedOnToolsVersion = 7.2;
@@ -280,8 +334,14 @@
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = D47EDF2F1C4E00FF00E1B0E6;
 					};
-					D47EDF641C4E013500E1B0E6 = {
+					D47EDF851C4E1C1000E1B0E6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = APJKM2UR4X;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -301,7 +361,7 @@
 				D47EDF2F1C4E00FF00E1B0E6 /* YJNotificationCenter */,
 				D47EDF431C4E00FF00E1B0E6 /* YJNotificationCenterTests */,
 				D47EDF4E1C4E00FF00E1B0E6 /* YJNotificationCenterUITests */,
-				D47EDF641C4E013500E1B0E6 /* Today */,
+				D47EDF851C4E1C1000E1B0E6 /* TodayExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -331,11 +391,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D47EDF631C4E013500E1B0E6 /* Resources */ = {
+		D47EDF841C4E1C1000E1B0E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D47EDF6E1C4E013500E1B0E6 /* MainInterface.storyboard in Resources */,
+				D47EDF8D1C4E1C1000E1B0E6 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +408,7 @@
 			files = (
 				D47EDF361C4E00FF00E1B0E6 /* ViewController.swift in Sources */,
 				D47EDF341C4E00FF00E1B0E6 /* AppDelegate.swift in Sources */,
+				D47EDF7C1C4E144F00E1B0E6 /* YJUtilsAPP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,11 +428,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D47EDF611C4E013500E1B0E6 /* Sources */ = {
+		D47EDF821C4E1C1000E1B0E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D47EDF6B1C4E013500E1B0E6 /* TodayViewController.swift in Sources */,
+				D47EDF951C4E1C9B00E1B0E6 /* YJUtilsAPP.swift in Sources */,
+				D47EDF8A1C4E1C1000E1B0E6 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,10 +450,10 @@
 			target = D47EDF2F1C4E00FF00E1B0E6 /* YJNotificationCenter */;
 			targetProxy = D47EDF501C4E00FF00E1B0E6 /* PBXContainerItemProxy */;
 		};
-		D47EDF711C4E013500E1B0E6 /* PBXTargetDependency */ = {
+		D47EDF901C4E1C1100E1B0E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D47EDF641C4E013500E1B0E6 /* Today */;
-			targetProxy = D47EDF701C4E013500E1B0E6 /* PBXContainerItemProxy */;
+			target = D47EDF851C4E1C1000E1B0E6 /* TodayExtension */;
+			targetProxy = D47EDF8F1C4E1C1100E1B0E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,10 +474,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		D47EDF6C1C4E013500E1B0E6 /* MainInterface.storyboard */ = {
+		D47EDF8B1C4E1C1000E1B0E6 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D47EDF6D1C4E013500E1B0E6 /* Base */,
+				D47EDF8C1C4E1C1000E1B0E6 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -510,11 +572,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YJNotificationCenter/YJNotificationCenter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = YJNotificationCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJNotificationCenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -522,11 +588,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YJNotificationCenter/YJNotificationCenter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = YJNotificationCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJNotificationCenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -578,24 +648,32 @@
 			};
 			name = Release;
 		};
-		D47EDF741C4E013500E1B0E6 /* Debug */ = {
+		D47EDF931C4E1C1100E1B0E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = Today/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJNotificationCenter.Today;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJNotificationCenter.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		D47EDF751C4E013500E1B0E6 /* Release */ = {
+		D47EDF941C4E1C1100E1B0E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = Today/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = TodayExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJNotificationCenter.Today;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJNotificationCenter.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -636,11 +714,11 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		D47EDF731C4E013500E1B0E6 /* Build configuration list for PBXNativeTarget "Today" */ = {
+		D47EDF921C4E1C1100E1B0E6 /* Build configuration list for PBXNativeTarget "TodayExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D47EDF741C4E013500E1B0E6 /* Debug */,
-				D47EDF751C4E013500E1B0E6 /* Release */,
+				D47EDF931C4E1C1100E1B0E6 /* Debug */,
+				D47EDF941C4E1C1100E1B0E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
