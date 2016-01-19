@@ -24,6 +24,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         print(self.view.frame)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print(__FUNCTION__)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print(__FUNCTION__)
+    }
+    
     deinit {
         print("内存回收")
     }
