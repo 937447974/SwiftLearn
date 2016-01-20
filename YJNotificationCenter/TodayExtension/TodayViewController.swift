@@ -2,6 +2,9 @@
 //  TodayViewController.swift
 //  TodayExtension
 //
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974/Blog
+//
 //  Created by yangjun on 16/1/19.
 //  Copyright © 2016年 阳君. All rights reserved.
 //
@@ -10,9 +13,7 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-    
-    @IBOutlet weak var button: UIButton!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
