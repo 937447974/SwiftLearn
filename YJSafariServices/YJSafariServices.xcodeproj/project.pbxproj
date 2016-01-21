@@ -14,6 +14,7 @@
 		D41C377C1C507527006F21FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41C377A1C507527006F21FB /* LaunchScreen.storyboard */; };
 		D41C37871C507527006F21FB /* YJSafariServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C37861C507527006F21FB /* YJSafariServicesTests.swift */; };
 		D41C37921C507527006F21FB /* YJSafariServicesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C37911C507527006F21FB /* YJSafariServicesUITests.swift */; };
+		D41C37A41C507F24006F21FB /* YJUtilsAPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C37A31C507F24006F21FB /* YJUtilsAPP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D41C378D1C507527006F21FB /* YJSafariServicesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJSafariServicesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41C37911C507527006F21FB /* YJSafariServicesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSafariServicesUITests.swift; sourceTree = "<group>"; };
 		D41C37931C507527006F21FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D41C37A31C507F24006F21FB /* YJUtilsAPP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsAPP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				D41C37711C507527006F21FB /* AppDelegate.swift */,
 				D41C37A01C507542006F21FB /* Main */,
+				D41C37A21C507F0F006F21FB /* Utils */,
 				D41C37A11C507547006F21FB /* Storyboard */,
 				D41C379F1C50753E006F21FB /* Resources */,
 			);
@@ -147,6 +150,14 @@
 				D41C377A1C507527006F21FB /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		D41C37A21C507F0F006F21FB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D41C37A31C507F24006F21FB /* YJUtilsAPP.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 			files = (
 				D41C37741C507527006F21FB /* ViewController.swift in Sources */,
 				D41C37721C507527006F21FB /* AppDelegate.swift in Sources */,
+				D41C37A41C507F24006F21FB /* YJUtilsAPP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
