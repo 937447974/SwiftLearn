@@ -17,6 +17,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.testSFContentBlockerManager()
     }
     
     // MARK: - SFContentBlockerManager
@@ -78,7 +79,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     
 }
 
-/// 分享按钮
+/// 共享按钮
 private class YJUIActivity: UIActivity {
     
     private override func activityTitle() -> String? {
