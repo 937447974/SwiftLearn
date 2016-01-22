@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-826" y="-89"/>
         </scene>
-        <!--广播-->
+        <!--聊天室-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="YJMultipeerConnectivity" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,9 +35,37 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JiE-Qz-RaO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="发送消息" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pJh-N5-33A">
+                                <rect key="frame" x="16" y="612" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fI7-Mx-rG5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="l1E-p7-tQK"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JiE-Qz-RaO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="MDc-sM-wXz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pJh-N5-33A" secondAttribute="trailing" id="OXE-ud-21p"/>
+                            <constraint firstItem="JiE-Qz-RaO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XdU-re-9pP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pJh-N5-33A" secondAttribute="bottom" constant="15" id="Yv1-XE-epA"/>
+                            <constraint firstItem="pJh-N5-33A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dDv-RX-LVW"/>
+                            <constraint firstAttribute="trailing" secondItem="JiE-Qz-RaO" secondAttribute="trailing" id="iT7-iZ-DfN"/>
+                            <constraint firstItem="pJh-N5-33A" firstAttribute="top" secondItem="JiE-Qz-RaO" secondAttribute="bottom" constant="10" id="oMB-hj-oQR"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="广播" id="Bpb-Tt-mTN">
+                    <navigationItem key="navigationItem" title="聊天室" id="Bpb-Tt-mTN">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="stop" id="OnA-cC-QLD">
                                 <connections>
@@ -50,6 +79,10 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bottomLayoutConstraint" destination="Yv1-XE-epA" id="yLP-CA-eeh"/>
+                        <outlet property="textView" destination="JiE-Qz-RaO" id="gmQ-B3-C07"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
