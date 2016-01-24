@@ -14,6 +14,8 @@
 		D41C37F91C548FA9006F21FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41C37F71C548FA9006F21FB /* LaunchScreen.storyboard */; };
 		D41C38041C548FA9006F21FB /* YJQuickLookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C38031C548FA9006F21FB /* YJQuickLookTests.swift */; };
 		D41C380F1C548FA9006F21FB /* YJQuickLookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C380E1C548FA9006F21FB /* YJQuickLookUITests.swift */; };
+		D439D2DC1C54AC5900FB24BC /* Test.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D439D2DB1C54AC5900FB24BC /* Test.pdf */; };
+		D439D2DF1C54AD6700FB24BC /* YJPreviewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439D2DE1C54AD6700FB24BC /* YJPreviewItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		D41C380A1C548FA9006F21FB /* YJQuickLookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJQuickLookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41C380E1C548FA9006F21FB /* YJQuickLookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJQuickLookUITests.swift; sourceTree = "<group>"; };
 		D41C38101C548FA9006F21FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D439D2DB1C54AC5900FB24BC /* Test.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Test.pdf; sourceTree = "<group>"; };
+		D439D2DE1C54AD6700FB24BC /* YJPreviewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJPreviewItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			children = (
 				D41C37EE1C548FA9006F21FB /* AppDelegate.swift */,
 				D41C381E1C548FE8006F21FB /* Main */,
+				D439D2DD1C54AD2B00FB24BC /* Model */,
 				D41C381D1C548FD5006F21FB /* Storyboard */,
 				D41C381C1C548FC0006F21FB /* Resources */,
 			);
@@ -126,6 +131,7 @@
 		D41C381C1C548FC0006F21FB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D439D2DB1C54AC5900FB24BC /* Test.pdf */,
 				D41C37F51C548FA9006F21FB /* Assets.xcassets */,
 				D41C37FA1C548FA9006F21FB /* Info.plist */,
 			);
@@ -147,6 +153,14 @@
 				D41C37F01C548FA9006F21FB /* ViewController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		D439D2DD1C54AD2B00FB24BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D439D2DE1C54AD6700FB24BC /* YJPreviewItem.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +225,7 @@
 		D41C37E31C548FA9006F21FB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "阳君";
@@ -253,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D439D2DC1C54AC5900FB24BC /* Test.pdf in Resources */,
 				D41C37F91C548FA9006F21FB /* LaunchScreen.storyboard in Resources */,
 				D41C37F61C548FA9006F21FB /* Assets.xcassets in Resources */,
 				D41C37F41C548FA9006F21FB /* Main.storyboard in Resources */,
@@ -281,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D41C37F11C548FA9006F21FB /* ViewController.swift in Sources */,
+				D439D2DF1C54AD6700FB24BC /* YJPreviewItem.swift in Sources */,
 				D41C37EF1C548FA9006F21FB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +525,7 @@
 				D41C38151C548FA9006F21FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D41C38161C548FA9006F21FB /* Build configuration list for PBXNativeTarget "YJQuickLookTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +534,7 @@
 				D41C38181C548FA9006F21FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D41C38191C548FA9006F21FB /* Build configuration list for PBXNativeTarget "YJQuickLookUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +543,7 @@
 				D41C381B1C548FA9006F21FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

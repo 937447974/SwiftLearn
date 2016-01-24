@@ -12,18 +12,32 @@
 import UIKit
 import QuickLook
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, QLPreviewControllerDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - 点击屏幕
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        let qlVC = QLPreviewController()
+        qlVC.dataSource = self
+        qlVC.currentPreviewItemIndex = 0 // 显示第一个
+        self.presentViewController(qlVC, animated: true, completion: nil)
     }
-
-
+    
+    // MARK: - QLPreviewControllerDataSource
+    func numberOfPreviewItemsInPreviewController(controller: QLPreviewController) -> Int {
+        print(__FUNCTION__)
+        return 2
+    }
+    
+    func previewController(controller: QLPreviewController, previewItemAtIndex index: Int) -> QLPreviewItem {
+        print(__FUNCTION__)
+        return YJPreviewItem()
+    }
+    
 }
 
