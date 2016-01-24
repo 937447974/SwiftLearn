@@ -79,5 +79,13 @@ Enable web-based views and services in your app with the Safari Services framewo
 
 Display view-based previews of items with the Quick Look framework.
 
+# YJSocial
+
+**Social**
+
+Send requests to a supported social networking service to perform operations on behalf of your users, integrating their social networking accounts with your app.
+
+
+
 
 
