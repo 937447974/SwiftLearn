@@ -72,3 +72,12 @@ Read and write most image file formats with the Image I/O framework. This C-base
 **SafariServices**
 
 Enable web-based views and services in your app with the Safari Services framework.
+
+# YJQuickLook
+
+**QuickLook**
+
+Display view-based previews of items with the Quick Look framework.
+
+
+
