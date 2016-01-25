@@ -14,6 +14,10 @@
 		D439D2F71C54C02700FB24BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D439D2F51C54C02700FB24BC /* LaunchScreen.storyboard */; };
 		D439D3021C54C02700FB24BC /* YJSocialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439D3011C54C02700FB24BC /* YJSocialTests.swift */; };
 		D439D30D1C54C02700FB24BC /* YJSocialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439D30C1C54C02700FB24BC /* YJSocialUITests.swift */; };
+		D439D3241C54EE2700FB24BC /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439D3231C54EE2700FB24BC /* ShareViewController.swift */; };
+		D439D3271C54EE2700FB24BC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D439D3251C54EE2700FB24BC /* MainInterface.storyboard */; };
+		D439D32B1C54EE2700FB24BC /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D439D3211C54EE2600FB24BC /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D439D3311C55C14300FB24BC /* YJSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439D3301C55C14300FB24BC /* YJSelectTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +35,28 @@
 			remoteGlobalIDString = D439D2E81C54C02700FB24BC;
 			remoteInfo = YJSocial;
 		};
+		D439D3291C54EE2700FB24BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D439D2E11C54C02700FB24BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D439D3201C54EE2600FB24BC;
+			remoteInfo = ShareExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D439D32F1C54EE2700FB24BC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D439D32B1C54EE2700FB24BC /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D439D2E91C54C02700FB24BC /* YJSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +72,11 @@
 		D439D3081C54C02700FB24BC /* YJSocialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJSocialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D439D30C1C54C02700FB24BC /* YJSocialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJSocialUITests.swift; sourceTree = "<group>"; };
 		D439D30E1C54C02700FB24BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D439D3211C54EE2600FB24BC /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D439D3231C54EE2700FB24BC /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		D439D3261C54EE2700FB24BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D439D3281C54EE2700FB24BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D439D3301C55C14300FB24BC /* YJSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJSelectTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +101,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D439D31E1C54EE2600FB24BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +117,7 @@
 				D439D2EB1C54C02700FB24BC /* YJSocial */,
 				D439D3001C54C02700FB24BC /* YJSocialTests */,
 				D439D30B1C54C02700FB24BC /* YJSocialUITests */,
+				D439D3221C54EE2700FB24BC /* ShareExtension */,
 				D439D2EA1C54C02700FB24BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +128,7 @@
 				D439D2E91C54C02700FB24BC /* YJSocial.app */,
 				D439D2FD1C54C02700FB24BC /* YJSocialTests.xctest */,
 				D439D3081C54C02700FB24BC /* YJSocialUITests.xctest */,
+				D439D3211C54EE2600FB24BC /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +188,41 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		D439D3221C54EE2700FB24BC /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D439D3341C55C22B00FB24BC /* Storyboard */,
+				D439D3331C55C21E00FB24BC /* Main */,
+				D439D3321C55C14D00FB24BC /* Resources */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		D439D3321C55C14D00FB24BC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D439D3281C54EE2700FB24BC /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D439D3331C55C21E00FB24BC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D439D3231C54EE2700FB24BC /* ShareViewController.swift */,
+				D439D3301C55C14300FB24BC /* YJSelectTableViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		D439D3341C55C22B00FB24BC /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D439D3251C54EE2700FB24BC /* MainInterface.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,10 +233,12 @@
 				D439D2E51C54C02700FB24BC /* Sources */,
 				D439D2E61C54C02700FB24BC /* Frameworks */,
 				D439D2E71C54C02700FB24BC /* Resources */,
+				D439D32F1C54EE2700FB24BC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D439D32A1C54EE2700FB24BC /* PBXTargetDependency */,
 			);
 			name = YJSocial;
 			productName = YJSocial;
@@ -205,12 +281,30 @@
 			productReference = D439D3081C54C02700FB24BC /* YJSocialUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D439D3201C54EE2600FB24BC /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D439D32C1C54EE2700FB24BC /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				D439D31D1C54EE2600FB24BC /* Sources */,
+				D439D31E1C54EE2600FB24BC /* Frameworks */,
+				D439D31F1C54EE2600FB24BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = D439D3211C54EE2600FB24BC /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D439D2E11C54C02700FB24BC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "阳君";
@@ -225,6 +319,9 @@
 					D439D3071C54C02700FB24BC = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = D439D2E81C54C02700FB24BC;
+					};
+					D439D3201C54EE2600FB24BC = {
+						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
@@ -244,6 +341,7 @@
 				D439D2E81C54C02700FB24BC /* YJSocial */,
 				D439D2FC1C54C02700FB24BC /* YJSocialTests */,
 				D439D3071C54C02700FB24BC /* YJSocialUITests */,
+				D439D3201C54EE2600FB24BC /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -270,6 +368,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D439D31F1C54EE2600FB24BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D439D3271C54EE2700FB24BC /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +407,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D439D31D1C54EE2600FB24BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D439D3311C55C14300FB24BC /* YJSelectTableViewController.swift in Sources */,
+				D439D3241C54EE2700FB24BC /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -313,6 +428,11 @@
 			isa = PBXTargetDependency;
 			target = D439D2E81C54C02700FB24BC /* YJSocial */;
 			targetProxy = D439D3091C54C02700FB24BC /* PBXContainerItemProxy */;
+		};
+		D439D32A1C54EE2700FB24BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D439D3201C54EE2600FB24BC /* ShareExtension */;
+			targetProxy = D439D3291C54EE2700FB24BC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -331,6 +451,14 @@
 				D439D2F61C54C02700FB24BC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D439D3251C54EE2700FB24BC /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D439D3261C54EE2700FB24BC /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -423,6 +551,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = YJSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJSocial;
@@ -434,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = YJSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJSocial;
@@ -489,6 +619,28 @@
 			};
 			name = Release;
 		};
+		D439D32D1C54EE2700FB24BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJSocial.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D439D32E1C54EE2700FB24BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJSocial.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -522,6 +674,14 @@
 			buildConfigurations = (
 				D439D3181C54C02700FB24BC /* Debug */,
 				D439D3191C54C02700FB24BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D439D32C1C54EE2700FB24BC /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D439D32D1C54EE2700FB24BC /* Debug */,
+				D439D32E1C54EE2700FB24BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
