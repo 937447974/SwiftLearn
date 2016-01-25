@@ -85,7 +85,11 @@ Display view-based previews of items with the Quick Look framework.
 
 Send requests to a supported social networking service to perform operations on behalf of your users, integrating their social networking accounts with your app.
 
+# YJAccounts
 
+**Accounts**
+
+Manage the user's external accounts using the Accounts framework. You can also use this framework to simplify the authorization process when using external APIs, such as the Twitter API.
 
 
 
