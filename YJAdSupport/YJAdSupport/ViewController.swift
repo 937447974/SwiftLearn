@@ -17,14 +17,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let iManager = ASIdentifierManager.sharedManager() // 共享
+        print(iManager.advertisingIdentifier) // 唯一标示符
+        print(iManager.advertisingTrackingEnabled) // 用户是否允许跟踪
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
