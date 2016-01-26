@@ -13,16 +13,15 @@ import UIKit
 import Accounts
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let completion = { (success: Bool, error: NSError!) -> Void in
+            print("权限认证success: \(success), error: \(error)")
+        }
+        let accountStore = ACAccountStore()
+        accountStore.requestSinaWeiboAccess(completion)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
 }
 

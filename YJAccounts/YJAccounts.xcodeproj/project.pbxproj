@@ -14,6 +14,7 @@
 		D439D34C1C561E9200FB24BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D439D34A1C561E9200FB24BC /* LaunchScreen.storyboard */; };
 		D439D3571C561E9200FB24BC /* YJAccountsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439D3561C561E9200FB24BC /* YJAccountsTests.swift */; };
 		D439D3621C561E9200FB24BC /* YJAccountsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439D3611C561E9200FB24BC /* YJAccountsUITests.swift */; };
+		D45436461C5721C50058484C /* ACAccountStore+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45436451C5721C50058484C /* ACAccountStore+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D439D35D1C561E9200FB24BC /* YJAccountsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJAccountsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D439D3611C561E9200FB24BC /* YJAccountsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJAccountsUITests.swift; sourceTree = "<group>"; };
 		D439D3631C561E9200FB24BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D45436451C5721C50058484C /* ACAccountStore+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ACAccountStore+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,8 @@
 			children = (
 				D439D3411C561E9200FB24BC /* AppDelegate.swift */,
 				D439D3711C561ECC00FB24BC /* Main */,
-				D439D3701C561EBC00FB24BC /* Storyboard */,
+				D45436441C5721130058484C /* Extensions */,
+				D439D3701C561EBC00FB24BC /* Storyboards */,
 				D439D36F1C561EA300FB24BC /* Resources */,
 			);
 			path = YJAccounts;
@@ -132,13 +135,13 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		D439D3701C561EBC00FB24BC /* Storyboard */ = {
+		D439D3701C561EBC00FB24BC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				D439D3451C561E9200FB24BC /* Main.storyboard */,
 				D439D34A1C561E9200FB24BC /* LaunchScreen.storyboard */,
 			);
-			name = Storyboard;
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		D439D3711C561ECC00FB24BC /* Main */ = {
@@ -147,6 +150,14 @@
 				D439D3431C561E9200FB24BC /* ViewController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		D45436441C5721130058484C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D45436451C5721C50058484C /* ACAccountStore+Extension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D439D3441C561E9200FB24BC /* ViewController.swift in Sources */,
+				D45436461C5721C50058484C /* ACAccountStore+Extension.swift in Sources */,
 				D439D3421C561E9200FB24BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +520,7 @@
 				D439D3681C561E9200FB24BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D439D3691C561E9200FB24BC /* Build configuration list for PBXNativeTarget "YJAccountsTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +529,7 @@
 				D439D36B1C561E9200FB24BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D439D36C1C561E9200FB24BC /* Build configuration list for PBXNativeTarget "YJAccountsUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +538,7 @@
 				D439D36E1C561E9200FB24BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
