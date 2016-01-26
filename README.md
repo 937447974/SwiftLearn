@@ -91,5 +91,9 @@ Send requests to a supported social networking service to perform operations on 
 
 Manage the user's external accounts using the Accounts framework. You can also use this framework to simplify the authorization process when using external APIs, such as the Twitter API.
 
+# YJAdSupport
 
+**AdSupport**
+
+Access the advertising identifier and a flag indicating whether the user has chosen to limit ad tracking.
 
