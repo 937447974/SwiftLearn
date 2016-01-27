@@ -14,6 +14,7 @@
 		D45436D51C5770D40058484C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45436D31C5770D40058484C /* LaunchScreen.storyboard */; };
 		D45436E01C5770D40058484C /* YJCoreMotionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45436DF1C5770D40058484C /* YJCoreMotionTests.swift */; };
 		D45436EB1C5770D40058484C /* YJCoreMotionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45436EA1C5770D40058484C /* YJCoreMotionUITests.swift */; };
+		D46849001C58DF7500B86694 /* CMMotionActivity+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46848FF1C58DF7500B86694 /* CMMotionActivity+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D45436E61C5770D40058484C /* YJCoreMotionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJCoreMotionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45436EA1C5770D40058484C /* YJCoreMotionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCoreMotionUITests.swift; sourceTree = "<group>"; };
 		D45436EC1C5770D40058484C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46848FF1C58DF7500B86694 /* CMMotionActivity+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMMotionActivity+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				D45436CA1C5770D40058484C /* AppDelegate.swift */,
 				D45436FA1C5770F90058484C /* Main */,
+				D46848FE1C58DEF200B86694 /* Extensions */,
 				D45436F91C5770EC0058484C /* Storyboards */,
 				D45436F81C5770DD0058484C /* Resources */,
 			);
@@ -147,6 +150,14 @@
 				D45436CC1C5770D40058484C /* ViewController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		D46848FE1C58DEF200B86694 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D46848FF1C58DF7500B86694 /* CMMotionActivity+Extension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D45436CD1C5770D40058484C /* ViewController.swift in Sources */,
+				D46849001C58DF7500B86694 /* CMMotionActivity+Extension.swift in Sources */,
 				D45436CB1C5770D40058484C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

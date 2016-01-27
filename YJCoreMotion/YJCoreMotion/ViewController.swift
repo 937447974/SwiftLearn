@@ -23,16 +23,23 @@ class ViewController: UIViewController {
     /// 刷新时间间隔
     private let timeInterval: NSTimeInterval = 0.2
     /// 加速计数据
-    private var accelerometerData: CMAccelerometerData? { didSet { self.reloadUI() } }
+    private var accelerometerDataText = "" { didSet { self.reloadUI() } }
     /// 螺旋仪数据
-    private var gyroData: CMGyroData? { didSet { self.reloadUI() } }
+    private var gyroDataText = "" { didSet { self.reloadUI() } }
     /// 磁场计数据
-    private var magnetometerData: CMMagnetometerData? { didSet { self.reloadUI() } }
+    private var magnetometerDataText = "" { didSet { self.reloadUI() } }
     /// 步数计
     private let pedometer = CMPedometer()
-    /// 布数计数据
-    private var pedometerData: CMPedometerData? { didSet { self.reloadUI() } }
-    
+    /// 步数计数据
+    private var pedometerDataText = "" { didSet { self.reloadUI() } }
+    /// 高度计
+    private let altimeter = CMAltimeter()
+    /// 高度计数据
+    private var altitudeDataText = "" { didSet { self.reloadUI() } }
+    /// 活动器
+    private let motionActivityManager = CMMotionActivityManager()
+    /// 活动数据
+    private var motionActivityText = "" { didSet { self.reloadUI() } }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +47,7 @@ class ViewController: UIViewController {
     
     // MARK: - Action
     @IBAction func onClickSearch(sender: AnyObject) {
+        self.onClickStop(sender)
         
     }
     
@@ -49,6 +57,8 @@ class ViewController: UIViewController {
         self.startGyroUpdates()
         self.startMagnetometerUpdates()
         self.startPedometerUpdates()
+        self.startRelativeAltitudeUpdates()
+        self.startActivityUpdates()
     }
     
     // MARK: 停止获取数据
@@ -57,12 +67,14 @@ class ViewController: UIViewController {
         self.motionManager.stopGyroUpdates()
         self.motionManager.stopMagnetometerUpdates()
         self.pedometer.stopPedometerUpdates()
+        self.altimeter.stopRelativeAltitudeUpdates()
+        self.motionActivityManager.stopActivityUpdates()
     }
     
     // MARK: - 加速计
     private func startAccelerometerUpdates() {
         guard self.motionManager.accelerometerAvailable else {
-            print("设备不支持加速计")
+            self.accelerometerDataText = "\n设备不支持加速计\n"
             return
         }
         self.motionManager.accelerometerUpdateInterval = self.timeInterval // 刷新间隔
@@ -73,7 +85,14 @@ class ViewController: UIViewController {
             }
             // 有更新
             if self.motionManager.accelerometerActive {
-                self.accelerometerData = accelerometerData
+                var text = ""
+                if let acceleration = accelerometerData?.acceleration {
+                    text += "\n加速计\n"
+                    text += "x: \(acceleration.x)G\n"
+                    text += "y: \(acceleration.y)G\n"
+                    text += "z: \(acceleration.z)G\n"
+                }
+                self.accelerometerDataText = text
             }
         }
     }
@@ -81,7 +100,7 @@ class ViewController: UIViewController {
     // MARK: 螺旋仪
     private func startGyroUpdates() {
         guard self.motionManager.gyroAvailable else {
-            print("设备不支持螺旋仪")
+            self.gyroDataText = "\n设备不支持螺旋仪\n"
             return
         }
         self.motionManager.gyroUpdateInterval = self.timeInterval
@@ -92,7 +111,13 @@ class ViewController: UIViewController {
             }
             // 有更新
             if self.motionManager.gyroActive {
-                self.gyroData = gyroData
+                if let rotationRate = gyroData?.rotationRate {
+                    var text = "\n螺旋计\n"
+                    text += "x: \(rotationRate.x)\n"
+                    text += "y: \(rotationRate.y)\n"
+                    text += "z: \(rotationRate.z)\n"
+                    self.gyroDataText = text
+                }
             }
         }
     }
@@ -100,7 +125,7 @@ class ViewController: UIViewController {
     // MARK: 磁场计
     private func startMagnetometerUpdates() {
         guard self.motionManager.magnetometerAvailable else {
-            print("设备不支持磁场计")
+            self.magnetometerDataText = "\n设备不支持磁场计\n"
             return
         }
         self.motionManager.magnetometerUpdateInterval = self.timeInterval
@@ -110,7 +135,13 @@ class ViewController: UIViewController {
                 return
             }
             if self.motionManager.magnetometerActive {
-                self.magnetometerData = magnetometerData
+                if let magneticField = magnetometerData?.magneticField {
+                    var text = "\n磁场计\n"
+                    text += "x: \(magneticField.x)\n"
+                    text += "y: \(magneticField.y)\n"
+                    text += "z: \(magneticField.z)\n"
+                    self.magnetometerDataText = text
+                }
             }
         }
     }
@@ -118,7 +149,7 @@ class ViewController: UIViewController {
     // MARK: 步数计
     private func startPedometerUpdates() {
         guard CMPedometer.isStepCountingAvailable() else {
-            print("设备不支持获取步数")
+            self.pedometerDataText = "\n设备不支持获取步数\n"
             return
         }
         self.pedometer.startPedometerUpdatesFromDate(NSDate()) { (pedometerData: CMPedometerData?, error: NSError?) -> Void in
@@ -126,59 +157,69 @@ class ViewController: UIViewController {
                 print(error)
                 return
             }
-            self.pedometerData = pedometerData
-        }
-    }
-
-    // MARK: - 刷新UI
-    private func reloadUI() {
-        var text = ""
-        if let acceleration = self.accelerometerData?.acceleration {
-            text += "\n加速计\n"
-            text += "x: \(acceleration.x)G\n"
-            text += "y: \(acceleration.y)G\n"
-            text += "z: \(acceleration.z)G\n"
-        }
-        if let rotationRate = self.gyroData?.rotationRate {
-            text += "\n螺旋计\n"
-            text += "x: \(rotationRate.x)\n"
-            text += "y: \(rotationRate.y)\n"
-            text += "z: \(rotationRate.z)\n"
-        }
-        if let magneticField = self.magnetometerData?.magneticField {
-            text += "\n磁场计\n"
-            text += "x: \(magneticField.x)\n"
-            text += "y: \(magneticField.y)\n"
-            text += "z: \(magneticField.z)\n"
-        }
-        if CMPedometer.isStepCountingAvailable() {
-            text += "\n步数计\n"
-            if let numberOfSteps = self.pedometerData?.numberOfSteps {
+            var text = "\n步数计\n"
+            if let numberOfSteps = pedometerData?.numberOfSteps {
                 text += "步数: \(numberOfSteps)\n"
             }
-            if let distance = self.pedometerData?.distance {
+            if let distance = pedometerData?.distance {
                 text += "距离: \(distance)\n"
             }
-            if let floorsAscended = self.pedometerData?.floorsAscended {
+            if let floorsAscended = pedometerData?.floorsAscended {
                 text += "上楼: \(floorsAscended)\n"
             }
-            if let floorsDescended = self.pedometerData?.floorsDescended {
+            if let floorsDescended = pedometerData?.floorsDescended {
                 text += "下楼: \(floorsDescended)\n"
             }
-            if let currentPace = self.pedometerData?.currentPace {
+            if let currentPace = pedometerData?.currentPace {
                 text += "速度: \(currentPace)m/s\n"
             }
-            if let currentCadence = self.pedometerData?.currentCadence {
+            if let currentCadence = pedometerData?.currentCadence {
                 text += "速度: \(currentCadence)步/秒\n"
             }
+            self.pedometerDataText = text
         }
+    }
+    
+    // MARK: 高度计
+    private func startRelativeAltitudeUpdates() {
+        guard CMAltimeter.isRelativeAltitudeAvailable() else {
+            self.altitudeDataText = "\n设备不支持获取高度\n"
+            return
+        }
+        var altitude: Float = 0.0
+        self.altimeter.startRelativeAltitudeUpdatesToQueue(self.queue) { (altitudeData: CMAltitudeData?, error: NSError?) -> Void in
+            guard error == nil else {
+                print(error)
+                return
+            }
+            if altitudeData != nil {
+                altitude += altitudeData!.relativeAltitude.floatValue
+                var text = "\n高度计\n"
+                text += "高度变化: \(altitude)米\n"
+                text += "压力: \(altitudeData!.pressure)kPa\n"
+                self.altitudeDataText = text
+            }
+        }
+    }
+    
+    // MARK: 当前活动状态
+    private func startActivityUpdates() {
+        guard CMMotionActivityManager.isActivityAvailable() else {
+            self.motionActivityText = "\n设备不支持获取用户所处环境\n"
+            return
+        }
+        self.motionActivityManager.startActivityUpdatesToQueue(queue) { (mActivity: CMMotionActivity?) -> Void in
+            if mActivity != nil {
+                self.motionActivityText = "\n用户当前所处环境：\(mActivity!.motionActivity())\n"
+            }
+        }
+    }
+    
+    // MARK: - 刷新UI
+    private func reloadUI() {
+        var text = self.accelerometerDataText + self.gyroDataText + self.magnetometerDataText
+        text += self.pedometerDataText + self.altitudeDataText + self.motionActivityText
         self.textView.text = text
     }
-
     
-
 }
-
-
-
-
