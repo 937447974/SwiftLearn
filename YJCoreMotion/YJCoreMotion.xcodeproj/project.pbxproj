@@ -508,6 +508,7 @@
 				D45436F11C5770D40058484C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D45436F21C5770D40058484C /* Build configuration list for PBXNativeTarget "YJCoreMotionTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +517,7 @@
 				D45436F41C5770D40058484C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D45436F51C5770D40058484C /* Build configuration list for PBXNativeTarget "YJCoreMotionUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +526,7 @@
 				D45436F71C5770D40058484C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
