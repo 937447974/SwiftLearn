@@ -48,7 +48,20 @@ class ViewController: UIViewController {
     // MARK: - Action
     @IBAction func onClickSearch(sender: AnyObject) {
         self.onClickStop(sender)
-        
+        print("是否授权获取数据：\(CMSensorRecorder.isAuthorizedForRecording())")
+        guard CMSensorRecorder.isAccelerometerRecordingAvailable() else {
+            print("无法获取加速器历史数据")
+            return
+        }
+        let recorder = CMSensorRecorder()
+        recorder.recordAccelerometerFor(20 * 60)  // Record for 20 minutes
+        // 一段时间的数据
+        let calendar = NSCalendar.currentCalendar()
+        let now = NSDate()
+        if let oneDayAgo = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -1, toDate: now, options: NSCalendarOptions()) {
+            let list = recorder.accelerometerDataFrom(oneDayAgo, to: now)
+            print(list)
+        }
     }
     
     // MARK: 开始获取数据
