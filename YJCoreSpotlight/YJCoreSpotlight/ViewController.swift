@@ -21,6 +21,14 @@ class ViewController: UIViewController {
             print("该设备不支持添加Spotlight搜索!")
             return
         }
+        // Delete all items.
+        CSSearchableIndex.defaultSearchableIndex().deleteAllSearchableItemsWithCompletionHandler { (error: NSError?) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                print("Delete all items.")
+            }
+        }
         // Create an attribute set to describe an item.
         let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeData as String)
         // Add metadata that supplies details about the item.
