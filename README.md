@@ -103,3 +103,8 @@ Access the advertising identifier and a flag indicating whether the user has cho
 
 Receive and handle accelerometer and other motion events with the Core Motion framework.
 
+#YJCoreSpotlight
+
+**CoreSpotlight**
+
+Index the content in your app and enable users to deep-link to that content from Spotlight and Safari search results with the Core Spotlight framework. Core Spotlight is designed for apps that handle persistent user data, such as documents, photos, and other types of content created by or on behalf of users. Use Core Spotlight APIs to add, retrieve, update, and delete items that represent searchable app content.
