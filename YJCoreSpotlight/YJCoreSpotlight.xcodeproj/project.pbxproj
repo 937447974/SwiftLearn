@@ -14,6 +14,8 @@
 		D46849181C59B9BA00B86694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46849161C59B9BA00B86694 /* LaunchScreen.storyboard */; };
 		D46849231C59B9BA00B86694 /* YJCoreSpotlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46849221C59B9BA00B86694 /* YJCoreSpotlightTests.swift */; };
 		D468492E1C59B9BA00B86694 /* YJCoreSpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468492D1C59B9BA00B86694 /* YJCoreSpotlightUITests.swift */; };
+		D46849451C5A39CF00B86694 /* IndexRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46849441C5A39CF00B86694 /* IndexRequestHandler.swift */; };
+		D46849491C5A39CF00B86694 /* SpotlightIndexExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D46849421C5A39CF00B86694 /* SpotlightIndexExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,28 @@
 			remoteGlobalIDString = D46849091C59B9BA00B86694;
 			remoteInfo = YJCoreSpotlight;
 		};
+		D46849471C5A39CF00B86694 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D46849021C59B9BA00B86694 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D46849411C5A39CF00B86694;
+			remoteInfo = SpotlightIndexExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D468494D1C5A39CF00B86694 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D46849491C5A39CF00B86694 /* SpotlightIndexExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D468490A1C59B9BA00B86694 /* YJCoreSpotlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJCoreSpotlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +70,9 @@
 		D46849291C59B9BA00B86694 /* YJCoreSpotlightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJCoreSpotlightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D468492D1C59B9BA00B86694 /* YJCoreSpotlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJCoreSpotlightUITests.swift; sourceTree = "<group>"; };
 		D468492F1C59B9BA00B86694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D46849421C5A39CF00B86694 /* SpotlightIndexExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpotlightIndexExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46849441C5A39CF00B86694 /* IndexRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexRequestHandler.swift; sourceTree = "<group>"; };
+		D46849461C5A39CF00B86694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +97,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D468493F1C5A39CF00B86694 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +113,7 @@
 				D468490C1C59B9BA00B86694 /* YJCoreSpotlight */,
 				D46849211C59B9BA00B86694 /* YJCoreSpotlightTests */,
 				D468492C1C59B9BA00B86694 /* YJCoreSpotlightUITests */,
+				D46849431C5A39CF00B86694 /* SpotlightIndexExtension */,
 				D468490B1C59B9BA00B86694 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +124,7 @@
 				D468490A1C59B9BA00B86694 /* YJCoreSpotlight.app */,
 				D468491E1C59B9BA00B86694 /* YJCoreSpotlightTests.xctest */,
 				D46849291C59B9BA00B86694 /* YJCoreSpotlightUITests.xctest */,
+				D46849421C5A39CF00B86694 /* SpotlightIndexExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +184,15 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		D46849431C5A39CF00B86694 /* SpotlightIndexExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D46849441C5A39CF00B86694 /* IndexRequestHandler.swift */,
+				D46849461C5A39CF00B86694 /* Info.plist */,
+			);
+			path = SpotlightIndexExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,10 +203,12 @@
 				D46849061C59B9BA00B86694 /* Sources */,
 				D46849071C59B9BA00B86694 /* Frameworks */,
 				D46849081C59B9BA00B86694 /* Resources */,
+				D468494D1C5A39CF00B86694 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D46849481C5A39CF00B86694 /* PBXTargetDependency */,
 			);
 			name = YJCoreSpotlight;
 			productName = YJCoreSpotlight;
@@ -205,6 +251,23 @@
 			productReference = D46849291C59B9BA00B86694 /* YJCoreSpotlightUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D46849411C5A39CF00B86694 /* SpotlightIndexExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D468494C1C5A39CF00B86694 /* Build configuration list for PBXNativeTarget "SpotlightIndexExtension" */;
+			buildPhases = (
+				D468493E1C5A39CF00B86694 /* Sources */,
+				D468493F1C5A39CF00B86694 /* Frameworks */,
+				D46849401C5A39CF00B86694 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpotlightIndexExtension;
+			productName = SpotlightIndexExtension;
+			productReference = D46849421C5A39CF00B86694 /* SpotlightIndexExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,6 +289,9 @@
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = D46849091C59B9BA00B86694;
 					};
+					D46849411C5A39CF00B86694 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = D46849051C59B9BA00B86694 /* Build configuration list for PBXProject "YJCoreSpotlight" */;
@@ -244,6 +310,7 @@
 				D46849091C59B9BA00B86694 /* YJCoreSpotlight */,
 				D468491D1C59B9BA00B86694 /* YJCoreSpotlightTests */,
 				D46849281C59B9BA00B86694 /* YJCoreSpotlightUITests */,
+				D46849411C5A39CF00B86694 /* SpotlightIndexExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -267,6 +334,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D46849271C59B9BA00B86694 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D46849401C5A39CF00B86694 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -301,6 +375,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D468493E1C5A39CF00B86694 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46849451C5A39CF00B86694 /* IndexRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -313,6 +395,11 @@
 			isa = PBXTargetDependency;
 			target = D46849091C59B9BA00B86694 /* YJCoreSpotlight */;
 			targetProxy = D468492A1C59B9BA00B86694 /* PBXContainerItemProxy */;
+		};
+		D46849481C5A39CF00B86694 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D46849411C5A39CF00B86694 /* SpotlightIndexExtension */;
+			targetProxy = D46849471C5A39CF00B86694 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -423,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = YJCoreSpotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJCoreSpotlight;
@@ -434,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = YJCoreSpotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YJCoreSpotlight;
@@ -489,6 +578,28 @@
 			};
 			name = Release;
 		};
+		D468494A1C5A39CF00B86694 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SpotlightIndexExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJCoreSpotlight.SpotlightIndexExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D468494B1C5A39CF00B86694 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SpotlightIndexExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YJCoreSpotlight.SpotlightIndexExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,6 +619,7 @@
 				D46849341C59B9BA00B86694 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D46849351C59B9BA00B86694 /* Build configuration list for PBXNativeTarget "YJCoreSpotlightTests" */ = {
 			isa = XCConfigurationList;
@@ -516,12 +628,22 @@
 				D46849371C59B9BA00B86694 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D46849381C59B9BA00B86694 /* Build configuration list for PBXNativeTarget "YJCoreSpotlightUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D46849391C59B9BA00B86694 /* Debug */,
 				D468493A1C59B9BA00B86694 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D468494C1C5A39CF00B86694 /* Build configuration list for PBXNativeTarget "SpotlightIndexExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D468494A1C5A39CF00B86694 /* Debug */,
+				D468494B1C5A39CF00B86694 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
