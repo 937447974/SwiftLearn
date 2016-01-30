@@ -19,6 +19,6 @@ public struct YJUtilsUserInterfaceIdiom {
     /// The user interface should be designed for iPad.
     static let isPad = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
     /// The user interface should be designed for Apple TV.
-    static let isAppleTv = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.TV
+    static let isAppleTV = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.TV
     
 }
