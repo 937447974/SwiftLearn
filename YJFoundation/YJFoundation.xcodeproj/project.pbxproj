@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		D469EC7B1C5CBCDA00A2D1E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469EC7A1C5CBCDA00A2D1E3 /* AppDelegate.swift */; };
-		D469EC7D1C5CBCDA00A2D1E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469EC7C1C5CBCDA00A2D1E3 /* ViewController.swift */; };
 		D469EC801C5CBCDA00A2D1E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D469EC7E1C5CBCDA00A2D1E3 /* Main.storyboard */; };
 		D469EC821C5CBCDA00A2D1E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D469EC811C5CBCDA00A2D1E3 /* Assets.xcassets */; };
 		D469EC851C5CBCDA00A2D1E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D469EC831C5CBCDA00A2D1E3 /* LaunchScreen.storyboard */; };
 		D469EC901C5CBCDA00A2D1E3 /* YJFoundationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469EC8F1C5CBCDA00A2D1E3 /* YJFoundationTests.swift */; };
 		D469EC9B1C5CBCDA00A2D1E3 /* YJFoundationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469EC9A1C5CBCDA00A2D1E3 /* YJFoundationUITests.swift */; };
+		D469ECB71C5CC6D200A2D1E3 /* YJMainTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469ECB61C5CC6D200A2D1E3 /* YJMainTVC.swift */; };
+		D469ECBD1C5CC71400A2D1E3 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469ECBC1C5CC71400A2D1E3 /* UIViewController+Extension.swift */; };
+		D469ECBF1C5CC72E00A2D1E3 /* YJBaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469ECBE1C5CC72E00A2D1E3 /* YJBaseTVC.swift */; };
+		D469ECC11C5CC73B00A2D1E3 /* YJPerformSegueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469ECC01C5CC73B00A2D1E3 /* YJPerformSegueModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,6 @@
 /* Begin PBXFileReference section */
 		D469EC771C5CBCDA00A2D1E3 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D469EC7A1C5CBCDA00A2D1E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D469EC7C1C5CBCDA00A2D1E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D469EC7F1C5CBCDA00A2D1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D469EC811C5CBCDA00A2D1E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D469EC841C5CBCDA00A2D1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		D469EC961C5CBCDA00A2D1E3 /* YJFoundationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJFoundationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D469EC9A1C5CBCDA00A2D1E3 /* YJFoundationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YJFoundationUITests.swift; sourceTree = "<group>"; };
 		D469EC9C1C5CBCDA00A2D1E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D469ECB61C5CC6D200A2D1E3 /* YJMainTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJMainTVC.swift; sourceTree = "<group>"; };
+		D469ECBC1C5CC71400A2D1E3 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D469ECBE1C5CC72E00A2D1E3 /* YJBaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJBaseTVC.swift; sourceTree = "<group>"; };
+		D469ECC01C5CC73B00A2D1E3 /* YJPerformSegueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJPerformSegueModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			children = (
 				D469EC7A1C5CBCDA00A2D1E3 /* AppDelegate.swift */,
 				D469ECAA1C5CC01900A2D1E3 /* Main */,
+				D469ECB81C5CC6E500A2D1E3 /* View */,
+				D469ECBA1C5CC6F500A2D1E3 /* Model */,
+				D469ECBB1C5CC6FD00A2D1E3 /* Extensions */,
 				D469ECA91C5CC00E00A2D1E3 /* Storyboards */,
 				D469ECA81C5CC00500A2D1E3 /* Resources */,
 			);
@@ -144,9 +153,33 @@
 		D469ECAA1C5CC01900A2D1E3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D469EC7C1C5CBCDA00A2D1E3 /* ViewController.swift */,
+				D469ECB61C5CC6D200A2D1E3 /* YJMainTVC.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		D469ECB81C5CC6E500A2D1E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D469ECBE1C5CC72E00A2D1E3 /* YJBaseTVC.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D469ECBA1C5CC6F500A2D1E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D469ECC01C5CC73B00A2D1E3 /* YJPerformSegueModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D469ECBB1C5CC6FD00A2D1E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D469ECBC1C5CC71400A2D1E3 /* UIViewController+Extension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,8 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D469EC7D1C5CBCDA00A2D1E3 /* ViewController.swift in Sources */,
+				D469ECBD1C5CC71400A2D1E3 /* UIViewController+Extension.swift in Sources */,
+				D469ECBF1C5CC72E00A2D1E3 /* YJBaseTVC.swift in Sources */,
 				D469EC7B1C5CBCDA00A2D1E3 /* AppDelegate.swift in Sources */,
+				D469ECB71C5CC6D200A2D1E3 /* YJMainTVC.swift in Sources */,
+				D469ECC11C5CC73B00A2D1E3 /* YJPerformSegueModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
