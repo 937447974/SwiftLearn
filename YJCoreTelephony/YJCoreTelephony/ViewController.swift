@@ -25,12 +25,14 @@ class ViewController: UIViewController {
         let tNetInfo = CTTelephonyNetworkInfo()
         // 输出手机的数据业务信息
         print("Radio Access Technology:\(tNetInfo.currentRadioAccessTechnology)")
+        // 获取运营商相关
         if let carrier = tNetInfo.subscriberCellularProvider {
             print("是否允许VOIP：\(carrier.allowsVOIP)")
             print(carrier.carrierName)
-            if let token = CTSubscriber().carrierToken {
-                print("用户授权信息：\(NSString(data: token, encoding: NSUTF8StringEncoding))")
-            }
+        }
+        // 获取授权token
+        if let token = CTSubscriber().carrierToken {
+            print("用户授权信息：\(NSString(data: token, encoding: NSUTF8StringEncoding))")
         }
     }
 
