@@ -114,3 +114,9 @@ Index the content in your app and enable users to deep-link to that content from
 **CoreTelephony**
 
 Gain access to cellular telephone call status and cellular service provider information with the Core Telephony framework.
+
+#YJFoundation
+
+**Foundation**
+
+Use the Foundation framework for the "nuts and bolts" classes for Objective-C programming. This framework provides essential Objective-C classes, most importantly the root class, NSObject, which defines basic object behavior. It includes classes for objects representing basic data types, collections, and operating-system services. Foundation also introduces several design patterns and mechanisms that contribute to the robustness and efficiency of Objective-C programs. Along with UIKit, the Foundation framework provides the basic tools and infrastructure you need to implement graphical, event-driven iOS applications.
