@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D46732B31C5F24E900702D05 /* YJOperationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46732B21C5F24E900702D05 /* YJOperationVC.swift */; };
 		D469EC7B1C5CBCDA00A2D1E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469EC7A1C5CBCDA00A2D1E3 /* AppDelegate.swift */; };
 		D469EC801C5CBCDA00A2D1E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D469EC7E1C5CBCDA00A2D1E3 /* Main.storyboard */; };
 		D469EC821C5CBCDA00A2D1E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D469EC811C5CBCDA00A2D1E3 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D46732B21C5F24E900702D05 /* YJOperationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJOperationVC.swift; sourceTree = "<group>"; };
 		D469EC771C5CBCDA00A2D1E3 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D469EC7A1C5CBCDA00A2D1E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D469EC7F1C5CBCDA00A2D1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				D469ECC31C5CC8B000A2D1E3 /* YJThreadVC.swift */,
+				D46732B21C5F24E900702D05 /* YJOperationVC.swift */,
 			);
 			name = Thread;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 		D469EC6F1C5CBCDA00A2D1E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "阳君";
@@ -330,6 +334,7 @@
 				D469ECB71C5CC6D200A2D1E3 /* YJMainTVC.swift in Sources */,
 				D469ECC11C5CC73B00A2D1E3 /* YJPerformSegueModel.swift in Sources */,
 				D469ECC41C5CC8B000A2D1E3 /* YJThreadVC.swift in Sources */,
+				D46732B31C5F24E900702D05 /* YJOperationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +561,7 @@
 				D469ECA11C5CBCDA00A2D1E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D469ECA21C5CBCDA00A2D1E3 /* Build configuration list for PBXNativeTarget "YJFoundationTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +570,7 @@
 				D469ECA41C5CBCDA00A2D1E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D469ECA51C5CBCDA00A2D1E3 /* Build configuration list for PBXNativeTarget "YJFoundationUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +579,7 @@
 				D469ECA71C5CBCDA00A2D1E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

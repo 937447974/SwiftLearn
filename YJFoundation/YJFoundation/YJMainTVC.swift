@@ -22,6 +22,6 @@ class YJMainTVC: YJBaseTVC {
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "NSThread"){YJThreadVC()})
         self.data.append(list)
-        self.header.append("Threed")
+        self.header.append("多线程")
     }
 }
