@@ -12,10 +12,6 @@ class YJThreadVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard NSThread.isMultiThreaded() else {
-            print("设备不支持多线程")
-            return
-        }
         // 方式一
         let thread = NSThread(target: self, selector: "send:", object: "阳君")
         print("线程开销：\(thread.stackSize)bytes")
