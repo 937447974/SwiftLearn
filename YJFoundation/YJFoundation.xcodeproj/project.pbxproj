@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84506B281C910C2300422D60 /* YJXMLParserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84506B271C910C2300422D60 /* YJXMLParserVC.swift */; };
+		84506B2A1C910CB700422D60 /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84506B291C910CB700422D60 /* Main.xml */; };
 		84C430851C90253C00300E58 /* YJRunLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C430841C90253C00300E58 /* YJRunLoopVC.swift */; };
 		D46732B31C5F24E900702D05 /* YJOperationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46732B21C5F24E900702D05 /* YJOperationVC.swift */; };
 		D469EC7B1C5CBCDA00A2D1E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469EC7A1C5CBCDA00A2D1E3 /* AppDelegate.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84506B271C910C2300422D60 /* YJXMLParserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJXMLParserVC.swift; sourceTree = "<group>"; };
+		84506B291C910CB700422D60 /* Main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Main.xml; sourceTree = "<group>"; };
 		84C430841C90253C00300E58 /* YJRunLoopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJRunLoopVC.swift; sourceTree = "<group>"; };
 		D46732B21C5F24E900702D05 /* YJOperationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJOperationVC.swift; sourceTree = "<group>"; };
 		D469EC771C5CBCDA00A2D1E3 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84506B261C910C0900422D60 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				84506B271C910C2300422D60 /* YJXMLParserVC.swift */,
+			);
+			name = XML;
+			sourceTree = "<group>";
+		};
 		D469EC6E1C5CBCDA00A2D1E3 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +153,7 @@
 		D469ECA81C5CC00500A2D1E3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84506B291C910CB700422D60 /* Main.xml */,
 				D469EC811C5CBCDA00A2D1E3 /* Assets.xcassets */,
 				D469EC861C5CBCDA00A2D1E3 /* Info.plist */,
 			);
@@ -159,6 +172,7 @@
 		D469ECAA1C5CC01900A2D1E3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				84506B261C910C0900422D60 /* XML */,
 				D469ECC21C5CC88500A2D1E3 /* Thread */,
 				D469ECB61C5CC6D200A2D1E3 /* YJMainTVC.swift */,
 			);
@@ -304,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84506B2A1C910CB700422D60 /* Main.xml in Resources */,
 				D469EC851C5CBCDA00A2D1E3 /* LaunchScreen.storyboard in Resources */,
 				D469EC821C5CBCDA00A2D1E3 /* Assets.xcassets in Resources */,
 				D469EC801C5CBCDA00A2D1E3 /* Main.storyboard in Resources */,
@@ -331,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84506B281C910C2300422D60 /* YJXMLParserVC.swift in Sources */,
 				D469ECBD1C5CC71400A2D1E3 /* UIViewController+Extension.swift in Sources */,
 				D469ECBF1C5CC72E00A2D1E3 /* YJBaseTVC.swift in Sources */,
 				D469EC7B1C5CBCDA00A2D1E3 /* AppDelegate.swift in Sources */,

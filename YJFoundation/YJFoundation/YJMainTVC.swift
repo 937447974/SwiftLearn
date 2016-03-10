@@ -19,11 +19,17 @@ class YJMainTVC: YJBaseTVC {
         
         var list: [YJPerformSegueModel]!
         
+        self.header.append("多线程")
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "NSThread"){YJThreadVC()})
         list.append(YJPerformSegueModel(title: "NSOperation"){YJOperationVC()})
         list.append(YJPerformSegueModel(title: "NSRunLoop"){YJRunLoopVC()})
         self.data.append(list)
+        
         self.header.append("多线程")
+        list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "NSXMLParser"){YJXMLParserVC()})
+        self.data.append(list)
     }
+    
 }
