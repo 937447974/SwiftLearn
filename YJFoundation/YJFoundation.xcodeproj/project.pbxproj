@@ -172,8 +172,8 @@
 		D469ECAA1C5CC01900A2D1E3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				84506B261C910C0900422D60 /* XML */,
 				D469ECC21C5CC88500A2D1E3 /* Thread */,
+				84506B261C910C0900422D60 /* XML */,
 				D469ECB61C5CC6D200A2D1E3 /* YJMainTVC.swift */,
 			);
 			name = Main;
