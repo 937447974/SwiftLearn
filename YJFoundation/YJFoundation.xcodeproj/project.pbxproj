@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843F17D61C96C544009F2824 /* YJNSBundleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F17D51C96C544009F2824 /* YJNSBundleVC.swift */; };
 		84506B281C910C2300422D60 /* YJXMLParserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84506B271C910C2300422D60 /* YJXMLParserVC.swift */; };
 		84506B2A1C910CB700422D60 /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84506B291C910CB700422D60 /* Main.xml */; };
 		84C430851C90253C00300E58 /* YJRunLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C430841C90253C00300E58 /* YJRunLoopVC.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		843F17D51C96C544009F2824 /* YJNSBundleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNSBundleVC.swift; sourceTree = "<group>"; };
 		84506B271C910C2300422D60 /* YJXMLParserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJXMLParserVC.swift; sourceTree = "<group>"; };
 		84506B291C910CB700422D60 /* Main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Main.xml; sourceTree = "<group>"; };
 		84C430841C90253C00300E58 /* YJRunLoopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJRunLoopVC.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843F17D41C96C526009F2824 /* NSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				843F17D51C96C544009F2824 /* YJNSBundleVC.swift */,
+			);
+			name = NSBundle;
+			sourceTree = "<group>";
+		};
 		84506B261C910C0900422D60 /* XML */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +184,7 @@
 			children = (
 				D469ECC21C5CC88500A2D1E3 /* Thread */,
 				84506B261C910C0900422D60 /* XML */,
+				843F17D41C96C526009F2824 /* NSBundle */,
 				D469ECB61C5CC6D200A2D1E3 /* YJMainTVC.swift */,
 			);
 			name = Main;
@@ -346,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843F17D61C96C544009F2824 /* YJNSBundleVC.swift in Sources */,
 				84506B281C910C2300422D60 /* YJXMLParserVC.swift in Sources */,
 				D469ECBD1C5CC71400A2D1E3 /* UIViewController+Extension.swift in Sources */,
 				D469ECBF1C5CC72E00A2D1E3 /* YJBaseTVC.swift in Sources */,

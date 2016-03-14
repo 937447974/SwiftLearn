@@ -30,6 +30,12 @@ class YJMainTVC: YJBaseTVC {
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "NSXMLParser"){YJXMLParserVC()})
         self.data.append(list)
+        
+        self.header.append("Bundle")
+        list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "NSBundle"){YJNSBundleVC()})
+        self.data.append(list)
+        
     }
     
 }
