@@ -37,6 +37,11 @@ class YJMainTVC: YJBaseTVC {
         list.append(YJPerformSegueModel(title: "NSBundleResourceRequest"){YJNSBundleResourceRequestVC()})
         self.data.append(list)
         
+        self.header.append("Notification")
+        list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "NSNotificationCenter"){YJNSNotificationCenterVC()})
+        self.data.append(list)
+        
     }
     
 }
