@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		843F17D61C96C544009F2824 /* YJNSBundleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F17D51C96C544009F2824 /* YJNSBundleVC.swift */; };
 		84506B281C910C2300422D60 /* YJXMLParserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84506B271C910C2300422D60 /* YJXMLParserVC.swift */; };
-		84506B2A1C910CB700422D60 /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84506B291C910CB700422D60 /* Main.xml */; };
+		84506B2A1C910CB700422D60 /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84506B291C910CB700422D60 /* Main.xml */; settings = {ASSET_TAGS = (image, ); }; };
+		846AA3221C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AA3211C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift */; };
 		84C430851C90253C00300E58 /* YJRunLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C430841C90253C00300E58 /* YJRunLoopVC.swift */; };
 		D46732B31C5F24E900702D05 /* YJOperationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46732B21C5F24E900702D05 /* YJOperationVC.swift */; };
 		D469EC7B1C5CBCDA00A2D1E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469EC7A1C5CBCDA00A2D1E3 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		843F17D51C96C544009F2824 /* YJNSBundleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNSBundleVC.swift; sourceTree = "<group>"; };
 		84506B271C910C2300422D60 /* YJXMLParserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJXMLParserVC.swift; sourceTree = "<group>"; };
 		84506B291C910CB700422D60 /* Main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Main.xml; sourceTree = "<group>"; };
+		846AA3211C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNSBundleResourceRequestVC.swift; sourceTree = "<group>"; };
 		84C430841C90253C00300E58 /* YJRunLoopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJRunLoopVC.swift; sourceTree = "<group>"; };
 		D46732B21C5F24E900702D05 /* YJOperationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJOperationVC.swift; sourceTree = "<group>"; };
 		D469EC771C5CBCDA00A2D1E3 /* YJFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				843F17D51C96C544009F2824 /* YJNSBundleVC.swift */,
+				846AA3211C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift */,
 			);
 			name = NSBundle;
 			sourceTree = "<group>";
@@ -287,6 +290,9 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YJ;
+				KnownAssetTags = (
+					image,
+				);
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "阳君";
@@ -365,6 +371,7 @@
 				D469ECB71C5CC6D200A2D1E3 /* YJMainTVC.swift in Sources */,
 				D469ECC11C5CC73B00A2D1E3 /* YJPerformSegueModel.swift in Sources */,
 				D469ECC41C5CC8B000A2D1E3 /* YJThreadVC.swift in Sources */,
+				846AA3221C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift in Sources */,
 				D46732B31C5F24E900702D05 /* YJOperationVC.swift in Sources */,
 				84C430851C90253C00300E58 /* YJRunLoopVC.swift in Sources */,
 			);

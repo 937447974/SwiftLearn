@@ -34,6 +34,7 @@ class YJMainTVC: YJBaseTVC {
         self.header.append("Bundle")
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "NSBundle"){YJNSBundleVC()})
+        list.append(YJPerformSegueModel(title: "NSBundleResourceRequest"){YJNSBundleResourceRequestVC()})
         self.data.append(list)
         
     }
