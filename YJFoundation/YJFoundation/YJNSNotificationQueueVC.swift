@@ -1,5 +1,5 @@
 //
-//  YJNSNotificationCenterVC.swift
+//  YJNSNotificationQueueVC.swift
 //  YJFoundation
 //
 //  CSDN:http://blog.csdn.net/y550918116j
@@ -11,25 +11,20 @@
 
 import UIKit
 
-/// NSNotificationCenter和NSNotification
-class YJNSNotificationCenterVC: UIViewController {
-
+/// NSNotificationQueue
+class YJNSNotificationQueueVC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let nc = NSNotificationCenter.defaultCenter()
         // 注册通知
-        nc.addObserver(self, selector: "getNotification:", name: "test", object: nil)
-        // 会循环添加，无法删除，不推荐
-        nc.addObserverForName("test", object: nil, queue: nil) { (notification: NSNotification) -> Void in
-            print(notification.userInfo)
-        }
-        // 发出通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "getNotification:", name: "test", object: nil)
+        // 队列发出通知
         let notification = NSNotification(name: "test", object: nil, userInfo: ["name":"阳君", "qq":"937447974"])
-        nc.postNotification(notification)
+        NSNotificationQueue.defaultQueue().enqueueNotification(notification, postingStyle: NSPostingStyle.PostWhenIdle)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -39,7 +34,7 @@ class YJNSNotificationCenterVC: UIViewController {
     }
     
     func getNotification(notification: NSNotification) {
-        print(notification.name)
+        print(notification.userInfo)
     }
     
 }

@@ -40,6 +40,7 @@ class YJMainTVC: YJBaseTVC {
         self.header.append("Notification")
         list = [YJPerformSegueModel]()
         list.append(YJPerformSegueModel(title: "NSNotificationCenter"){YJNSNotificationCenterVC()})
+        list.append(YJPerformSegueModel(title: "NSNotificationQueue"){YJNSNotificationQueueVC()})
         self.data.append(list)
         
     }
