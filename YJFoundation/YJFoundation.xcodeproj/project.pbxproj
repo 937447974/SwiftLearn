@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		843F17D61C96C544009F2824 /* YJNSBundleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F17D51C96C544009F2824 /* YJNSBundleVC.swift */; };
 		84506B281C910C2300422D60 /* YJXMLParserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84506B271C910C2300422D60 /* YJXMLParserVC.swift */; };
-		84506B2A1C910CB700422D60 /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84506B291C910CB700422D60 /* Main.xml */; settings = {ASSET_TAGS = (image, ); }; };
+		84506B2A1C910CB700422D60 /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84506B291C910CB700422D60 /* Main.xml */; };
 		846AA3221C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AA3211C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift */; };
 		84C430851C90253C00300E58 /* YJRunLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C430841C90253C00300E58 /* YJRunLoopVC.swift */; };
 		84DE1A201C98136F00E57077 /* YJNSNotificationCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE1A1F1C98136F00E57077 /* YJNSNotificationCenterVC.swift */; };
