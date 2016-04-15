@@ -43,6 +43,11 @@ class YJMainTVC: YJBaseTVC {
         list.append(YJPerformSegueModel(title: "NSNotificationQueue"){YJNSNotificationQueueVC()})
         self.data.append(list)
         
+        self.header.append("File")
+        list = [YJPerformSegueModel]()
+        list.append(YJPerformSegueModel(title: "NSFileManager"){YJNSFileManagerVC()})
+        self.data.append(list)
+        
     }
     
 }

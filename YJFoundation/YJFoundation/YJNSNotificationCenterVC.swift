@@ -22,7 +22,7 @@ class YJNSNotificationCenterVC: UIViewController {
         super.viewDidAppear(animated)
         let nc = NSNotificationCenter.defaultCenter()
         // 注册通知
-        nc.addObserver(self, selector: "getNotification:", name: "test", object: nil)
+        nc.addObserver(self, selector: #selector(YJNSNotificationCenterVC.getNotification(_:)), name: "test", object: nil)
         // 会循环添加，无法删除，不推荐
         nc.addObserverForName("test", object: nil, queue: nil) { (notification: NSNotification) -> Void in
             print(notification.userInfo)

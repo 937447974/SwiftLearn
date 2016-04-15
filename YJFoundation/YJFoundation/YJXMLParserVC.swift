@@ -28,12 +28,12 @@ class YJXMLParserVC: UIViewController, NSXMLParserDelegate {
     // MARK: - NSXMLParserDelegate
     // MARK: 解析开始
     func parserDidStartDocument(parser: NSXMLParser) {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: 解析结束
     func parserDidEndDocument(parser: NSXMLParser) {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: 解析出错

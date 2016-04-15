@@ -12,6 +12,7 @@
 		84506B2A1C910CB700422D60 /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84506B291C910CB700422D60 /* Main.xml */; };
 		846AA3221C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AA3211C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift */; };
 		84863B261C9E49F60011BED5 /* YJUtilsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84863B251C9E49F60011BED5 /* YJUtilsDirectory.swift */; };
+		84863B291C9E90390011BED5 /* YJNSFileManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84863B281C9E90390011BED5 /* YJNSFileManagerVC.swift */; };
 		84C430851C90253C00300E58 /* YJRunLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C430841C90253C00300E58 /* YJRunLoopVC.swift */; };
 		84DE1A201C98136F00E57077 /* YJNSNotificationCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE1A1F1C98136F00E57077 /* YJNSNotificationCenterVC.swift */; };
 		84DE1A221C98253100E57077 /* YJNSNotificationQueueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE1A211C98253100E57077 /* YJNSNotificationQueueVC.swift */; };
@@ -52,6 +53,7 @@
 		84506B291C910CB700422D60 /* Main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Main.xml; sourceTree = "<group>"; };
 		846AA3211C97E8A9000F4644 /* YJNSBundleResourceRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNSBundleResourceRequestVC.swift; sourceTree = "<group>"; };
 		84863B251C9E49F60011BED5 /* YJUtilsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJUtilsDirectory.swift; sourceTree = "<group>"; };
+		84863B281C9E90390011BED5 /* YJNSFileManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNSFileManagerVC.swift; sourceTree = "<group>"; };
 		84C430841C90253C00300E58 /* YJRunLoopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJRunLoopVC.swift; sourceTree = "<group>"; };
 		84DE1A1F1C98136F00E57077 /* YJNSNotificationCenterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNSNotificationCenterVC.swift; sourceTree = "<group>"; };
 		84DE1A211C98253100E57077 /* YJNSNotificationQueueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJNSNotificationQueueVC.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 				84863B251C9E49F60011BED5 /* YJUtilsDirectory.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		84863B271C9E90000011BED5 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				84863B281C9E90390011BED5 /* YJNSFileManagerVC.swift */,
+			);
+			name = File;
 			sourceTree = "<group>";
 		};
 		84DE1A1E1C98133600E57077 /* Notification */ = {
@@ -213,6 +223,7 @@
 				84506B261C910C0900422D60 /* XML */,
 				843F17D41C96C526009F2824 /* NSBundle */,
 				84DE1A1E1C98133600E57077 /* Notification */,
+				84863B271C9E90000011BED5 /* File */,
 				D469ECB61C5CC6D200A2D1E3 /* YJMainTVC.swift */,
 			);
 			name = Main;
@@ -396,6 +407,7 @@
 				D469EC7B1C5CBCDA00A2D1E3 /* AppDelegate.swift in Sources */,
 				D469ECB71C5CC6D200A2D1E3 /* YJMainTVC.swift in Sources */,
 				84DE1A201C98136F00E57077 /* YJNSNotificationCenterVC.swift in Sources */,
+				84863B291C9E90390011BED5 /* YJNSFileManagerVC.swift in Sources */,
 				D469ECC11C5CC73B00A2D1E3 /* YJPerformSegueModel.swift in Sources */,
 				D469ECC41C5CC8B000A2D1E3 /* YJThreadVC.swift in Sources */,
 				84863B261C9E49F60011BED5 /* YJUtilsDirectory.swift in Sources */,

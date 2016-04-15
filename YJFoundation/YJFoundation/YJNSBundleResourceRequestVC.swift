@@ -35,12 +35,12 @@ class YJNSBundleResourceRequestVC: UIViewController {
         }
         
         // 低存储空间警告
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "lowDiskSpace:", name: NSBundleResourceRequestLowDiskSpaceNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YJNSBundleResourceRequestVC.lowDiskSpace(_:)), name: NSBundleResourceRequestLowDiskSpaceNotification, object: nil)
     }
     
     // MARK: 低内存警告
     func lowDiskSpace(notification: NSNotification) {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: KVO监听加载进度

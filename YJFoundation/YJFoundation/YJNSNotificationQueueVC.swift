@@ -21,7 +21,7 @@ class YJNSNotificationQueueVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         // 注册通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "getNotification:", name: "test", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YJNSNotificationQueueVC.getNotification(_:)), name: "test", object: nil)
         // 队列发出通知
         let notification = NSNotification(name: "test", object: nil, userInfo: ["name":"阳君", "qq":"937447974"])
         NSNotificationQueue.defaultQueue().enqueueNotification(notification, postingStyle: NSPostingStyle.PostWhenIdle)

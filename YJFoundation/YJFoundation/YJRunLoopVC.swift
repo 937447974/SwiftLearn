@@ -15,8 +15,8 @@ class YJRunLoopVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSRunLoop.currentRunLoop().performSelector("send:", target: self, argument: "937447974", order: 0, modes: [NSDefaultRunLoopMode])
-        self.performSelectorInBackground("send:", withObject: "阳君")
+        NSRunLoop.currentRunLoop().performSelector(#selector(YJRunLoopVC.send(_:)), target: self, argument: "937447974", order: 0, modes: [NSDefaultRunLoopMode])
+        self.performSelectorInBackground(#selector(YJRunLoopVC.send(_:)), withObject: "阳君")
     }
     
     func send(str: String) {
