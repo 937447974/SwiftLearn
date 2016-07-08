@@ -41,7 +41,7 @@ class YJFlowLayoutCollectionVC: UICollectionViewController, YJCollectionViewDele
             layout.sectionItems = [[0], [1,5], [2,6],[3,7],[4,8]]
         }
         // 监听设备方向
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedRotation",
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YJFlowLayoutCollectionVC.receivedRotation),
             name: UIDeviceOrientationDidChangeNotification, object: nil)
         // 注册Cell
         let nib = UINib(nibName: "YJCollectionViewCell", bundle: nil)

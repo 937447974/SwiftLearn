@@ -70,7 +70,7 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
     // MARK: - UICollectionViewDelegateFlowLayout
     // MARK: - Getting the Size of Items
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        print(__FUNCTION__)
+        print(#function)
         // 每一行显示5个
         let weight = (YJUtilScreenSize.screenMinLength-10*5)/4
         return CGSize(width: weight, height: weight)
@@ -79,32 +79,32 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
     // MARK: - Getting the Section Spacing
     // MARK: 边间隔
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        print(__FUNCTION__)
+        print(#function)
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     // MARK: 行间隔
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        print(__FUNCTION__)
+        print(#function)
         return 10
     }
     
     // MARK: 列间隔
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        print(__FUNCTION__)
+        print(#function)
         return 10
     }
     
     // MARK: - Getting the Header and Footer Sizes
     // MARK: Header显示
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        print(__FUNCTION__)
+        print(#function)
         return CGSize(width: collectionView.frame.width, height: 50)
     }
     
     // MARK: Footer显示
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        print(__FUNCTION__)
+        print(#function)
         return CGSize(width: collectionView.frame.width, height: 50)
     }
 

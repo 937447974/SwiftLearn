@@ -84,7 +84,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 是否选中某个item
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
         return true
     }
@@ -92,14 +92,14 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 选中某个item
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
     // MARK: 是否取消选中某个item
     func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
         return true
     }
@@ -107,7 +107,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 取消选中
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingTheSelectedCells {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
@@ -115,7 +115,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 能否选中高亮
     func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.yjPrint == YJPrint.ManagingCellHighlighting {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
         return true
     }
@@ -123,14 +123,14 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 高亮
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingCellHighlighting {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
     // MARK: 高亮取消
     func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.ManagingCellHighlighting {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
@@ -138,28 +138,28 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: cell显示
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.TrackingTheAdditionAndRemovalOfViews {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
     // MARK: cell消失
     func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.TrackingTheAdditionAndRemovalOfViews {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
     }
     
     // MARK: Header或Footer显示
     func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, atIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.TrackingTheAdditionAndRemovalOfViews {
-            print("\(__FUNCTION__)--\(indexPath)--\(elementKind)")
+            print("\(#function)--\(indexPath)--\(elementKind)")
         }
     }
     
     // MARK: Header或Footer消失
     func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: NSIndexPath) {
         if self.yjPrint == YJPrint.TrackingTheAdditionAndRemovalOfViews {
-            print("\(__FUNCTION__)--\(indexPath)--\(elementKind)")
+            print("\(#function)--\(indexPath)--\(elementKind)")
         }
     }
     
@@ -167,7 +167,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: collectionViewLayout: UICollectionViewLayout发生改变
     func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
         if self.yjPrint == YJPrint.HandlingLayoutChanges {
-            print("\(__FUNCTION__)")
+            print("\(#function)")
         }
         return UICollectionViewTransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
     }
@@ -175,7 +175,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: cell可移动时的起始偏移
     func collectionView(collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
         if self.yjPrint == YJPrint.HandlingLayoutChanges {
-            print("\(__FUNCTION__)--\(proposedContentOffset)")
+            print("\(#function)--\(proposedContentOffset)")
         }
         return proposedContentOffset
     }
@@ -183,7 +183,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 移动cell从originalIndexPath到proposedIndexPath
     func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAtIndexPath originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath {
         if self.yjPrint == YJPrint.HandlingLayoutChanges {
-            print("\(__FUNCTION__)")
+            print("\(#function)")
             print("\(originalIndexPath) -> \(proposedIndexPath)")
         }
         return proposedIndexPath
@@ -193,7 +193,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 长按，是否将要显示Action菜单（剪切、拷贝、粘贴）
     func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         if self.yjPrint == YJPrint.ManagingActionsForCells {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}")
         }
         return true
     }
@@ -201,7 +201,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 长按，是否显示Action菜单（剪切、拷贝、粘贴）
     func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
         if self.yjPrint == YJPrint.ManagingActionsForCells {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}--\(sender)")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}--\(sender)")
         }
         return true
     }
@@ -209,7 +209,7 @@ class YJCollectionViewDelegateVC: UIViewController, UICollectionViewDataSource, 
     // MARK: 点击菜单中的某个选项
     func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
         if self.yjPrint == YJPrint.ManagingActionsForCells {
-            print("\(__FUNCTION__)--{\(indexPath.section),\(indexPath.item)}--\(sender)")
+            print("\(#function)--{\(indexPath.section),\(indexPath.item)}--\(sender)")
         }
     }
     

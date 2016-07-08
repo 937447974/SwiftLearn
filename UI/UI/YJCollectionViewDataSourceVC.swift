@@ -57,7 +57,7 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
     
     // MARK: 生成Header或Footer
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        print(__FUNCTION__)
+        print(#function)
         var crView: UICollectionReusableView!
         if (kind == UICollectionElementKindSectionHeader) { // Header
             crView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
@@ -76,13 +76,13 @@ class YJCollectionViewDataSourceVC: UIViewController, UICollectionViewDataSource
     // MARK: - Reordering Items
     // MARK: 能否移动
     func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        print(__FUNCTION__)
+        print(#function)
         return true
     }
     
     // MARK: 移动cell结束
     func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        print(__FUNCTION__)
+        print(#function)
         print(sourceIndexPath)
         print(destinationIndexPath)
         // 修改数据源

@@ -273,7 +273,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
         let numberOfItemsInSection = self.collectionView!.numberOfItemsInSection(section)
         var numberOfSectionItems = numberOfItemsInSection / self.sectionItemsCount
         if self.collectionView!.numberOfItemsInSection(section) % self.sectionItemsCount != 0 {
-            numberOfSectionItems++
+            numberOfSectionItems += 1
         }
         var sectionItemAttribute = [UICollectionViewLayoutAttributes]() // section中的Attribute
         var sectionItemsRect = CGRectZero // section中的item显示区域

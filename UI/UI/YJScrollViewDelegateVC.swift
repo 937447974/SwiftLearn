@@ -23,8 +23,8 @@ class YJScrollViewDelegateVC: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.title = "纯代码"
         
-        let scrollItem = UIBarButtonItem(title: "Scroll", style: .Plain, target: self, action: "onClickScroll")
-        let zoomItem = UIBarButtonItem(title: "Zoom", style: .Plain, target: self, action: "onClickZoom")
+        let scrollItem = UIBarButtonItem(title: "Scroll", style: .Plain, target: self, action: #selector(YJScrollViewDelegateVC.onClickScroll))
+        let zoomItem = UIBarButtonItem(title: "Zoom", style: .Plain, target: self, action: #selector(YJScrollViewDelegateVC.onClickZoom))
         self.navigationItem.rightBarButtonItems = [scrollItem, zoomItem]
         
         // 填充UIScrollView
@@ -56,7 +56,7 @@ class YJScrollViewDelegateVC: UIViewController, UIScrollViewDelegate {
     // MARK: - Action
     // MARK: 移动
     func onClickScroll() {
-        print(__FUNCTION__)
+        print(#function)
         var point = self.scrollView.contentOffset // 当前点
         point.x += 100 // 向左移动100
         point.x = point.x >= self.scrollView.contentSize.width ? 0 : point.x
@@ -65,7 +65,7 @@ class YJScrollViewDelegateVC: UIViewController, UIScrollViewDelegate {
     
     // MARK: 缩放
     func onClickZoom() {
-        print(__FUNCTION__)
+        print(#function)
         var zoomScale = self.scrollView.zoomScale // 当前缩放
         zoomScale += 0.5
         if zoomScale >= self.scrollView.maximumZoomScale {
@@ -77,77 +77,77 @@ class YJScrollViewDelegateVC: UIViewController, UIScrollViewDelegate {
     // MARK: - UIScrollViewDelegate
     // MARK: - 滚动持续中
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: - 手指触摸开始滚动
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: 手指离开屏幕后，移动速度
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // velocity:移动速度
-        print(__FUNCTION__)
+        print(#function)
         print("velocity:\(velocity)")
     }
     
     // MARK: 手指离开屏幕后，是否有减速动画
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         // decelerate：turu执行减速动画，false直接移动到目标位置
-        print(__FUNCTION__)
+        print(#function)
         print("decelerate:\(decelerate)")
     }
     
     // MARK: 手指离开屏幕后，滚动视图滚动开始减速动画
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        print(__FUNCTION__)
+        print(#function)
         print("decelerationRate:\(scrollView.decelerationRate)")
         scrollView.decelerationRate = scrollView.decelerationRate/2 // 动态设置减速动画速率降低一半
     }
     
     // MARK: 手指移动引起的滚动动画结束
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: 使用setContentOffset/scrollRectVisible:animated:调用的滚动动画结束
     func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)  {
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: - 缩放的View
     // MARK: 缩放持续中
     func scrollViewDidZoom(scrollView: UIScrollView) {
-        print(__FUNCTION__)
+        print(#function)
         
     }
     // MARK: 返回要缩放的View
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?  {
-        print(__FUNCTION__)
+        print(#function)
         return self.imageView
     }
     
     // MARK: 开始缩放
     func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?) {
-        print(__FUNCTION__)
+        print(#function)
     }
     // MARK: 缩放停止
     func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
-        print(__FUNCTION__)
+        print(#function)
         print("scale:\(scale)")
     }
     
     // MARK: - 点击顶部的时间，是否回滚到顶部
     func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
-        print(__FUNCTION__)
+        print(#function)
         // scrollsToTop是否回滚，默认允许回到顶部
         return scrollView.scrollsToTop
     }
     
     // MARK: 回滚到顶部结束
     func scrollViewDidScrollToTop(scrollView: UIScrollView) {
-        print(__FUNCTION__)
+        print(#function)
     }
     
 }

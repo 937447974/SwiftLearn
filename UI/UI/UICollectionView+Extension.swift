@@ -17,7 +17,7 @@ public extension UICollectionView {
     /// - returns: void
     func allowsMoveItem() {
         // 长点击事件，做移动cell操作
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: "handleLongGestureMove:")
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(UICollectionView.handleLongGestureMove(_:)))
         self.addGestureRecognizer(longPressGesture)
     }
     
