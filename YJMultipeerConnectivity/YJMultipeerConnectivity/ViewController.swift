@@ -36,8 +36,8 @@ class ViewController: UIViewController, UITextFieldDelegate, MCSessionDelegate, 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -89,7 +89,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MCSessionDelegate, 
     // MARK: 连接状态
     func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
         // 当一个已连接的对等节点改变状态时调用
-        print(__FUNCTION__)
+        print(#function)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             switch state {
             case MCSessionState.NotConnected: // not in the session
@@ -105,7 +105,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MCSessionDelegate, 
     // MARK: 接受NSData数据
     func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID) {
         // 收到Data数据,主线程运行
-        print(__FUNCTION__)
+        print(#function)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             if let msg = NSString(data: data, encoding: NSUTF8StringEncoding) {
                 // 更新UI
@@ -118,31 +118,31 @@ class ViewController: UIViewController, UITextFieldDelegate, MCSessionDelegate, 
     // MARK: 接受流数据
     func session(session: MCSession, didReceiveStream stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         // 当对等节点与我们建立一个流时调用
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: 开始接受文件数据
     func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: NSProgress) {
         // 当一个对等节点向我们发送文件时调用
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: 文件数据接受完毕
     func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, atURL localURL: NSURL, withError error: NSError?) {
         // 在完成从另一个对等节点传送文件时调用
-        print(__FUNCTION__)
+        print(#function)
     }
     
     // MARK: - MCBrowserViewControllerDelegate
     // MARK: 点击MCBrowserViewController界面取消按钮
     func browserViewControllerDidFinish(browserViewController: MCBrowserViewController) {
-        print(__FUNCTION__)
+        print(#function)
         browserViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: 点击MCBrowserViewController界面完成按钮
     func browserViewControllerWasCancelled(browserViewController: MCBrowserViewController) {
-        print(__FUNCTION__)
+        print(#function)
         browserViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -426,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJMultipeerConnectivity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJMultipeerConnectivity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -437,7 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJMultipeerConnectivity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YJMultipeerConnectivity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumei.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -509,6 +509,7 @@
 				D41C37D81C50CC88006F21FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D41C37D91C50CC88006F21FB /* Build configuration list for PBXNativeTarget "YJMultipeerConnectivityTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +518,7 @@
 				D41C37DB1C50CC88006F21FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D41C37DC1C50CC88006F21FB /* Build configuration list for PBXNativeTarget "YJMultipeerConnectivityUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +527,7 @@
 				D41C37DE1C50CC88006F21FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
