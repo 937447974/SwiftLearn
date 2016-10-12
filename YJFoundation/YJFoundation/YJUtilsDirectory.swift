@@ -18,24 +18,24 @@ public struct YJUtilsDirectory {
     /// HomeDirectoryPath
     static let homePath = NSHomeDirectory()
     /// DocumentDirectoryPath
-    static let documentPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).first!
+    static let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
     /// LibraryDirectoryPath
-    static let libraryPath = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true).first!
+    static let libraryPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!
     /// CachesDirectoryPath
-    static let cachesPath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
+    static let cachesPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
     /// TemporaryDirectoryPath
     static let tempPath = NSTemporaryDirectory()
     
     // MARK: - url 路径
     /// HomeDirectoryURL
-    static let homeURL = NSURL(fileURLWithPath: YJUtilsDirectory.homePath)
+    static let homeURL = URL(fileURLWithPath: YJUtilsDirectory.homePath)
     /// DocumentDirectoryURL
-    static let documentURL = NSURL(fileURLWithPath: YJUtilsDirectory.homePath)
+    static let documentURL = URL(fileURLWithPath: YJUtilsDirectory.homePath)
     /// LibraryDirectoryURL
-    static let libraryURL = NSURL(fileURLWithPath: YJUtilsDirectory.libraryPath)
+    static let libraryURL = URL(fileURLWithPath: YJUtilsDirectory.libraryPath)
     /// CachesDirectoryURL
-    static let cachesURL = NSURL(fileURLWithPath: YJUtilsDirectory.cachesPath)
+    static let cachesURL = URL(fileURLWithPath: YJUtilsDirectory.cachesPath)
     /// TemporaryDirectoryURL
-    static let tempURL = NSURL(fileURLWithPath: YJUtilsDirectory.tempPath)
+    static let tempURL = URL(fileURLWithPath: YJUtilsDirectory.tempPath)
     
 }

@@ -15,10 +15,10 @@ import UIKit
 public struct YJUtilsUserInterfaceIdiom {
     
     /// The user interface should be designed for iPhone and iPod touch.
-    static let isPhone = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone
+    static let isPhone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
     /// The user interface should be designed for iPad.
-    static let isPad = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
+    static let isPad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     /// The user interface should be designed for Apple TV.
-    static let isAppleTV = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.TV
+    static let isAppleTV = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.tv
     
 }

@@ -18,23 +18,23 @@ class YJNSNotificationQueueVC: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // 注册通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YJNSNotificationQueueVC.getNotification(_:)), name: "test", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YJNSNotificationQueueVC.getNotification(_:)), name: NSNotification.Name(rawValue: "test"), object: nil)
         // 队列发出通知
-        let notification = NSNotification(name: "test", object: nil, userInfo: ["name":"阳君", "qq":"937447974"])
-        NSNotificationQueue.defaultQueue().enqueueNotification(notification, postingStyle: NSPostingStyle.PostWhenIdle)
+        let notification = Notification(name: Notification.Name(rawValue: "test"), object: nil, userInfo: ["name":"阳君", "qq":"937447974"])
+        NotificationQueue.default.enqueue(notification, postingStyle: NotificationQueue.PostingStyle.whenIdle)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         // 注销通知
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func getNotification(notification: NSNotification) {
-        print(notification.userInfo)
+    func getNotification(_ notification: Notification) {
+        print((notification as NSNotification).userInfo)
     }
     
 }

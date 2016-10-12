@@ -25,36 +25,36 @@ class YJNSBundleVC: UIViewController {
 //        self.testManagingLocalizations()
     }
     
-    private func testGettingAnNSBundle() {
-        print(NSBundle.mainBundle())
+    fileprivate func testGettingAnNSBundle() {
+        print(Bundle.main)
         print("")
-        for bundle in NSBundle.allBundles() {
+        for bundle in Bundle.allBundles {
             print(bundle)
         }
         print("")
-        for bundle in NSBundle.allFrameworks() {
+        for bundle in Bundle.allFrameworks {
             print(bundle)
         }
     }
     
     func testGettingABundledClass() {
-        print(NSBundle.mainBundle().principalClass)
+        print(Bundle.main.principalClass)
     }
     
     func testFindingResources() {
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main
         print(bundle.resourceURL) // 资源地址
         // 获取info.plist
-        print(NSBundle.mainBundle().URLForResource("Info", withExtension: "plist"))
+        print(Bundle.main.url(forResource: "Info", withExtension: "plist"))
     }
     
     func testGettingTheBundleDirectory() {
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main
         print(bundle.bundlePath)// 包路径
     }
     
     func testGettingBundleInformation() {
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main
         print(bundle.bundleIdentifier) // bundle Id
         print(bundle.infoDictionary)// info.plist
         print(bundle.builtInPlugInsURL)// 插件
@@ -64,12 +64,12 @@ class YJNSBundleVC: UIViewController {
     }
     
     func testLoadingABundleCode() {
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main
         print(bundle.executableArchitectures)// 可执行架构
     }
     
     func testManagingLocalizations() {
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main
         print(bundle.preferredLocalizations)
         print(bundle.developmentLocalization)
         print(bundle.localizedInfoDictionary)

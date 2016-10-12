@@ -13,11 +13,11 @@ class YJOperationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let oq = NSOperationQueue.currentQueue() { // 当前队列
-            oq.addOperationWithBlock({ () -> Void in
+        if let oq = OperationQueue.current { // 当前队列
+            oq.addOperation({ () -> Void in
                 print("0")
             })
-            let op = NSBlockOperation() // block任务
+            let op = BlockOperation() // block任务
             // 添加block
             op.addExecutionBlock { () -> Void in
                 print("1")

@@ -12,7 +12,7 @@
 import UIKit
 
 /// 可跳转的模型
-public class YJPerformSegueModel {
+open class YJPerformSegueModel {
     
     /// 标题
     let title: String!
@@ -55,7 +55,7 @@ public class YJPerformSegueModel {
     /// - parameter hander : 回调生成UIViewController
     ///
     /// - returns: YJCellModel
-    init(title: String, hander: (()->UIViewController?)) {
+    init(title: String, hander: @escaping (()->UIViewController?)) {
         self.title = title
         self.hander = hander
     }
@@ -66,10 +66,10 @@ public class YJPerformSegueModel {
     /// - parameter source : 要跳转的UIViewController
     ///
     /// - returns: void
-    func performSegue(source: UIViewController) {
+    func performSegue(_ source: UIViewController) {
         if let vc = self.hander?() { // 1 定制UIViewController
             if vc.view.backgroundColor == nil { // 无背景色时，设置背景色为默认白色
-                vc.view.backgroundColor = UIColor.whiteColor()
+                vc.view.backgroundColor = UIColor.white
             }
             if vc.navigationItem.title == nil { // 无标题时，使用当前标题
                 vc.navigationItem.title = self.title
@@ -80,7 +80,7 @@ public class YJPerformSegueModel {
         } else if self.storyboardName != nil { // push跳转到Storyboard
             source.pushStoryboard(self.storyboardName!, sender: nil)
         } else if self.identifier != nil { // 视图内跳转
-            source.performSegueWithIdentifier(self.identifier!, sender: nil)
+            source.performSegue(withIdentifier: self.identifier!, sender: nil)
         } else { // 设置错误
             print("未设置跳转路径")
         }

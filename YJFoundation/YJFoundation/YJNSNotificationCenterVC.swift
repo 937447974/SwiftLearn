@@ -18,27 +18,27 @@ class YJNSNotificationCenterVC: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let nc = NSNotificationCenter.defaultCenter()
+        let nc = NotificationCenter.default
         // 注册通知
-        nc.addObserver(self, selector: #selector(YJNSNotificationCenterVC.getNotification(_:)), name: "test", object: nil)
+        nc.addObserver(self, selector: #selector(YJNSNotificationCenterVC.getNotification(_:)), name: NSNotification.Name(rawValue: "test"), object: nil)
         // 会循环添加，无法删除，不推荐
-        nc.addObserverForName("test", object: nil, queue: nil) { (notification: NSNotification) -> Void in
-            print(notification.userInfo)
+        nc.addObserver(forName: NSNotification.Name(rawValue: "test"), object: nil, queue: nil) { (notification: Notification) -> Void in
+            print((notification as NSNotification).userInfo)
         }
         // 发出通知
-        let notification = NSNotification(name: "test", object: nil, userInfo: ["name":"阳君", "qq":"937447974"])
-        nc.postNotification(notification)
+        let notification = Notification(name: Notification.Name(rawValue: "test"), object: nil, userInfo: ["name":"阳君", "qq":"937447974"])
+        nc.post(notification)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         // 注销通知
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func getNotification(notification: NSNotification) {
+    func getNotification(_ notification: Notification) {
         print(notification.name)
     }
     

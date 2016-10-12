@@ -15,11 +15,11 @@ class YJRunLoopVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSRunLoop.currentRunLoop().performSelector(#selector(YJRunLoopVC.send(_:)), target: self, argument: "937447974", order: 0, modes: [NSDefaultRunLoopMode])
-        self.performSelectorInBackground(#selector(YJRunLoopVC.send(_:)), withObject: "阳君")
+        RunLoop.current.perform(#selector(YJRunLoopVC.send(_:)), target: self, argument: "937447974", order: 0, modes: [RunLoopMode.defaultRunLoopMode])
+        self.performSelector(inBackground: #selector(YJRunLoopVC.send(_:)), with: "阳君")
     }
     
-    func send(str: String) {
+    func send(_ str: String) {
         print("接受数据：\(str)")
     }
     

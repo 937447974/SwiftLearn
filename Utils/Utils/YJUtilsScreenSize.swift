@@ -15,9 +15,9 @@ import UIKit
 public struct YJUtilsScreenSize {
     
     /// 屏幕宽
-    static let screenWidth = UIScreen.mainScreen().bounds.size.width
+    static let screenWidth = UIScreen.main.bounds.size.width
     /// 屏幕高
-    static let screenHeight = UIScreen.mainScreen().bounds.size.height
+    static let screenHeight = UIScreen.main.bounds.size.height
     /// 屏幕最大长度
     static let screenMaxLength = max(YJUtilsScreenSize.screenWidth, YJUtilsScreenSize.screenHeight)
     /// 屏幕最小长度

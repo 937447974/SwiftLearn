@@ -18,33 +18,33 @@ class YJNSBundleResourceRequestVC: UIViewController {
         super.viewDidLoad()
         let tags = Set(arrayLiteral: "image")
         let brRequest = NSBundleResourceRequest(tags: tags)
-        brRequest.conditionallyBeginAccessingResourcesWithCompletionHandler { (success:Bool) -> Void in
+        brRequest.conditionallyBeginAccessingResources { (success:Bool) -> Void in
             guard success else { // 开始下载
-                brRequest.beginAccessingResourcesWithCompletionHandler({ (error: NSError?) -> Void in
+                brRequest.beginAccessingResources(completionHandler: { (error: NSError?) -> Void in
                     guard error == nil else {
                         print("下载错误:\(error)")
                         return
                     }
                     print("开始下载")
                     // 下载进度
-                    brRequest.progress.addObserver(self, forKeyPath: "fractionCompleted", options: NSKeyValueObservingOptions.New, context: nil)
-                })
+                    brRequest.progress.addObserver(self, forKeyPath: "fractionCompleted", options: NSKeyValueObservingOptions.new, context: nil)
+                } as! (Error?) -> Void)
                 return
             }
             print("已下载")
         }
         
         // 低存储空间警告
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YJNSBundleResourceRequestVC.lowDiskSpace(_:)), name: NSBundleResourceRequestLowDiskSpaceNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YJNSBundleResourceRequestVC.lowDiskSpace(_:)), name: NSNotification.Name.NSBundleResourceRequestLowDiskSpace, object: nil)
     }
     
     // MARK: 低内存警告
-    func lowDiskSpace(notification: NSNotification) {
+    func lowDiskSpace(_ notification: Notification) {
         print(#function)
     }
     
     // MARK: KVO监听加载进度
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         print(change)
     }
 

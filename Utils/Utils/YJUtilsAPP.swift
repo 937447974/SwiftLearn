@@ -15,11 +15,11 @@ import Foundation
 public struct YJUtilsAPP {
     
     /// Info.plist
-    static let infoDictionary = NSBundle.mainBundle().infoDictionary!
+    static let infoDictionary = Bundle.main.infoDictionary!
     /// 项目名称
     static let executable = YJUtilsAPP.infoDictionary[String(kCFBundleExecutableKey)]
     /// bundle Identifier
-    static let identifier = NSBundle.mainBundle().bundleIdentifier!
+    static let identifier = Bundle.main.bundleIdentifier!
     /// version版本号
     static let shortVersion = YJUtilsAPP.infoDictionary["CFBundleShortVersionString"]
     /// build版本号

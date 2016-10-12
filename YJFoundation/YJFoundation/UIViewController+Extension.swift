@@ -21,7 +21,7 @@ public extension UIViewController {
     /// - parameter sender : 处理携带参数
     ///
     /// - returns: void
-    func pushStoryboard(storyboardName: String, sender: ((UIViewController) -> Void)?) {
+    func pushStoryboard(_ storyboardName: String, sender: ((UIViewController) -> Void)?) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil) // 1 获取UIStoryboard
         var vc = storyboard.instantiateInitialViewController() // 2.1 入口为UIViewController
         if let nc = vc as? UINavigationController { // 2.2 入口为UINavigationController
@@ -39,9 +39,9 @@ public extension UIViewController {
     /// - parameter sender : 处理携带参数
     ///
     /// - returns: void
-    func pushStoryboard(storyboardName: String, identifier: String, sender: ((UIViewController) -> Void)?) {
+    func pushStoryboard(_ storyboardName: String, identifier: String, sender: ((UIViewController) -> Void)?) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier(identifier)
+        let vc = storyboard.instantiateViewController(withIdentifier: identifier)
         sender?(vc)
         self.navigationController?.pushViewController(vc, animated: true)
     }
