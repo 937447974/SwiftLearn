@@ -13,15 +13,15 @@ enum SomeEnumeration {
 
 // 枚举基本类型
 enum CompassPoint {
-    case North
-    case South
-    case East
-    case West
+    case north
+    case south
+    case east
+    case west
 }
 
 // 简写
 enum Planet {
-    case Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+    case mercury, venus, earth, mars, jupiter, saturn, uranus, neptune
 }
 
 /// 枚举
@@ -39,27 +39,27 @@ class Enumerations: TestProtocol {
     func testEnumerationSyntax() {
         
         // 使用
-        var directionToHead = CompassPoint.West
+        var directionToHead = CompassPoint.west
         // 可不写.前面的枚举名
-        directionToHead = .East
+        directionToHead = .east
         print("\(directionToHead)")
         
     }
     
     // MARK: 枚举匹配
     func testMatchingEnumeration() {
-        var directionToHead = CompassPoint.South
+        var directionToHead = CompassPoint.south
         // if匹配
-        if directionToHead == CompassPoint.South {
-            directionToHead = .East
+        if directionToHead == CompassPoint.south {
+            directionToHead = .east
         }
         // switch匹配
         switch directionToHead {
-        case .North:
+        case .north:
             print("Lots of planets have a north")
-        case .South:
+        case .south:
             print("Watch out for penguins")
-        case .East:
+        case .east:
             print("Where the sun rises")
         default:
             print("default")
@@ -70,24 +70,24 @@ class Enumerations: TestProtocol {
     func testAssociatedValues() {
         // 枚举可以和结构体类型的数据关联使用
         enum Barcode {
-            case UPCA(Int, Int, Int, Int)
-            case QRCode(String)
+            case upca(Int, Int, Int, Int)
+            case qrCode(String)
         }
         // 初始化
-        var productBarcode = Barcode.UPCA(8, 85909, 51226, 3)
-        productBarcode = .QRCode("ABCDEFGHIJKLMNOP")
+        var productBarcode = Barcode.upca(8, 85909, 51226, 3)
+        productBarcode = .qrCode("ABCDEFGHIJKLMNOP")
         // 匹配
         switch productBarcode {
-        case .UPCA(let numberSystem, let manufacturer, let product, let check):
+        case .upca(let numberSystem, let manufacturer, let product, let check):
             print("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
-        case .QRCode(let productCode):
+        case .qrCode(let productCode):
             print("QR code: \(productCode).")
         }
         // 可以不写let
         switch productBarcode {
-        case let .UPCA(numberSystem, manufacturer, product, check):
+        case let .upca(numberSystem, manufacturer, product, check):
             print("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
-        case let .QRCode(productCode):
+        case let .qrCode(productCode):
             print("QR code: \(productCode).")
         }
     }
@@ -95,19 +95,19 @@ class Enumerations: TestProtocol {
     // MARK: 原始值
     func testRawValues() {
         enum ASCIIControlCharacter: Character {
-            case Tab = "\t"
-            case LineFeed = "\n"
-            case CarriageReturn = "\r"
+            case tab = "\t"
+            case lineFeed = "\n"
+            case carriageReturn = "\r"
         }
         // 隐式分配原始值
         enum Planet: Int {
-            case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+            case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
         }
         // 原始值为属性名转换
         enum CompassPoint: String {
             case North, South, East, West
         }
-        print("\(Planet.Earth.rawValue)") // 3
+        print("\(Planet.earth.rawValue)") // 3
         print("\(CompassPoint.West.rawValue)") // "West"
         
         // 通过原始值初始化
@@ -117,7 +117,7 @@ class Enumerations: TestProtocol {
         // 当原始值不匹配时，返回为nil
         if let somePlanet = Planet(rawValue: positionToFind) {
             switch somePlanet {
-            case .Earth:
+            case .earth:
                 print("Mostly harmless")
             default:
                 print("Not a safe place for humans")
@@ -139,27 +139,27 @@ class Enumerations: TestProtocol {
         
         // 可将indirect写到枚举前
         indirect enum ArithmeticExpression {
-            case Number(Int) // 值
-            case Addition(ArithmeticExpression, ArithmeticExpression)       // 加
-            case Multiplication(ArithmeticExpression, ArithmeticExpression) // 乘
+            case number(Int) // 值
+            case addition(ArithmeticExpression, ArithmeticExpression)       // 加
+            case multiplication(ArithmeticExpression, ArithmeticExpression) // 乘
         }
         // 函数使用
-        func evaluate(expression: ArithmeticExpression) -> Int {
+        func evaluate(_ expression: ArithmeticExpression) -> Int {
             switch expression {
-            case .Number(let value):
+            case .number(let value):
                 return value
-            case .Addition(let left, let right):
+            case .addition(let left, let right):
                 return evaluate(left) + evaluate(right)
-            case .Multiplication(let left, let right):
+            case .multiplication(let left, let right):
                 return evaluate(left) * evaluate(right)
             }
         }
         
         // evaluate (5 + 4) * 2
-        let five = ArithmeticExpression.Number(5)
-        let four = ArithmeticExpression.Number(4)
-        let sum = ArithmeticExpression.Addition(five, four)
-        let product = ArithmeticExpression.Multiplication(sum, ArithmeticExpression.Number(2))
+        let five = ArithmeticExpression.number(5)
+        let four = ArithmeticExpression.number(4)
+        let sum = ArithmeticExpression.addition(five, four)
+        let product = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(2))
         print(evaluate(product))
         
     }

@@ -41,16 +41,16 @@ class Inheritance: TestProtocol {
             // 继承的属性和方法前都有override
             override var count:Double {
                 didSet {
-                    print("\(__FUNCTION__)")
+                    print("\(#function)")
                 }
             }
             
             override var description: String {
-                return "\(__FUNCTION__)" + super.description
+                return "\(#function)" + super.description
             }
     
             override func inherited() {
-                print("\(__FUNCTION__)")
+                print("\(#function)")
             }
         }
         

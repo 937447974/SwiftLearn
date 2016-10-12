@@ -24,14 +24,14 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: - 传统for循环
-    private func testFor() {
-        for var index = 0; index < 3; index++ {
+    fileprivate func testFor() {
+        for index in 0 ..< 3 {
             print("index is \(index)")
         }
     }
 
     // MARK: for-in循环
-    private func testForIn() {
+    fileprivate func testForIn() {
         // 直接循环提取内部数据
         // [1,5]
         for index in 1...5 {
@@ -58,30 +58,30 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: - While循环
-    private func testWhile() {
+    fileprivate func testWhile() {
         // 先执行while条件判断，后执行内部代码
         let count = 4
         var index = 0
         while index < count {
-            index++
+            index += 1
             print("while:\(index)")
         }
     }
 
     // MARK: repeat-while循环
-    private func testRepeatWhile() {
+    fileprivate func testRepeatWhile() {
         // 执行内部代码后判断条件
         let count = 4
         var index = 0
         repeat {
-            index++
+            index += 1
             print("RepeatWhile:\(index)")
         } while index < count
     }
 
     // MARK: - 条件判断
     // MARK: if 判断
-    private func testIf() {
+    fileprivate func testIf() {
         // 一个条件一个条件的判断，当条件为真时，执行内部程序
         let temp = 90
         if temp <= 32 {
@@ -94,7 +94,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: swich判断
-    private func testSwitch() {
+    fileprivate func testSwitch() {
         // 基本switch,case不会穿透。
         let someCharacter: Character = "a"
         switch someCharacter {
@@ -112,7 +112,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: switch范围选择
-    private func testSwitchIntervalMatching() {
+    fileprivate func testSwitchIntervalMatching() {
         // 范围选择
         let approximateCount = 2
         switch approximateCount {
@@ -126,7 +126,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: switch元组选择
-    private func testSwitchTuples() {
+    fileprivate func testSwitchTuples() {
         // 元组选择,坐标轴测试
         let random = arc4random()// 随机数
         let somePoint = (Int(random%3), Int(random%3))// 随机数获取点
@@ -145,7 +145,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: switch值选择
-    private func testSwitchValueBindings() {
+    fileprivate func testSwitchValueBindings() {
         let random = arc4random()// 随机数
         // 值绑定,如果设置未知数，当匹配成功时，执行此代码
         let anotherPoint = (Int(random%3), Int(random%1))
@@ -160,7 +160,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: switch值绑定和where
-    private func testSwitchValueBindingsWhere() {
+    fileprivate func testSwitchValueBindingsWhere() {
         // 使用where条件二次判断
         let random = arc4random()// 随机数
         let yetAnotherPoint = (Int(random%3), Int(random%3))
@@ -175,7 +175,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: - 控制转移语句
-    private func testControlTransfer() {
+    fileprivate func testControlTransfer() {
         self.testContinue()
         self.testBreak()
         self.testFallthrough()
@@ -183,7 +183,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: continue
-    private func testContinue() {
+    fileprivate func testContinue() {
         // 跳过本次循环，继续执行下次循环
         for index in 1...5 {
             if index == 2 {
@@ -194,7 +194,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: break
-    private func testBreak() {
+    fileprivate func testBreak() {
         // 跳过当前for或者switch，继续执行
         for x in 1...5 {
             if x == 2 {
@@ -214,7 +214,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: fallthrough
-    private func testFallthrough() {
+    fileprivate func testFallthrough() {
         // 击穿：执行当前case内的代码，并执行下一个case内的代码
         let x = Int(arc4random()%1)// 0
         switch x {
@@ -230,7 +230,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: 标签
-    private func testLabeledStatements() {
+    fileprivate func testLabeledStatements() {
         // 标签语句，可以直接跳到写标签行的代码
         var b = false
         go : while true {
@@ -248,9 +248,9 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: - 提前退出
-    private func testEarlyExit() {
+    fileprivate func testEarlyExit() {
         // guard和if很像，当条件判断为假时，才执行else中的代码
-        func greet(person: [String: String]) {
+        func greet(_ person: [String: String]) {
             guard let name = person["name"] else {
                 print("无name")
                 return
@@ -263,7 +263,7 @@ class ControlFlow: NSObject, TestProtocol {
     }
 
     // MARK: - 检查API可用性
-    private func testCheckingAPIAvailability() {
+    fileprivate func testCheckingAPIAvailability() {
         if #available(iOS 9.1, OSX 10.10, *) {
             print("iOS 9.1, OSX 10.10, *")
         } else {

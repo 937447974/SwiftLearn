@@ -165,16 +165,16 @@ class Initialization: TestProtocol {
         
         enum TemperatureUnit:Character {
             
-            case Kelvin = "K", Celsius = "C", Fahrenheit = "F"
+            case kelvin = "K", celsius = "C", fahrenheit = "F"
             
             init?(symbol: Character) {
                 switch symbol {
                 case "K":
-                    self = .Kelvin
+                    self = .kelvin
                 case "C":
-                    self = .Celsius
+                    self = .celsius
                 case "F":
-                    self = .Fahrenheit
+                    self = .fahrenheit
                 default:
                     return nil
                 }

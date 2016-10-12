@@ -19,7 +19,7 @@ class Functions: TestProtocol {
     
     // MARK: - 定义和调用函数
     func testDefiningAndCallingFunctions() {
-        func sayHello(personName: String) -> String {
+        func sayHello(_ personName: String) -> String {
             let greeting = "Hello, " + personName + "!"
             return greeting
         }
@@ -49,7 +49,7 @@ class Functions: TestProtocol {
     // MARK:多参数函数
     func testFunctionsWithMultipleParameters() {
         // 传入两个参数，并返回一个String类型的数据
-        func sayHello(personName: String, alreadyGreeted: Bool) -> String {
+        func sayHello(_ personName: String, alreadyGreeted: Bool) -> String {
             if alreadyGreeted {
                 return "Hello again, \(personName)!"
             } else {
@@ -63,7 +63,7 @@ class Functions: TestProtocol {
     // MARK: 函数无返回值
     func testFunctionsWithoutReturnValues() {
         // 传入一个String类型的数据，不返回任何数据
-        func sayGoodbye(personName: String) {
+        func sayGoodbye(_ personName: String) {
             print("Goodbye, \(personName)!")
         }
         sayGoodbye("阳君") // prints "Goodbye, 阳君!"
@@ -72,13 +72,13 @@ class Functions: TestProtocol {
     // MARK: 函数多返回值
     func testMultipleReturnValues() {
         // 返回一个Int类型的数据
-        func printAndCount(stringToPrint: String) -> Int {
+        func printAndCount(_ stringToPrint: String) -> Int {
             print(stringToPrint)
             return stringToPrint.characters.count
         }
         printAndCount("hello, world") // prints "hello, world"
         // 返回元组合数据
-        func minMax(array: [Int]) -> (min: Int, max: Int) {
+        func minMax(_ array: [Int]) -> (min: Int, max: Int) {
             var currentMin = array[0]
             var currentMax = array[0]
             for value in array[1..<array.count] {
@@ -98,7 +98,7 @@ class Functions: TestProtocol {
     // MARK: 返回类型可选
     func testOptionalTupleReturnTypes() {
         // 返回一个元组或Nil
-        func minMax(array: [Int]) -> (min: Int, max: Int)? {
+        func minMax(_ array: [Int]) -> (min: Int, max: Int)? {
             if array.isEmpty {
                 return nil
             }
@@ -142,7 +142,7 @@ class Functions: TestProtocol {
     // MARK: 省略外部参数名
     func testOmittingExternalParameterNames() {
         // 使用_省略外面参数名，
-        func someFunction(firstParameterName: Int, _ secondParameterName: Int) {
+        func someFunction(_ firstParameterName: Int, _ secondParameterName: Int) {
             
         }
         someFunction(1, 2)
@@ -151,7 +151,7 @@ class Functions: TestProtocol {
     // MARK: 默认参数值
     func testDefaultParameterValues() {
         // 设置默认值，当用户不传入时，使用默认值
-        func someFunction(parameterWithDefault: Int = 12) {
+        func someFunction(_ parameterWithDefault: Int = 12) {
             print("\(parameterWithDefault)")
         }
         someFunction(6) // 6
@@ -161,7 +161,7 @@ class Functions: TestProtocol {
     // MARK: 可变参数
     func testVariadicParameters() {
         // 传入的参数类型已知Double，个数未知
-        func arithmeticMean(numbers: Double...) -> Double {
+        func arithmeticMean(_ numbers: Double...) -> Double {
             var total: Double = 0
             for number in numbers {
                 total += number
@@ -175,7 +175,8 @@ class Functions: TestProtocol {
     // MARK: 常量和变量参数
     func testConstantAndVariableParameters() {
         // 默认为let常量参数，也可声明var可变参数，在函数内直接修改
-        func alignRight(var string: String, totalLength: Int, pad: Character) -> String {
+        func alignRight(_ string: String, totalLength: Int, pad: Character) -> String {
+            var string = string
             let amountToPad = totalLength - string.characters.count
             if amountToPad < 1 {
                 return string
@@ -195,7 +196,7 @@ class Functions: TestProtocol {
     // MARK: In-Out参数
     func testInOutParameters() {
         // 使用inout声明的参数，在函数内修改参数值时，外面参数值也会变
-        func swapTwoInts(inout a: Int, inout _ b: Int) {
+        func swapTwoInts(_ a: inout Int, _ b: inout Int) {
             let temporaryA = a
             a = b
             b = temporaryA
@@ -217,11 +218,11 @@ class Functions: TestProtocol {
     // MARK: 使用函数类型
     func testUsingFunctionTypes() {
         // 加法
-        func addTwoInts(a: Int, _ b: Int) -> Int {
+        func addTwoInts(_ a: Int, _ b: Int) -> Int {
             return a + b
         }
         // 乘法
-        func multiplyTwoInts(a: Int, _ b: Int) -> Int {
+        func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
             return a * b
         }
         // 函数体赋值为参数
@@ -239,11 +240,11 @@ class Functions: TestProtocol {
     // MARK: 函数做参数类型
     func testFunctionTypesAsParameterTypes() {
         // 加法
-        func addTwoInts(a: Int, _ b: Int) -> Int {
+        func addTwoInts(_ a: Int, _ b: Int) -> Int {
             return a + b
         }
         // 其中一个参数为一个函数体
-        func printMathResult(mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+        func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
             print("Result: \(mathFunction(a, b))")
         }
         printMathResult(addTwoInts, 3, 5) // prints "Result: 8"
@@ -252,15 +253,15 @@ class Functions: TestProtocol {
     // MARK: 函数做返回类型
     func testFunctionTypesAsReturnTypes() {
         // 加1
-        func stepForward(input: Int) -> Int {
+        func stepForward(_ input: Int) -> Int {
             return input + 1
         }
         // 减1
-        func stepBackward(input: Int) -> Int {
+        func stepBackward(_ input: Int) -> Int {
             return input - 1
         }
         // 使用函数体做返回类型
-        func chooseStepFunction(backwards: Bool) -> (Int) -> Int {
+        func chooseStepFunction(_ backwards: Bool) -> (Int) -> Int {
             return backwards ? stepBackward : stepForward
         }
         var currentValue = 3
@@ -274,14 +275,14 @@ class Functions: TestProtocol {
     // MARK: - 嵌套函数
     func testNestedFunctions() {
         // 函数体内部嵌套函数，并做返回类型
-        func chooseStepFunction(backwards: Bool) -> (Int) -> Int {
+        func chooseStepFunction(_ backwards: Bool) -> (Int) -> Int {
             // 嵌套函数1
-            func stepForward(input: Int) -> Int {
+            func stepForward(_ input: Int) -> Int {
                 stepBackward(1)
                 return input + 1
             }
             // 嵌套函数2
-            func stepBackward(input: Int) -> Int {
+            func stepBackward(_ input: Int) -> Int {
                 return input - 1
             }
             return backwards ? stepBackward : stepForward

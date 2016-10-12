@@ -55,12 +55,12 @@ class ClassesStructures: TestProtocol {
         
         // 枚举测试
         enum CompassPoint {
-            case North, South, East, West
+            case north, south, east, west
         }
-        var currentDirection = CompassPoint.West
+        var currentDirection = CompassPoint.west
         let rememberedDirection = currentDirection
         // 改变currentDirection，rememberedDirection的值不会变化
-        currentDirection = .East
+        currentDirection = .east
         print("\(rememberedDirection)") // West
     }
     

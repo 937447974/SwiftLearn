@@ -26,7 +26,7 @@ class YJString: NSObject, TestProtocol {
     }
     
     // MARK: 类型别名
-    private func testTypeAliases() {
+    fileprivate func testTypeAliases() {
         
         let index = String.Index.self
         print("\(index)")
@@ -42,14 +42,14 @@ class YJString: NSObject, TestProtocol {
         
         let greeting = "Guten Tag!"
         greeting[greeting.startIndex] // G
-        greeting[greeting.endIndex.predecessor()] // !
-        greeting[greeting.startIndex.successor()] // u
-        greeting[greeting.startIndex.advancedBy(7)] // a
+        greeting[greeting.characters.index(before: greeting.endIndex)] // !
+        greeting[greeting.characters.index(after: greeting.startIndex)] // u
+        greeting[greeting.characters.index(greeting.startIndex, offsetBy: 7)] // a
         
     }
     
     // MARK: 初始化
-    private func testInitializers() {
+    fileprivate func testInitializers() {
         // 空字符串
         var string:String = String()
         string = ""
@@ -66,16 +66,16 @@ class YJString: NSObject, TestProtocol {
         
         // 通过UTF-16编码
         let utf16:String.UTF16View = string.utf16
-        string = String(utf16)
+        string = String(describing: utf16)
         
         // 通过UTF-8编码
-        string = String(string.utf8)
+        string = String(describing: string.utf8)
         
         // 多个字符串组合生成
         string = String(stringInterpolation: "阳君", "937447974")
         
         // char初始化，连续count次
-        string = String(count: 3, repeatedValue: char)
+        string = String(repeating: String(char), count: 3)
         
         // 通过其他常用数据初始化
         string = String(stringInterpolationSegment: true)
@@ -94,43 +94,43 @@ class YJString: NSObject, TestProtocol {
     }
     
     // MARK: - 文件路径操作
-    private func testWorkingWithPaths() {
+    fileprivate func testWorkingWithPaths() {
         var path = "IOS/Swift"
         // 路径分割成数组
         var pathComponents = (path as NSString).pathComponents
         
         // 数组组合成路径
-        path = NSString.pathWithComponents(pathComponents)
+        path = NSString.path(withComponents: pathComponents)
         
         // Document目录
-        let documents:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documents:[String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let docDirPath = documents.first!
         // 寻找文件夹下包含多少个路径
-        var complete = docDirPath.completePathIntoString(caseSensitive: true)
+        var complete = docDirPath.completePath(caseSensitive: true)
         // 寻找文件夹下包含指定扩展名的文件路径
         var outName = ""
         let filterTypes = ["txt", "plist"]
-        complete = docDirPath.completePathIntoString(&outName, caseSensitive: true, matchesIntoArray: &pathComponents, filterTypes: filterTypes)
+        complete = docDirPath.completePath(into: &outName, caseSensitive: true, matchesInto: &pathComponents, filterTypes: filterTypes)
         print("completePathIntoString:\(complete)")
         
         // 添加路径
-        path = (docDirPath as NSString).stringByAppendingPathComponent("test")
+        path = (docDirPath as NSString).appendingPathComponent("test")
         // 添加扩展
-        path = (path as NSString).stringByAppendingPathExtension("plist")!
+        path = (path as NSString).appendingPathExtension("plist")!
         
-        print("是否绝对路径:\((path as NSString).absolutePath)")
+        print("是否绝对路径:\((path as NSString).isAbsolutePath)")
         print("最后一个路径名:\((path as NSString).lastPathComponent)")
         print("扩展名:\((path as NSString).pathExtension)")
         
         // 去掉扩展名
-        var tempPath:Any = (path as NSString).stringByDeletingPathExtension
+        var tempPath:Any = (path as NSString).deletingPathExtension
         // 去掉最后一个路径
-        tempPath = (path as NSString).stringByDeletingLastPathComponent
+        tempPath = (path as NSString).deletingLastPathComponent
         print("\(tempPath)")
         
         // 转%格式码
-        let allowedCharacters:NSCharacterSet = NSCharacterSet.controlCharacterSet()
-        tempPath = path.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters)
+        let allowedCharacters:CharacterSet = CharacterSet.controlCharacters
+        tempPath = path.addingPercentEncoding(withAllowedCharacters: allowedCharacters)
         
         // 转可见
         tempPath = path.stringByRemovingPercentEncoding
@@ -138,34 +138,34 @@ class YJString: NSObject, TestProtocol {
     }
     
     // MARK: 文件读写操作
-    private func testFile() {
+    fileprivate func testFile() {
         
         var string = "阳君；937447974"
         
         // Document目录
-        let documents:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documents:[String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let docDirPath = documents.first!
-        let filePath = (docDirPath as NSString).stringByAppendingPathComponent("test.plist")
-        let fileUrl = NSURL(fileURLWithPath: filePath)
+        let filePath = (docDirPath as NSString).appendingPathComponent("test.plist")
+        let fileUrl = URL(fileURLWithPath: filePath)
         
         do {
             // 写入
-            try string.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
-            try string.writeToURL(fileUrl, atomically: true, encoding: NSUTF8StringEncoding)
+            try string.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+            try string.write(to: fileUrl, atomically: true, encoding: String.Encoding.utf8)
             
             // 读取
             // 自动解析
             try string = String(contentsOfFile: filePath)
             // 指定编码解析
-            try string = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
+            try string = String(contentsOfFile: filePath, encoding: String.Encoding.utf8)
             // 使用默认的编码解析，如果不能解析，采取默认解析并返回解析编码
-            var encoding:NSStringEncoding = NSUTF16LittleEndianStringEncoding
+            var encoding:String.Encoding = String.Encoding.utf16LittleEndian
             try string = String(contentsOfFile: filePath, usedEncoding: &encoding)
             
             // URl 读取
-            try string = String(contentsOfURL: fileUrl)
-            try string = String(contentsOfURL: fileUrl, encoding: NSUTF8StringEncoding)
-            try string = String(contentsOfURL: fileUrl, usedEncoding: &encoding)
+            try string = String(contentsOf: fileUrl)
+            try string = String(contentsOf: fileUrl, encoding: String.Encoding.utf8)
+            try string = String(contentsOf: fileUrl, usedEncoding: &encoding)
         } catch {
             print("错误:\(error)")
         }
@@ -173,7 +173,7 @@ class YJString: NSObject, TestProtocol {
     }
     
     // MARK: - 获取字符串的Swift属性
-    private func testGettingProperties() {
+    fileprivate func testGettingProperties() {
         let string = String(stringInterpolation: "阳君", "y;j", "937447974")
         
         // String.CharacterView
@@ -196,7 +196,7 @@ class YJString: NSObject, TestProtocol {
     }
     
     // MARK: 获取字符串长度
-    private func testGettingLength() {
+    fileprivate func testGettingLength() {
         let string = "阳君；937447974"
         // 起始位置
         var index =  string.startIndex
@@ -206,23 +206,23 @@ class YJString: NSObject, TestProtocol {
         // NSString方式获取长度
         var length = (string as NSString).length
         // swift方式获取
-        length = string.startIndex.distanceTo(string.endIndex)
+        length = string.characters.distance(from: string.startIndex, to: string.endIndex)
         print("\(length)")
         // 通过编码获取长度
-        length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+        length = string.lengthOfBytes(using: String.Encoding.utf8)
         // 返回存储时需要指定的长度
-        length = string.maximumLengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+        length = string.maximumLengthOfBytes(using: String.Encoding.utf8)
     }
     
     // MARK: - 大小写变化
-    private func testChangingCase() {
+    fileprivate func testChangingCase() {
         let str = "阳君;y937447974J"
         // 大写和小写
-        print("uppercaseString:\(str.uppercaseString);lowercaseString:\(str.lowercaseString)")
+        print("uppercaseString:\(str.uppercased());lowercaseString:\(str.lowercased())")
     }
     
     // MARK: 得到数值
-    private func testGettingNumericValues() {
+    fileprivate func testGettingNumericValues() {
         let string = "24"
         let nStr = string as NSString // 借用NSString输出
         print("doubleValue:\(nStr.doubleValue)")
@@ -234,66 +234,66 @@ class YJString: NSObject, TestProtocol {
     }
     
     // MARK: - 增加字符串
-    private func testCombiningStrings() {
+    fileprivate func testCombiningStrings() {
         var str = "阳君;937447974"
         
         // 添加字符串
-        str.appendContentsOf(";Swift")
+        str.append(";Swift")
         str += ";11"
         str.write("222")
         
         // string后增加字符串并生成一个新的字符串
-        str = str.stringByAppendingString(str)
+        str = str + str
         
         // string后增加组合字符串并生成一个新的字符串
-        str = str.stringByAppendingFormat(";%@", "OC")
+        str = str.appendingFormat(";%@", "OC")
         
         // string后增加循环字符串，stringByPaddingToLength：完毕后截取的长度；startingAtIndex：从增加的字符串第几位开始循环增加。
-        str = str.stringByPaddingToLength(30, withString:";Swift", startingAtIndex:3)
+        str = str.padding(toLength: 30, withPad:";Swift", startingAt:3)
         
         // 指定位置插入Character
-        str.insert("5", atIndex: str.endIndex.advancedBy(-1))
+        str.insert("5", at: str.characters.index(str.endIndex, offsetBy: -1))
         
         // 指定位置插入字符串
-        str.insertContentsOf("78".characters, at: str.startIndex.advancedBy(9))
+        str.insert(contentsOf: "78".characters, at: str.characters.index(str.startIndex, offsetBy: 9))
     }
     
     // MARK: 分割字符串
-    private func testDividingStrings() {
+    fileprivate func testDividingStrings() {
         let str = "阳君;937447974"
         
         // 根据指定的字符串分割成数组
-        var array = str.componentsSeparatedByString(";")
+        var array = str.components(separatedBy: ";")
         
         // 通过系统自带的分割方式分割字符串
-        array = str.componentsSeparatedByCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
+        array = str.components(separatedBy: CharacterSet.lowercaseLetters)
         print("array\(array)")
         
         // 指定位置后的字符串
-        var tempStr = str.substringFromIndex(str.startIndex.advancedBy(3))
+        var tempStr = str.substring(from: str.characters.index(str.startIndex, offsetBy: 3))
         
         // 指定位置前的字符串
-        tempStr = str.substringToIndex(str.startIndex.advancedBy(3))
+        tempStr = str.substring(to: str.characters.index(str.startIndex, offsetBy: 3))
         
         // 指定范围的字符串
-        let range = str.endIndex.advancedBy(-6)..<str.endIndex
-        tempStr = str.substringWithRange(range)
+        let range = str.characters.index(str.endIndex, offsetBy: -6)..<str.endIndex
+        tempStr = str.substring(with: range)
         print("tempStr:\(tempStr)")
         
     }
     
     // MARK: 查找字符串
-    private func testFindingStrings() {
+    fileprivate func testFindingStrings() {
         let str = "阳君;\n937447974";
-        let searchRange = str.startIndex ..< str.startIndex.advancedBy(10)
+        let searchRange = str.startIndex ..< str.characters.index(str.startIndex, offsetBy: 10)
         
         // 根据NSCharacterSet查找
-        let cSet = NSCharacterSet.uppercaseLetterCharacterSet()
-        var range = str.rangeOfCharacterFromSet(cSet)
+        let cSet = CharacterSet.uppercaseLetters
+        var range = str.rangeOfCharacter(from: cSet)
         
         // 根据字符串查找
-        range = str.rangeOfString("93")
-        range = str.rangeOfString("93", options: NSStringCompareOptions.CaseInsensitiveSearch, range: searchRange, locale: nil)
+        range = str.range(of: "93")
+        range = str.range(of: "93", options: NSString.CompareOptions.caseInsensitive, range: searchRange, locale: nil)
         print("\(range)")
         
         // block 行查找
@@ -305,7 +305,7 @@ class YJString: NSObject, TestProtocol {
         }
         
         // block查找，可设置查找方式，并得到找到的位置
-        str.enumerateSubstringsInRange(searchRange, options: NSStringEnumerationOptions.ByComposedCharacterSequences) { (substring, substringRange, enclosingRange, stop) -> () in
+        str.enumerateSubstrings(in: searchRange, options: NSString.EnumerationOptions.byComposedCharacterSequences) { (substring, substringRange, enclosingRange, stop) -> () in
             print("\(substring)")
             if "9" == substring {
                 print("\(substringRange)")
@@ -316,43 +316,43 @@ class YJString: NSObject, TestProtocol {
     }
     
     // MARK: 替换字符串
-    private func testReplacingSubstrings() {
+    fileprivate func testReplacingSubstrings() {
         
         var string = "阳君;937447974"
-        let replacingRange = string.startIndex ... string.startIndex.advancedBy(3)
+        let replacingRange = string.startIndex ... string.characters.index(string.startIndex, offsetBy: 3)
         
         // 全局替换
-        string = string.stringByReplacingOccurrencesOfString(";", withString: "+")
+        string = string.replacingOccurrences(of: ";", with: "+")
         // 设置替换的模式，并设置范围
-        string = string.stringByReplacingOccurrencesOfString("+", withString: ";", options: NSStringCompareOptions.CaseInsensitiveSearch, range: replacingRange)
+        string = string.replacingOccurrences(of: "+", with: ";", options: NSString.CompareOptions.caseInsensitive, range: replacingRange)
         
         //将指定范围的字符串替换为指定的字符串
-        string.replaceRange(replacingRange, with: "12345")
-        string = string.stringByReplacingCharactersInRange(replacingRange, withString: "12345")
+        string.replaceSubrange(replacingRange, with: "12345")
+        string = string.replacingCharacters(in: replacingRange, with: "12345")
         
     }
     
     // MARK: 删除字符串
-    private func testRemovingSubstrings() {
+    fileprivate func testRemovingSubstrings() {
         var string = "阳君;937447974"
         // 删除指定位置的字符串
-        string.removeAtIndex(string.startIndex.advancedBy(1))
+        string.remove(at: string.characters.index(string.startIndex, offsetBy: 1))
         
         // 根据范围删除字符串
-        let range = string.endIndex.advancedBy(-6)..<string.endIndex
-        string.removeRange(range)
+        let range = string.characters.index(string.endIndex, offsetBy: -6)..<string.endIndex
+        string.removeSubrange(range)
         
         // 删除所有
         string.removeAll()
-        string.removeAll(keepCapacity: true)
+        string.removeAll(keepingCapacity: true)
     }
     
     // MARK: 比较字符串
-    private func testComparingStrings() {
+    fileprivate func testComparingStrings() {
         
         var string = "阳君;937447974"
         let compareStr = "阳君;837447974"
-        let searchRange = string.startIndex ..< string.endIndex
+        let searchRange = string.characters.indices
         
         // 前缀
         var isHas = string.hasPrefix("阳君")
@@ -368,11 +368,11 @@ class YJString: NSObject, TestProtocol {
         // 比较大小
         var result = string.compare(compareStr)
         // 添加比较范围
-        result = string.compare(compareStr, options: NSStringCompareOptions.CaseInsensitiveSearch, range: searchRange, locale: nil)
+        result = string.compare(compareStr, options: NSString.CompareOptions.caseInsensitive, range: searchRange, locale: nil)
         print("result:\(result)")
         
         // 返回两个字符串相同的前缀
-        string = string.commonPrefixWithString(compareStr, options: NSStringCompareOptions.CaseInsensitiveSearch)
+        string = string.commonPrefix(with: compareStr, options: NSString.CompareOptions.caseInsensitive)
         
     }
     

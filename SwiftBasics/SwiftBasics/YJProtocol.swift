@@ -14,7 +14,7 @@ import Foundation
     func test()
     
     // @objc:OC特性，代表可以使用optional特性。optional可选的方法
-    optional func testOptional()
+    @objc optional func testOptional()
     
 }
 
@@ -28,7 +28,7 @@ protocol YJAnotherProtocol: YJSomeProtocol {
 extension YJSomeProtocol {
     
     func testExtension() {
-        print(__FUNCTION__)
+        print(#function)
     }
 
 }
@@ -36,7 +36,7 @@ extension YJSomeProtocol {
 class YJSomeClass:NSObject, YJSomeProtocol {
 
     func test() {
-        print(__FUNCTION__)
+        print(#function)
     }
     
 }

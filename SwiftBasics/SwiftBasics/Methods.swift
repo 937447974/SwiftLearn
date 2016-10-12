@@ -26,7 +26,7 @@ class Methods: TestProtocol {
     func testLocalAndExternalParameterNames() {
         class Counter {
             var count: Int = 0
-            func incrementBy(amount: Int, numberOfTimes: Int) {
+            func incrementBy(_ amount: Int, numberOfTimes: Int) {
                 count += amount * numberOfTimes
             }
         }
@@ -40,7 +40,7 @@ class Methods: TestProtocol {
         // self属性
         struct Point {
             var x = 0.0, y = 0.0
-            func isToTheRightOfX(x: Double) -> Bool {
+            func isToTheRightOfX(_ x: Double) -> Bool {
                 // 这里有内部和外部属性
                 return self.x > x
             }
@@ -55,7 +55,7 @@ class Methods: TestProtocol {
         // 方法体前加mutating,让结构体的实例方法可以修改结构体中的值
         struct Point {
             var x = 0.0, y = 0.0
-            mutating func moveByX(deltaX: Double, y deltaY: Double) {
+            mutating func moveByX(_ deltaX: Double, y deltaY: Double) {
                 x += deltaX
                 y += deltaY
             }
@@ -74,26 +74,26 @@ class Methods: TestProtocol {
         // 结构体测试
         struct Point {
             var x = 0.0, y = 0.0
-            mutating func moveByX(deltaX: Double, y deltaY: Double) {
+            mutating func moveByX(_ deltaX: Double, y deltaY: Double) {
                 self = Point(x: x + deltaX, y: y + deltaY)
             }
         }
         
         // 枚举测试
         enum TriStateSwitch {
-            case Off, Low, High
+            case off, low, high
             mutating func next() {
                 switch self {
-                case Off:
-                    self = Low
-                case Low:
-                    self = High
-                case High:
-                    self = Off
+                case .off:
+                    self = .low
+                case .low:
+                    self = .high
+                case .high:
+                    self = .off
                 }
             }
         }
-        var ovenLight = TriStateSwitch.Low
+        var ovenLight = TriStateSwitch.low
         print("\(ovenLight.next())") // High
         print("\(ovenLight.next())") // Off
     }
@@ -113,7 +113,7 @@ class Methods: TestProtocol {
         struct LevelTracker {
             // static修改属性，方法体要修改static属性，方法前要使用static
             static var highestUnlockedLevel = 1
-            static func levelIsUnlocked(level: Int) -> Bool {
+            static func levelIsUnlocked(_ level: Int) -> Bool {
                 return level <= highestUnlockedLevel
             }
         }

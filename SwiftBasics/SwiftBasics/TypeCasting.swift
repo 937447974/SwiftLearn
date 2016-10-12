@@ -44,7 +44,7 @@ class TypeCasting: TestProtocol {
         }
         
         // AnyObject可以是任何类型的一个实例。值类型或引用类型
-        let someObjects: [AnyObject] = [Movie(), 1, "33"]
+        let someObjects: [AnyObject] = [Movie(), 1 as AnyObject, "33" as AnyObject]
         
         // Any任何类型数据，还可以是函数、闭包等
         var things = [Any]()

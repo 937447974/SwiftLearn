@@ -22,7 +22,7 @@ class YJDictionary: NSObject, TestProtocol {
     }
     
     // MARK: 初始化
-    private func testInit() {
+    fileprivate func testInit() {
         // 空字典
         var dict = [String:String]()
         dict = [:]
@@ -35,7 +35,7 @@ class YJDictionary: NSObject, TestProtocol {
     }
     
     // MARK: 相关属性
-    private func testProperties() {
+    fileprivate func testProperties() {
         let dict = ["name":"阳君", "qq":"937447974"]
         print("count:\(dict.count)") // 有多个对元素
         print("isEmpty:\(dict.isEmpty)") // 是否为空
@@ -50,9 +50,9 @@ class YJDictionary: NSObject, TestProtocol {
     }
     
     // MARK: 查找元素
-    private func testFindingObjects() {
+    fileprivate func testFindingObjects() {
         let dict = ["name":"阳君", "qq":"937447974"]
-        if let dictIndex = dict.indexForKey("name") { // 获取位置
+        if let dictIndex = dict.index(forKey: "name") { // 获取位置
             let item = dict[dictIndex] // 根据位置获取键值对
             print("key:\(item.0);value:\(item.1)")
         }
@@ -73,27 +73,27 @@ class YJDictionary: NSObject, TestProtocol {
     }
     
     // MARK: 增加元素
-    private func testAdd() {
+    fileprivate func testAdd() {
         var dict = ["name":"阳君", "qq":"937447974"]
         // 如果没有则添加，有则修改
         dict["language"] = "swift"
     }
     
     // MARK: 删除元素
-    private func testRemove() {
+    fileprivate func testRemove() {
         var dict = ["name":"阳君", "qq":"937447974"]
-        let oldValue = dict.removeValueForKey("name")// 根据key删除,并返回删除的value
+        let oldValue = dict.removeValue(forKey: "name")// 根据key删除,并返回删除的value
         print("\(oldValue)")
         // 先找到位置，然后根据位置删除
-        if let dictIndex = dict.indexForKey("qq") {
-            let oldItem = dict.removeAtIndex(dictIndex)// 返回删除的元素对
+        if let dictIndex = dict.index(forKey: "qq") {
+            let oldItem = dict.remove(at: dictIndex)// 返回删除的元素对
             print("key:\(oldItem.0);value:\(oldItem.1)")
         }
         dict.removeAll() // 删除所有元素
     }
     
     // MARK: 修改元素
-    private func testReplace() {
+    fileprivate func testReplace() {
         var dict = ["name":"阳君", "qq":"937447974"]
         // 如果没有则添加，有则修改
         dict["name"] = "YangJun" // 修改
@@ -102,31 +102,31 @@ class YJDictionary: NSObject, TestProtocol {
     }
     
     // MARK: 排序
-    private func testSort() {
+    fileprivate func testSort() {
         let dict = ["name":"阳君", "qq":"937447974", "a":"1", "b":"1"]
         // 排序主要只排序key或者value,然后借用Array的排序
         // 排序key
-        var array = dict.keys.sort({ str1,str2 in str1 < str2 })
-         array = dict.keys.sort(<)
+        var array = dict.keys.sorted(by: { str1,str2 in str1 < str2 })
+         array = dict.keys.sorted(by: <)
         // 排序value
-        array = dict.values.sort({$0 > $1})
+        array = dict.values.sorted(by: {$0 > $1})
         print("\(array)")
     }
     
     // MARK: - 文件读和写
-    private func testReadingAndWriting() {
+    fileprivate func testReadingAndWriting() {
         // Document目录
-        let documents:[String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documents:[String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let docDirPath = documents.first!
-        let path = (docDirPath as NSString).stringByAppendingPathComponent("test.plist")
-        let url = NSURL(fileURLWithPath: path)
+        let path = (docDirPath as NSString).appendingPathComponent("test.plist")
+        let url = URL(fileURLWithPath: path)
         var dict = ["name":"阳君", "qq":"937447974"]
         // 写
-        (dict as NSDictionary).writeToFile(path, atomically: true)
-        (dict as NSDictionary).writeToURL(url, atomically: true)
+        (dict as NSDictionary).write(toFile: path, atomically: true)
+        (dict as NSDictionary).write(to: url, atomically: true)
         // 读
         dict = NSDictionary(contentsOfFile: path) as! Dictionary
-        dict = NSDictionary(contentsOfURL: url) as! Dictionary
+        dict = NSDictionary(contentsOf: url) as! Dictionary
     }
     
 }
