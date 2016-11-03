@@ -16,24 +16,24 @@ import MobileCoreServices
 class ShareViewController: SLComposeServiceViewController, YJProtoloc {
     
     /// 选择器的值
-    private var value = ""
+    fileprivate var value = ""
     /// 附件照片
     var attachedImage: UIImage?
     
     // MARK: 内容校验
     override func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
-        print(__FUNCTION__)
-        let messageLength = self.contentText.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+        print(#function)
+        let messageLength = self.contentText.lengthOfBytes(using: String.Encoding.utf8)
         let cRemaining = 100 - messageLength
-        self.charactersRemaining = NSNumber(integer: cRemaining)
+        self.charactersRemaining = NSNumber(value: cRemaining as Int)
         
         return cRemaining >= 0
     }
     
     // MARK: 点击发布
     override func didSelectPost() {
-        print(__FUNCTION__)
+        print(#function)
         // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
         // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
         // Perform the post operation.
@@ -44,19 +44,19 @@ class ShareViewController: SLComposeServiceViewController, YJProtoloc {
         var list = self.extensionContext?.inputItems
         list?.append(item)
         print(self.extensionContext)
-        self.extensionContext!.completeRequestReturningItems(list) { (success: Bool) -> Void in
+        self.extensionContext!.completeRequest(returningItems: list) { (success: Bool) -> Void in
             print(success)
         }
     }
     
     // MARK: 选择器
-    override func configurationItems() -> [AnyObject]! {
-        print(__FUNCTION__)
+    override func configurationItems() -> [Any]! {
+        print(#function)
         let item = SLComposeSheetConfigurationItem()
-        item.title = "选择"
-        item.value = self.value
-        item.tapHandler = {
-            let vc = YJSelectTableViewController(style: UITableViewStyle.Grouped)
+        item?.title = "选择"
+        item?.value = self.value
+        item?.tapHandler = {
+            let vc = YJSelectTableViewController(style: UITableViewStyle.grouped)
             vc.delagete = self
             self.pushConfigurationViewController(vc)
         }
@@ -65,7 +65,7 @@ class ShareViewController: SLComposeServiceViewController, YJProtoloc {
     
     override func presentationAnimationDidFinish() {
         super.presentationAnimationDidFinish()
-        print(__FUNCTION__)
+        print(#function)
         // 解析数据
         guard let items = self.extensionContext?.inputItems as? [NSExtensionItem] else {
             print("解析出错")
@@ -75,7 +75,7 @@ class ShareViewController: SLComposeServiceViewController, YJProtoloc {
             if let providers = item.attachments as? [NSItemProvider] {
                 for provider in providers {
                     if provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
-                        provider.loadItemForTypeIdentifier(kUTTypeURL as String, options: nil, completionHandler: { (url:NSSecureCoding?, erroe: NSError!) -> Void in
+                        provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { (url:NSSecureCoding?, erroe: NSError!) -> Void in
                             print(url)
                         })
                     }
@@ -86,7 +86,7 @@ class ShareViewController: SLComposeServiceViewController, YJProtoloc {
     }
     
     // MARK: - YJProtoloc
-    func passValue(sender: UIViewController, values: [String : String]) {
+    func passValue(_ sender: UIViewController, values: [String : String]) {
         self.popConfigurationViewController()
         if let data = values["value"] {
             self.value = data

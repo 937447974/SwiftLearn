@@ -20,26 +20,26 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         // 分享到当前应用扩展（微博分享SLServiceTypeSinaWeibo）
         let serviceType = "com.YJSocial.ShareExtension" // 扩展Bundle identifier
-        guard SLComposeViewController.isAvailableForServiceType(serviceType) else {
+        guard SLComposeViewController.isAvailable(forServiceType: serviceType) else {
             print("不支持:\(serviceType)")
             return
         }
         let vc = SLComposeViewController(forServiceType: serviceType)
-        vc.setInitialText(serviceType) // 默认内容
+        vc?.setInitialText(serviceType) // 默认内容
         // 处理结果回调
-        vc.completionHandler =  {(result: SLComposeViewControllerResult) -> Void in
+        vc?.completionHandler =  {(result: SLComposeViewControllerResult) -> Void in
             switch result {
-            case SLComposeViewControllerResult.Cancelled:
+            case SLComposeViewControllerResult.cancelled:
                 print("Cancelled")
-            case SLComposeViewControllerResult.Done:
+            case SLComposeViewControllerResult.done:
                 print("Done")
             }
         }
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.present(vc!, animated: true, completion: nil)
     }
     
 }

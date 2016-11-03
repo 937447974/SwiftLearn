@@ -14,13 +14,13 @@ import UIKit
 /// 数据交互协议
 protocol YJProtoloc: NSObjectProtocol {
     
-    func passValue(sender:UIViewController, values:[String:String])
+    func passValue(_ sender:UIViewController, values:[String:String])
 }
 
 class YJSelectTableViewController: UITableViewController {
     
     /// 所选择的数据
-    private let data = ["阳君", "937447974"]
+    fileprivate let data = ["阳君", "937447974"]
     /// 交互协议
     weak var delagete: YJProtoloc?
 
@@ -29,20 +29,20 @@ class YJSelectTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier")
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "reuseIdentifier")
+            cell = UITableViewCell(style: .default, reuseIdentifier: "reuseIdentifier")
         }
         cell!.textLabel?.text = self.data[indexPath.row]
         return cell!
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let values = ["value": self.data[indexPath.row]]
         self.delagete?.passValue(self, values: values)
     }
