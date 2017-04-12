@@ -26,15 +26,15 @@ class YJContactsUIVC: UIViewController, CNContactPickerDelegate, CNContactViewCo
 
     // MARK: - Action
     // MARK: CNContactPickerViewController 测试
-    @IBAction func onClickCNContactPickerViewController(sender: AnyObject) {
+    @IBAction func onClickCNContactPickerViewController(_ sender: AnyObject) {
         // 选择联系人或联系人的属性（如电话号码）
         let vc = CNContactPickerViewController()
         vc.delegate = self // 根据实现的代理方法指定单选、多选
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     // MARK: CNContactViewController 测试
-    @IBAction func onClickCNContactViewController(sender: AnyObject) {
+    @IBAction func onClickCNContactViewController(_ sender: AnyObject) {
         // 创建或修改联系人
         let vc = CNContactViewController(forNewContact: nil)
         vc.delegate = self
@@ -42,22 +42,22 @@ class YJContactsUIVC: UIViewController, CNContactPickerDelegate, CNContactViewCo
     }
     
     // MARK: - CNContactPickerDelegate
-    func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         // 单选
         print(contact)
     }
     
     // MARK: - CNContactViewControllerDelegate
-    func contactViewController(viewController: CNContactViewController, shouldPerformDefaultActionForContactProperty property: CNContactProperty) -> Bool {
-        print(__FUNCTION__)
+    func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
+        print(#function)
         print(property)
         return true
     }
     
-    func contactViewController(viewController: CNContactViewController, didCompleteWithContact contact: CNContact?) {
-        viewController.navigationController?.popViewControllerAnimated(true)
-        print(__FUNCTION__)
-        print(contact)
+    func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
+        viewController.navigationController?.popViewController(animated: true)
+        print(#function)
+        print(contact as Any)
     }
     
 }

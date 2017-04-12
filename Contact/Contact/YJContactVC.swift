@@ -18,14 +18,14 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
     /// UITableView
     @IBOutlet weak var tableView: UITableView!
     /// 数据源
-    private var data = [CNContact]()
+    fileprivate var data = [CNContact]()
     /// 通讯录存储库
-    private let store = CNContactStore()
+    fileprivate let store = CNContactStore()
     /// 快速查询
-    private var predicate: NSPredicate! {
+    fileprivate var predicate: NSPredicate! {
         didSet {
             do {
-                self.data = try self.store.unifiedContactsMatchingPredicate(self.predicate, keysToFetch:[CNContactGivenNameKey, CNContactFamilyNameKey])
+                self.data = try self.store.unifiedContacts(matching: self.predicate, keysToFetch:[CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor])
                 self.tableView.reloadData()
             } catch {
                 print("未知错误：\(error)")
@@ -36,27 +36,27 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "contactStoreDidChangeNotification", name: CNContactStoreDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YJContactVC.contactStoreDidChangeNotification), name: NSNotification.Name.CNContactStoreDidChange, object: nil)
         self.contactStoreDidChangeNotification()
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - NSNotificationCenter
     // MARK: 通讯录有变动
     func contactStoreDidChangeNotification() {
-        print(__FUNCTION__)
-        self.predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier()) //predicateForContactsMatchingName("")
+        print(#function)
+        self.predicate = CNContact.predicateForContactsInContainer(withIdentifier: self.store.defaultContainerIdentifier()) //predicateForContactsMatchingName("")
     }
     
     // MARK: - Action
     // MARK: 添加电话
-    @IBAction func onClickAdd(sender: AnyObject) {
+    @IBAction func onClickAdd(_ sender: AnyObject) {
         // Creating a mutable object to add to the contact
         let contact = CNMutableContact()
-        contact.contactType = CNContactType.Person // 类型
+        contact.contactType = CNContactType.person // 类型
         // 照片
         if let image = UIImage(named: "qq") {
             if let data = UIImagePNGRepresentation(image) {
@@ -71,7 +71,7 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
         contact.phoneNumbers = [homePhone]
         
         // 邮件
-        let workEmail = CNLabeledValue(label:CNLabelWork, value:"937447974@qq.com") // 工作
+        let workEmail = CNLabeledValue(label:CNLabelWork, value:"937447974@qq.com" as NSString) // 工作
         contact.emailAddresses = [workEmail]
         
         // 家庭地址
@@ -83,7 +83,7 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
         contact.postalAddresses = [CNLabeledValue(label:CNLabelHome, value:homeAddress)] // 添加地址
         
         // 生日
-        let birthday = NSDateComponents()
+        var birthday = DateComponents()
         birthday.year = 2016
         birthday.month = 1
         birthday.day = 12
@@ -92,32 +92,32 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
         // Saving the newly created contact
         do {
             let saveRequest = CNSaveRequest()
-            saveRequest.addContact(contact, toContainerWithIdentifier:self.store.defaultContainerIdentifier())
-            try self.store.executeSaveRequest(saveRequest)
+            saveRequest.add(contact, toContainerWithIdentifier:self.store.defaultContainerIdentifier())
+            try self.store.execute(saveRequest)
         } catch {
             print("未知错误：\(error)")
         }
     }
     
     // MARK: - UISearchBarDelegate
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == nil || searchBar.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
-            self.predicate = CNContact.predicateForContactsInContainerWithIdentifier(self.store.defaultContainerIdentifier())
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text?.lengthOfBytes(using: String.Encoding.utf8) == 0 {
+            self.predicate = CNContact.predicateForContactsInContainer(withIdentifier: self.store.defaultContainerIdentifier())
         } else {
-            self.predicate = CNContact.predicateForContactsMatchingName(searchBar.text!)
+            self.predicate = CNContact.predicateForContacts(matchingName: searchBar.text!)
         }
     }
     
     // MARK: - Table view data source
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "reuseIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(identifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
+            cell = UITableViewCell(style: .default, reuseIdentifier: identifier)
         }
         let contact = self.data[indexPath.row]
         cell?.textLabel?.text = "\(contact.familyName)\(contact.givenName)" // CNContactFormatter.stringFromContact(contact, style: .FullName)
@@ -125,28 +125,28 @@ class YJContactVC: UIViewController, UITableViewDataSource, UISearchBarDelegate 
     }
     
     // Override to support conditional editing of the table view.
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
     // Override to support editing the table view.
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // 删除电话
             do {
                 // 删除通讯录中电话
                 let saveRequest = CNSaveRequest()
                 let contact = self.data[indexPath.row].mutableCopy() as! CNMutableContact
-                saveRequest.deleteContact(contact)
+                saveRequest.delete(contact)
                 // 刷新UI
-                self.data.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.data.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
                 // 保存
-                try self.store.executeSaveRequest(saveRequest)
+                try self.store.execute(saveRequest)
             } catch {
                 print("未知错误：\(error)")
             }
-        } else if editingStyle == .Insert {
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
