@@ -13,7 +13,7 @@ import XCTest
 class KVCTests: XCTestCase {
         
     /// 用户
-    var user:User!;
+    var user:User!
     
     // MARK: 开始
     override func setUp() {
@@ -24,18 +24,18 @@ class KVCTests: XCTestCase {
     func testExample() {
         // 简单路径
         self.user.setValue("yangj", forKey:"userName") // 传值
-        var value = self.user.valueForKey("userName") as? String // 取值
-        print("\(value)")
+        var value = self.user.value(forKey: "userName") as? String // 取值
+        print("\(value ?? "")")
         
         // 复合路径
         self.user.setValue("阳", forKeyPath: "userName")
-        value = self.user.valueForKeyPath("userName") as? String
-        print("\(value)")
+        value = self.user.value(forKeyPath: "userName") as? String
+        print("\(value ?? "")")
         
         // 字典
         let dict = ["userName":"阳君"]
-        self.user.setValuesForKeysWithDictionary(dict)
-        let dictOut = self.user.dictionaryWithValuesForKeys(["userName"])
+        self.user.setValuesForKeys(dict)
+        let dictOut = self.user.dictionaryWithValues(forKeys: ["userName"])
         print("\(dictOut)")
     }
 

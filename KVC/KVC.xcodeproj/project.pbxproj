@@ -14,7 +14,7 @@
 		D4121DE61BC8F848000C680C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4121DE41BC8F848000C680C /* LaunchScreen.storyboard */; };
 		D4121DF11BC8F848000C680C /* KVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121DF01BC8F848000C680C /* KVCTests.swift */; };
 		D4121DFC1BC8F848000C680C /* KVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121DFB1BC8F848000C680C /* KVCUITests.swift */; };
-		D4121E0A1BC8F86C000C680C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121E091BC8F86C000C680C /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		D4121E0A1BC8F86C000C680C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121E091BC8F86C000C680C /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,13 +195,16 @@
 				TargetAttributes = {
 					D4121DD71BC8F848000C680C = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 					};
 					D4121DEB1BC8F848000C680C = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = D4121DD71BC8F848000C680C;
 					};
 					D4121DF61BC8F848000C680C = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = D4121DD71BC8F848000C680C;
 					};
 				};
@@ -404,6 +407,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -415,6 +419,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -426,6 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KVC.app/KVC";
 			};
 			name = Debug;
@@ -438,6 +444,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KVC.app/KVC";
 			};
 			name = Release;
@@ -449,6 +456,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KVC;
 				USES_XCTRUNNER = YES;
 			};
@@ -461,6 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KVC;
 				USES_XCTRUNNER = YES;
 			};
@@ -485,6 +494,7 @@
 				D4121E021BC8F848000C680C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4121E031BC8F848000C680C /* Build configuration list for PBXNativeTarget "KVCTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +503,7 @@
 				D4121E051BC8F848000C680C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4121E061BC8F848000C680C /* Build configuration list for PBXNativeTarget "KVCUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +512,7 @@
 				D4121E081BC8F848000C680C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
