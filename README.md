@@ -10,45 +10,45 @@ QQ：937447974
 
 本模块主要是本人对于Swift的一些研究。如果你觉得很赞，请点击右上角的Star按钮；如果你很感兴趣，并想持续获得本人最新的项目源文件，欢迎点击右上角的Fork按钮。
 
-#NSURLSession
+# NSURLSession
 
 一系列的网络相关功能，包含通信、上传、下载。
 
-#Parser
+# Parser
 
 使用NSXMLParser解析XML；使用NSJSONSerialization解析JSON。
 
-#GCD
+# GCD
 
 Grand Central Dispatch (GCD)多线程。
 
-#UI
+# UI
 
 UIKit Framework Reference
 
-#Photo
+# Photo
 
 Photos Framework And PhotosUI Framework。
 
-#Utils
+# Utils
 
 常用工具
 
-#ViewRotation
+# ViewRotation
 
 横竖屏设置、横竖屏监听
 
-#Runtime
+# Runtime
 
 运行时
 
-#Message
+# Message
 
 **MessageUI**
 
 Create a view-controller-based user interface for composing email messages. Use it in cases where you want the user to be able to create email messages without leaving your application.
 
-#Contact
+# Contact
 
 Contacts And ContactsUI
 
@@ -61,61 +61,61 @@ Use the Contacts framework to gain access to the centralized database for storin
 Use the Contacts UI framework to display the data contained in the Contacts database. This framework provides a graphical interface to gain access to users' contacts.
 
 
-#YJImageIO
+# YJImageIO
 
 **ImageIO**
 
 Read and write most image file formats with the Image I/O framework. This C-based framework also supports color management and access to image metadata.
 
-#YJSafariServices
+# YJSafariServices
 
 **SafariServices**
 
 Enable web-based views and services in your app with the Safari Services framework.
 
-#YJQuickLook
+# YJQuickLook
 
 **QuickLook**
 
 Display view-based previews of items with the Quick Look framework.
 
-#YJSocial
+# YJSocial
 
 **Social**
 
 Send requests to a supported social networking service to perform operations on behalf of your users, integrating their social networking accounts with your app.
 
-#YJAccounts
+# YJAccounts
 
 **Accounts**
 
 Manage the user's external accounts using the Accounts framework. You can also use this framework to simplify the authorization process when using external APIs, such as the Twitter API.
 
-#YJAdSupport
+# YJAdSupport
 
 **AdSupport**
 
 Access the advertising identifier and a flag indicating whether the user has chosen to limit ad tracking.
 
-#YJCoreMotion
+# YJCoreMotion
 
 **CoreMotion**
 
 Receive and handle accelerometer and other motion events with the Core Motion framework.
 
-#YJCoreSpotlight
+# YJCoreSpotlight
 
 **CoreSpotlight**
 
 Index the content in your app and enable users to deep-link to that content from Spotlight and Safari search results with the Core Spotlight framework. Core Spotlight is designed for apps that handle persistent user data, such as documents, photos, and other types of content created by or on behalf of users. Use Core Spotlight APIs to add, retrieve, update, and delete items that represent searchable app content.
 
-#YJCoreTelephony
+# YJCoreTelephony
 
 **CoreTelephony**
 
 Gain access to cellular telephone call status and cellular service provider information with the Core Telephony framework.
 
-#YJFoundation
+# YJFoundation
 
 **Foundation**
 
