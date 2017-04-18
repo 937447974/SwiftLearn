@@ -26,7 +26,7 @@ class ViewController: UIViewController,  MFMailComposeViewControllerDelegate, MF
     
     // MARK: - Action
     // MARK: compose mail
-    @IBAction func composeMail(sender: AnyObject) {
+    @IBAction func composeMail(_ sender: AnyObject) {
         // 判断能否发送邮件
         guard MFMailComposeViewController.canSendMail() else {
             print("不能发送邮件")
@@ -45,11 +45,11 @@ class ViewController: UIViewController,  MFMailComposeViewControllerDelegate, MF
                 mailVC.addAttachmentData(data, mimeType: "image/png", fileName: "qq")
             }
         }
-        self.presentViewController(mailVC, animated: true, completion: nil)
+        self.present(mailVC, animated: true, completion: nil)
     }
     
     // MARK: compose message
-    @IBAction func composeMessage(sender: AnyObject) {
+    @IBAction func composeMessage(_ sender: AnyObject) {
         guard MFMessageComposeViewController.canSendText() else {
             print("不能发送短信")
             return
@@ -65,8 +65,8 @@ class ViewController: UIViewController,  MFMailComposeViewControllerDelegate, MF
         // 发送附件
         if MFMessageComposeViewController.canSendAttachments() {
             // 路径添加
-            if let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist") {
-                messageVC.addAttachmentURL(NSURL(fileURLWithPath: path), withAlternateFilename: "Info.plist")
+            if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
+                messageVC.addAttachmentURL(URL(fileURLWithPath: path), withAlternateFilename: "Info.plist")
             }
             // NSData添加
             if MFMessageComposeViewController.isSupportedAttachmentUTI("public.png") {
@@ -80,45 +80,41 @@ class ViewController: UIViewController,  MFMailComposeViewControllerDelegate, MF
             }
         }
         // messageVC.disableUserAttachments() // 禁用添加附件按钮
-        self.presentViewController(messageVC, animated: true, completion: nil)
+        self.present(messageVC, animated: true, completion: nil)
     }
     
     // MARK: -  MFMailComposeViewControllerDelegate
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         // 关闭MFMailComposeViewController
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
         guard error == nil else { // 错误拦截
-            print(error)
+            print(error!)
             return
         }
         switch result { // 发送状态
-        case MFMailComposeResultCancelled:
+        case MFMailComposeResult.cancelled:
             print("Result: Mail sending canceled") // 删除草稿
-        case MFMailComposeResultSaved: // 存储草稿
+        case MFMailComposeResult.saved: // 存储草稿
             print("Result: Mail saved")
-        case MFMailComposeResultSent: // 发送成功
+        case MFMailComposeResult.sent: // 发送成功
             print("Result: Mail sent")
-        case MFMailComposeResultFailed: // 发送失败
+        case MFMailComposeResult.failed: // 发送失败
             print("Result: Mail sending failed")
-        default:// 其他
-            print("Result: Mail not sent")
         }
     }
     
     // MARK: - MFMessageComposeViewControllerDelegate
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        print(controller.attachments) // 所有附件
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        print(controller.attachments as Any) // 所有附件
         // 关闭MFMessageComposeViewController
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
         switch result { // 发送状态
-        case MessageComposeResultCancelled:
+        case MessageComposeResult.cancelled:
             print("Result: Mail sending cancelled") // 取消发送
-        case MessageComposeResultSent: // 发送成功
+        case MessageComposeResult.sent: // 发送成功
             print("Result: Mail sent")
-        case MessageComposeResultFailed: // 发送失败
+        case MessageComposeResult.failed: // 发送失败
             print("Result: Message sending failed")
-        default:// 其他
-            print("Result: Message not sent")
         }
     }
     

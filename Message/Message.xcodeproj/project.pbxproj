@@ -12,26 +12,7 @@
 		D490B00C1C43A9C000BFE7F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D490B00A1C43A9C000BFE7F0 /* Main.storyboard */; };
 		D490B00E1C43A9C000BFE7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D490B00D1C43A9C000BFE7F0 /* Assets.xcassets */; };
 		D490B0111C43A9C000BFE7F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D490B00F1C43A9C000BFE7F0 /* LaunchScreen.storyboard */; };
-		D490B01C1C43A9C000BFE7F0 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490B01B1C43A9C000BFE7F0 /* MessageTests.swift */; };
-		D490B0271C43A9C000BFE7F0 /* MessageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490B0261C43A9C000BFE7F0 /* MessageUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D490B0181C43A9C000BFE7F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D490AFFB1C43A9C000BFE7F0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D490B0021C43A9C000BFE7F0;
-			remoteInfo = Message;
-		};
-		D490B0231C43A9C000BFE7F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D490AFFB1C43A9C000BFE7F0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D490B0021C43A9C000BFE7F0;
-			remoteInfo = Message;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D490B0031C43A9C000BFE7F0 /* Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Message.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,30 +22,10 @@
 		D490B00D1C43A9C000BFE7F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D490B0101C43A9C000BFE7F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D490B0121C43A9C000BFE7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D490B0171C43A9C000BFE7F0 /* MessageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D490B01B1C43A9C000BFE7F0 /* MessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
-		D490B01D1C43A9C000BFE7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D490B0221C43A9C000BFE7F0 /* MessageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D490B0261C43A9C000BFE7F0 /* MessageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUITests.swift; sourceTree = "<group>"; };
-		D490B0281C43A9C100BFE7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D490B0001C43A9C000BFE7F0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D490B0141C43A9C000BFE7F0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D490B01F1C43A9C000BFE7F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,8 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				D490B0051C43A9C000BFE7F0 /* Message */,
-				D490B01A1C43A9C000BFE7F0 /* MessageTests */,
-				D490B0251C43A9C000BFE7F0 /* MessageUITests */,
 				D490B0041C43A9C000BFE7F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				D490B0031C43A9C000BFE7F0 /* Message.app */,
-				D490B0171C43A9C000BFE7F0 /* MessageTests.xctest */,
-				D490B0221C43A9C000BFE7F0 /* MessageUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,24 +60,6 @@
 				D490B0361C43AAFD00BFE7F0 /* Resources */,
 			);
 			path = Message;
-			sourceTree = "<group>";
-		};
-		D490B01A1C43A9C000BFE7F0 /* MessageTests */ = {
-			isa = PBXGroup;
-			children = (
-				D490B01B1C43A9C000BFE7F0 /* MessageTests.swift */,
-				D490B01D1C43A9C000BFE7F0 /* Info.plist */,
-			);
-			path = MessageTests;
-			sourceTree = "<group>";
-		};
-		D490B0251C43A9C000BFE7F0 /* MessageUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D490B0261C43A9C000BFE7F0 /* MessageUITests.swift */,
-				D490B0281C43A9C100BFE7F0 /* Info.plist */,
-			);
-			path = MessageUITests;
 			sourceTree = "<group>";
 		};
 		D490B0341C43AAC200BFE7F0 /* Main */ = {
@@ -169,42 +108,6 @@
 			productReference = D490B0031C43A9C000BFE7F0 /* Message.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D490B0161C43A9C000BFE7F0 /* MessageTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D490B02E1C43A9C100BFE7F0 /* Build configuration list for PBXNativeTarget "MessageTests" */;
-			buildPhases = (
-				D490B0131C43A9C000BFE7F0 /* Sources */,
-				D490B0141C43A9C000BFE7F0 /* Frameworks */,
-				D490B0151C43A9C000BFE7F0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D490B0191C43A9C000BFE7F0 /* PBXTargetDependency */,
-			);
-			name = MessageTests;
-			productName = MessageTests;
-			productReference = D490B0171C43A9C000BFE7F0 /* MessageTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D490B0211C43A9C000BFE7F0 /* MessageUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D490B0311C43A9C100BFE7F0 /* Build configuration list for PBXNativeTarget "MessageUITests" */;
-			buildPhases = (
-				D490B01E1C43A9C000BFE7F0 /* Sources */,
-				D490B01F1C43A9C000BFE7F0 /* Frameworks */,
-				D490B0201C43A9C000BFE7F0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D490B0241C43A9C000BFE7F0 /* PBXTargetDependency */,
-			);
-			name = MessageUITests;
-			productName = MessageUITests;
-			productReference = D490B0221C43A9C000BFE7F0 /* MessageUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,19 +116,12 @@
 			attributes = {
 				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "阳君";
 				TargetAttributes = {
 					D490B0021C43A9C000BFE7F0 = {
 						CreatedOnToolsVersion = 7.2;
-					};
-					D490B0161C43A9C000BFE7F0 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = D490B0021C43A9C000BFE7F0;
-					};
-					D490B0211C43A9C000BFE7F0 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = D490B0021C43A9C000BFE7F0;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -243,8 +139,6 @@
 			projectRoot = "";
 			targets = (
 				D490B0021C43A9C000BFE7F0 /* Message */,
-				D490B0161C43A9C000BFE7F0 /* MessageTests */,
-				D490B0211C43A9C000BFE7F0 /* MessageUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,20 +154,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D490B0151C43A9C000BFE7F0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D490B0201C43A9C000BFE7F0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -286,36 +166,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D490B0131C43A9C000BFE7F0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D490B01C1C43A9C000BFE7F0 /* MessageTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D490B01E1C43A9C000BFE7F0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D490B0271C43A9C000BFE7F0 /* MessageUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D490B0191C43A9C000BFE7F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D490B0021C43A9C000BFE7F0 /* Message */;
-			targetProxy = D490B0181C43A9C000BFE7F0 /* PBXContainerItemProxy */;
-		};
-		D490B0241C43A9C000BFE7F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D490B0021C43A9C000BFE7F0 /* Message */;
-			targetProxy = D490B0231C43A9C000BFE7F0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D490B00A1C43A9C000BFE7F0 /* Main.storyboard */ = {
@@ -350,8 +201,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -395,8 +248,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -415,6 +270,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -428,6 +284,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Message;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -439,54 +296,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Message;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		D490B02F1C43A9C100BFE7F0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MessageTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MessageTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Message.app/Message";
-			};
-			name = Debug;
-		};
-		D490B0301C43A9C100BFE7F0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MessageTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MessageTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Message.app/Message";
-			};
-			name = Release;
-		};
-		D490B0321C43A9C100BFE7F0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = MessageUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MessageUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Message;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		D490B0331C43A9C100BFE7F0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = MessageUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MessageUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Message;
-				USES_XCTRUNNER = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -509,22 +319,7 @@
 				D490B02D1C43A9C100BFE7F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		D490B02E1C43A9C100BFE7F0 /* Build configuration list for PBXNativeTarget "MessageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D490B02F1C43A9C100BFE7F0 /* Debug */,
-				D490B0301C43A9C100BFE7F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		D490B0311C43A9C100BFE7F0 /* Build configuration list for PBXNativeTarget "MessageUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D490B0321C43A9C100BFE7F0 /* Debug */,
-				D490B0331C43A9C100BFE7F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
