@@ -14,7 +14,7 @@
 		D4121D521BC8E525000C680C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4121D501BC8E525000C680C /* LaunchScreen.storyboard */; };
 		D4121D5D1BC8E525000C680C /* KVOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121D5C1BC8E525000C680C /* KVOTests.swift */; };
 		D4121D681BC8E525000C680C /* KVOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121D671BC8E525000C680C /* KVOUITests.swift */; };
-		D4121D911BC8EE58000C680C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121D901BC8EE58000C680C /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		D4121D911BC8EE58000C680C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4121D901BC8EE58000C680C /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,18 +190,21 @@
 		D4121D3C1BC8E525000C680C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "六月";
 				TargetAttributes = {
 					D4121D431BC8E525000C680C = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 					};
 					D4121D571BC8E525000C680C = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = D4121D431BC8E525000C680C;
 					};
 					D4121D621BC8E525000C680C = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = D4121D431BC8E525000C680C;
 					};
 				};
@@ -328,8 +331,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -372,8 +377,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -392,6 +399,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -404,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -415,6 +424,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -426,6 +436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVOTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KVO.app/KVO";
 			};
 			name = Debug;
@@ -438,6 +449,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVOTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KVO.app/KVO";
 			};
 			name = Release;
@@ -449,6 +461,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVOUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KVO;
 				USES_XCTRUNNER = YES;
 			};
@@ -461,6 +474,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KVOUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KVO;
 				USES_XCTRUNNER = YES;
 			};

@@ -18,7 +18,7 @@ class KVOTests: XCTestCase {
     override func setUp() {
         super.setUp()
         self.user = User()
-        self.user.addObserver(self, forKeyPath: "userName", options: NSKeyValueObservingOptions.New, context: nil)// 监听（KVO的属性必须设置dynamic）
+        self.user.addObserver(self, forKeyPath: "userName", options: NSKeyValueObservingOptions.new, context: nil)// 监听（KVO的属性必须设置dynamic）
     }
     
     // MARK: 结束
@@ -34,9 +34,9 @@ class KVOTests: XCTestCase {
     }
     
     // MARK: - 监听
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if "userName" == keyPath {
-            print("userName:\((object as? User)?.userName); change:\(change)")
+            print("\nchange:\(change ?? [:])\n")
         }
     }
     
