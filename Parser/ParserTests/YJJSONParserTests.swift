@@ -22,12 +22,12 @@ class YJJSONParserTests: XCTestCase {
         dict["name"] = "阳君"
         dict["qq"] = "937447974"
         do {
-            if NSJSONSerialization.isValidJSONObject(dict) { // 能否转换为JSON Data
+            if JSONSerialization.isValidJSONObject(dict) { // 能否转换为JSON Data
                 // 转换为JSON Data
-                let data  = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
+                let data  = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
                 // 转换为json串
-                self.jsonString = String(data: data, encoding: NSUTF8StringEncoding)
-                print("json生成:\(self.jsonString)")
+                self.jsonString = String(data: data, encoding: String.Encoding.utf8)
+                print("json生成:\(self.jsonString ?? "")")
             }
         } catch {
             print("转换出错:\(error)")
@@ -41,10 +41,10 @@ class YJJSONParserTests: XCTestCase {
     
     func testExample() {
         // json转data
-        if let data = self.jsonString?.dataUsingEncoding(NSUTF8StringEncoding) {
+        if let data = self.jsonString?.data(using: String.Encoding.utf8) {
             do {
                 // data转JSON Object
-                let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
                 // JSON Object转实际对象
                 if let dict = jsonObject as? Dictionary<String, AnyObject> {
                     print("json解析:\(dict)")

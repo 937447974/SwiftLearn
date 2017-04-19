@@ -12,7 +12,6 @@
 		D41C07601C15889F0002464F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41C075E1C15889F0002464F /* Main.storyboard */; };
 		D41C07621C15889F0002464F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41C07611C15889F0002464F /* Assets.xcassets */; };
 		D41C07651C15889F0002464F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41C07631C15889F0002464F /* LaunchScreen.storyboard */; };
-		D41C077B1C15889F0002464F /* ParserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C077A1C15889F0002464F /* ParserUITests.swift */; };
 		D41C07891C1589550002464F /* YJJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C07881C1589550002464F /* YJJSONParserTests.swift */; };
 		D41C078B1C158C270002464F /* YJXMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C078A1C158C270002464F /* YJXMLParserTests.swift */; };
 		D41C078F1C158C980002464F /* Main.xml in Resources */ = {isa = PBXBuildFile; fileRef = D41C078E1C158C980002464F /* Main.xml */; };
@@ -20,13 +19,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		D41C076C1C15889F0002464F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41C074F1C15889F0002464F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D41C07561C15889F0002464F;
-			remoteInfo = Parser;
-		};
-		D41C07771C15889F0002464F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41C074F1C15889F0002464F /* Project object */;
 			proxyType = 1;
@@ -45,9 +37,6 @@
 		D41C07661C15889F0002464F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41C076B1C15889F0002464F /* ParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41C07711C15889F0002464F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D41C07761C15889F0002464F /* ParserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D41C077A1C15889F0002464F /* ParserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserUITests.swift; sourceTree = "<group>"; };
-		D41C077C1C15889F0002464F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41C07881C1589550002464F /* YJJSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJJSONParserTests.swift; sourceTree = "<group>"; };
 		D41C078A1C158C270002464F /* YJXMLParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJXMLParserTests.swift; sourceTree = "<group>"; };
 		D41C078E1C158C980002464F /* Main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Main.xml; sourceTree = "<group>"; };
@@ -68,13 +57,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D41C07731C15889F0002464F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,7 +65,6 @@
 			children = (
 				D41C07591C15889F0002464F /* Parser */,
 				D41C076E1C15889F0002464F /* ParserTests */,
-				D41C07791C15889F0002464F /* ParserUITests */,
 				D41C07581C15889F0002464F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +74,6 @@
 			children = (
 				D41C07571C15889F0002464F /* Parser.app */,
 				D41C076B1C15889F0002464F /* ParserTests.xctest */,
-				D41C07761C15889F0002464F /* ParserUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,15 +100,6 @@
 				D41C078A1C158C270002464F /* YJXMLParserTests.swift */,
 			);
 			path = ParserTests;
-			sourceTree = "<group>";
-		};
-		D41C07791C15889F0002464F /* ParserUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D41C077A1C15889F0002464F /* ParserUITests.swift */,
-				D41C077C1C15889F0002464F /* Info.plist */,
-			);
-			path = ParserUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,24 +140,6 @@
 			productReference = D41C076B1C15889F0002464F /* ParserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D41C07751C15889F0002464F /* ParserUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D41C07851C15889F0002464F /* Build configuration list for PBXNativeTarget "ParserUITests" */;
-			buildPhases = (
-				D41C07721C15889F0002464F /* Sources */,
-				D41C07731C15889F0002464F /* Frameworks */,
-				D41C07741C15889F0002464F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D41C07781C15889F0002464F /* PBXTargetDependency */,
-			);
-			name = ParserUITests;
-			productName = ParserUITests;
-			productReference = D41C07761C15889F0002464F /* ParserUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,18 +148,16 @@
 			attributes = {
 				CLASSPREFIX = YJ;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "阳君";
 				TargetAttributes = {
 					D41C07561C15889F0002464F = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0830;
 					};
 					D41C076A1C15889F0002464F = {
 						CreatedOnToolsVersion = 7.1.1;
-						TestTargetID = D41C07561C15889F0002464F;
-					};
-					D41C07751C15889F0002464F = {
-						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = D41C07561C15889F0002464F;
 					};
 				};
@@ -226,7 +177,6 @@
 			targets = (
 				D41C07561C15889F0002464F /* Parser */,
 				D41C076A1C15889F0002464F /* ParserTests */,
-				D41C07751C15889F0002464F /* ParserUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,13 +194,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D41C07691C15889F0002464F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D41C07741C15889F0002464F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,14 +221,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D41C07721C15889F0002464F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D41C077B1C15889F0002464F /* ParserUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -293,11 +228,6 @@
 			isa = PBXTargetDependency;
 			target = D41C07561C15889F0002464F /* Parser */;
 			targetProxy = D41C076C1C15889F0002464F /* PBXContainerItemProxy */;
-		};
-		D41C07781C15889F0002464F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D41C07561C15889F0002464F /* Parser */;
-			targetProxy = D41C07771C15889F0002464F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -334,8 +264,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -378,8 +310,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -398,6 +332,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -410,6 +345,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Parser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -421,6 +357,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Parser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -432,6 +369,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parser.app/Parser";
 			};
 			name = Debug;
@@ -444,31 +382,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parser.app/Parser";
-			};
-			name = Release;
-		};
-		D41C07861C15889F0002464F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ParserUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ParserUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Parser;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		D41C07871C15889F0002464F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ParserUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ParserUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Parser;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -498,15 +413,6 @@
 			buildConfigurations = (
 				D41C07831C15889F0002464F /* Debug */,
 				D41C07841C15889F0002464F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D41C07851C15889F0002464F /* Build configuration list for PBXNativeTarget "ParserUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D41C07861C15889F0002464F /* Debug */,
-				D41C07871C15889F0002464F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
