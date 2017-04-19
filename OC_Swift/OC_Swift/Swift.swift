@@ -10,8 +10,8 @@ import Foundation
 
 class Swift: NSObject {
     
-    func test(str:String) {
-        println("Swift:\(str)")
+    func test(_ str:String) {
+        print("Swift:\(str)")
         // 混编Object-C
         let oc = Objective()
         oc.test(str)
