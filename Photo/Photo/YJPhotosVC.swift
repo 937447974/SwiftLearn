@@ -15,11 +15,11 @@ import Photos
 /// 显示tag
 private enum YJTag: Int {
     /// 时刻
-    case All
+    case all
     /// 精选
-    case Cluster
+    case cluster
     /// 年度
-    case Year
+    case year
 }
 
 /// 照片
@@ -28,44 +28,44 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     /// UICollectionView
     @IBOutlet weak var collectionView: UICollectionView!
     /// 数据源
-    private var data = [[PHAsset]]()
+    fileprivate var data = [[PHAsset]]()
     /// section标题
-    private var sectionHeaders = [String]()
+    fileprivate var sectionHeaders = [String]()
     /// 当前显示Tag
-    private var dataTag = YJTag.All
+    fileprivate var dataTag = YJTag.all
     /// 缓存工具
-    private let cIManager = PHCachingImageManager()
+    fileprivate let cIManager = PHCachingImageManager()
     /// 从图片库中获取图片的大小
-    private let targetSize = CGSize(width: 200, height: 200)
+    fileprivate let targetSize = CGSize(width: 200, height: 200)
     
     // MARK: - viewDid
     override func viewDidLoad() {
         super.viewDidLoad()
         // 右按钮
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "onSearch:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(YJPhotosVC.onSearch(_:)))
         // 注册cell
         let nib = UINib(nibName: YJPhotoCollectionViewCellNibName, bundle: nil)
-        self.collectionView.registerNib(nib, forCellWithReuseIdentifier: "photoCell")
+        self.collectionView.register(nib, forCellWithReuseIdentifier: "photoCell")
         // 照片库监听
-        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
+        PHPhotoLibrary.shared().register(self)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
+        self.tabBarController?.tabBar.isHidden = false
         // 监听设备方向
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedRotation",
-            name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YJPhotosVC.receivedRotation),
+            name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        self.tabBarController?.tabBar.hidden = true
+        NotificationCenter.default.removeObserver(self)
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     deinit {
-        PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
     // MARK: - NSNotificationCenter
@@ -75,13 +75,13 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
         if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             var count: CGFloat = 0
             switch self.dataTag {
-            case .All: // 时刻
+            case .all: // 时刻
                 count = 5
                 flowLayout.minimumLineSpacing = 10
-            case .Cluster: // 精选
+            case .cluster: // 精选
                 count = 8
                 flowLayout.minimumLineSpacing = 5
-            case .Year: // 年度
+            case .year: // 年度
                 count = 10
                 flowLayout.minimumLineSpacing = 0
             }
@@ -95,21 +95,21 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
     }
     
     // MARK: - 刷新数据
-    private func reloadData() {
+    fileprivate func reloadData() {
         // 获取照片
-        var fetchResult: PHFetchResult!
+        var fetchResult: PHFetchResult<PHCollection>!
         switch self.dataTag {
-        case .All: // 时刻
-            fetchResult = PHAssetCollection.fetchMomentsWithOptions(nil)
-        case .Cluster: // 精选
-            fetchResult = PHCollectionList.fetchMomentListsWithSubtype(PHCollectionListSubtype.MomentListCluster, options: nil)
-        case .Year: // 年度
-            fetchResult = PHCollectionList.fetchMomentListsWithSubtype(PHCollectionListSubtype.MomentListYear, options: nil)
+        case .all: // 时刻
+            fetchResult = PHAssetCollection.fetchMoments(with: nil) as! PHFetchResult<PHCollection>
+        case .cluster: // 精选
+            fetchResult = PHCollectionList.fetchMomentLists(with: PHCollectionListSubtype.momentListCluster, options: nil) as! PHFetchResult<PHCollection>
+        case .year: // 年度
+            fetchResult = PHCollectionList.fetchMomentLists(with: PHCollectionListSubtype.momentListYear, options: nil) as! PHFetchResult<PHCollection>
         }
         // 数据源处理
         self.data.removeAll()
         self.sectionHeaders.removeAll()
-        fetchResult.enumerateObjectsUsingBlock { (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
+        fetchResult.enumerateObjects({ (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
             var assets = [PHAsset]()
             if let assetCollection = obj as? PHAssetCollection {
                 assets = assetCollection.fetchAssetsWithOptions(nil)
@@ -120,66 +120,66 @@ class YJPhotosVC: UIViewController, UICollectionViewDataSource, PHPhotoLibraryCh
                 self.data.append(assets)
                 self.sectionHeaders.append(obj.localizedTitle)
                 // 缓存照片
-                self.cIManager.startCachingImagesForAssets(assets, targetSize: self.targetSize, contentMode: PHImageContentMode.AspectFill, options: nil)
+                self.cIManager.startCachingImages(for: assets, targetSize: self.targetSize, contentMode: PHImageContentMode.aspectFill, options: nil)
             }
-        }
+        })
         self.receivedRotation()
     }
     
     // MARK: - Action
-    func onSearch(sender: AnyObject) {
-        let alertController = UIAlertController(title: "照片", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        alertController.addAction(UIAlertAction(title: "时刻", style: .Default, handler: { (action: UIAlertAction) -> Void in
-            self.dataTag = YJTag.All
+    func onSearch(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "照片", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        alertController.addAction(UIAlertAction(title: "时刻", style: .default, handler: { (action: UIAlertAction) -> Void in
+            self.dataTag = YJTag.all
             self.reloadData()
         }))
-        alertController.addAction(UIAlertAction(title: "精选", style: .Default, handler: { (action: UIAlertAction) -> Void in
-            self.dataTag = YJTag.Cluster
+        alertController.addAction(UIAlertAction(title: "精选", style: .default, handler: { (action: UIAlertAction) -> Void in
+            self.dataTag = YJTag.cluster
             self.reloadData()
         }))
-        alertController.addAction(UIAlertAction(title: "年度", style: .Default, handler: { (action: UIAlertAction) -> Void in
-            self.dataTag = YJTag.Year
+        alertController.addAction(UIAlertAction(title: "年度", style: .default, handler: { (action: UIAlertAction) -> Void in
+            self.dataTag = YJTag.year
             self.reloadData()
         }))
-        alertController.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         if YJUtilUserInterfaceIdiom.isPad {
-            alertController.modalPresentationStyle = UIModalPresentationStyle.Popover;
+            alertController.modalPresentationStyle = UIModalPresentationStyle.popover;
             alertController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem;
-            alertController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.Up;
+            alertController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up;
 //            let popPresenter = alertController.popoverPresentationController
 //            popPresenter?.sourceView = self.view
 //            popPresenter?.sourceRect = CGRect(x: 150, y: 150, width: 200, height: 500)
         }
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - PHPhotoLibraryChangeObserver
-    func photoLibraryDidChange(changeInstance: PHChange) {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
         self.reloadData()
     }
     
     // MARK: - UICollectionViewDataSource
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.data.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.data[section].count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("photoCell", forIndexPath: indexPath) as! YJPhotoCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! YJPhotoCollectionViewCell
         let asset = self.data[indexPath.section][indexPath.item]
-        self.cIManager.requestImageForAsset(asset, targetSize: self.targetSize, contentMode: PHImageContentMode.AspectFill, options: nil, resultHandler: { (image: UIImage?, info: [NSObject : AnyObject]?) -> Void in
+        self.cIManager.requestImage(for: asset, targetSize: self.targetSize, contentMode: PHImageContentMode.aspectFill, options: nil, resultHandler: { (image: UIImage?, info: [AnyHashable: Any]?) -> Void in
             cell.imageView.image = image
         })
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         var crView: UICollectionReusableView!
         if (kind == UICollectionElementKindSectionHeader) { // Header
-            crView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+            crView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
             // 标题
             if let label: UILabel = crView.viewWithTag(8) as? UILabel {
                 label.text = "\(self.sectionHeaders[indexPath.section])(\(self.data[indexPath.section].count))"

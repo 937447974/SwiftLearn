@@ -22,16 +22,16 @@ public extension PHAsset {
     /// - parameter assetCollection : 执行回调
     ///
     /// - returns: void
-    func deleteWithPHAssetCollection(assetCollection: PHAssetCollection?, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
-        let changeBlock: dispatch_block_t = {
+    func deleteWithPHAssetCollection(_ assetCollection: PHAssetCollection?, completionHandler: @escaping PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
+        let changeBlock: ()->() = {
             if assetCollection == nil { // 直接删除
-                PHAssetChangeRequest.deleteAssets([self])
-            } else if let changeRequest = PHAssetCollectionChangeRequest(forAssetCollection: assetCollection!) {
+                PHAssetChangeRequest.deleteAssets(Array(arrayLiteral: self) as NSFastEnumeration)
+            } else if let changeRequest = PHAssetCollectionChangeRequest(for: assetCollection!) {
                 // 从PHAssetCollection中删除
-                changeRequest.removeAssets([self])
+                changeRequest.removeAssets(Array(arrayLiteral: self) as NSFastEnumeration)
             }
         }
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+        PHPhotoLibrary.shared().performChanges(changeBlock, completionHandler: completionHandler)
     }
     
     // MARK: - 收藏图片
@@ -41,12 +41,12 @@ public extension PHAsset {
     /// - parameter completionHandler : 执行完毕回调
     ///
     /// - returns: void
-    func setFavorite(favorite: Bool, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
-        let changeBlock: dispatch_block_t = {
-            let request = PHAssetChangeRequest(forAsset: self)
-            request.favorite = favorite
+    func setFavorite(_ favorite: Bool, completionHandler: @escaping PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
+        let changeBlock: ()->() = {
+            let request = PHAssetChangeRequest(for: self)
+            request.isFavorite = favorite
         }
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+        PHPhotoLibrary.shared().performChanges(changeBlock, completionHandler: completionHandler)
     }
     
 }

@@ -21,14 +21,12 @@ public extension PHAssetCollection {
     /// - parameter options : PHFetchOptions?
     ///
     /// - returns: [PHAsset]
-    func fetchAssetsWithOptions(options: PHFetchOptions?) -> [PHAsset] {
+    func fetchAssetsWithOptions(_ options: PHFetchOptions?) -> [PHAsset] {
         var assets = [PHAsset]()
-        let fetchResult = PHAsset.fetchAssetsInAssetCollection(self, options: options)
-        fetchResult.enumerateObjectsUsingBlock { (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
-            if let asset = obj as? PHAsset {
-                assets.append(asset)
-            }
-        }
+        let fetchResult = PHAsset.fetchAssets(in: self, options: options)
+        fetchResult.enumerateObjects({ (asset, index, umPointer) in
+            assets.append(asset)
+        })
         return assets
     }
     
@@ -38,22 +36,22 @@ public extension PHAssetCollection {
     /// - parameter image: 图片
     ///
     /// - returns: void
-    func creationAssetFromImage(image: UIImage, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
-        let changeBlock: dispatch_block_t = {
-            let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
+    func creationAssetFromImage(_ image: UIImage, completionHandler: @escaping PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
+        let changeBlock: ()->() = {
+            let assetChangeRequest = PHAssetChangeRequest.creationRequestForAsset(from: image)
             guard let placeholderForCreatedAsset = assetChangeRequest.placeholderForCreatedAsset else {
                 // 照片生成出错
-                print("PHAssetCollection \(__FUNCTION__)")
+                print("PHAssetCollection \(#function)")
                 return
             }
-            guard let aCChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self) else {
-                print("PHAssetCollection \(__FUNCTION__)")
+            guard let aCChangeRequest = PHAssetCollectionChangeRequest(for: self) else {
+                print("PHAssetCollection \(#function)")
                 return
             }
             // 保存照片
-            aCChangeRequest.addAssets([placeholderForCreatedAsset])
+            aCChangeRequest.addAssets([placeholderForCreatedAsset] as NSFastEnumeration)
         }
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+        PHPhotoLibrary.shared().performChanges(changeBlock, completionHandler: completionHandler)
     }
     
     // MARK: - 创建相薄
@@ -62,11 +60,11 @@ public extension PHAssetCollection {
     /// - parameter title: 相薄名
     ///
     /// - returns: void
-    class func creationWithTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
-        let changeBlock: dispatch_block_t = {
-            PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(title)
+    class func creationWithTitle(_ title: String, completionHandler: @escaping PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
+        let changeBlock: ()->() = {
+            PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: title)
         }
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+        PHPhotoLibrary.shared().performChanges(changeBlock, completionHandler: completionHandler)
     }
     
     // MARK: 修改专辑名
@@ -75,23 +73,23 @@ public extension PHAssetCollection {
     /// - parameter title: 相薄名
     ///
     /// - returns: void
-    func renameLocalizedTitle(title: String, completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
-        let changeBlock: dispatch_block_t = {
-            let aCChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self)
+    func renameLocalizedTitle(_ title: String, completionHandler: @escaping PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
+        let changeBlock: ()->() = {
+            let aCChangeRequest = PHAssetCollectionChangeRequest(for: self)
             aCChangeRequest?.title = title
         }
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+        PHPhotoLibrary.shared().performChanges(changeBlock, completionHandler: completionHandler)
     }
     
     // MARK: 删除PHAssetCollection
     /// 删除专辑
     ///
     /// - returns: void
-    func deletes(completionHandler: PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
-        let changeBlock: dispatch_block_t = {
-            PHAssetCollectionChangeRequest.deleteAssetCollections([self])
+    func deletes(_ completionHandler: @escaping PHPhotoLibraryCompletionHandlerBlock = PHPhotoLibraryCompletionHandler) {
+        let changeBlock: ()->() = {
+            PHAssetCollectionChangeRequest.deleteAssetCollections([self] as NSFastEnumeration)
         }
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges(changeBlock, completionHandler: completionHandler)
+        PHPhotoLibrary.shared().performChanges(changeBlock, completionHandler: completionHandler)
     }
     
 }

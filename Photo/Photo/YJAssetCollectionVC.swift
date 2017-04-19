@@ -22,7 +22,7 @@ class YJAssetCollectionVC: UICollectionViewController, PHPhotoLibraryChangeObser
         }
     }
     /// 数据源
-    private var data = [PHAsset]()
+    fileprivate var data = [PHAsset]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,65 +32,65 @@ class YJAssetCollectionVC: UICollectionViewController, PHPhotoLibraryChangeObser
         }
         // 注册cell
         let nib = UINib(nibName: YJPhotoCollectionViewCellNibName, bundle: nil)
-        self.collectionView!.registerNib(nib, forCellWithReuseIdentifier: reuseIdentifier)
-        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self) // 监听照片库
+        self.collectionView!.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
+        PHPhotoLibrary.shared().register(self) // 监听照片库
     }
     
     deinit {
-        PHPhotoLibrary.sharedPhotoLibrary().unregisterChangeObserver(self)
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
     // MARK: - 允许增加照片
     func allowAddPhoto() {
-       self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "onClickAddPhoto")
+       self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(YJAssetCollectionVC.onClickAddPhoto))
     }
     
     // MARK: 增加照片
     func onClickAddPhoto() {
         let rect = CGRect(x: 0, y: 0, width: 400, height: 400)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.mainScreen().scale)
-        UIColor.greenColor().setFill()
-        UIRectFillUsingBlendMode(rect, CGBlendMode.Normal)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        UIColor.green.setFill()
+        UIRectFillUsingBlendMode(rect, CGBlendMode.normal)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        self.assectCollection.creationAssetFromImage(image)
+        self.assectCollection.creationAssetFromImage(image!)
     }
 
     // MARK: - PHPhotoLibraryChangeObserver
-    func photoLibraryDidChange(changeInstance: PHChange) {
-        print(__FUNCTION__)
-        let changeDetails = changeInstance.changeDetailsForObject(self.assectCollection)
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        print(#function)
+        let changeDetails = changeInstance.changeDetails(for: self.assectCollection)
         if let assectCollection = changeDetails?.objectAfterChanges as? PHAssetCollection {
             // 修改数据源
-            dispatch_async(dispatch_get_main_queue()) { self.assectCollection = assectCollection}
+            DispatchQueue.main.async { self.assectCollection = assectCollection}
         }
     }
     
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? YJAssetVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? YJAssetVC {
             vc.assetCollection = self.assectCollection // 相册
-            let indexPath = sender as! NSIndexPath
+            let indexPath = sender as! IndexPath
             vc.asset = self.data[indexPath.item] // 相片
         }
     }
 
     // MARK: UICollectionViewDataSource
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.data.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! YJPhotoCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! YJPhotoCollectionViewCell
         let asset = self.data[indexPath.item]
-        PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSize(width: 100, height: 100), contentMode: PHImageContentMode.AspectFill, options: nil, resultHandler: { (image: UIImage?, info: [NSObject : AnyObject]?) -> Void in
+        PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: PHImageContentMode.aspectFill, options: nil, resultHandler: { (image: UIImage?, info: [AnyHashable: Any]?) -> Void in
             cell.imageView.image = image
         })    
         return cell
     }
 
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("Asset", sender: indexPath)
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "Asset", sender: indexPath)
     }
     
 }

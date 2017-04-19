@@ -19,14 +19,14 @@ public extension PHCollectionList {
     /// - parameter options : PHFetchOptions?
     ///
     /// - returns: [PHAsset]
-    func fetchAssetsWithOptions(options: PHFetchOptions?) -> [PHAsset] {
+    func fetchAssetsWithOptions(_ options: PHFetchOptions?) -> [PHAsset] {
         var assets = [PHAsset]()
-        let fetchResult = PHAssetCollection.fetchMomentsInMomentList(self, options: options)
-        fetchResult.enumerateObjectsUsingBlock { (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
+        let fetchResult = PHAssetCollection.fetchMoments(inMomentList: self, options: options)
+        fetchResult.enumerateObjects({ (obj: AnyObject, index: Int, umPointer: UnsafeMutablePointer<ObjCBool>) -> Void in
             if let assetCollection = obj as? PHAssetCollection {
-                assets.appendContentsOf(assetCollection.fetchAssetsWithOptions(options))
+                assets.append(contentsOf: assetCollection.fetchAssetsWithOptions(options))
             }
-        }
+        })
         return assets
     }
     
