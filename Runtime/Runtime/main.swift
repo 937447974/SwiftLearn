@@ -13,6 +13,6 @@ import Foundation
 
 let user = YJUser()
 user.name = "阳君"
-print(user.name)
+print(user.name ?? "")
 user.cleanParameter()
-print(user.name)
+print(user.name ?? "")

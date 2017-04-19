@@ -20,12 +20,12 @@ class YJUser: NSObject {
 extension YJUser {
     
     /// 用户名
-    var name: String {
+    var name: String? {
         get {
-            return objc_getAssociatedObject(self, "extensionName") as! String
+            return objc_getAssociatedObject(self, "_name") as? String
         }
         set {
-            objc_setAssociatedObject(self, "extensionName", newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self, "_name", newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
         }
     }
     
