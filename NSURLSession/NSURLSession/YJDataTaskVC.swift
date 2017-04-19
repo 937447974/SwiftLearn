@@ -23,24 +23,21 @@ class YJDataTaskVC: UIViewController {
 //        self.sendSynchronousRequestPOST()
     }
     
-    // MARK: - 异步
-    // MARK: Get请求
+    // MARK: - Get请求
     func sendRequestGet() {
         // 获取当前文件内容
         let urlStr = "https://raw.githubusercontent.com/937447974/Swift/master/NSURLSession/NSURLSession/YJDataTaskVC.swift"
-        if let url = NSURL(string: urlStr) {
-            // 包装请求地址和信息
-            let request = NSURLRequest(URL: url)
+        if let url = URL(string: urlStr) {
             // 1. session处理，这里使用全局共享session
-            let session = NSURLSession.sharedSession()
+            let session = URLSession.shared
             // 2. 获取NSURLSessionDataTask
-            let dataTask = session.dataTaskWithRequest(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
                 // 有回调数据
-                if data != nil {
-                    self.jsonObjectWithData(data!)
-                } else {
-                    print("发送请求出错:\(error?.localizedDescription)")
+                guard data != nil else {
+                    print("发送请求出错:\(error?.localizedDescription ?? "")")
+                    return
                 }
+               _ = self.jsonObjectWithData(data!)
             }
             dataTask.resume() // 3.发出http请求
         }
@@ -49,72 +46,45 @@ class YJDataTaskVC: UIViewController {
     // MARK: - Post请求
     func sendRequestPost() {
         let urlStr = "https://www.baidu.com"
-        if let url = NSURL(string: urlStr) {
+        if let url = URL(string: urlStr) {
             // 包装请求地址和信息
-            let request = NSMutableURLRequest(URL: url)
-            request.HTTPMethod = "POST" //设置请求方式为POST，默认为GET
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST" //设置请求方式为POST，默认为GET
             request.addValue("text/xml", forHTTPHeaderField: "Content-Type")// 定义类型
             // 填充数据
             let dict = ["name": "阳君", "qq": "937447974"]
             do {
-                try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
-                print("发送数据:\(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding))")
+                try request.httpBody = JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
+                print("发送数据:\(NSString(data: request.httpBody!, encoding: String.Encoding.utf8.rawValue) ?? "")")
             } catch {
                 print("json处理出错:\(error)")
             }
             // 1. session处理，这里使用全局共享session
-            let session = NSURLSession.sharedSession()
+            let session = URLSession.shared
             // 2. 获取NSURLSessionDataTask
-            let dataTask = session.dataTaskWithRequest(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
                 // 有回调数据
                 if data != nil {
-                    self.jsonObjectWithData(data!)
+                    _ = self.jsonObjectWithData(data!)
                 } else {
-                    print("发送请求出错:\(error?.localizedDescription)")
+                    print("发送请求出错:\(error!.localizedDescription)")
                 }
             }
             dataTask.resume() // 3.发出http请求
         }
     }
     
-    // MARK: - 同步Post请求
-    func sendSynchronousRequestPOST() {
-        let urlStr = "https://www.baidu.com"
-        if let url = NSURL(string: urlStr) {
-            // 包装请求地址和信息
-            let request = NSMutableURLRequest(URL: url)
-            request.HTTPMethod = "POST" //设置请求方式为POST，默认为GET
-            request.addValue("text/xml", forHTTPHeaderField: "Content-Type")// 定义类型
-            // 填充数据
-            let dict = ["name": "阳君", "qq": "937447974"]
-            do {
-                try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
-                print("发送数据:\(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding))")
-            } catch {
-                print("json处理出错:\(error)")
-            }
-            // 同步使用
-            do {
-                let data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
-                self.jsonObjectWithData(data)
-            } catch {
-                print("发送请求出错:\(error)")
-            }
-            
-        }
-    }
-    
     // MARK: - data数据转换
-    func jsonObjectWithData(data: NSData) -> [String: AnyObject]? {
+    func jsonObjectWithData(_ data: Data) -> [String: AnyObject]? {
         var dict: [String: AnyObject]? = nil
         do {
             // data -> AnyObject
-            let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
             dict = jsonObject as? [String: AnyObject]
-            print("获取服务器的数据:\(dict)")
+            print("获取服务器的数据:\(dict ?? [:])")
         } catch {
             print("服务器回调数据，转换出错:\(error)")
-            print("原始数据：\(NSString(data: data, encoding: NSUTF8StringEncoding)))")
+            print("原始数据：\(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? ""))")
         }
         return dict
     }

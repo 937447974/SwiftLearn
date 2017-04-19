@@ -16,12 +16,12 @@ import WebKit
 class YJURLCacheVC: UIViewController {
     
     /// WKWebView
-    private var webView: WKWebView!
+    fileprivate var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // 刷新按钮
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "reloadWebView")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(YJURLCacheVC.reloadWebView))
         // 初始化 WKWebView
         self.webView = WKWebView(frame: self.view.frame)
         self.view.addSubview(self.webView)
@@ -29,7 +29,7 @@ class YJURLCacheVC: UIViewController {
 
     // MARK: - 刷新
     func reloadWebView() {
-        let urlCache = NSURLCache.sharedURLCache()
+        let urlCache = URLCache.shared
         var str = "memoryCapacity:\(urlCache.memoryCapacity)"
         str += "; diskCapacity:\(urlCache.diskCapacity)"
         str += "; currentMemoryUsage:\(urlCache.currentMemoryUsage)"
@@ -38,11 +38,11 @@ class YJURLCacheVC: UIViewController {
         
         // 缓存显示照片
 //        let url = NSURL(string: "http://g.hiphotos.baidu.com/image/pic/item/472309f790529822c4ac8ad0d5ca7bcb0a46d402.jpg")!
-        let url = NSURL(string: "http://blog.csdn.net/y550918116j")!
-        let request = NSMutableURLRequest(URL: url)
+        let url = URL(string: "http://blog.csdn.net/y550918116j")!
+        var request = URLRequest(url: url)
         
         // 缓存成功后，开启本地缓存
-        if NSURLCache.sharedURLCache().cachedResponseForRequest(request) != nil {
+        if URLCache.shared.cachedResponse(for: request) != nil {
             /* 缓存策略
             NSURLRequestCachePolicy : UInt {
             case UseProtocolCachePolicy // 默认的缓存策略（取决于协议)
@@ -53,16 +53,16 @@ class YJURLCacheVC: UIViewController {
             case ReloadRevalidatingCacheData // 未实现
             }
             */
-            request.cachePolicy = NSURLRequestCachePolicy.ReturnCacheDataDontLoad // 提取缓存数据
+            request.cachePolicy = NSURLRequest.CachePolicy.returnCacheDataDontLoad // 提取缓存数据
         } else {
             urlCache.removeAllCachedResponses() // 清楚所有缓存
-            urlCache.removeCachedResponseForRequest(request) // 根据地址清楚缓存
+            urlCache.removeCachedResponse(for: request) // 根据地址清楚缓存
             urlCache.diskCapacity = 10*1024*1024 // 磁盘缓存，10M，单位字节
             urlCache.memoryCapacity = 1*1024*1024 // 内存缓存，1M，单位字节
             // 发出请求才会缓存数据
-            NSURLSession.sharedSession().dataTaskWithRequest(request).resume()
+            URLSession.shared.dataTask(with: request).resume()
         }
-        self.webView.loadRequest(request)
+        self.webView.load(request)
     }
 
 }

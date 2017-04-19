@@ -15,27 +15,27 @@ class YJHTTPCookieVC: UIViewController {
         super.viewDidLoad()
         
         // 共享cookie
-        let sharedHTTPCookie = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        let sharedHTTPCookie = HTTPCookieStorage.shared
         
         // 手动创建一个cookie
-        var dict = [String : AnyObject]()
-        dict[NSHTTPCookieName] = "阳君"
-        dict[NSHTTPCookieValue] = "937447974"
-        dict[NSHTTPCookieVersion] = 1
-        dict[NSHTTPCookieDomain] = "blog.csdn.net"
-        dict[NSHTTPCookiePath] = "/"
-        if let cookie = NSHTTPCookie(properties: dict) {
-            print("手动创建\(cookie.properties)")
+        var dict = [HTTPCookiePropertyKey : Any]()
+        dict[HTTPCookiePropertyKey.name] = "阳君"
+        dict[HTTPCookiePropertyKey.value] = "937447974"
+        dict[HTTPCookiePropertyKey.version] = 1
+        dict[HTTPCookiePropertyKey.domain] = "blog.csdn.net"
+        dict[HTTPCookiePropertyKey.path] = "/"
+        if let cookie = HTTPCookie(properties: dict) {
+            print("手动创建\(cookie.properties ?? [:])")
             sharedHTTPCookie.setCookie(cookie)
         }
         
         // 删除所有
         if let list = sharedHTTPCookie.cookies {
             // 获取cookie的header
-            print(NSHTTPCookie.requestHeaderFieldsWithCookies(list))
+            print(HTTPCookie.requestHeaderFields(with: list))
             for cookie in list {
                 // 读取cookie
-                print(cookie.properties)
+                print(cookie.properties ?? [:])
                 // 删除cookie
                 sharedHTTPCookie.deleteCookie(cookie)
             }
