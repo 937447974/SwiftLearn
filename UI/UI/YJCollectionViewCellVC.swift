@@ -17,16 +17,16 @@ class YJCollectionViewCellVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "YJCollectionViewCell", bundle: nil)
-        self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: "customCell")
+        self.collectionView?.register(nib, forCellWithReuseIdentifier: "customCell")
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("customCell", forIndexPath: indexPath) as! YJCollectionViewCell
-        cell.backgroundColor = UIColor.grayColor()
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! YJCollectionViewCell
+        cell.backgroundColor = UIColor.gray
         cell.textLabel.text = "\(indexPath.item)"
         return cell
     }

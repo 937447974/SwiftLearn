@@ -13,16 +13,16 @@ import UIKit
 
 /// 打印测试
 private enum YJPrintStyle: Int {
-    case ConfiguringRowsForTheTableView
-    case ManagingAccessoryViews
-    case ManagingSelections
-    case ModifyingTheHeaderAndFooterOfSections
-    case EditingTableRows
-    case ReorderingTableRows
-    case TrackingTheRemovalOfViews
-    case CopyingAndPastingRowContent
-    case ManagingTableViewHighlighting
-    case ManagingTableViewFocus
+    case configuringRowsForTheTableView
+    case managingAccessoryViews
+    case managingSelections
+    case modifyingTheHeaderAndFooterOfSections
+    case editingTableRows
+    case reorderingTableRows
+    case trackingTheRemovalOfViews
+    case copyingAndPastingRowContent
+    case managingTableViewHighlighting
+    case managingTableViewFocus
     
 }
 
@@ -34,12 +34,12 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     /// UITableView
     @IBOutlet weak var tableView: UITableView!
     /// 打印测试
-    private var printStyle: YJPrintStyle!
+    fileprivate var printStyle: YJPrintStyle!
     
     // MARK: - view
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.printStyle = .ManagingTableViewFocus
+        self.printStyle = .managingTableViewFocus
         // 以组演示,填充相关测试数据
         var section = [Int]()
         for _ in 0..<5 {
@@ -54,31 +54,31 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - UITableViewDataSource
     // MARK: 有几组
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int  {
+    func numberOfSections(in tableView: UITableView) -> Int  {
         return self.data.count
     }
     
     // MARK: 每一组有几个元素
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data[section].count
     }
     
     // MARK: 生成Cell
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell?.accessoryType = UITableViewCellAccessoryType.DetailButton
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+            cell?.accessoryType = UITableViewCellAccessoryType.detailButton
         }
         cell?.textLabel?.text = "\(self.data[indexPath.section][indexPath.row])--\(indexPath.section)"
-        if self.printStyle == .ManagingTableViewFocus {
-            cell?.focusStyle = UITableViewCellFocusStyle.Custom // 自定义焦点
+        if self.printStyle == .managingTableViewFocus {
+            cell?.focusStyle = UITableViewCellFocusStyle.custom // 自定义焦点
         }
         return cell!
     }
     
     // MARK: 索引
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         var sectionTitles = [String]()
         for i in 0..<self.data.count {
             sectionTitles.append("\(i)")
@@ -87,32 +87,32 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: 索引对应的组
-    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return Int(title) ?? 0
     }
     
     // MARK: - UITableViewDelegate
     // MARK: - 1. Configuring Rows for the Table View
     // MARK: 预获取行高
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         // 实现此方法后,显示界面前func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloath不会执行，有助于提升显示效率
-        if self.printStyle == .ConfiguringRowsForTheTableView {
+        if self.printStyle == .configuringRowsForTheTableView {
             print("\(#function)--\(indexPath)")
         }
         return tableView.estimatedRowHeight
     }
     
     // MARK: 行缩进
-    func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
-        if self.printStyle == .ConfiguringRowsForTheTableView {
+    func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
+        if self.printStyle == .configuringRowsForTheTableView {
             print("\(#function)--\(indexPath)")
         }
         return self.data[indexPath.section][indexPath.row]
     }
     
     // MARK: 行高
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if self.printStyle == .ConfiguringRowsForTheTableView {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.printStyle == .configuringRowsForTheTableView {
             print("\(#function)--\(indexPath)")
         }
         // 默认44
@@ -120,40 +120,40 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: 将要显示行
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .ConfiguringRowsForTheTableView {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if self.printStyle == .configuringRowsForTheTableView {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: - 2. Managing Accessory Views
     // MARK: 左滑出现的按钮
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        if self.printStyle == .ManagingAccessoryViews {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if self.printStyle == .managingAccessoryViews {
             print("\(#function)--\(indexPath)")
         }
         var action = [UITableViewRowAction]()
-        let handler: (UITableViewRowAction, NSIndexPath) -> Void = {(action: UITableViewRowAction, indexPath: NSIndexPath) in
-            print("\(indexPath)--\(action.title)")
+        let handler: (UITableViewRowAction, IndexPath) -> Void = {(action: UITableViewRowAction, indexPath: IndexPath) in
+            print("\(indexPath)--\(String(describing: action.title))")
         }
-        action.append(UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Default", handler:handler))
-        action.append(UITableViewRowAction(style: UITableViewRowActionStyle.Destructive, title: "Destructive", handler:handler))
-        action.append(UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Normal", handler:handler))
+        action.append(UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Default", handler:handler))
+        action.append(UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Destructive", handler:handler))
+        action.append(UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Normal", handler:handler))
         return action
     }
     
     // MARK: 点击cell上的系统按钮
-    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         // cell?.accessoryType = UITableViewCellAccessoryType.DetailButton
-        if self.printStyle == .ManagingAccessoryViews {
+        if self.printStyle == .managingAccessoryViews {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: - 3. Managing Selections
     // MARK: 将要点击某行
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        if self.printStyle == .ManagingSelections {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if self.printStyle == .managingSelections {
             print("\(#function)--\(indexPath)")
         }
         // 返回nil代表不能点击
@@ -161,15 +161,15 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: 点击某行
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .ManagingSelections {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.printStyle == .managingSelections {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: 将要删除某行
-    func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        if self.printStyle == .ManagingSelections {
+    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+        if self.printStyle == .managingSelections {
             print("\(#function)--\(indexPath)")
         }
         // 返回nil代表不能删除
@@ -177,113 +177,113 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     }
     
     // MARK: 删除某行
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .ManagingSelections {
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if self.printStyle == .managingSelections {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: - 4. Modifying the Header and Footer of Sections
     // MARK: 预获取header高
-    func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
         return tableView.estimatedSectionHeaderHeight
     }
     
     // MARK: 预获取footer高
-    func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
         return tableView.estimatedSectionFooterHeight
     }
     
     // MARK: header高
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
         return tableView.sectionHeaderHeight
     }
     
     // MARK: footer高
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
         return tableView.sectionFooterHeight
     }
     
     // MARK: 自定义header
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
-        let view = UIView(frame: CGRectMake(0, 0, YJUtilScreenSize.screenWidth, tableView.sectionHeaderHeight))
-        view.backgroundColor = UIColor.redColor()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: YJUtilScreenSize.screenWidth, height: tableView.sectionHeaderHeight))
+        view.backgroundColor = UIColor.red
         return view
     }
     
     // MARK: 自定义footer
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
-        let view = UIView(frame: CGRectMake(0, 0, YJUtilScreenSize.screenWidth, tableView.sectionFooterHeight))
-        view.backgroundColor = UIColor.yellowColor()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: YJUtilScreenSize.screenWidth, height: tableView.sectionFooterHeight))
+        view.backgroundColor = UIColor.yellow
         return view
     }
     
     // MARK: 将要显示header
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
     }
     
     // MARK: 将要显示footer
-    func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        if self.printStyle == .ModifyingTheHeaderAndFooterOfSections {
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        if self.printStyle == .modifyingTheHeaderAndFooterOfSections {
             print("\(#function)--\(section)")
         }
     }
     
     // MARK: - 5. Editing Table Rows
     // MARK: 将要进入编辑模式
-    func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .EditingTableRows {
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        if self.printStyle == .editingTableRows {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: 退出编辑模式
-    func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .EditingTableRows {
-            print("\(#function)--\(indexPath)")
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        if self.printStyle == .editingTableRows {
+            print("\(#function)--\(String(describing: indexPath))")
         }
     }
     
     // MARK: 编辑模式执行的操作
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        if self.printStyle == .EditingTableRows {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if self.printStyle == .editingTableRows {
             print("\(#function)--\(indexPath)")
         }
-        return UITableViewCellEditingStyle.Delete
+        return UITableViewCellEditingStyle.delete
     }
     
     // MARK: 更改默认的删除按钮标题
-    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
-        if self.printStyle == .EditingTableRows {
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        if self.printStyle == .editingTableRows {
             print("\(#function)--\(indexPath)")
         }
         return "自定义"
     }
     
     // MARK: 编辑模式下表视图背景是否缩进
-    func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if self.printStyle == .EditingTableRows {
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        if self.printStyle == .editingTableRows {
             print("\(#function)--\(indexPath)")
         }
         return true
@@ -291,8 +291,8 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - 6. Reordering Table Rows
     // MARK: 移动cell
-    func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
-        if self.printStyle == .ReorderingTableRows {
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if self.printStyle == .reorderingTableRows {
             print("\(#function)--\(sourceIndexPath)--\(proposedDestinationIndexPath)")
         }
         return proposedDestinationIndexPath
@@ -300,100 +300,100 @@ class YJTableViewDelegateVC: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: - 7. Tracking the Removal of Views
     // MARK: header消失
-    func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
-        if self.printStyle == .TrackingTheRemovalOfViews {
+    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+        if self.printStyle == .trackingTheRemovalOfViews {
             print("\(#function)--\(section)")
         }
     }
     
     // MARK: cell消失
-    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .TrackingTheRemovalOfViews {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if self.printStyle == .trackingTheRemovalOfViews {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: footer消失
-    func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int) {
-        if self.printStyle == .TrackingTheRemovalOfViews {
+    func tableView(_ tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int) {
+        if self.printStyle == .trackingTheRemovalOfViews {
             print("\(#function)--\(section)")
         }
     }
     
     // MARK: - 8. Copying and Pasting Row Content
     // 将要显示复制和粘贴板
-    func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if self.printStyle == .CopyingAndPastingRowContent {
+    func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        if self.printStyle == .copyingAndPastingRowContent {
             print("\(#function)--\(indexPath)")
         }
         return true
     }
     
     // 显示复制和粘贴板
-    func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        if self.printStyle == .CopyingAndPastingRowContent {
+    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        if self.printStyle == .copyingAndPastingRowContent {
             print("\(#function)--\(indexPath)")
         }
         return true
     }
     
     // MARK: 点击复制和粘贴板上的按钮
-    func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-        if self.printStyle == .CopyingAndPastingRowContent {
-            print("\(#function)--\(indexPath)--\(action)--\(sender)")
+    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        if self.printStyle == .copyingAndPastingRowContent {
+            print("\(#function)--\(indexPath)--\(action)--\(String(describing: sender))")
         }
     }
     
     // MARK: - 9. Managing Table View Highlighting
     // MARK: 点击cell能否进入高亮模式
-    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if self.printStyle == .ManagingTableViewHighlighting {
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        if self.printStyle == .managingTableViewHighlighting {
             print("\(#function)--\(indexPath)")
         }
         return true
     }
     
     // MARK: 正式进入高亮模式
-    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .ManagingTableViewHighlighting {
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if self.printStyle == .managingTableViewHighlighting {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: 离开高亮模式
-    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        if self.printStyle == .ManagingTableViewHighlighting {
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if self.printStyle == .managingTableViewHighlighting {
             print("\(#function)--\(indexPath)")
         }
     }
     
     // MARK: - 10. Managing Table View Focus
     // MARK: 是否指定路径
-    func tableView(tableView: UITableView, canFocusRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if self.printStyle == .ManagingTableViewFocus {
+    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        if self.printStyle == .managingTableViewFocus {
             print("\(#function)--\(indexPath)")
         }
         return true
     }
     
     // MARK: 是否允许上下文更新
-    func tableView(tableView: UITableView, shouldUpdateFocusInContext context: UITableViewFocusUpdateContext) -> Bool {
-        if self.printStyle == .ManagingTableViewFocus {
+    func tableView(_ tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool {
+        if self.printStyle == .managingTableViewFocus {
             print("\(#function)--\(context)")
         }
         return true
     }
     
     // MARK: 上下文更新结束
-    func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        if self.printStyle == .ManagingTableViewFocus {
+    func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if self.printStyle == .managingTableViewFocus {
             print("\(#function)--\(context)")
         }
     }
     
     // MARK: 索引对应的路径
-    func indexPathForPreferredFocusedViewInTableView(tableView: UITableView) -> NSIndexPath? {
-        if self.printStyle == .ManagingTableViewFocus {
+    func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath? {
+        if self.printStyle == .managingTableViewFocus {
             print("\(#function)")
         }
         return nil

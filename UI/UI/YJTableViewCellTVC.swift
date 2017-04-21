@@ -14,22 +14,22 @@ import UIKit
 /// 样式
 private enum YJCellStyle : Int {
     
-    case Style
-    case SelectionStyle
-    case AccessoryType
-    case SeparatorStyle
-    case ManagingContentIndentation
-    case SwitchTableViewCell
+    case style
+    case selectionStyle
+    case accessoryType
+    case separatorStyle
+    case managingContentIndentation
+    case switchTableViewCell
     
     /// 获取标题
     func title() -> String {
         var title = ""
         switch self {
-        case .Style, .SelectionStyle, .AccessoryType, .SeparatorStyle:
+        case .style, .selectionStyle, .accessoryType, .separatorStyle:
             title = "UITableViewCell\(self)"
-        case .ManagingContentIndentation:
+        case .managingContentIndentation:
             title = "缩进"
-        case .SwitchTableViewCell:
+        case .switchTableViewCell:
             title = "有开关的cell"
         }
         return title
@@ -37,16 +37,16 @@ private enum YJCellStyle : Int {
     
     init(title: String) {
         switch title {
-        case YJCellStyle.SelectionStyle.title():
-            self = YJCellStyle.SelectionStyle
-        case YJCellStyle.AccessoryType.title():
-            self = YJCellStyle.AccessoryType
-        case YJCellStyle.ManagingContentIndentation.title():
-            self = YJCellStyle.ManagingContentIndentation
-        case YJCellStyle.SwitchTableViewCell.title():
-            self = YJCellStyle.SwitchTableViewCell
+        case YJCellStyle.selectionStyle.title():
+            self = YJCellStyle.selectionStyle
+        case YJCellStyle.accessoryType.title():
+            self = YJCellStyle.accessoryType
+        case YJCellStyle.managingContentIndentation.title():
+            self = YJCellStyle.managingContentIndentation
+        case YJCellStyle.switchTableViewCell.title():
+            self = YJCellStyle.switchTableViewCell
         default:
-            self = YJCellStyle.Style
+            self = YJCellStyle.style
         }
     }
     
@@ -56,37 +56,37 @@ private enum YJCellStyle : Int {
 class YJTableViewCellTVC: UITableViewController {
     
     // 显示样式
-    private var cellStyle = YJCellStyle.Style
+    fileprivate var cellStyle = YJCellStyle.style
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "YJSwitchTableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "YJSwitchTableViewCell")
+        self.tableView.register(nib, forCellReuseIdentifier: "YJSwitchTableViewCell")
     }
     
     // MARK: - 开起和关闭tableView编辑状态
-    @IBAction func onClickEdit(sender: AnyObject) {
-        self.tableView.setEditing(!self.tableView.editing, animated: true)
+    @IBAction func onClickEdit(_ sender: AnyObject) {
+        self.tableView.setEditing(!self.tableView.isEditing, animated: true)
     }
     
     // MARK: 样式展示
-    @IBAction func onClickSearch(sender: AnyObject) {
+    @IBAction func onClickSearch(_ sender: AnyObject) {
         let handler: ((UIAlertAction) -> Void) = { (action: UIAlertAction) -> Void in
             self.cellStyle = YJCellStyle(title: action.title!)
             self.tableView.reloadData()
         }
-        let alertController = UIAlertController(title: "样式展示", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        alertController.addAction(UIAlertAction(title: YJCellStyle.Style.title(), style: .Default, handler: handler))
-        alertController.addAction(UIAlertAction(title: YJCellStyle.SelectionStyle.title(), style: .Default, handler: handler))
-        alertController.addAction(UIAlertAction(title: YJCellStyle.AccessoryType.title(), style: .Default, handler: handler))
-        alertController.addAction(UIAlertAction(title: YJCellStyle.SeparatorStyle.title(), style: .Default, handler: { (action: UIAlertAction) -> Void in
+        let alertController = UIAlertController(title: "样式展示", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        alertController.addAction(UIAlertAction(title: YJCellStyle.style.title(), style: .default, handler: handler))
+        alertController.addAction(UIAlertAction(title: YJCellStyle.selectionStyle.title(), style: .default, handler: handler))
+        alertController.addAction(UIAlertAction(title: YJCellStyle.accessoryType.title(), style: .default, handler: handler))
+        alertController.addAction(UIAlertAction(title: YJCellStyle.separatorStyle.title(), style: .default, handler: { (action: UIAlertAction) -> Void in
             self.tableViewCellWithSeparatorStyle()
         }))
-        alertController.addAction(UIAlertAction(title: YJCellStyle.ManagingContentIndentation.title(), style: .Default, handler: handler))
-        alertController.addAction(UIAlertAction(title: YJCellStyle.SwitchTableViewCell.title(), style: .Default, handler: handler))
-        alertController.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        alertController.addAction(UIAlertAction(title: YJCellStyle.managingContentIndentation.title(), style: .default, handler: handler))
+        alertController.addAction(UIAlertAction(title: YJCellStyle.switchTableViewCell.title(), style: .default, handler: handler))
+        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: 4. UITableViewCellSeparatorStyle
@@ -99,31 +99,31 @@ class YJTableViewCellTVC: UITableViewController {
         }
         */
         
-        let alertController = UIAlertController(title: "UITableViewCellSeparatorStyle", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        alertController.addAction(UIAlertAction(title: "None", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) -> Void in
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        let alertController = UIAlertController(title: "UITableViewCellSeparatorStyle", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        alertController.addAction(UIAlertAction(title: "None", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) -> Void in
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }))
-        alertController.addAction(UIAlertAction(title: "SingleLine", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) -> Void in
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-            self.tableView.separatorColor = UIColor.redColor() // 可修改线条颜色
+        alertController.addAction(UIAlertAction(title: "SingleLine", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) -> Void in
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+            self.tableView.separatorColor = UIColor.red // 可修改线条颜色
         }))
-        alertController.addAction(UIAlertAction(title: "SingleLineEtched", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) -> Void in
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLineEtched
+        alertController.addAction(UIAlertAction(title: "SingleLineEtched", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) -> Void in
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLineEtched
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var row = 0
         switch self.cellStyle {
-        case YJCellStyle.Style, YJCellStyle.SelectionStyle, YJCellStyle.SwitchTableViewCell:
+        case YJCellStyle.style, YJCellStyle.selectionStyle, YJCellStyle.switchTableViewCell:
             row = 4
-        case YJCellStyle.AccessoryType, YJCellStyle.ManagingContentIndentation:
+        case YJCellStyle.accessoryType, YJCellStyle.managingContentIndentation:
             row = 5
         default:
             row = 0
@@ -131,37 +131,36 @@ class YJTableViewCellTVC: UITableViewController {
         return row
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch self.cellStyle {
-        case YJCellStyle.SelectionStyle:
+        case YJCellStyle.selectionStyle:
             return self.tableViewCellWithSelectionStyle(tableView, cellForRowAtIndexPath: indexPath)
-        case YJCellStyle.AccessoryType:
+        case YJCellStyle.accessoryType:
             return self.tableViewCellWithAccessoryType(tableView, cellForRowAtIndexPath: indexPath)
-        case YJCellStyle.ManagingContentIndentation:
+        case YJCellStyle.managingContentIndentation:
             return self.tableViewCellWithManagingContentIndentation(tableView, cellForRowAtIndexPath: indexPath)
-        case YJCellStyle.SwitchTableViewCell:
+        case YJCellStyle.switchTableViewCell:
             return self.tableViewCellWithSwitch(tableView, cellForRowAtIndexPath: indexPath)
         default:
-            self.tableViewCellWithStyle(tableView, cellForRowAtIndexPath: indexPath)
+            return self.tableViewCellWithStyle(tableView, cellForRowAtIndexPath: indexPath)
         }
-        return self.tableViewCellWithStyle(tableView, cellForRowAtIndexPath: indexPath)
     }
     
     // MARK: - 1. UITableViewCellStyle
-    func tableViewCellWithStyle(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableViewCellWithStyle(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
         switch indexPath.row {
         case 0:
-            cell  = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+            cell  = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: nil)
             cell.textLabel?.text = "Default" // 标题
         case 1:
-            cell  = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: nil)
+            cell  = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: nil)
             cell.textLabel?.text = "Value1" // 标题
         case 2:
-            cell  = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
+            cell  = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: nil)
             cell.textLabel?.text = "Value2" // 标题
         default:
-            cell  = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
+            cell  = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: nil)
             cell.textLabel?.text = "Subtitle" // 标题
         }
         cell.imageView?.image = UIImage(named: "qq") // 图片
@@ -170,49 +169,49 @@ class YJTableViewCellTVC: UITableViewController {
     }
     
     // MARK: 2. UITableViewCellSelectionStyle
-    func tableViewCellWithSelectionStyle(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!  = tableView.dequeueReusableCellWithIdentifier("SelectionStyle")
+    func tableViewCellWithSelectionStyle(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell!  = tableView.dequeueReusableCell(withIdentifier: "SelectionStyle")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SelectionStyle")
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "SelectionStyle")
         }
         switch indexPath.row {
         case 0:
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             cell.textLabel?.text = "None"
         case 1:
-            cell.selectionStyle = UITableViewCellSelectionStyle.Blue
+            cell.selectionStyle = UITableViewCellSelectionStyle.blue
             cell.textLabel?.text = "Blue"
         case 2:
-            cell.selectionStyle = UITableViewCellSelectionStyle.Gray
+            cell.selectionStyle = UITableViewCellSelectionStyle.gray
             cell.textLabel?.text = "Gray"
         default:
-            cell.selectionStyle = UITableViewCellSelectionStyle.Default
+            cell.selectionStyle = UITableViewCellSelectionStyle.default
             cell.textLabel?.text = "Default"
         }
         return cell!
     }
     
     // MARK: 3 UITableViewCellAccessoryType
-    func tableViewCellWithAccessoryType(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!  = tableView.dequeueReusableCellWithIdentifier("AccessoryType")
+    func tableViewCellWithAccessoryType(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell!  = tableView.dequeueReusableCell(withIdentifier: "AccessoryType")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "AccessoryType")
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "AccessoryType")
         }
         switch indexPath.row {
         case 0:
-            cell.accessoryType = UITableViewCellAccessoryType.None // 右变的小图标
+            cell.accessoryType = UITableViewCellAccessoryType.none // 右变的小图标
             cell.textLabel?.text = "None"
         case 1:
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.textLabel?.text = "DisclosureIndicator"
         case 2:
-            cell.accessoryType = UITableViewCellAccessoryType.DetailDisclosureButton
+            cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
             cell.textLabel?.text = "DetailDisclosureButton"
         case 3:
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
             cell.textLabel?.text = "Checkmark"
         default:
-            cell.accessoryType = UITableViewCellAccessoryType.DetailButton
+            cell.accessoryType = UITableViewCellAccessoryType.detailButton
             cell.textLabel?.text = "DetailButton"
         }
         cell.editingAccessoryType = cell.accessoryType // 编辑模式下的小图标，默认.None
@@ -220,10 +219,10 @@ class YJTableViewCellTVC: UITableViewController {
     }
     
     // MARK: 5 Managing Content Indentation
-    func tableViewCellWithManagingContentIndentation(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell!  = tableView.dequeueReusableCellWithIdentifier("MCIndentation")
+    func tableViewCellWithManagingContentIndentation(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell!  = tableView.dequeueReusableCell(withIdentifier: "MCIndentation")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MCIndentation")
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "MCIndentation")
         }
         cell.textLabel?.text = "\(indexPath.section)--\(indexPath.row)"
         cell.indentationLevel = indexPath.row // 缩进的级别
@@ -233,14 +232,14 @@ class YJTableViewCellTVC: UITableViewController {
     }
     
     // MARK: 6 带switch样式的cell
-    func tableViewCellWithSwitch(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableViewCellWithSwitch(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         // 注册的cell可直接提取
-        let cell = tableView.dequeueReusableCellWithIdentifier("YJSwitchTableViewCell") as! YJSwitchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "YJSwitchTableViewCell") as! YJSwitchTableViewCell
         cell.titleLabel.text = "\(indexPath.section)--\(indexPath.row)"
         cell.indexPath = indexPath
         // 监听
         cell.handler = { (cell: YJSwitchTableViewCell) -> Void in
-            print("\(cell.yjSwitch.on):\(indexPath.section)--\(indexPath.row)")
+            print("\(cell.yjSwitch.isOn):\(indexPath.section)--\(indexPath.row)")
         }
         return cell
     }

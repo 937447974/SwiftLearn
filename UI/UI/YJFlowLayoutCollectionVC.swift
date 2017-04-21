@@ -17,7 +17,7 @@ private let reuseIdentifier = "customCell"
 class YJFlowLayoutCollectionVC: UICollectionViewController, YJCollectionViewDelegateFlowLayout {
     
     /// 数据源
-    private var data = [[Int]]()
+    fileprivate var data = [[Int]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,28 +34,28 @@ class YJFlowLayoutCollectionVC: UICollectionViewController, YJCollectionViewDele
         layout.headerReferenceHeight = 60
         layout.footerReferenceHeight = 50
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        switch UIDevice.currentDevice().orientation{
-        case .LandscapeLeft, .LandscapeRight:
+        switch UIDevice.current.orientation{
+        case .landscapeLeft, .landscapeRight:
             layout.sectionItems = [[0], [1,7], [2,8], [3,9], [4,10], [5,11], [6,12]]
         default:
             layout.sectionItems = [[0], [1,5], [2,6],[3,7],[4,8]]
         }
         // 监听设备方向
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YJFlowLayoutCollectionVC.receivedRotation),
-            name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(YJFlowLayoutCollectionVC.receivedRotation),
+            name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         // 注册Cell
         let nib = UINib(nibName: "YJCollectionViewCell", bundle: nil)
-        self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView?.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     //通知监听触发的方法
     func receivedRotation(){
-        let device = UIDevice.currentDevice()
+        let device = UIDevice.current
         let layout = self.collectionView!.collectionViewLayout as! YJCollectionViewFlowLayout
         switch device.orientation{
-        case UIDeviceOrientation.Portrait, UIDeviceOrientation.PortraitUpsideDown:
+        case UIDeviceOrientation.portrait, UIDeviceOrientation.portraitUpsideDown:
             layout.sectionItems = [[0], [1,5], [2,6],[3,7],[4,8]]
-        case .LandscapeLeft, .LandscapeRight:
+        case .landscapeLeft, .landscapeRight:
             layout.sectionItems = [[0], [1,7], [2,8], [3,9], [4,10], [5,11], [6,12]]
         default:
             print(device.orientation)
@@ -63,7 +63,7 @@ class YJFlowLayoutCollectionVC: UICollectionViewController, YJCollectionViewDele
     }
     
     // MARK: - YJCollectionViewDelegateFlowLayout
-    func collectionView(collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, widthForSectionAtColumn column: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, widthForSectionAtColumn column: Int) -> CGFloat {
         // 如一行显示3个间隔设置为10，则公式为(2width+10)+2width+20 = collectionView.bounds.size.width - sectionInset.left - sectionInset.right
         let sectionItemCount: CGFloat = CGFloat(collectionViewFlowLayout.sectionItems.count)
         let width = (collectionView.bounds.size.width - collectionViewFlowLayout.sectionInset.left - collectionViewFlowLayout.sectionInset.right - (sectionItemCount-1)*10) / (sectionItemCount+1)
@@ -73,7 +73,7 @@ class YJFlowLayoutCollectionVC: UICollectionViewController, YJCollectionViewDele
         return width
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, heightForItemAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
         let sectionItemCount: CGFloat = CGFloat(collectionViewFlowLayout.sectionItems.count)
         let height = (collectionView.bounds.size.width - collectionViewFlowLayout.sectionInset.left - collectionViewFlowLayout.sectionInset.right - (sectionItemCount-1)*10) / (sectionItemCount+1)
         if indexPath.row % collectionViewFlowLayout.sectionItemsCount == 0 {
@@ -83,33 +83,33 @@ class YJFlowLayoutCollectionVC: UICollectionViewController, YJCollectionViewDele
     }
     
     // MARK: - UICollectionViewDataSource
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.data.count
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.data[section].count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! YJCollectionViewCell
-        cell.backgroundColor = UIColor.grayColor()
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! YJCollectionViewCell
+        cell.backgroundColor = UIColor.gray
         cell.textLabel.text = "\(indexPath.item)"
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         var crView: UICollectionReusableView!
         if (kind == UICollectionElementKindSectionHeader) { // Header
-            crView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+            crView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
             // 标题
             if let label: UILabel = crView.viewWithTag(8) as? UILabel {
                 label.text = "\(indexPath.section) Section"
             }
-            crView.backgroundColor = UIColor.orangeColor()
+            crView.backgroundColor = UIColor.orange
         } else { // Footer
-            crView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "footer", forIndexPath: indexPath)
-            crView.backgroundColor = UIColor.purpleColor()
+            crView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath)
+            crView.backgroundColor = UIColor.purple
         }
         return crView
     }

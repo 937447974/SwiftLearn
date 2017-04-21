@@ -27,11 +27,11 @@ class YJAutoLayoutConstraintVC: UIViewController {
         // 1 添加View
         // 黄View
         let yellowView = UIView()
-        yellowView.backgroundColor = UIColor.yellowColor()
+        yellowView.backgroundColor = UIColor.yellow
         self.view.addSubview(yellowView)
         // 绿View
         let greenView = UIView()
-        greenView.backgroundColor = UIColor.greenColor()
+        greenView.backgroundColor = UIColor.green
         self.view.addSubview(greenView)
         
         // 2 开启AutoLayout
@@ -52,19 +52,19 @@ class YJAutoLayoutConstraintVC: UIViewController {
         Yellow View.Width = Green View.Width
         */
         // 3.1 yellow约束, 多个添加
-        let yLeading = NSLayoutConstraint(item: yellowView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.LeadingMargin, multiplier: 1.0, constant: 0)
-        let yTop = NSLayoutConstraint(item: yellowView, attribute: .Top, relatedBy: .Equal, toItem: self.topLayoutGuide, attribute: .Bottom, multiplier: 1.0, constant: 20.0)
-        let yBottom = NSLayoutConstraint(item: self.bottomLayoutGuide, attribute: .Top, relatedBy: .Equal, toItem: yellowView, attribute: .Bottom, multiplier: 1, constant: 20)
+        let yLeading = NSLayoutConstraint(item: yellowView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.leadingMargin, multiplier: 1.0, constant: 0)
+        let yTop = NSLayoutConstraint(item: yellowView, attribute: .top, relatedBy: .equal, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 20.0)
+        let yBottom = NSLayoutConstraint(item: self.bottomLayoutGuide, attribute: .top, relatedBy: .equal, toItem: yellowView, attribute: .bottom, multiplier: 1, constant: 20)
         self.view.addConstraints([yLeading, yTop, yBottom]) // 多个添加
         
         // 3.2 green约束,单一添加
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .TrailingMargin, relatedBy: .Equal, toItem: greenView, attribute: .Trailing, multiplier: 1.0, constant: 0)) // gTrailing
-        self.view.addConstraint(NSLayoutConstraint(item: greenView, attribute: .Top, relatedBy: .Equal, toItem: self.topLayoutGuide, attribute: .Bottom, multiplier: 1.0, constant: 20.0)) // gTop
-        self.view.addConstraint(NSLayoutConstraint(item: self.bottomLayoutGuide, attribute: .Top, relatedBy: .Equal, toItem: greenView, attribute: .Bottom, multiplier: 1, constant: 20)) // gBottom
+        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailingMargin, relatedBy: .equal, toItem: greenView, attribute: .trailing, multiplier: 1.0, constant: 0)) // gTrailing
+        self.view.addConstraint(NSLayoutConstraint(item: greenView, attribute: .top, relatedBy: .equal, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 20.0)) // gTop
+        self.view.addConstraint(NSLayoutConstraint(item: self.bottomLayoutGuide, attribute: .top, relatedBy: .equal, toItem: greenView, attribute: .bottom, multiplier: 1, constant: 20)) // gBottom
         
         // 3.3 green和yellow的共有约束，直接执行
-        NSLayoutConstraint(item: greenView, attribute: .Leading, relatedBy: .Equal, toItem: yellowView, attribute: .Trailing, multiplier: 1, constant: 30).active = true // 间距
-        NSLayoutConstraint(item: greenView, attribute: .Width, relatedBy: .Equal, toItem: yellowView, attribute: .Width, multiplier: 1, constant: 0).active = true // 等宽
+        NSLayoutConstraint(item: greenView, attribute: .leading, relatedBy: .equal, toItem: yellowView, attribute: .trailing, multiplier: 1, constant: 30).isActive = true // 间距
+        NSLayoutConstraint(item: greenView, attribute: .width, relatedBy: .equal, toItem: yellowView, attribute: .width, multiplier: 1, constant: 0).isActive = true // 等宽
         
         // 打印所有约束
         for constraint in self.view.constraints {

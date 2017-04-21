@@ -21,7 +21,7 @@ import UIKit
     /// - parameter indexPath: NSIndexPath
     ///
     /// - returns: CGFloat
-    func collectionView(collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, heightForItemAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat
     
     /// 获取列宽
     ///
@@ -30,12 +30,12 @@ import UIKit
     /// - parameter column: 列
     ///
     /// - returns: CGFloat
-    optional func collectionView(collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, widthForSectionAtColumn column: Int) -> CGFloat
+    @objc optional func collectionView(_ collectionView: UICollectionView, layout collectionViewFlowLayout: YJCollectionViewFlowLayout, widthForSectionAtColumn column: Int) -> CGFloat
     
 }
 
 /// 自定义UICollectionViewFlowLayout
-public class YJCollectionViewFlowLayout : UICollectionViewLayout{
+open class YJCollectionViewFlowLayout : UICollectionViewLayout{
     
     // MARK: - 默认internal属性
     /// header高度
@@ -61,29 +61,29 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     /// section中的小块个数,{get}
     var sectionItemsCount = 0
     /// 行间隔
-    private var lineSpacing: CGFloat = 0.0
+    fileprivate var lineSpacing: CGFloat = 0.0
     /// 列间隔
-    private var interitemSpacing: CGFloat = 0.0
+    fileprivate var interitemSpacing: CGFloat = 0.0
     /// YJCollectionViewDelegateFlowLayout协议
-    private weak var delegateFlowLayout : YJCollectionViewDelegateFlowLayout?{
+    fileprivate weak var delegateFlowLayout : YJCollectionViewDelegateFlowLayout?{
         get{
             return self.collectionView?.delegate as? YJCollectionViewDelegateFlowLayout
         }
     }
     /// 显示所需高度
-    private var flowHeight: CGFloat = 0.0
+    fileprivate var flowHeight: CGFloat = 0.0
     /// 所有的UICollectionViewLayoutAttributes
-    private var allItemAttributes = [UICollectionViewLayoutAttributes]()
+    fileprivate var allItemAttributes = [UICollectionViewLayoutAttributes]()
     /// Header的UICollectionViewLayoutAttributes
-    private var headersAttributes = [UICollectionViewLayoutAttributes]()
+    fileprivate var headersAttributes = [UICollectionViewLayoutAttributes]()
     /// SectionItem的UICollectionViewLayoutAttributes
-    private var sectionItemAttributes = [[UICollectionViewLayoutAttributes]]()
+    fileprivate var sectionItemAttributes = [[UICollectionViewLayoutAttributes]]()
     /// Footer的UICollectionViewLayoutAttributes
-    private var footersAttributes = [UICollectionViewLayoutAttributes]()
+    fileprivate var footersAttributes = [UICollectionViewLayoutAttributes]()
     
     // MARK: - Getting the Collection View Information
     // MARK: 返回集合视图的高度和宽度
-    override public func collectionViewContentSize() -> CGSize{
+    override open var collectionViewContentSize : CGSize{
         var contentSize = self.collectionView!.bounds.size
         contentSize.height = self.flowHeight
         return contentSize
@@ -91,9 +91,9 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     
     // MARK: - Invalidating the Layout
     // MARK: 是否需要布局更新
-    override public func shouldInvalidateLayoutForBoundsChange (newBounds : CGRect) -> Bool {
+    override open func shouldInvalidateLayout (forBoundsChange newBounds : CGRect) -> Bool {
         let oldBounds = self.collectionView!.bounds
-        if CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds){
+        if newBounds.width != oldBounds.width{
             return true
         }
         return false
@@ -101,7 +101,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     
     // MARK: - Providing Layout Attributes
     // MARK: 返回指定矩形中所有单元格和视图的布局属性
-    override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var beginIndex = 0
         var endIndex = self.allItemAttributes.count
         var beginIntersects = false
@@ -109,13 +109,13 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
         // 寻找显示区域坐标
         for var index in 0..<endIndex {
             // 首个index
-            if !beginIntersects && CGRectIntersectsRect(rect, self.allItemAttributes[index].frame) {
+            if !beginIntersects && rect.intersects(self.allItemAttributes[index].frame) {
                 beginIntersects = true
                 beginIndex = index;
             }
             // 尾部id
             index = endIndex - 1 - index
-            if !endIntersects && CGRectIntersectsRect(rect, self.allItemAttributes[index].frame){
+            if !endIntersects && rect.intersects(self.allItemAttributes[index].frame){
                 endIntersects = true
                 endIndex = index+1
                 break
@@ -129,7 +129,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         for index in beginIndex..<endIndex {
             let attr = self.allItemAttributes[index]
-            if CGRectIntersectsRect(rect, attr.frame) {
+            if rect.intersects(attr.frame) {
                 layoutAttributes.append(attr)
             }
         }
@@ -137,7 +137,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     }
     
     // MARK: 返回指定索引路径中项目的布局属性
-    override public func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard self.sectionItemAttributes.count > indexPath.section else {
             print("error: NSIndexPath.section, Array index out of range")
             return nil
@@ -150,7 +150,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     }
     
     // MARK: 返回指定的装饰视图的布局属性
-    public override func layoutAttributesForDecorationViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    open override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         switch elementKind {
         case UICollectionElementKindSectionHeader:
             return self.headersAttributes[indexPath.section]
@@ -162,7 +162,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     }
     
     // MARK: 返回指定的附加视图的布局属性
-    override public func layoutAttributesForSupplementaryViewOfKind(elementKind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         switch elementKind {
         case UICollectionElementKindSectionHeader:
             return self.headersAttributes[indexPath.section]
@@ -174,8 +174,8 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     }
     
     // MARK: - 更新布局
-    override public func prepareLayout(){
-        super.prepareLayout()
+    override open func prepare(){
+        super.prepare()
         /*
         * 1 相关数据清空
         */
@@ -193,7 +193,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
         /*
         *  3 加载显示用的UICollectionViewLayoutAttributes
         */
-        for section in 0..<self.collectionView!.numberOfSections() {
+        for section in 0..<self.collectionView!.numberOfSections {
             // 3.1 Section header
             self.prepareLayoutSectionHeader(section)
             // 3.2 Section items
@@ -204,7 +204,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     }
     
     // MARK: 更新布局时的数据校验
-    private func prepareLayoutGuard() -> Bool {
+    fileprivate func prepareLayoutGuard() -> Bool {
         // 1 collectionView界面view
         guard self.collectionView != nil else {
             print("error: collectionView不存在")
@@ -216,7 +216,7 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
             return false
         }
         // 3 numberOfSections有数据
-        guard self.collectionView!.numberOfSections() != 0 else {
+        guard self.collectionView!.numberOfSections != 0 else {
             print("error: numberOfSections = 0")
             return false
         }
@@ -252,35 +252,35 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
     }
     
     // MARK: 更新header布局
-    private func prepareLayoutSectionHeader(section: Int) {
+    fileprivate func prepareLayoutSectionHeader(_ section: Int) {
         if self.headerReferenceHeight > 0 {
-            let indexPath = NSIndexPath(forRow: 0, inSection: section)
-            let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withIndexPath: indexPath)
+            let indexPath = IndexPath(row: 0, section: section)
+            let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: indexPath)
             attributes.frame.origin.y = self.flowHeight
             attributes.frame.size.height = self.headerReferenceHeight
             attributes.frame.size.width = self.collectionView!.bounds.size.width
             // 添加到数据源
             self.headersAttributes.append(attributes)
             self.allItemAttributes.append(attributes)
-            self.flowHeight = CGRectGetMaxY(attributes.frame)
+            self.flowHeight = attributes.frame.maxY
         }
     }
     
     // MARK: 更新cell布局
-    private func prepareLayoutSectionCell(section: Int) {
+    fileprivate func prepareLayoutSectionCell(_ section: Int) {
         self.flowHeight += self.sectionInset.top // 调整显示高
         // 块拆分
-        let numberOfItemsInSection = self.collectionView!.numberOfItemsInSection(section)
+        let numberOfItemsInSection = self.collectionView!.numberOfItems(inSection: section)
         var numberOfSectionItems = numberOfItemsInSection / self.sectionItemsCount
-        if self.collectionView!.numberOfItemsInSection(section) % self.sectionItemsCount != 0 {
+        if self.collectionView!.numberOfItems(inSection: section) % self.sectionItemsCount != 0 {
             numberOfSectionItems += 1
         }
         var sectionItemAttribute = [UICollectionViewLayoutAttributes]() // section中的Attribute
-        var sectionItemsRect = CGRectZero // section中的item显示区域
+        var sectionItemsRect = CGRect.zero // section中的item显示区域
         var attributes = UICollectionViewLayoutAttributes() // 添加的LayoutAttributes
         for numberOfSectionItem in 0..<numberOfSectionItems {
             var sectionItemsLeft = self.sectionInset.left // sectionItem的left
-            for (indexSectionItem, sectionItem) in self.sectionItems.enumerate() {
+            for (indexSectionItem, sectionItem) in self.sectionItems.enumerated() {
                 var sectionItemsTop = self.flowHeight // sectionItem的top
                 // 处理小列
                 for var item in sectionItem {
@@ -288,39 +288,39 @@ public class YJCollectionViewFlowLayout : UICollectionViewLayout{
                     guard item < numberOfItemsInSection else { // 安全处理
                         break
                     }
-                    let indexPath = NSIndexPath(forItem: item, inSection: section)
+                    let indexPath = IndexPath(item: item, section: section)
                     // 组装UICollectionViewLayoutAttributes
-                    attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                    attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                     attributes.frame.origin.x = sectionItemsLeft
                     attributes.frame.origin.y = sectionItemsTop
                     attributes.frame.size.height = self.delegateFlowLayout!.collectionView(self.collectionView!, layout: self, heightForItemAtIndexPath: indexPath)
                     attributes.frame.size.width = self.columnItemWidths[indexSectionItem]
                     sectionItemAttribute.append(attributes) // 添加到临时数据源
-                    sectionItemsTop = CGRectGetMaxY(attributes.frame) + self.lineSpacing // 移动top
-                    sectionItemsRect = CGRectUnion(sectionItemsRect, attributes.frame) // 扩大section中的item显示区域
+                    sectionItemsTop = attributes.frame.maxY + self.lineSpacing // 移动top
+                    sectionItemsRect = sectionItemsRect.union(attributes.frame) // 扩大section中的item显示区域
                 }
-                sectionItemsLeft = CGRectGetMaxX(attributes.frame) + self.interitemSpacing // 移动left
+                sectionItemsLeft = attributes.frame.maxX + self.interitemSpacing // 移动left
             }
-            self.flowHeight = CGRectGetMaxY(sectionItemsRect) + self.lineSpacing // 移动高度显示
+            self.flowHeight = sectionItemsRect.maxY + self.lineSpacing // 移动高度显示
         }
         // 添加到数据源
         self.sectionItemAttributes.append(sectionItemAttribute)
-        self.allItemAttributes.appendContentsOf(sectionItemAttribute)
+        self.allItemAttributes.append(contentsOf: sectionItemAttribute)
         self.flowHeight = self.flowHeight - self.lineSpacing + self.sectionInset.bottom // 移动高度显示
     }
     
     // MARK: 更新footer布局
-    private func prepareLayoutSectionFooter(section: Int) {
+    fileprivate func prepareLayoutSectionFooter(_ section: Int) {
         if self.footerReferenceHeight > 0 {
-            let indexPath = NSIndexPath(forRow: 0, inSection: section)
-            let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withIndexPath: indexPath)
+            let indexPath = IndexPath(row: 0, section: section)
+            let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, with: indexPath)
             attributes.frame.origin.y = self.flowHeight
             attributes.frame.size.height = self.footerReferenceHeight
             attributes.frame.size.width = self.collectionView!.bounds.size.width
             // 添加到数据源
             self.footersAttributes.append(attributes)
             self.allItemAttributes.append(attributes)
-            self.flowHeight = CGRectGetMaxY(attributes.frame)
+            self.flowHeight = attributes.frame.maxY
         }
     }
     

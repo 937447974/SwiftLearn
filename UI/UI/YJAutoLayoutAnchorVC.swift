@@ -28,11 +28,11 @@ class YJAutoLayoutAnchorVC: UIViewController {
         // 1 添加View
         // 黄View
         let yellowView = UIView()
-        yellowView.backgroundColor = UIColor.yellowColor()
+        yellowView.backgroundColor = UIColor.yellow
         self.view.addSubview(yellowView)
         // 绿View
         let greenView = UIView()
-        greenView.backgroundColor = UIColor.greenColor()
+        greenView.backgroundColor = UIColor.green
         self.view.addSubview(greenView)
         
         // 2 开启AutoLayout
@@ -53,18 +53,18 @@ class YJAutoLayoutAnchorVC: UIViewController {
         Yellow View.Width = Green View.Width
         */
         // 3.1 yellow约束
-        yellowView.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor, constant: 20).active = true
-        yellowView.topAnchor.constraintEqualToAnchor(self.topLayoutGuide.bottomAnchor, constant: 20).active = true
-        self.bottomLayoutGuide.topAnchor.constraintEqualToAnchor(yellowView.bottomAnchor, constant: 20).active = true
+        yellowView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        yellowView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 20).isActive = true
+        self.bottomLayoutGuide.topAnchor.constraint(equalTo: yellowView.bottomAnchor, constant: 20).isActive = true
         
         // 3.2 green约束
-        greenView.topAnchor.constraintEqualToAnchor(self.topLayoutGuide.bottomAnchor, constant: 20).active = true
-        self.view.trailingAnchor.constraintEqualToAnchor(greenView.trailingAnchor, constant: 20).active = true
-        self.bottomLayoutGuide.topAnchor.constraintEqualToAnchor(greenView.bottomAnchor, constant: 20).active = true
+        greenView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 20).isActive = true
+        self.view.trailingAnchor.constraint(equalTo: greenView.trailingAnchor, constant: 20).isActive = true
+        self.bottomLayoutGuide.topAnchor.constraint(equalTo: greenView.bottomAnchor, constant: 20).isActive = true
         
         // 3.3 green和yellow的共有约束
-        greenView.leadingAnchor.constraintEqualToAnchor(yellowView.trailingAnchor, constant: 30).active = true // 间距
-        greenView.widthAnchor.constraintEqualToAnchor(yellowView.widthAnchor, constant: 20).active = true // 等宽
+        greenView.leadingAnchor.constraint(equalTo: yellowView.trailingAnchor, constant: 30).isActive = true // 间距
+        greenView.widthAnchor.constraint(equalTo: yellowView.widthAnchor, constant: 20).isActive = true // 等宽
         
         // 打印所有约束
         for constraint in self.view.constraints {

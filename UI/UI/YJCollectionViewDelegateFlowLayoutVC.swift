@@ -17,7 +17,7 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
     /// UICollectionView
     @IBOutlet weak var collectionView: UICollectionView!
     /// 数据源
-    private var data = [[Int]]()
+    fileprivate var data = [[Int]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,42 +34,42 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
     }
     
     // MARK: - UICollectionViewDataSource
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.data.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.data[section].count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.grayColor()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = UIColor.gray
         if let label: UILabel = cell.viewWithTag(8) as? UILabel {
             label.text = "\(indexPath.item)"
         }
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         var crView: UICollectionReusableView!
         if (kind == UICollectionElementKindSectionHeader) { // Header
-            crView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+            crView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
             // 标题
             if let label: UILabel = crView.viewWithTag(8) as? UILabel {
                 label.text = "\(indexPath.section) Section"
             }
-            crView.backgroundColor = UIColor.orangeColor()
+            crView.backgroundColor = UIColor.orange
         } else { // Footer
-            crView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "footer", forIndexPath: indexPath)
-            crView.backgroundColor = UIColor.purpleColor()
+            crView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath)
+            crView.backgroundColor = UIColor.purple
         }
         return crView
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
     // MARK: - Getting the Size of Items
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         print(#function)
         // 每一行显示5个
         let weight = (YJUtilScreenSize.screenMinLength-10*5)/4
@@ -78,32 +78,32 @@ class YJCollectionViewDelegateFlowLayoutVC: UIViewController, UICollectionViewDa
     
     // MARK: - Getting the Section Spacing
     // MARK: 边间隔
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         print(#function)
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     // MARK: 行间隔
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         print(#function)
         return 10
     }
     
     // MARK: 列间隔
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         print(#function)
         return 10
     }
     
     // MARK: - Getting the Header and Footer Sizes
     // MARK: Header显示
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         print(#function)
         return CGSize(width: collectionView.frame.width, height: 50)
     }
     
     // MARK: Footer显示
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         print(#function)
         return CGSize(width: collectionView.frame.width, height: 50)
     }

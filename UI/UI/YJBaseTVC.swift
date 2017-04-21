@@ -12,41 +12,41 @@
 import UIKit
 
 /// UITableViewController基类
-public class YJBaseTVC: UITableViewController {
+open class YJBaseTVC: UITableViewController {
     
     /// 数据源
     var data = [[YJPerformSegueModel]]()
     var header = [String]()
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: - UITableViewDataSource
-    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override open func numberOfSections(in tableView: UITableView) -> Int {
         return self.data.count
     }
     
-    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data[section].count
     }
     
-    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell")
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-            cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+            cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
         cell?.textLabel?.text = self.data[indexPath.section][indexPath.row].title
         return cell!
     }
     
-    override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.header.count > section ? self.header[section] : nil
     }
     
     // MARK: - UITableViewDelegate
-    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.data[indexPath.section][indexPath.row].performSegue(self)
     }
     

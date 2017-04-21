@@ -23,8 +23,8 @@ class YJScrollViewDelegateVC: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.title = "纯代码"
         
-        let scrollItem = UIBarButtonItem(title: "Scroll", style: .Plain, target: self, action: #selector(YJScrollViewDelegateVC.onClickScroll))
-        let zoomItem = UIBarButtonItem(title: "Zoom", style: .Plain, target: self, action: #selector(YJScrollViewDelegateVC.onClickZoom))
+        let scrollItem = UIBarButtonItem(title: "Scroll", style: .plain, target: self, action: #selector(YJScrollViewDelegateVC.onClickScroll))
+        let zoomItem = UIBarButtonItem(title: "Zoom", style: .plain, target: self, action: #selector(YJScrollViewDelegateVC.onClickZoom))
         self.navigationItem.rightBarButtonItems = [scrollItem, zoomItem]
         
         // 填充UIScrollView
@@ -46,8 +46,8 @@ class YJScrollViewDelegateVC: UIViewController, UIScrollViewDelegate {
         print("alwaysBounceVertical:\(self.scrollView.alwaysBounceVertical)") // y轴滚动阻力,默认true
         print("alwaysBounceHorizontal:\(self.scrollView.alwaysBounceHorizontal)") // x轴滚动阻力,默认false
         print("bouncesZoom:\(self.scrollView.bouncesZoom)") // 缩放阻力,默认true
-        print("pagingEnabled:\(self.scrollView.pagingEnabled)") // 已翻页的方式滚动,默认false
-        print("scrollEnabled:\(self.scrollView.scrollEnabled)") // 是否开启滚动,默认true
+        print("pagingEnabled:\(self.scrollView.isPagingEnabled)") // 已翻页的方式滚动,默认false
+        print("scrollEnabled:\(self.scrollView.isScrollEnabled)") // 是否开启滚动,默认true
         print("showsHorizontalScrollIndicator:\(self.scrollView.showsHorizontalScrollIndicator)") // x轴滚动条,默认true
         print("showsVerticalScrollIndicator:\(self.scrollView.showsVerticalScrollIndicator)") // y轴滚动条,默认true
         print("indicatorStyle:\(self.scrollView.indicatorStyle)") // 滚动条样式,默认Default
@@ -76,77 +76,77 @@ class YJScrollViewDelegateVC: UIViewController, UIScrollViewDelegate {
     
     // MARK: - UIScrollViewDelegate
     // MARK: - 滚动持续中
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(#function)
     }
     
     // MARK: - 手指触摸开始滚动
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         print(#function)
     }
     
     // MARK: 手指离开屏幕后，移动速度
-    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // velocity:移动速度
         print(#function)
         print("velocity:\(velocity)")
     }
     
     // MARK: 手指离开屏幕后，是否有减速动画
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         // decelerate：turu执行减速动画，false直接移动到目标位置
         print(#function)
         print("decelerate:\(decelerate)")
     }
     
     // MARK: 手指离开屏幕后，滚动视图滚动开始减速动画
-    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         print(#function)
         print("decelerationRate:\(scrollView.decelerationRate)")
         scrollView.decelerationRate = scrollView.decelerationRate/2 // 动态设置减速动画速率降低一半
     }
     
     // MARK: 手指移动引起的滚动动画结束
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         print(#function)
     }
     
     // MARK: 使用setContentOffset/scrollRectVisible:animated:调用的滚动动画结束
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)  {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
         print(#function)
     }
     
     // MARK: - 缩放的View
     // MARK: 缩放持续中
-    func scrollViewDidZoom(scrollView: UIScrollView) {
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
         print(#function)
         
     }
     // MARK: 返回要缩放的View
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?  {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView?  {
         print(#function)
         return self.imageView
     }
     
     // MARK: 开始缩放
-    func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?) {
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
         print(#function)
     }
     // MARK: 缩放停止
-    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         print(#function)
         print("scale:\(scale)")
     }
     
     // MARK: - 点击顶部的时间，是否回滚到顶部
-    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         print(#function)
         // scrollsToTop是否回滚，默认允许回到顶部
         return scrollView.scrollsToTop
     }
     
     // MARK: 回滚到顶部结束
-    func scrollViewDidScrollToTop(scrollView: UIScrollView) {
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         print(#function)
     }
     

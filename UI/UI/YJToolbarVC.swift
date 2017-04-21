@@ -18,18 +18,18 @@ class YJToolbarVC: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 自定义UINavigationBar
         if let bar = self.navigationController?.toolbar { // 共享bar UIToolBar.appearance()
-            bar.tintColor = UIColor.blackColor() // 按钮颜色
-            bar.barTintColor = UIColor.yellowColor()// 背景色
-            bar.translucent = false // 是否透明
+            bar.tintColor = UIColor.black // 按钮颜色
+            bar.barTintColor = UIColor.yellow// 背景色
+            bar.isTranslucent = false // 是否透明
         }
         // 显示toolbar
-        self.navigationController?.toolbarHidden = false
+        self.navigationController?.isToolbarHidden = false
         // 添加按钮
-        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: nil, action: nil)]
+        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)]
     }
 
 }

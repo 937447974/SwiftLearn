@@ -34,48 +34,48 @@ class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
     }
     
     // MARK: - 开起和关闭tableView编辑状态
-    @IBAction func onClickEdit(sender: AnyObject) {
-        self.tableView.setEditing(!self.tableView.editing, animated: true)
+    @IBAction func onClickEdit(_ sender: AnyObject) {
+        self.tableView.setEditing(!self.tableView.isEditing, animated: true)
     }
     
     // MARK: - UITableViewDataSource
     // MARK: 有几组
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int  {
+    func numberOfSections(in tableView: UITableView) -> Int  {
         print(#function)
         return self.data.count
     }
     
     // MARK: 每一组有几个元素
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(#function)
         return self.data[section].count
     }
     
     // MARK: 生成Cell
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(#function)
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         }
         cell?.textLabel?.text = "\(self.data[indexPath.section][indexPath.row])"
         return cell!
     }
     
     // MARK: 组Header
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         print(#function)
         return "\(section)--Header"
     }
     
     // MARK: 组Footer
-    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         print(#function)
         return "\(section)--Footer"
     }
     
     // MARK: 索引
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         print(#function)
         var sectionTitles = [String]()
         for i in 0..<self.data.count {
@@ -85,42 +85,42 @@ class YJTableViewDataSourceVC: UIViewController, UITableViewDataSource {
     }
     
     // MARK: 索引对应的组
-    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         print(#function)
         return Int(title) ?? 0
     }
     
     // MARK: 能否编辑
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         print(#function)
         return true
     }
     
     // MARK: 增加和删除
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         print(#function)
-        if editingStyle == .Delete {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            self.data[indexPath.section].removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            self.data[indexPath.section].remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
     // MARK: 能否移动
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         print(#function)
         return true
     }
     
     // MARK: 移动cell
-    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         print(#function)
         // 处理源数据
         let sourceData = self.data[sourceIndexPath.section][sourceIndexPath.row]
-        self.data[sourceIndexPath.section].removeAtIndex(sourceIndexPath.row)
-        self.data[destinationIndexPath.section].insert(sourceData, atIndex: destinationIndexPath.row)
+        self.data[sourceIndexPath.section].remove(at: sourceIndexPath.row)
+        self.data[destinationIndexPath.section].insert(sourceData, at: destinationIndexPath.row)
     }
     
 }

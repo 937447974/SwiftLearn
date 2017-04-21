@@ -18,16 +18,16 @@ class YJSwitchTableViewCell: UITableViewCell {
     /// 按钮
     @IBOutlet weak var yjSwitch: UISwitch!
     /// cell的位置
-    var indexPath: NSIndexPath?
+    var indexPath: IndexPath?
     /// 闭包回调
     var handler: ((YJSwitchTableViewCell) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .None // 点击无颜色变化
+        self.selectionStyle = .none // 点击无颜色变化
     }
     
-    @IBAction func onClickSwitch(sender: AnyObject) {
+    @IBAction func onClickSwitch(_ sender: AnyObject) {
         self.handler?(self)
     }
     

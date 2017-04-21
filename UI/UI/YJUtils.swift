@@ -14,11 +14,11 @@ import UIKit
 /// user interface
 public struct YJUtilUserInterfaceIdiom {
     /// The user interface should be designed for iPhone and iPod touch.
-    static let isPhone = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone
+    static let isPhone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
     /// The user interface should be designed for iPad.
-    static let isPad = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
+    static let isPad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     /// The user interface should be designed for Apple TV.
-    static let isAppleTv = UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.TV
+    static let isAppleTv = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.tv
     
 }
 
@@ -27,9 +27,9 @@ public struct YJUtilUserInterfaceIdiom {
 public struct YJUtilScreenSize {
     
     /// 屏幕宽
-    static let screenWidth = UIScreen.mainScreen().bounds.size.width
+    static let screenWidth = UIScreen.main.bounds.size.width
     /// 屏幕高
-    static let screenHeight = UIScreen.mainScreen().bounds.size.height
+    static let screenHeight = UIScreen.main.bounds.size.height
     /// 屏幕最大长度
     static let screenMaxLength = max(YJUtilScreenSize.screenWidth, YJUtilScreenSize.screenHeight)
     /// 屏幕最小长度

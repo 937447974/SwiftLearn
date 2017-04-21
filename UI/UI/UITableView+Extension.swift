@@ -18,7 +18,7 @@ public extension UITableView {
     ///
     /// - returns: void
     func removeTableHeaderView() {
-        self.tableHeaderView = UIView(frame:  CGRectMake(0, 0, YJUtilScreenSize.screenWidth, 0.1))
+        self.tableHeaderView = UIView(frame:  CGRect(x: 0, y: 0, width: YJUtilScreenSize.screenWidth, height: 0.1))
     }
     
     // MARK: - 去掉tableFooterView
@@ -26,7 +26,7 @@ public extension UITableView {
     ///
     /// - returns: void
     func removeTableFooterView() {
-        self.tableFooterView = UIView(frame:  CGRectMake(0, 0, YJUtilScreenSize.screenWidth, 0.1))
+        self.tableFooterView = UIView(frame:  CGRect(x: 0, y: 0, width: YJUtilScreenSize.screenWidth, height: 0.1))
     }
     
 }
